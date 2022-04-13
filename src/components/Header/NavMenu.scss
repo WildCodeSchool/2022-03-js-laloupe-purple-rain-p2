@@ -1,0 +1,25 @@
+.navMenu {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  right: 0;
+  width: 90%;
+  height: 100vh;
+  background-color: darkgray;
+  display: none;
+}
+
+.navList {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  z-index: 1;
+
+  li {
+    padding: 14px;
+  }
+}

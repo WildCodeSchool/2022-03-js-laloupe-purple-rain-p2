@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  width: 100%;
+  min-width: 360px;
+  background-image: url("@assets/images/headerBg.jpg");
+  background-size:cover;
+  background-position: center;
+
+  .mobile {
+    top: 0;
+    width: 100%;
+    min-width: 360px;
+    height: 256px;
+    position: relative;
+  }
+}
