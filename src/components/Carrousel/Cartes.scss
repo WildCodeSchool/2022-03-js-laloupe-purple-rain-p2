@@ -1,0 +1,137 @@
+@keyframes flicker {
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  100% {
+    box-shadow: 0 0 8px rgba(0, 217, 255, 1), 0 0 6px #fff, 0 0 8px #fff,
+      0 0 12px var(rgba(0, 162, 255, 0.4)), 0 0 18px var(rgba(0, 162, 255, 0.4)),
+      0 0 24px var(rgba(0, 162, 255, 0.4)), 0 0 32px var(rgba(0, 162, 255, 0.4)),
+      0 0 42px var(rgba(0, 162, 255, 0.4));
+  }
+  20%,
+  24%,
+  55% {
+    box-shadow: none;
+    border: solid 2px rgb(255, 255, 255);
+  }
+}
+
+body {
+  background-color: #404040;
+}
+
+h1 {
+  font-size: 35px;
+  color: #ffa800;
+}
+
+.Cartes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.CartesEteintes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+// *! -----------------CARTES ALLUMEES-----------------
+
+.CarteBleue {
+  box-sizing: border-box;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 150px;
+  height: 200px;
+  background: grey;
+  border-radius: 10px;
+  //   border: solid white 2px;
+  box-shadow: 0px 0px 7px 5px rgb(170, 221, 255),
+    inset 0px 0px 15px 6px rgb(170, 221, 255);
+  animation: flicker 2.1ms infinite alternate;
+  //   box-shadow: 2px rgb(170, 221, 255);
+}
+
+.CarteOrange {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 150px;
+  height: 200px;
+  background: grey;
+  border-radius: 10px;
+  border: solid white 2px;
+  box-shadow: 0px 0px 7px 5px #ffc700, inset 0px 0px 15px 6px #ffc700;
+}
+
+.CarteRose {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 150px;
+  height: 200px;
+  background: grey;
+  border-radius: 10px;
+  border: solid white 2px;
+  box-shadow: 0px 0px 7px 5px #ff00e5, inset 0px 0px 15px 6px #ff00e5;
+}
+
+.CarteVerte {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 150px;
+  height: 200px;
+  background: grey;
+  border-radius: 10px;
+  border: solid white 2px;
+  box-shadow: 0px 0px 7px 5px #00ff00, inset 0px 0px 15px 6px #00ff00;
+}
+
+// *! -----------------CARTES ETEINTES-----------------
+
+.CarteBleueOff {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 150px;
+  height: 200px;
+  background: black;
+  border-radius: 10px;
+  border: solid #005e64 2px;
+  box-shadow: 0px 0px 0px 0px #00f0ff, inset 0px 0px 0px 0px #00f0ff;
+}
+
+.CarteOrangeOff {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 150px;
+  height: 200px;
+  background: black;
+  border-radius: 10px;
+  border: solid #554300 2px;
+  box-shadow: 0px 0px 0px 0px #ffc700, inset 0px 0px 0px 0px #ffc700;
+}
+
+.CarteRoseOff {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 150px;
+  height: 200px;
+  background: black;
+  border-radius: 10px;
+  border: solid #520049 2px;
+  box-shadow: 0px 0px 0px 0px #ff00e5, inset 0px 0px 0px 0px #ff00e5;
+}
+
+.CarteVerteOff {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 150px;
+  height: 200px;
+  background: black;
+  border-radius: 10px;
+  border: solid #003d00 2px;
+  box-shadow: 0px 0px 0px 0px #00ff00, inset 0px 0px 0px 0px #00ff00;
+}
