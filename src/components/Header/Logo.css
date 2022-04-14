@@ -24,7 +24,42 @@
       0 0 42px var(--font-flicker);
   }
   20%, 24%, 55% {       
-    text-shadow: none;
+    text-shadow: 
+      0 0 3px rgba(0, 217, 255, 1),
+      0 0 3px #fff,
+      0 0 5px #fff,
+      0 0 3px var(--font-flicker),
+      0 0 8px var(--font-flicker),
+      0 0 10px var(--font-flicker),
+      0 0 12px var(--font-flicker),
+      0 0 14px var(--font-flicker);
+    -webkit-text-stroke-color: rgb(255, 255, 255);
+    -webkit-text-stroke-width: 2px;
+  }
+}
+
+@keyframes flickerScrolled {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow:
+      0 0 2px rgba(0, 217, 255, 1),
+      0 0 3px #fff,
+      0 0 4px #fff,
+      0 0 5px var(--font-flicker),
+      0 0 6px var(--font-flicker),
+      0 0 8px var(--font-flicker),
+      0 0 10px var(--font-flicker),
+      0 0 12px var(--font-flicker);
+  }
+  20%, 24%, 55% {       
+    text-shadow: 
+      0 0 2px rgba(0, 217, 255, 1),
+      0 0 3px #fff,
+      0 0 4px #fff,
+      0 0 5px var(--font-flicker),
+      0 0 6px var(--font-flicker),
+      0 0 8px var(--font-flicker),
+      0 0 10px var(--font-flicker),
+      0 0 12px var(--font-flicker);
     -webkit-text-stroke-color: rgb(255, 255, 255);
     -webkit-text-stroke-width: 2px;
   }
@@ -43,6 +78,18 @@
   z-index: 0;
 }
 
+.logo-container:hover {
+  cursor: pointer;
+}
+
+.scrolled {
+  position: fixed;
+  align-items: flex-start;
+  transform: translateY(0);
+  perspective: none;
+  -webkit-perspective: none;
+}
+
 .logo {
   position: absolute;
   display: flex;
@@ -53,14 +100,33 @@
   -webkit-transform: rotateY(20deg);
 }
 
+.scrolled .logo {
+  left: 8px;
+  margin-top: 12px;
+  font-size: 24px;
+  flex-direction: row;
+}
+
 .top-line {
   animation: flicker 2.1ms infinite alternate;
   -webkit-text-stroke-color: rgb(202, 234, 255);
   -webkit-text-stroke-width: 2px
 }
 
+.top-line-scrolled {
+  animation: flickerScrolled 2.1ms infinite alternate;
+  -webkit-text-stroke-color: rgb(202, 234, 255);
+  -webkit-text-stroke-width: 2px
+}
+
 .bottom-line {
   animation: flicker 2ms infinite alternate;
+  -webkit-text-stroke-color: rgb(202, 234, 255);
+  -webkit-text-stroke-width: 2px
+}
+
+.bottom-line-scrolled {
+  animation: flickerScrolled 2ms infinite alternate;
   -webkit-text-stroke-color: rgb(202, 234, 255);
   -webkit-text-stroke-width: 2px
 }
@@ -88,4 +154,29 @@
   -webkit-text-fill-color: transparent; 
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
+}
+
+@media screen and (min-width: 1024px) {
+  .logo-container {
+    height: 50%;
+    transform: translateY(85%);
+    position: relative;
+  }
+
+  .scrolled {
+    padding: 0 8px 0 0;
+    height: 100%;
+    transform: translateY(0);
+  }
+  
+  .logo {
+    font-size: 68px;
+  }
+
+  .scrolled .logo {
+    position: absolute;
+    margin: 0;
+    top: 18px;
+    left: auto;
+  }
 }

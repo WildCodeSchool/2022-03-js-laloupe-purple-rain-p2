@@ -13,8 +13,35 @@
   .mobile {
     top: 0;
     width: 100%;
+    height: 256px;
+    position: relative;
+  }
+
+  .desktop {
+    display: none;
+    top: 0;
+    width: 100%;
     min-width: 320px;
     height: 256px;
     position: relative;
   }
+}
+
+@media screen and (min-width: 1024px) {
+  .header {
+    height: 100vh;  
+    
+      .mobile {
+        display: none;
+      }
+      
+      .desktop {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+      }
+  }
+
+
 }
