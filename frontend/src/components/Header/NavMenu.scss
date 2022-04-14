@@ -4,22 +4,109 @@
   padding: 0;
   top: 0;
   right: 0;
-  width: 90%;
+  width: 94%;
   height: 100vh;
-  background-color: darkgray;
-  display: none;
+  overflow-x: hidden;
 }
 
 .navList {
+  position: absolute;
   width: 100%;
-  padding: 0;
+  height: 100%;
+  padding: 52px 0 0 0;
+  top: 0;
   margin: 0;
-  display: flex;
+  right: -100%;
   flex-direction: column;
   list-style: none;
+  background-color: rgb(37 23 51);
+  transition: 350ms;
   z-index: 1;
 
   li {
-    padding: 14px;
+    width: 100%;
+    padding: 12px;
+    display: flex;
+
+    &:hover {
+      background-color: rgb(139, 139, 139);
+      cursor: pointer;
+    }
+
+    &:active {
+      background-color: rgb(139, 139, 139);
+    }
+
+    a {
+      padding-right: 22px;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      color: white;
+      text-align: end;
+
+      &:visited {
+        color: white;
+      }
+    }
   }
+}
+
+.opened {
+  right: 0;
+  display: block;
+}
+
+.navButton {
+  position: absolute;
+  right: 8px;
+  top: 6px;
+  width: 42px;
+  height: 42px;
+  border: none;
+  background: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 350ms;
+  z-index: 2;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.translateLeft {
+  right: 85%;
+}
+
+.rotate90 {
+  transform: rotate(-90deg);
+}
+
+.menuLogoBars {
+  width: 38px;
+  height: 3px;
+  border-radius: 3px;
+  background-color: #ffa600;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  position: relative;
+}
+
+.hide {
+  display: none;
+}
+
+.cross {
+  transform: rotate(45deg);
+  margin: 0;
+  position: absolute;
+}
+
+.crossInverted {
+  transform: rotate(-45deg);
+  margin: 0;
+  position: absolute;
 }
