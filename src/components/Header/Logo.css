@@ -31,7 +31,8 @@
 }
 
 .logo-container {
-  transform: translateY(-42%);
+  transform: translateY(-38%);
+  padding-left: 12px;
   width: 100%;
   height: 100%;
   display: flex;

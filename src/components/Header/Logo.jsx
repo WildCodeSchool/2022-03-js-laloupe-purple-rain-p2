@@ -1,7 +1,10 @@
 import "@assets/fonts/BTTF.ttf";
+import { useState } from "react";
 import "./Logo.css";
 
 const Logo = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
   return (
     <div className="logo-container fontBTTF">
       <div className="logo">

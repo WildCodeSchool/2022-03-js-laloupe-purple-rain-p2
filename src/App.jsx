@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Homepage from "@pages/Homepage";
 
 import "./App.css";
@@ -13,8 +13,6 @@ function App() {
         <Route path="/jobs" element={<Homepage />} />
         <Route path="*" element={<Homepage />} />
       </Routes>
-
-      <div className="App"></div>
     </Router>
   );
 }
