@@ -16,13 +16,11 @@ export function Cards() {
 
 export function CardsOff() {
   return (
-    <>
-      <div className="CartesEteintes">
-        <div className="CarteOrangeOff" />
-        <div className="CarteBleueOff" />
-        <div className="CarteRoseOff" />
-        <div className="CarteVerteOff" />
-      </div>
-    </>
+    <div className="CartesEteintes">
+      <div className="CarteOrangeOff" />
+      <div className="CarteBleueOff" />
+      <div className="CarteRoseOff" />
+      <div className="CarteVerteOff" />
+    </div>
   );
 }

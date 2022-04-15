@@ -11,7 +11,9 @@
   margin: 20px 0 20px 0;
   border-radius: 10px;
   background-color: white;
-  box-shadow: 0px 0px 17px 6px #00f0ff;
+  border: solid white 2px;
+  box-shadow: 0px 0px 7px 5px #00f0ff;
+  animation: flicker-neonh 2.1ms infinite alternate;
 }
 
 .NeonVerticale {
@@ -20,5 +22,111 @@
   margin: 20px 0 20px 0;
   border-radius: 10px;
   background-color: white;
-  box-shadow: 0px 0px 17px 6px #00f0ff;
+  border: solid white 2px;
+  box-shadow: 0px 0px 7px 5px #00f0ff;
+  animation: flicker-neonv 2.1ms infinite alternate;
+}
+
+// *! ---------------CLIGNOTEMENT NeonHrgba(0, 162, 255, 1)--------
+
+@keyframes flicker-neonh {
+  0% {
+    opacity: 1;
+    box-shadow: 0px 0px 17px 6px rgba(0, 162, 255, 1); 
+  }
+  2% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 17px 6px rgba(0, 162, 255, 1);
+  }
+  8% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 17px 6px rgba(0, 162, 255, 1);
+  }
+  12% {
+    opacity: 1;
+    box-shadow: 0px 0px 17px 6px rgba(0, 162, 255, 1);
+  }
+  20% {
+    opacity: 1;
+    box-shadow: 0px 0px 17px 6px rgba(0, 162, 255, 1);
+  }
+  25% {
+    opacity: 1;
+    box-shadow: 0px 0px 17px 6px rgba(0, 162, 255, 1);
+  }
+  30% {
+    opacity: 1;
+    box-shadow: 0px 0px 17px 6px rgba(0, 162, 255, 1);
+  }
+
+  70% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 17px 6px rgba(0, 162, 255, 1);
+  }
+
+  72% {
+    opacity: 1;
+    box-shadow: 0px 0px 17px 6px rgba(0, 162, 255, 1);
+  }
+
+  77% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 17px 6px rgba(0, 162, 255, 1);
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0px 0px 17px 6px rgba(0, 162, 255, 1);
+  }
+}
+
+// *! ---------------CLIGNOTEMENT NeonV---------------
+
+@keyframes flicker-neonv {
+  0% {
+    opacity: 1;
+    box-shadow: 0px 0px 17px 6px #00f0ff; 
+  }
+  2% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 17px 6px #00f0ff;
+  }
+  8% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 17px 6px #00f0ff;
+  }
+  12% {
+    opacity: 1;
+    box-shadow: 0px 0px 17px 6px #00f0ff;
+  }
+  20% {
+    opacity: 1;
+    box-shadow: 0px 0px 17px 6px #00f0ff;
+  }
+  25% {
+    opacity: 1;
+    box-shadow: 0px 0px 17px 6px #00f0ff;
+  }
+  30% {
+    opacity: 1;
+    box-shadow: 0px 0px 17px 6px #00f0ff;
+  }
+
+  70% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 17px 6px #00f0ff;
+  }
+
+  72% {
+    opacity: 1;
+    box-shadow: 0px 0px 17px 6px #00f0ff;
+  }
+
+  77% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 17px 6px #00f0ff;
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0px 0px 17px 6px #00f0ff;
+  }
 }
