@@ -20,15 +20,15 @@ const Formation = () => {
           <img src={imageMetier} className="imageBarman" alt="" />
         </figure>
         <p className="introduction">
-          Voilà un métier passionnant et enrichissant socialement. Tu veux en
-          savoir davantage?
+          {`Voilà un métier passionnant et enrichissant socialement. Tu veux en
+          savoir davantage?`}
         </p>
         <details>
           <summary className="sommaire">
-            Cliquez pour plus d'information
+            {`Cliquez pour plus d'information`}
           </summary>
           <p className="ouTeFormer">
-            Des centres de formation en présentiel ou en remote te permettent de
+            {`Des centres de formation en présentiel ou en remote te permettent de
             te former au métier de barman. Certains centres dispensent la
             formation durant une période de 4 mois. Tu vas ainsi acquérir les
             connaissances nécessaires pour te bâtir un avenir dans un métier où
@@ -40,7 +40,7 @@ const Formation = () => {
             professionnels du secteur de l'hôtelerie et du tourisme. A l'issue
             de la formation, tu seras prêt à exercer le métier de barman. Ce
             métier t'offre la possibilité de voyager de part de monde et de
-            parfaire ainsi ton anglais.
+            parfaire ainsi ton anglais.`}
           </p>
           <h1>
             <span>C</span>omment se déroule les cours?
@@ -48,6 +48,7 @@ const Formation = () => {
           <h2>
             <img
               src={iconeShaker}
+              alt=""
               weight="24"
               height="24"
               className="icone-shaker"
@@ -55,14 +56,15 @@ const Formation = () => {
             Une vraie expérience
           </h2>
           <p>
-            la pratique sera le coeur de cible de ta formation. Tu pourras
+            {`La pratique sera le coeur de cible de ta formation. Tu pourras
             t'exercer à préparer tes cocktails derrière un bar comme si tu
             travaillais. Cette expérience unique forgera tes connaissances et te
-            donneras confiance.
+            donneras confiance.`}
           </p>
           <h2>
             <img
               src={iconeDiplome}
+              alt=""
               weight="24"
               height="24"
               className="icone-diplome"
@@ -70,12 +72,13 @@ const Formation = () => {
             Une Masterclass
           </h2>
           <p>
-            Ce module te permettra de compléter ta formation en appronfondissant
-            tes connaissances. Ce qui t'attend? des recettes de cocktail à gogo.
+            {`Ce module te permettra de compléter ta formation en appronfondissant
+            tes connaissances. Ce qui t'attend? des recettes de cocktail à gogo.`}
           </p>
           <h2>
             <img
               src={iconeFlaire}
+              alt=""
               weight="24"
               height="24"
               className="icone-flair"
@@ -83,12 +86,12 @@ const Formation = () => {
             Le Flair
           </h2>
           <p>
-            Pour la préparation d'un cocktail d'excellence, le flair n’est pas
+            {`Pour la préparation d'un cocktail d'excellence, le flair n’est pas
             indispensable. Cependant, tes clients seront impressionnés et tu
             recevras peut-être ton pourboire. module t’apprendra à créer un
             véritable spectacle avec des bouteilles et du matériel de bar. pour
             de plus amples informations, je te convies à faire une recherche sur
-            Tom Dyer, Champion du monde de Flair plusieurs fois primé
+            Tom Dyer, Champion du monde de Flair plusieurs fois primé`}
           </p>
           <h1>
             <span>O</span>ù se former?
@@ -99,6 +102,7 @@ const Formation = () => {
                 className="linkSite"
                 href="https://www.barschool.net/"
                 target="_blank"
+                rel="noreferrer"
               >
                 lps.barschool
               </a>
@@ -108,6 +112,7 @@ const Formation = () => {
                 className="linkSite"
                 href="https://www.youschool.fr/"
                 target="_blank"
+                rel="noreferrer"
               >
                 youschool
               </a>
@@ -117,6 +122,7 @@ const Formation = () => {
                 className="linkSite"
                 href="https://formationbarman.fr"
                 target="_blank"
+                rel="noreferrer"
               >
                 Formation Barman
               </a>
