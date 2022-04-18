@@ -1,6 +1,6 @@
 import Header from "@components/Header/Header";
 
-const Home = () => {
+const Jobs = () => {
   return (
     <section className="topPage">
       <Header />
@@ -8,4 +8,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Jobs;

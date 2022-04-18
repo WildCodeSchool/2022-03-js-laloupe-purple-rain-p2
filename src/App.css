@@ -1,5 +1,6 @@
 body {
   height: 200vh;
+  min-width: 320px;
   background-color: rgb(37 23 51);
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -7,4 +8,28 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.topPage {
+  min-width: 320px;
+  width: 100%;
+  height: 100vh;
+  background-image: url('@assets/images/headerBg.jpg');
+  background-repeat: no-repeat;
+  background-size: 170%;
+  background-position: top;
+}
+
+.container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 1024px) {
+  .topPage {
+    background-size: 100vw;
+  }
 }
