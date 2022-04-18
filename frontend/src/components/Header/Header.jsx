@@ -5,15 +5,20 @@ import NavMenu from "./NavMenu";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const handleScroll = () => {
+    if (window.scrollY > 65) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
+
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 66) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    });
-  }, []);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
 
   return (
     <header className="header">
