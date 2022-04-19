@@ -144,13 +144,12 @@
 @media screen and (min-width: 1024px) {
   .logo-container-footer {
     height: 100%;
-    transform: translateY(0);
     position: relative;
     transform: scale(0.8);
   }
 
   .logo-footer {
     font-size: 68px;
-    transform: translateY(50%);
+    transform: translateY(60%);
   }
 }
