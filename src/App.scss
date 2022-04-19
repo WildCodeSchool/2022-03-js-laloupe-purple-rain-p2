@@ -8,6 +8,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
 }
 
 .topPage {
@@ -18,6 +19,21 @@ body {
   background-repeat: no-repeat;
   background-size: 170%;
   background-position: top;
+}
+
+.midPage {
+  width: 100%;
+  height: auto;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.botPage {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  min-height: 256px;
 }
 
 .container {
