@@ -30,16 +30,28 @@ const Footer = () => {
       </div>
       <div className="footerRight">
         <ul className="footerNav">
-          <NavLink to="/home">
+          <NavLink
+            to="/home"
+            className={(nav) => (nav.isActive ? "navActive" : "")}
+          >
             <li>Homepage</li>
           </NavLink>
-          <NavLink to="/search">
+          <NavLink
+            to="/search"
+            className={(nav) => (nav.isActive ? "navActive" : "")}
+          >
             <li>Search</li>
           </NavLink>
-          <NavLink to="/history">
+          <NavLink
+            to="/history"
+            className={(nav) => (nav.isActive ? "navActive" : "")}
+          >
             <li>History</li>
           </NavLink>
-          <NavLink to="/jobs">
+          <NavLink
+            to="/jobs"
+            className={(nav) => (nav.isActive ? "navActive" : "")}
+          >
             <li>Jobs</li>
           </NavLink>
         </ul>
