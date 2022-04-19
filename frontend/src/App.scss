@@ -1,13 +1,15 @@
 body {
   height: 200vh;
   min-width: 320px;
-  background-color: rgb(37 23 51);
+  // background-color: rgb(37 23 51);
+  background-color: black;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
 }
 
 .topPage {
@@ -18,6 +20,21 @@ body {
   background-repeat: no-repeat;
   background-size: 170%;
   background-position: top;
+}
+
+.midPage {
+  width: 100%;
+  height: auto;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.botPage {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  min-height: 256px;
 }
 
 .container {
