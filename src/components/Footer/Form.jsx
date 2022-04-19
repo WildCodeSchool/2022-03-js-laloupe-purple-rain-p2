@@ -13,6 +13,7 @@ const Form = () => {
       <h3>Contact us!</h3>
       <input type="text" placeholder="Name" />
       <input type="text" placeholder="Email" />
+      {/* eslint-disable-next-line */}
       <textarea cols="40" rows="8" placeholder="Your messsage"></textarea>
       <div className="newsCheck">
         <input
