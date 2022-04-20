@@ -1,3 +1,4 @@
+/* eslint-disable */
 import "./Formation.css";
 import imageMetier from "@assets/images/barman-cocktail.jpg";
 import iconeShaker from "@assets/images/shaker2.png";
