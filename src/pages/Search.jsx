@@ -1,14 +1,14 @@
 import Header from "@components/Header/Header";
 import Footer from "@components/Footer/Footer";
 
-const Homepage = () => {
+const Search = () => {
   return (
     <>
       <section className="topPage">
         <Header />
       </section>
       <section className="midPage">
-        <p>homepage</p>
+        <p>search</p>
       </section>
       <section className="botPage">
         <Footer />
@@ -17,4 +17,4 @@ const Homepage = () => {
   );
 };
 
-export default Homepage;
+export default Search;
