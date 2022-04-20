@@ -1,4 +1,5 @@
-.HorizontalNeon, .VerticalNeon {
+.HorizontalNeon,
+.VerticalNeon {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -7,17 +8,17 @@
 
 .NeonHorizontale {
   width: 90%;
-  height: 4px;
+  height: 2px;
   margin: 20px 0 20px 0;
   border-radius: 10px;
   background-color: white;
-  border: solid white 2px;
+  border: solid white 1px;
   box-shadow: 0px 0px 7px 5px #00f0ff;
   animation: flicker-neonh 2.1ms infinite alternate;
 }
 
 .NeonVerticale {
-  width: 4px;
+  width: 3px;
   height: 350px;
   margin: 20px 0 20px 0;
   border-radius: 10px;
@@ -27,12 +28,12 @@
   animation: flicker-neonv 2.1ms infinite alternate;
 }
 
-// *! ---------------CLIGNOTEMENT NeonHrgba(0, 162, 255, 1)--------
+// *! ---------------CLIGNOTEMENT NeonH---------------
 
 @keyframes flicker-neonh {
   0% {
     opacity: 1;
-    box-shadow: 0px 0px 17px 6px rgba(0, 162, 255, 1); 
+    box-shadow: 0px 0px 17px 6px rgba(0, 162, 255, 1);
   }
   2% {
     opacity: 0.9;
@@ -58,17 +59,14 @@
     opacity: 1;
     box-shadow: 0px 0px 17px 6px rgba(0, 162, 255, 1);
   }
-
   70% {
     opacity: 0.9;
     box-shadow: 0px 0px 17px 6px rgba(0, 162, 255, 1);
   }
-
   72% {
     opacity: 1;
     box-shadow: 0px 0px 17px 6px rgba(0, 162, 255, 1);
   }
-
   77% {
     opacity: 0.9;
     box-shadow: 0px 0px 17px 6px rgba(0, 162, 255, 1);
@@ -84,7 +82,7 @@
 @keyframes flicker-neonv {
   0% {
     opacity: 1;
-    box-shadow: 0px 0px 17px 6px #00f0ff; 
+    box-shadow: 0px 0px 17px 6px #00f0ff;
   }
   2% {
     opacity: 0.9;
@@ -110,17 +108,14 @@
     opacity: 1;
     box-shadow: 0px 0px 17px 6px #00f0ff;
   }
-
   70% {
     opacity: 0.9;
     box-shadow: 0px 0px 17px 6px #00f0ff;
   }
-
   72% {
     opacity: 1;
     box-shadow: 0px 0px 17px 6px #00f0ff;
   }
-
   77% {
     opacity: 0.9;
     box-shadow: 0px 0px 17px 6px #00f0ff;

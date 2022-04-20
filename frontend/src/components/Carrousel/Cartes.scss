@@ -1,5 +1,5 @@
-body {
-  background-color: #404040;
+  body {
+  background-color: rgb(37 23 51);
 }
 
 h1 {
@@ -9,26 +9,28 @@ h1 {
 
 .Cartes {
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
 }
 
 .CartesEteintes {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
 // *! ---------------CLIGNOTEMENT---------------
 
-@keyframes flicker-cards {
+@keyframes flicker-blue-card {
   0% {
     opacity: 1;
     box-shadow: 0px 0px 16px 4px rgba(0, 162, 255, 1), inset 0px 0px 10px 2px rgba(0, 162, 255, 1);
   }
   2% {
     opacity: 0.9;
-    box-shadow: 0px 0px 16px 4px rgba(0, 162, 255, 1) inset 0px 0px 10px 2px rgba(0, 162, 255, 1);
+    box-shadow: 0px 0px 16px 4px rgba(0, 162, 255, 1), inset 0px 0px 10px 2px rgba(0, 162, 255, 1)
   }
   8% {
     opacity: 0.9;
@@ -71,55 +73,208 @@ h1 {
   }
 }
 
+@keyframes flicker-pink-card {
+  0% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
+  }
+  2% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
+  }
+  8% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
+  }
+  12% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
+  }
+  20% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
+  }
+  25% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
+  }
+  30% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
+  }
+
+  70% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
+  }
+
+  72% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
+  }
+
+  77% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
+  }
+}
+
+@keyframes flicker-orange-card {
+  0% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
+  }
+  2% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
+  }
+  8% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
+  }
+  12% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
+  }
+  20% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
+  }
+  25% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
+  }
+  30% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
+  }
+
+  70% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
+  }
+
+  72% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
+  }
+
+  77% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
+  }
+}
+
+@keyframes flicker-green-card {
+  0% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
+  }
+  2% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
+  }
+  8% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
+  }
+  12% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
+  }
+  20% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
+  }
+  25% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
+  }
+  30% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
+  }
+
+  70% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
+  }
+
+  72% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
+  }
+
+  77% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
+  }
+}
+
 // *! -----------------CARTES ALLUMEES-----------------
 
 .CarteBleue {
   box-sizing: border-box;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 0px, 50px, 0px, 50px;
+  // margin-top: 20px;
+  // margin-bottom: 20px;
   width: 150px;
   height: 200px;
   background: grey;
   border-radius: 10px;
   border: solid white 2px;
-  animation: flicker-cards 2.1ms infinite alternate;
-  // box-shadow: 2px rgb(170, 221, 255);
+  animation: flicker-blue-card 2.09ms infinite alternate;
 }
 
 .CarteOrange {
   box-sizing: border-box;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 0px, 50px, 0px, 50px;
+  // margin-top: 20px;
+  // margin-bottom: 20px;
   width: 150px;
   height: 200px;
   background: grey;
   border-radius: 10px;
   border: solid white 2px;
-  box-shadow: 0px 0px 7px 5px #ffc700, inset 0px 0px 15px 6px #ffc700;
+  animation: flicker-orange-card 2.08ms infinite alternate;
 }
 
 .CarteRose {
   box-sizing: border-box;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 0px, 50px, 0px, 50px;
+  // margin-top: 20px;
+  // margin-bottom: 20px;
   width: 150px;
   height: 200px;
   background: grey;
   border-radius: 10px;
   border: solid white 2px;
-  box-shadow: 0px 0px 7px 5px #ff00e5, inset 0px 0px 15px 6px #ff00e5;
+  animation: flicker-pink-card 2.08ms infinite alternate;
 }
 
 .CarteVerte {
   box-sizing: border-box;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 0px, 50px, 0px, 50px;
+  // margin-top: 20px;
+  // margin-bottom: 20px;
   width: 150px;
   height: 200px;
   background: grey;
   border-radius: 10px;
   border: solid white 2px;
-  box-shadow: 0px 0px 7px 5px #00ff00, inset 0px 0px 15px 6px #00ff00;
+  animation: flicker-green-card 2.087ms infinite alternate;
 }
 
 // *! -----------------CARTES ETEINTES-----------------
@@ -135,14 +290,16 @@ h1 {
   border: solid #005e64 2px;
   box-shadow: 0px 0px 0px 0px #00f0ff, inset 0px 0px 0px 0px #00f0ff;
   transition: all .2s ease-in-out;
-}
-.CarteBleueOff:hover {
-  cursor: pointer;
+
+  &:hover {
+    cursor: pointer;
   border: solid white 2px;
-  animation: flicker-cards 2.1ms infinite alternate;
+  animation: flicker-blue-card 2.1ms infinite alternate;
   border: solid white 2px;
   transform: scale(1.1);
+  }
 }
+
 
 .CarteOrangeOff {
   box-sizing: border-box;
@@ -154,6 +311,15 @@ h1 {
   border-radius: 10px;
   border: solid #554300 2px;
   box-shadow: 0px 0px 0px 0px #ffc700, inset 0px 0px 0px 0px #ffc700;
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+  border: solid white 2px;
+  animation: flicker-orange-card 2.1ms infinite alternate;
+  border: solid white 2px;
+  transform: scale(1.1);
+  }
 }
 
 .CarteRoseOff {
@@ -166,6 +332,15 @@ h1 {
   border-radius: 10px;
   border: solid #520049 2px;
   box-shadow: 0px 0px 0px 0px #ff00e5, inset 0px 0px 0px 0px #ff00e5;
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+  border: solid white 2px;
+  animation: flicker-pink-card 2.1ms infinite alternate;
+  border: solid white 2px;
+  transform: scale(1.1);
+  }
 }
 
 .CarteVerteOff {
@@ -178,4 +353,13 @@ h1 {
   border-radius: 10px;
   border: solid #003d00 2px;
   box-shadow: 0px 0px 0px 0px #00ff00, inset 0px 0px 0px 0px #00ff00;
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+  border: solid white 2px;
+  animation: flicker-green-card 2.1ms infinite alternate;
+  border: solid white 2px;
+  transform: scale(1.1);
+  }
 }

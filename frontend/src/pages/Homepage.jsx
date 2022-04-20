@@ -1,7 +1,7 @@
 import { Cards, CardsOff } from "@components/Carrousel/Cartes";
 import { NeonV, NeonH } from "@components/NeonSeparateur/NeonSeparateur";
 
-export default function Home() {
+export default function Homepage() {
   return (
     <>
       <NeonH />
