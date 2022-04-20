@@ -15,19 +15,7 @@ const Formation = () => {
   const externalSource2 = "https://youtu.be/jXGik68NQ9Y";
 
   return (
-    // <div className="container">
     <div className="formation">
-      {/* <h1>
-        <span>T</span>u veux te former au métier?
-      </h1>
-      <figure>
-        <img src={imageMetier} className="imageBarman" alt="metier barman" />
-      </figure>
-      <p className="introduction">
-        Voilà un métier passionnant et enrichissant socialement. Tu veux en
-        savoir davantage?
-      </p> */}
-
       <details>
         <summary className="sommaire">
           {`Cliquez pour plus d'information`}
