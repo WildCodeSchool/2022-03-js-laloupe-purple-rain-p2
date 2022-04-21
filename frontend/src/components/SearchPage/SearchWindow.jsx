@@ -1,4 +1,5 @@
 import "@components/SearchPage/SearchWindow.scss";
+import { useState } from "react";
 
 const cocktailData = [
   {
@@ -64,36 +65,43 @@ const cocktailData = [
 ];
 
 const SearchWindow = () => {
+  const [searchField, setSearchField] = useState("");
+  // console.log(searchField);
+
   return (
     <section className="searchContainer">
       <div className="searchBar">
         <ul className="searchList">
-          <li>test</li>
-          <li>test</li>
-          <li>test</li>
-          <li>test</li>
-          <li>test</li>
+          <li>Cocktail Type</li>
+          <li>Alcohol</li>
+          <li>Ingredients</li>
+          <li>Glass Type</li>
+          <li className="inputList">
+            <input
+              type="text"
+              placeholder="Search..."
+              onChange={(e) => setSearchField(e.target.value)}
+            />
+          </li>
         </ul>
       </div>
       <div className="cardsContainer">
-        {cocktailData.map((item) => {
-          return (
-            <div className="card">
-              <h4>{item.strDrink}</h4>
-              <img
-                className="drinkImage"
-                src={item.strDrinkThumb}
-                alt={item.strDrink}
-              />
-              <h5>{item.strAlcoholic}</h5>
-            </div>
-          );
-        })}
+        {cocktailData
+          .filter((item) => item.strDrink.toLowerCase().includes(searchField))
+          .map((item) => {
+            return (
+              <div className="card">
+                <h4>{item.strDrink}</h4>
+                <img
+                  className="drinkImage"
+                  src={item.strDrinkThumb}
+                  alt={item.strDrink}
+                />
+                <h5>{item.strAlcoholic}</h5>
+              </div>
+            );
+          })}
 
-        <span className="card" />
-        <span className="card" />
-        <span className="card" />
-        <span className="card" />
         <span className="card" />
         <span className="card" />
         <span className="card" />
