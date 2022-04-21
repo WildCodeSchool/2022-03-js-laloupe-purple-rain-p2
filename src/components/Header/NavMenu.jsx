@@ -34,7 +34,7 @@ const NavMenu = ({ isScrolled }) => {
         <ul className={`navList ${isOpen && "opened"}`}>
           <NavLink
             onClick={() => setIsOpen(false)}
-            to="/home"
+            to="/"
             className={(nav) => (nav.isActive ? "navActive" : "")}
           >
             <li>Homepage</li>
@@ -70,7 +70,7 @@ const NavMenu = ({ isScrolled }) => {
         <div className="desktopScroll">
           <div className="leftButtons">
             <NavLink
-              to="/home"
+              to="/"
               className={(nav) => (nav.isActive ? "navActive" : "")}
             >
               HOMEPAGE
@@ -82,7 +82,7 @@ const NavMenu = ({ isScrolled }) => {
               SEARCH
             </NavLink>
           </div>
-          <NavLink to="/home" className="midLogo">
+          <NavLink to="/" className="midLogo">
             <Logo isScrolled={isScrolled} />
           </NavLink>
           <div className="rightButtons">
@@ -104,7 +104,7 @@ const NavMenu = ({ isScrolled }) => {
         <div className="desktop">
           <div className="leftButtons">
             <NavLink
-              to="/home"
+              to="/"
               className={(nav) => (nav.isActive ? "navActive" : "")}
             >
               HOMEPAGE
@@ -116,7 +116,7 @@ const NavMenu = ({ isScrolled }) => {
               SEARCH
             </NavLink>
           </div>
-          <NavLink to="/home" className="midLogo">
+          <NavLink to="/" className="midLogo">
             <Logo isScrolled={isScrolled} />
           </NavLink>
           <div className="rightButtons">
