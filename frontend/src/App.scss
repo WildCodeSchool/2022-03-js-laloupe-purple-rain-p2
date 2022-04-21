@@ -26,6 +26,13 @@ body {
   background-position: top;
 }
 
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .midPage {
   width: 100%;
   height: auto;
