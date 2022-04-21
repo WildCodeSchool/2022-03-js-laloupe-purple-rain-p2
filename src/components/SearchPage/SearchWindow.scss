@@ -56,11 +56,43 @@
 
     .card {
       width: 100%;
-      min-height: 140px;
+      height: 140px;
       background-color: rgba(156, 76, 0, 0.829);
       margin: auto;
       border-radius: 8px;
       box-shadow: 0 0 8px 2px cyan;
+      object-fit: contain;
+      position: relative;
+
+      h4 {
+        margin: 0;
+        top: 12px;
+        padding: 8px 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.226);
+        text-align: center;
+        color: white;
+        position: absolute;
+        backdrop-filter: blur(3px);
+      }
+
+      h5 {
+        margin: 0;
+        bottom: 0;
+        padding: 4px 0;
+        border-radius: 0 0 8px 8px;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.226);
+        text-align: center;
+        color: white;
+        position: absolute;
+        backdrop-filter: blur(3px);
+      }
+
+      .drinkImage {
+        width: 100%;
+        border-radius: 8px;
+      }
     }
   }
   
