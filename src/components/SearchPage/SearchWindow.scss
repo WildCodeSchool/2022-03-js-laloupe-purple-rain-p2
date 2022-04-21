@@ -13,7 +13,7 @@
   clip-path: inset(0px -15px 0px -15px);
 
   .searchBar {
-    background-color: rgba(0, 162, 255, 0.6);
+    background-color: rgba(0, 107, 168, 0.767);
     width: 100%;
     height: 5%;
     display: flex;
@@ -28,12 +28,27 @@
       justify-content: space-around;
 
       li {
-        padding: 6px 3%;
+        padding: 12px 3%;
         cursor: pointer;
+        color: aqua;
+        transition: 300ms;
 
         &:hover {
           background-color: #ffa600;
           color: white;
+        }
+      }
+
+      .inputList {
+        padding: 0;
+      }
+
+      input {
+        height: 100%;
+        background-color: rgb(212, 224, 233);
+
+        &:hover {
+          background-color: rgb(255, 255, 255);
         }
       }
     }
