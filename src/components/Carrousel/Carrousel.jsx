@@ -1,27 +1,11 @@
+/* eslint-disable */
+
 import React from "react";
 import { useState, useEffect } from "react";
 import "./Carrousel.scss";
 import "./Cartes.scss";
 
 const tableOfIndex = [0, 1, 2, 3];
-
-function updateWindowSize() {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleWindowWidth = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleWindowWidth);
-
-    return () => {
-      window.removeEventListener("resize", handleWindowWidth);
-    };
-  }, []);
-  //Can also handle height if needed.
-  return windowWidth;
-}
 
 function scaleWidth(width) {
   if (width < 600) {
@@ -65,6 +49,28 @@ function translateYAxis(index) {
 
 function Carrousel() {
   const [touchPosition, setTouchPosition] = React.useState(null);
+  const [currentWindowWidth, setCurrentWindowWidth] = useState(
+    window.innerWidth
+  );
+
+  function updateWindowSize() {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+      const handleWindowWidth = () => {
+        setWindowWidth(window.innerWidth);
+        setCurrentWindowWidth(windowWidth);
+      };
+
+      window.addEventListener("resize", handleWindowWidth);
+
+      return () => {
+        window.removeEventListener("resize", handleWindowWidth);
+      };
+    }, []);
+    //Can also handle height if needed.
+    return windowWidth;
+  }
 
   const handleTouchStart = (e) => {
     const touchDown = e.touches[0].clientX;
@@ -108,18 +114,22 @@ function Carrousel() {
           <figure
             className="Carte Bleue Carrousel"
             id="0"
-            style={{
-              transform: `translateX(${
-                Math.sin((tableOfIndex[0] * Math.PI) / 2) * 150
-              }px) translateY(${translateYAxis(
-                tableOfIndex[0]
-              )}px) translateZ(${translateZAxis(tableOfIndex[0])}px`,
-              TransitionEvent: `all 1s`,
-            }}
+            style={
+              currentWindowWidth <= 1024
+                ? {
+                    transform: `translateX(${
+                      Math.sin((tableOfIndex[0] * Math.PI) / 2) * 150
+                    }px) translateY(${translateYAxis(
+                      tableOfIndex[0]
+                    )}px) translateZ(${translateZAxis(tableOfIndex[0])}px`,
+                    TransitionEvent: `all 1s`,
+                  }
+                : { transform: `none` }
+            }
           ></figure>
           <figure
             className="Carte Verte Carrousel"
-            id="1"
+            id="cartomancie"
             style={{
               transform: `translateX(${
                 Math.sin((tableOfIndex[1] * Math.PI) / 2) * 150
