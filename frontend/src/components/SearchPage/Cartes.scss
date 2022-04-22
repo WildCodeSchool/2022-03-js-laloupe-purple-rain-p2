@@ -287,6 +287,7 @@
 @media screen and (min-width: 1024px) {
   $cardsScale: scale(1.05);
   .Carte {
+    filter: brightness(0.85) saturate(0.40);
     h4 {
       font-size: 16px;
     }
@@ -294,6 +295,10 @@
     h5 {
       font-size: 14px;
       padding: 6px 0;
+    }
+
+    &:hover {
+      filter: none;
     }
 
     &.Bleue {
