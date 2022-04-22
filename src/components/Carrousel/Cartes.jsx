@@ -2,11 +2,15 @@ import "./Cartes.scss";
 
 export function Cards({ strDrink, strCategory, strAlcoholic, strDrinkThumb }) {
   const handleNeonColor = () => {
-    if (strAlcoholic === "Alcoholic") {
+    if (strCategory === "Cocktail") {
       return "Carte Bleue";
     }
-    if (strAlcoholic === "Non alcoholic") {
+    if (strCategory === "Ordinary Drink") {
       return "Carte Rose";
+    }
+
+    if (strCategory === "Other/Unknown") {
+      return "Carte Orange";
     }
     return "Carte Verte";
   };
@@ -15,8 +19,8 @@ export function Cards({ strDrink, strCategory, strAlcoholic, strDrinkThumb }) {
     <div className={handleNeonColor()}>
       <h4>{strDrink}</h4>
       <img className="drinkImage" src={strDrinkThumb} alt={strDrink} />
-      <p>{strCategory}</p>
-      <h5>{strAlcoholic}</h5>
+      <p>{strAlcoholic}</p>
+      <h5>{strCategory}</h5>
     </div>
   );
 }
