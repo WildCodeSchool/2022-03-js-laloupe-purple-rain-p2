@@ -215,17 +215,58 @@
   }
 }
 
+$cardsScale: scale(1.05);
 .Carte {
   box-sizing: border-box;
   margin: 0px, 40px, 0px, 40px;
-  width: 150px;
-  height: 200px;
+  width: 100%;
+  height: 100%;
   background-color: grey;
   border-radius: 10px;
   border: solid rgb(255, 255, 255) 2px;
   box-shadow: off;
   animation: off;
   transition: 200ms;
+  object-fit: contain;
+  position: relative;
+
+  h4 {
+    margin: 0;
+    top: 12px;
+    padding: 8px 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.226);
+    text-align: center;
+    color: white;
+    position: absolute;
+    backdrop-filter: blur(3px);
+  }
+
+  h5 {
+    margin: 0;
+    bottom: 0;
+    padding: 4px 0;
+    border-radius: 0 0 8px 8px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.226);
+    text-align: center;
+    color: white;
+    position: absolute;
+    backdrop-filter: blur(3px);
+  }
+
+  p {
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    padding: 0;
+    margin: 0;
+  }
+
+  .drinkImage {
+    width: 100%;
+    border-radius: 8px;
+  }
 
   &.Bleue {
     border: solid #001b4a 2px;
@@ -234,7 +275,7 @@
       border: solid rgb(255, 255, 255) 2px;
       cursor: pointer;
       animation: flicker-blue-card 2.1ms infinite alternate;
-      transform: scale(1.1);
+      transform: $cardsScale;
     }
   }
 
@@ -245,7 +286,7 @@
       border: solid rgb(255, 255, 255) 2px;
       cursor: pointer;
       animation: flicker-orange-card 2.08ms infinite alternate;
-      transform: scale(1.1);
+      transform: $cardsScale;
     }
   }
 
@@ -256,7 +297,7 @@
       border: solid rgb(255, 255, 255) 2px;
       cursor: pointer;
       animation: flicker-pink-card 2.08ms infinite alternate;
-      transform: scale(1.1);
+      transform: $cardsScale;
     }
   }
 
@@ -267,7 +308,43 @@
       border: solid rgb(255, 255, 255) 2px;
       cursor: pointer;
       animation: flicker-green-card 2.087ms infinite alternate;
-      transform: scale(1.1);
+      transform: $cardsScale;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .Carte {
+    &.Bleue {
+      border: solid #001b4a 2px;
+      border: solid rgb(255, 255, 255) 2px;
+      cursor: pointer;
+      animation: flicker-blue-card 2.1ms infinite alternate;
+      transform: $cardsScale;
+    }
+
+    &.Orange {
+      border: solid #393600 2px;
+      border: solid rgb(255, 255, 255) 2px;
+      cursor: pointer;
+      animation: flicker-orange-card 2.08ms infinite alternate;
+      transform: $cardsScale;
+    }
+
+    &.Rose {
+      border: solid #520049 2px;
+      border: solid rgb(255, 255, 255) 2px;
+      cursor: pointer;
+      animation: flicker-pink-card 2.08ms infinite alternate;
+      transform: $cardsScale;
+    }
+
+    &.Verte {
+      border: solid #003d00 2px;
+      border: solid rgb(255, 255, 255) 2px;
+      cursor: pointer;
+      animation: flicker-green-card 2.087ms infinite alternate;
+      transform: $cardsScale;
     }
   }
 }
