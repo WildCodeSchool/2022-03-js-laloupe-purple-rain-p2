@@ -1,16 +1,14 @@
 import Header from "@components/Header/Header";
 import Footer from "@components/Footer/Footer";
-// import { NeonH, NeonV } from "@components/NeonSeparateur/NeonSeparateur";
-// import { Cards, CardsOff } from "@components/Carrousel/Cartes";
 
-const Homepage = () => {
+const History = () => {
   return (
     <>
       <section className="topPage">
         <Header />
       </section>
       <section className="midPage">
-        <p>homepage</p>
+        <p>history</p>
       </section>
       <section className="botPage">
         <Footer />
@@ -19,4 +17,4 @@ const Homepage = () => {
   );
 };
 
-export default Homepage;
+export default History;
