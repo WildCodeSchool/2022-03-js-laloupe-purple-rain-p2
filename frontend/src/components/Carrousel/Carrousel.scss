@@ -7,7 +7,7 @@
 .accueil-cocktail {
     position: relative;
     display: flex;
-    margin-top: 100px;
+    margin-bottom: 100px;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -38,4 +38,10 @@
   
 .random-button {
     display: none;
+}
+
+@media screen and (min-width: 1024px) {
+  #cartomancie {
+    transform: rotate(30deg) translateX(300px);
+  }
 }

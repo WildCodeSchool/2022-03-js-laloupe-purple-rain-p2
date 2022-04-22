@@ -9,7 +9,7 @@ const Homepage = () => {
     <>
       <section className="topPage">
         <Header />
-        <div className="carrous">
+        <div className="accueil-cocktail carrous">
           <Carrousel />
         </div>
       </section>
