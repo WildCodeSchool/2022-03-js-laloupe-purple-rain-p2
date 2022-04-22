@@ -111,7 +111,8 @@ const cocktailDataRaw = [
 
 const letterBar = () => {
   const response = [];
-  for (let i = 65; i !== 91; i + 1) {
+  /* eslint-disable-next-line */
+  for (let i = 65; i !== 91; i++) {
     response.push(String.fromCharCode(i));
   }
   return response;
@@ -200,7 +201,7 @@ const SearchWindow = () => {
       </div>
 
       <ul className="letterBar">
-        <p className="counter">Cocktails: {cocktailList.length}</p>
+        <p className="counter">Drinks: {cocktailList.length}</p>
         {letterBar().map((letter) => {
           return <li onClick={() => setCurrentLetter(letter)}>{letter}</li>;
         })}
