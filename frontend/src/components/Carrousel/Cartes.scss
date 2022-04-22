@@ -1,0 +1,447 @@
+.Cartes {
+  margin: 50px, 0px, 50px, 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.CartesEteintes {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  margin: 50px, 0px, 50px, 0px;
+}
+
+// *! ---------------CLIGNOTEMENT---------------
+
+@keyframes flicker-blue-card {
+  0% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
+  }
+  2% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
+  }
+  8% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
+  }
+  12% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
+  }
+  20% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
+  }
+  25% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
+  }
+  30% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
+  }
+
+  70% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
+  }
+
+  72% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
+  }
+
+  77% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
+  }
+}
+
+@keyframes flicker-pink-card {
+  0% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
+  }
+  2% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
+  }
+  8% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
+  }
+  12% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
+  }
+  20% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
+  }
+  25% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
+  }
+  30% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
+  }
+
+  70% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
+  }
+
+  72% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
+  }
+
+  77% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
+  }
+}
+
+@keyframes flicker-orange-card {
+  0% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
+  }
+  2% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
+  }
+  8% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
+  }
+  12% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
+  }
+  20% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
+  }
+  25% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
+  }
+  30% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
+  }
+
+  70% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
+  }
+
+  72% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
+  }
+
+  77% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
+  }
+}
+
+@keyframes flicker-green-card {
+  0% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
+  }
+  2% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
+  }
+  8% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
+  }
+  12% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
+  }
+  20% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
+  }
+  25% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
+  }
+  30% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
+  }
+
+  70% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
+  }
+
+  72% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
+  }
+
+  77% {
+    opacity: 0.9;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
+  }
+}
+
+$cardsScale: scale(1.05);
+.Carte {
+  box-sizing: border-box;
+  margin: 0px, 40px, 0px, 40px;
+  width: 100%;
+  height: 100%;
+  background-color: grey;
+  border-radius: 10px;
+  border: solid rgb(255, 255, 255) 2px;
+  box-shadow: off;
+  animation: off;
+  transition: 200ms;
+  object-fit: contain;
+  position: relative;
+
+  h4 {
+    margin: 0;
+    top: 12px;
+    padding: 8px 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.226);
+    text-align: center;
+    color: white;
+    position: absolute;
+    backdrop-filter: blur(3px);
+  }
+
+  h5 {
+    margin: 0;
+    bottom: 0;
+    padding: 4px 0;
+    border-radius: 0 0 8px 8px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.226);
+    text-align: center;
+    color: white;
+    position: absolute;
+    backdrop-filter: blur(3px);
+  }
+
+  p {
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    padding: 0;
+    margin: 0;
+  }
+
+  .drinkImage {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  &.Bleue {
+    border: solid #001b4a 2px;
+
+    &:hover {
+      border: solid rgb(255, 255, 255) 2px;
+      cursor: pointer;
+      animation: flicker-blue-card 2.1ms infinite alternate;
+      transform: $cardsScale;
+    }
+  }
+
+  &.Orange {
+    border: solid #393600 2px;
+
+    &:hover {
+      border: solid rgb(255, 255, 255) 2px;
+      cursor: pointer;
+      animation: flicker-orange-card 2.08ms infinite alternate;
+      transform: $cardsScale;
+    }
+  }
+
+  &.Rose {
+    border: solid #520049 2px;
+
+    &:hover {
+      border: solid rgb(255, 255, 255) 2px;
+      cursor: pointer;
+      animation: flicker-pink-card 2.08ms infinite alternate;
+      transform: $cardsScale;
+    }
+  }
+
+  &.Verte {
+    border: solid #003d00 2px;
+
+    &:hover {
+      border: solid rgb(255, 255, 255) 2px;
+      cursor: pointer;
+      animation: flicker-green-card 2.087ms infinite alternate;
+      transform: $cardsScale;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .Carte {
+    &.Bleue {
+      border: solid #001b4a 2px;
+      border: solid rgb(255, 255, 255) 2px;
+      cursor: pointer;
+      animation: flicker-blue-card 2.1ms infinite alternate;
+      transform: $cardsScale;
+    }
+
+    &.Orange {
+      border: solid #393600 2px;
+      border: solid rgb(255, 255, 255) 2px;
+      cursor: pointer;
+      animation: flicker-orange-card 2.08ms infinite alternate;
+      transform: $cardsScale;
+    }
+
+    &.Rose {
+      border: solid #520049 2px;
+      border: solid rgb(255, 255, 255) 2px;
+      cursor: pointer;
+      animation: flicker-pink-card 2.08ms infinite alternate;
+      transform: $cardsScale;
+    }
+
+    &.Verte {
+      border: solid #003d00 2px;
+      border: solid rgb(255, 255, 255) 2px;
+      cursor: pointer;
+      animation: flicker-green-card 2.087ms infinite alternate;
+      transform: $cardsScale;
+    }
+  }
+}
+
+// // *! -----------------CARTES ALLUMEES-----------------
+
+// .CarteVerte {
+//   box-sizing: border-box;
+//   margin: 0px, 50px, 0px, 50px;
+//   // margin-top: 20px;
+//   // margin-bottom: 20px;
+//   width: 150px;
+//   height: 200px;
+//   background: grey;
+//   border-radius: 10px;
+//   border: solid white 2px;
+//   animation: flicker-green-card 2.087ms infinite alternate;
+// }
+
+// // *! -----------------CARTES ETEINTES-----------------
+
+// .CarteBleueOff {
+//   box-sizing: border-box;
+//   margin: 20px 40px 20px 40px;
+//   width: 150px;
+//   height: 200px;
+//   background: black;
+//   border-radius: 10px;
+//   border: solid #005e64 2px;
+//   box-shadow: 0px 0px 0px 0px #00f0ff, inset 0px 0px 0px 0px #00f0ff;
+//   transition: all .2s ease-in-out;
+
+//   &:hover {
+//     cursor: pointer;
+//   border: solid white 2px;
+//   animation: flicker-blue-card 2.1ms infinite alternate;
+//   border: solid white 2px;
+//   transform: scale(1.1);
+//   }
+// }
+
+// .CarteOrangeOff {
+//   box-sizing: border-box;
+//   margin: 20px 40px 20px 40px;
+//   width: 150px;
+//   height: 200px;
+//   background: black;
+//   border-radius: 10px;
+//   border: solid #554300 2px;
+//   box-shadow: 0px 0px 0px 0px #ffc700, inset 0px 0px 0px 0px #ffc700;
+//   transition: all .2s ease-in-out;
+
+//   &:hover {
+//     cursor: pointer;
+//   border: solid white 2px;
+//   animation: flicker-orange-card 2.1ms infinite alternate;
+//   border: solid white 2px;
+//   transform: scale(1.1);
+//   }
+// }
+
+// .CarteRoseOff {
+//   box-sizing: border-box;
+//   margin: 20px 40px 20px 40px;
+//   width: 150px;
+//   height: 200px;
+//   background: black;
+//   border-radius: 10px;
+//   border: solid #520049 2px;
+//   box-shadow: 0px 0px 0px 0px #ff00e5, inset 0px 0px 0px 0px #ff00e5;
+//   transition: all .2s ease-in-out;
+
+//   &:hover {
+//     cursor: pointer;
+//   border: solid white 2px;
+//   animation: flicker-pink-card 2.1ms infinite alternate;
+//   border: solid white 2px;
+//   transform: scale(1.1);
+//   }
+// }
+
+// .CarteVerteOff {
+//   box-sizing: border-box;
+//   margin: 20px 40px 20px 40px;
+//   width: 150px;
+//   height: 200px;
+//   background: black;
+//   border-radius: 10px;
+//   border: solid #003d00 2px;
+//   box-shadow: 0px 0px 0px 0px #00ff00, inset 0px 0px 0px 0px #00ff00;
+//   transition: all .2s ease-in-out;
+
+//   &:hover {
+//     cursor: pointer;
+//   border: solid white 2px;
+//   animation: flicker-green-card 2.1ms infinite alternate;
+//   border: solid white 2px;
+//   transform: scale(1.1);
+//   }
+// }
