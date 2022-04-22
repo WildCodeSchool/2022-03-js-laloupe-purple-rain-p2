@@ -31,7 +31,7 @@ const Footer = () => {
       <div className="footerRight">
         <ul className="footerNav">
           <NavLink
-            to="/home"
+            to="/"
             className={(nav) => (nav.isActive ? "navActive" : "")}
           >
             <li>Homepage</li>
