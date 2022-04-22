@@ -1,6 +1,6 @@
 import Header from "@components/Header/Header";
 import Footer from "@components/Footer/Footer";
-import Formation from "@components/Formation";
+import Formation from "@components/JobsPage/Formation";
 import imageMetier from "@assets/images/barman-cocktail.jpg";
 
 const Jobs = () => {
