@@ -1,6 +1,6 @@
-import './carrousel.scss';
 import React from 'react';
 import { useState, useEffect } from 'react';
+import './Carrousel.scss';
 
 const tableOfIndex = [0, 1, 2, 3];
 
