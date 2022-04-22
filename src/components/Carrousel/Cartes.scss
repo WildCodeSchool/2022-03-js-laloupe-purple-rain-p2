@@ -21,11 +21,11 @@
     box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
   }
   2% {
-    opacity: 0.9;
+    opacity: 1;
     box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
   }
   8% {
-    opacity: 0.9;
+    opacity: 1;
     box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
   }
   12% {
@@ -46,7 +46,7 @@
   }
 
   70% {
-    opacity: 0.9;
+    opacity: 1;
     box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
   }
 
@@ -56,7 +56,7 @@
   }
 
   77% {
-    opacity: 0.9;
+    opacity: 1;
     box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
   }
   100% {
@@ -71,11 +71,11 @@
     box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
   }
   2% {
-    opacity: 0.9;
+    opacity: 1;
     box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
   }
   8% {
-    opacity: 0.9;
+    opacity: 1;
     box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
   }
   12% {
@@ -96,7 +96,7 @@
   }
 
   70% {
-    opacity: 0.9;
+    opacity: 1;
     box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
   }
 
@@ -106,7 +106,7 @@
   }
 
   77% {
-    opacity: 0.9;
+    opacity: 1;
     box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
   }
   100% {
@@ -121,11 +121,11 @@
     box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
   }
   2% {
-    opacity: 0.9;
+    opacity: 1;
     box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
   }
   8% {
-    opacity: 0.9;
+    opacity: 1;
     box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
   }
   12% {
@@ -146,7 +146,7 @@
   }
 
   70% {
-    opacity: 0.9;
+    opacity: 1;
     box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
   }
 
@@ -156,7 +156,7 @@
   }
 
   77% {
-    opacity: 0.9;
+    opacity: 1;
     box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
   }
   100% {
@@ -171,11 +171,11 @@
     box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
   }
   2% {
-    opacity: 0.9;
+    opacity: 1;
     box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
   }
   8% {
-    opacity: 0.9;
+    opacity: 1;
     box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
   }
   12% {
@@ -196,7 +196,7 @@
   }
 
   70% {
-    opacity: 0.9;
+    opacity: 1;
     box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
   }
 
@@ -206,7 +206,7 @@
   }
 
   77% {
-    opacity: 0.9;
+    opacity: 1;
     box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
   }
   100% {
@@ -310,6 +310,11 @@ $cardsScale: scale(1.05);
       animation: flicker-green-card 2.087ms infinite alternate;
       transform: $cardsScale;
     }
+  }
+
+  &.Carrousel {
+    width: 230px;
+    height: 320px;
   }
 }
 
