@@ -64,19 +64,47 @@ const cocktailData = [
     strIngredient5: "",
   },
   {
-    strDrink: "Spanish chocolate",
-    strCategory: "Cocoa",
-    strAlcoholic: "Non alcoholique",
-    strGlass: "Coffee mug",
-    strInstructions:
-      "Stir the milk with the chocolate and the cinnamon over low heat until the chocolate dissolves. Add the eggs and beat the mixture until it becomes thick, taking care not to boil. Serve in coffee mug.",
+    strDrink: "Bacardi Cocktail",
+    strCategory: "Ordinary Drink",
+    strAlcoholic: "Alcoholic",
+    strGlass: "Cocktail glass",
+    strInstructions: "Shake together with ice. Strain into glass and serve.",
     strDrinkThumb:
-      "https://www.thecocktaildb.com/images/media/drink/pra8vt1487603054.jpg",
-    strIngredient1: "Milk",
-    strIngredient2: "Chocolate",
-    strIngredient3: "Cinnamon",
-    strIngredient4: "Egg yolk",
+      "https://www.thecocktaildb.com/images/media/drink/n433t21504348259.jpg",
+    strIngredient1: "Light rum",
+    strIngredient2: "Lime juice",
+    strIngredient3: "Sugar syrup",
+    strIngredient4: "Grenadine",
     strIngredient5: "",
+  },
+  {
+    strDrink: "Holloween Punch",
+    strCategory: "Punch / Party Drink",
+    strAlcoholic: "Non alcoholic",
+    strGlass: "Punch bowl",
+    strInstructions:
+      'Take a bunch of grape juice and a bunch of fizzy stuff (club soda, ginger ale, lemonlime, whatever). Mix them in a punch bowl. Take orange sherbet and lime sherbet. Scoop out scoops and float them in the punch, let them melt a little so that a nasty film spreads all over the top of the punch but there are still "bubbles" in it in the form of sherbet scoops. Looks horrible, tastes just fine.',
+    strDrinkThumb:
+      "https://www.thecocktaildb.com/images/media/drink/lfeoe41504888925.jpg",
+    strIngredient1: "Grape juice",
+    strIngredient2: "Carbonated soft drink",
+    strIngredient3: "Sherbet",
+    strIngredient4: "Sherbet",
+    strIngredient5: "",
+  },
+  {
+    strDrink: "Fruit Shake",
+    strCategory: "Other/Unknown",
+    strAlcoholic: "Non alcoholic",
+    strGlass: "Highball Glass",
+    strInstructions: "Blend til smooth.",
+    strDrinkThumb:
+      "https://www.thecocktaildb.com/images/media/drink/q0fg2m1484430704.jpg",
+    strIngredient1: "Yoghurt",
+    strIngredient2: "Banana",
+    strIngredient3: "Orange juice",
+    strIngredient4: "Fruit",
+    strIngredient5: "Ice",
   },
 ];
 
