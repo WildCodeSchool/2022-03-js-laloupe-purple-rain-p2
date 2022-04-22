@@ -1,38 +1,46 @@
 body {
-  height: 200vh;
+  min-height: 100vh;
   min-width: 320px;
-  // background-color: rgb(37 23 51);
-  background-color: black;
+  background-color: rgb(16, 4, 34);
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  position: relative;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .topPage {
   min-width: 320px;
   width: 100%;
-  height: 100vh;
-  background-image: url('@assets/images/headerBg.jpg');
+  height: auto;
+  background-image: url("@assets/images/headerBg.jpg");
   background-repeat: no-repeat;
   background-size: 170%;
   background-position: top;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 64px;
 }
 
 .midPage {
   width: 100%;
   height: auto;
   color: white;
-  display: flex;
-  justify-content: center;
 }
 
 .botPage {
-  position: absolute;
-  bottom: 0;
   width: 100%;
   min-height: 256px;
 }
@@ -41,8 +49,6 @@ body {
   width: 100%;
   height: auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 @media screen and (min-width: 1024px) {

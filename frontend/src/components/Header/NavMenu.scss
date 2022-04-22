@@ -19,44 +19,43 @@
   right: -100%;
   flex-direction: column;
   list-style: none;
-  background-color: rgba(37,23,51, 0.6);
+  background-color: rgba(37, 23, 51, 0.6);
   backdrop-filter: blur(4px);
   transition: 350ms;
   z-index: 0;
 
-  
+  a {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: white;
 
-    a {
-      width: 100%;
-      height: 100%;
-      text-decoration: none;
+    &:visited {
       color: white;
+    }
 
-      &:visited {
-        color: white;
+    li {
+      width: 100%;
+      padding: 12px 22px 12px 0;
+      display: flex;
+      justify-content: flex-end;
+      background-color: inherit;
+      user-select: none;
+
+      &:hover {
+        background-color: rgb(139, 139, 139);
+        cursor: pointer;
       }
-      
-      li {
-        width: 100%;
-        padding: 12px 22px 12px 0;
-        display: flex;
-        justify-content: flex-end;
-        background-color: inherit;
 
-        &:hover {
-          background-color: rgb(139, 139, 139);
-          cursor: pointer;
-        }
-
-        &:active {
-          background-color: rgb(139, 139, 139);
-        }
+      &:active {
+        background-color: rgb(139, 139, 139);
       }
+    }
   }
 }
 
 .navActive {
-  background-color: rgba(37,23,51, 0.6);
+  background-color: rgba(37, 23, 51, 0.6);
 }
 
 .opened {
@@ -117,6 +116,8 @@
 
 .desktopScroll {
   display: none;
+  background-color: rgba(43, 0, 57, calc(2 / 3));
+  backdrop-filter: blur(10px);
 }
 
 @media screen and (min-width: 1024px) {
@@ -125,7 +126,7 @@
   }
 
   @font-face {
-    font-family: 'RussoOne';
+    font-family: "RussoOne";
     src: url("@assets/fonts/RussoOne-Regular.ttf");
   }
 
@@ -134,7 +135,6 @@
     width: 33%;
     display: flex;
     align-items: center;
-    
 
     $textBase: #5a8bac;
     $textActiveGlow: rgb(255, 139, 86);
@@ -142,39 +142,47 @@
     $textGlow: rgba(0, 162, 255, 1);
 
     @keyframes textNeon {
-      0%, 18%, 22%, 25%, 53%, 57%, 100% {
-        text-shadow:
-          0 0 1px rgba(0, 217, 255, 1),
-          0 0 2px $textHover,
-          0 0 10px $textGlow,
-          0 0 18px $textGlow,
-          0 0 25px $textGlow,
+      0%,
+      18%,
+      22%,
+      25%,
+      53%,
+      57%,
+      100% {
+        text-shadow: 0 0 1px rgba(0, 217, 255, 1), 0 0 2px $textHover,
+          0 0 10px $textGlow, 0 0 18px $textGlow, 0 0 25px $textGlow,
           0 0 30px $textGlow;
       }
-      20%, 24%, 55% {       
+      20%,
+      24%,
+      55% {
         -webkit-text-stroke-color: $textHover;
-        -webkit-text-stroke-width: 1px; 
+        -webkit-text-stroke-width: 1px;
       }
     }
 
     @keyframes textNeonActive {
-      0%, 18%, 22%, 25%, 53%, 57%, 100% {
-        text-shadow:
-          0 0 1px rgb(245, 100, 4),
-          0 0 2px $textHover,
-          0 0 10px $textActiveGlow,
-          0 0 18px $textActiveGlow,
-          0 0 25px $textActiveGlow,
-          0 0 30px $textActiveGlow;
+      0%,
+      18%,
+      22%,
+      25%,
+      53%,
+      57%,
+      100% {
+        text-shadow: 0 0 1px rgb(245, 100, 4), 0 0 2px $textHover,
+          0 0 10px $textActiveGlow, 0 0 18px $textActiveGlow,
+          0 0 25px $textActiveGlow, 0 0 30px $textActiveGlow;
       }
-      20%, 24%, 55% {       
+      20%,
+      24%,
+      55% {
         -webkit-text-stroke-color: $textHover;
-        -webkit-text-stroke-width: 1px; 
+        -webkit-text-stroke-width: 1px;
       }
     }
 
     a {
-      font-family: 'RussoOne';
+      font-family: "RussoOne";
       mix-blend-mode: lighten;
       display: flex;
       justify-content: center;
@@ -232,7 +240,7 @@
     .midLogo {
       height: 100%;
       width: 33%;
-      position: relative
+      position: relative;
     }
 
     .rightButtons {
