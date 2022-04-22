@@ -87,7 +87,7 @@
 
   .pageBar {
     @extend .letterBar;
-    
+    backdrop-filter: none;
   }
 
   .cardsContainer {
