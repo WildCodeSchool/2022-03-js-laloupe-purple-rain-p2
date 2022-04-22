@@ -63,6 +63,21 @@ const cocktailData = [
     strIngredient4: "Egg yolk",
     strIngredient5: "",
   },
+  {
+    strDrink: "Spanish chocolate",
+    strCategory: "Cocoa",
+    strAlcoholic: "Non alcoholique",
+    strGlass: "Coffee mug",
+    strInstructions:
+      "Stir the milk with the chocolate and the cinnamon over low heat until the chocolate dissolves. Add the eggs and beat the mixture until it becomes thick, taking care not to boil. Serve in coffee mug.",
+    strDrinkThumb:
+      "https://www.thecocktaildb.com/images/media/drink/pra8vt1487603054.jpg",
+    strIngredient1: "Milk",
+    strIngredient2: "Chocolate",
+    strIngredient3: "Cinnamon",
+    strIngredient4: "Egg yolk",
+    strIngredient5: "",
+  },
 ];
 
 const SearchWindow = () => {
@@ -90,14 +105,9 @@ const SearchWindow = () => {
         {cocktailData
           .filter((item) => item.strDrink.toLowerCase().includes(searchField))
           .map((item) => {
-            return (
-              <Cards { ...cocktailData } />
-            );
+            // eslint-disable-next-line
+            return <Cards {...item} />;
           })}
-
-        <span className="card" />
-        <span className="card" />
-        <span className="card" />
       </div>
     </section>
   );

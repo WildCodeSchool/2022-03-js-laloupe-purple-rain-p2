@@ -20,11 +20,10 @@ body {
   min-width: 320px;
   width: 100%;
   height: auto;
-  background-image: url('@assets/images/headerBg.jpg');
+  background-image: url("@assets/images/headerBg.jpg");
   background-repeat: no-repeat;
   background-size: 170%;
   background-position: top;
-  box-shadow: inset 0px 17px 15px 5px #000000;
 }
 
 .column {
