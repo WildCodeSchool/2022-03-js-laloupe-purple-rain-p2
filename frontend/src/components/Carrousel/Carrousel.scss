@@ -7,7 +7,7 @@
 .accueil-cocktail {
     position: relative;
     display: flex;
-    margin-top: 100px;
+    margin-bottom: 100px;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -16,6 +16,7 @@
 .carrousel {
     margin: auto;
     width: 230px;
+    height: 230px;
     perspective: 1200px;
 }
   
@@ -37,4 +38,10 @@
   
 .random-button {
     display: none;
+}
+
+@media screen and (min-width: 1024px) {
+  #cartomancie {
+    transform: rotate(30deg) translateX(300px);
+  }
 }
