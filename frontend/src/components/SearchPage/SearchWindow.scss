@@ -139,6 +139,7 @@
 @media screen and (min-width: 1024px) {
   .searchContainer {
     margin-top: 64px;
+
     .cardsContainer {
       grid-template-columns: 240px 240px 240px;
       grid-template-rows: 335px 335px 335px;
@@ -170,6 +171,7 @@
 @media screen and (min-width: 1450px) {
   .searchContainer {
     max-width: 75%;
+
     .cardsContainer {
       grid-template-columns: 240px 240px 240px 240px;
     }
