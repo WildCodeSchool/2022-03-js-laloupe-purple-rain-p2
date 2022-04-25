@@ -1,8 +1,9 @@
-import { Cards } from "@components/Carrousel/Cartes";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { Cards } from "./Cartes";
 import "@components/SearchPage/SearchWindow.scss";
-import { useState } from "react";
 
-const cocktailData = [
+const cocktailDataRaw = [
   {
     strDrink: "Screaming Orgasm",
     strCategory: "Ordinary Drink",
@@ -108,10 +109,79 @@ const cocktailData = [
   },
 ];
 
-const SearchWindow = () => {
-  const [searchField, setSearchField] = useState("");
-  // console.log(searchField);
+const letterBar = () => {
+  const response = [];
+  /* eslint-disable-next-line */
+  for (let i = 65; i !== 91; i++) {
+    response.push(String.fromCharCode(i));
+  }
+  return response;
+};
 
+const SearchWindow = () => {
+  const [cocktailList, setCocktailList] = useState(cocktailDataRaw);
+  const [searchField, setSearchField] = useState("");
+  const [currentLetter, setCurrentLetter] = useState("a");
+  const [maxItem, setMaxItem] = useState(10);
+  const [minItem, setMinItem] = useState(0);
+
+  const resetPage = () => {
+    setMinItem(0);
+    setMaxItem(10);
+  };
+
+  const prevPage = () => {
+    if (minItem === 0) {
+      setMinItem(0);
+      setMaxItem(10);
+    } else {
+      setMinItem(minItem - 10);
+      setMaxItem(maxItem - 10);
+    }
+  };
+  const nextPage = () => {
+    if (maxItem === cocktailList.length - (cocktailList.length % 10)) {
+      setMinItem(cocktailList.length - 10);
+      setMaxItem(cocktailList.length);
+    } else {
+      setMinItem(minItem + 10);
+      setMaxItem(maxItem + 10);
+    }
+  };
+
+  // const setPageNumber = () => {
+  //   let pageNumber = 1;
+
+  //   if (cocktailList.length % 10 === 0) {
+  //     console.log("isEven", cocktailList.length);
+  //   } else {
+  //     console.log("isOdd", cocktailList.length);
+  //   }
+
+  //   // console.log(pageNumber);
+  //   // return pageNumber;
+  // };
+
+  async function getDrinkByLetter(letter) {
+    const response = await axios
+      .get("https://www.thecocktaildb.com/api/json/v2/9973533/search.php", {
+        params: { f: letter },
+      })
+      .then((data) => data.data.drinks);
+
+    if (response) {
+      // setPageNumber();
+      resetPage();
+      return response;
+    }
+    return [];
+  }
+
+  useEffect(() => {
+    getDrinkByLetter(currentLetter).then((data) => setCocktailList(data));
+  }, [currentLetter]);
+
+  /* eslint-disable */
   return (
     <section className="searchContainer">
       <div className="searchBar">
@@ -129,14 +199,34 @@ const SearchWindow = () => {
           </li>
         </ul>
       </div>
+
+      <ul className="letterBar">
+        <p className="counter">Drinks: {cocktailList.length}</p>
+        {letterBar().map((letter) => {
+          return <li onClick={() => setCurrentLetter(letter)}>{letter}</li>;
+        })}
+        <li>0-1</li>
+      </ul>
+      <ul className="pageBar">
+        <li onClick={() => prevPage()}>{`<-`}</li>
+        <li onClick={() => nextPage()}>{`->`}</li>
+      </ul>
+
       <div className="cardsContainer">
-        {cocktailData
-          .filter((item) => item.strDrink.toLowerCase().includes(searchField))
+        {cocktailList
+          .filter((item) =>
+            item.strDrink.toLowerCase().includes(searchField.toLowerCase())
+          )
+          .slice(minItem, maxItem)
           .map((item) => {
             // eslint-disable-next-line
             return <Cards {...item} />;
           })}
       </div>
+      <ul className="pageBar">
+        <li onClick={() => prevPage()}>{`<-`}</li>
+        <li onClick={() => nextPage()}>{`->`}</li>
+      </ul>
     </section>
   );
 };
