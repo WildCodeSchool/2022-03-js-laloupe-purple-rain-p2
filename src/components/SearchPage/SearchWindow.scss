@@ -72,6 +72,22 @@
       color: white;
     }
 
+    .rmFilters {
+      position: absolute;
+      left: 15%;
+      color: rgb(77, 197, 228);
+
+      &:hover {
+        transform: scale(1.05);
+        color: rgb(183, 237, 250);
+        cursor: pointer;
+      }
+    }
+
+    .hide {
+      display: none;
+    }
+
     li {
       height: 100%;
       color: rgb(77, 197, 228);
