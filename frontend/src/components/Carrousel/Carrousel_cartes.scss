@@ -1,18 +1,3 @@
-.Cartes {
-  margin: 50px, 0px, 50px, 0px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.CartesEteintes {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: center;
-  margin: 50px, 0px, 50px, 0px;
-}
-
 // *! ---------------CLIGNOTEMENT---------------
 
 @keyframes flicker-blue-card {
@@ -243,18 +228,17 @@
   }
 }
 
-$cardsScale: scale(1.05);
-
-.Carte {
-  box-sizing: border-box;
-  margin: 0px, 40px, 0px, 40px;
-  width: 100%;
-  height: 100%;
-  background-color: grey;
+.Carrousel-carte {
+  width: 230px;
+  height: 320px;
+  aspect-ratio: 23/32;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.4);
+  align-items: center;
   border: solid rgb(255, 255, 255) 2px;
-  box-shadow: off;
-  animation: off;
+  backdrop-filter: blur(3px);
   transition: 200ms;
   object-fit: contain;
   position: relative;
@@ -285,6 +269,7 @@ $cardsScale: scale(1.05);
   }
 
   p {
+    display: none;
     font-size: 14px;
     text-align: center;
     color: white;
@@ -294,188 +279,124 @@ $cardsScale: scale(1.05);
 
   .drinkImage {
     width: 100%;
-    border-radius: 8px;
+    border-radius: 8px 8px 0 0;
   }
 
   &.Bleue {
     border: solid #001b4a 2px;
-
-    &:hover {
-      border: solid rgb(255, 255, 255) 2px;
-      cursor: pointer;
-      animation: flicker-blue-card 2.1ms infinite alternate;
-      transform: $cardsScale;
-    }
+    border: solid rgb(255, 255, 255) 2px;
+    cursor: pointer;
+    animation: flicker-blue-card 2.1ms infinite alternate;
   }
 
   &.Orange {
     border: solid #393600 2px;
-
-    &:hover {
-      border: solid rgb(255, 255, 255) 2px;
-      cursor: pointer;
-      animation: flicker-orange-card 2.08ms infinite alternate;
-      transform: $cardsScale;
-    }
+    border: solid rgb(255, 255, 255) 2px;
+    cursor: pointer;
+    animation: flicker-orange-card 2.08ms infinite alternate;
   }
 
   &.Rose {
     border: solid #520049 2px;
-
-    &:hover {
-      border: solid rgb(255, 255, 255) 2px;
-      cursor: pointer;
-      animation: flicker-pink-card 2.08ms infinite alternate;
-      transform: $cardsScale;
-    }
+    border: solid rgb(255, 255, 255) 2px;
+    cursor: pointer;
+    animation: flicker-pink-card 2.08ms infinite alternate;
   }
 
   &.Verte {
     border: solid #003d00 2px;
-
-    &:hover {
-      border: solid rgb(255, 255, 255) 2px;
-      cursor: pointer;
-      animation: flicker-green-card 2.087ms infinite alternate;
-      transform: $cardsScale;
-    }
-  }
-
-  &.Carrousel {
-    width: 230px;
-    height: 320px;
+    border: solid rgb(255, 255, 255) 2px;
+    cursor: pointer;
+    animation: flicker-green-card 2.087ms infinite alternate;
   }
 }
 
-@media screen and (max-width: 1024px) {
-  .Carte {
+@media screen and (min-width: 1024px) {
+  $cardsScale: scale(1.05);
+
+  .Carrousel-carte {
+    filter: brightness(0.85) saturate(0.60);
+
+    h4 {
+      font-size: 16px;
+    }
+
+    h5 {
+      font-size: 14px;
+      padding: 6px 0;
+    }
+
+    .drinkImage {
+      filter: blur(1px);
+      z-index: -1;
+    }
+
+    &:hover {
+      filter: none;
+
+      .drinkImage {
+        filter: none;
+      }
+    }
+
     &.Bleue {
+      background-color: #001b4a75;
+      box-shadow: none;
+      animation: none;
       border: solid #001b4a 2px;
-      border: solid rgb(255, 255, 255) 2px;
-      cursor: pointer;
-      animation: flicker-blue-card 2.1ms infinite alternate;
-      transform: $cardsScale;
+
+      &:hover {
+        background-color: #003ea875;
+        border: solid rgb(255, 255, 255) 2px;
+        cursor: pointer;
+        animation: flicker-blue-card 2.1ms infinite alternate;
+        transform: $cardsScale;
+      }
     }
 
     &.Orange {
+      background-color: #39360075;
+      box-shadow: none;
+      animation: none;
       border: solid #393600 2px;
-      border: solid rgb(255, 255, 255) 2px;
-      cursor: pointer;
-      animation: flicker-orange-card 2.08ms infinite alternate;
-      transform: $cardsScale;
+
+      &:hover {
+        background-color: #97900075;
+        border: solid rgb(255, 255, 255) 2px;
+        cursor: pointer;
+        animation: flicker-orange-card 2.08ms infinite alternate;
+        transform: $cardsScale;
+      }
     }
 
     &.Rose {
+      background-color: #52004959;
+      box-shadow: none;
+      animation: none;
       border: solid #520049 2px;
-      border: solid rgb(255, 255, 255) 2px;
-      cursor: pointer;
-      animation: flicker-pink-card 2.08ms infinite alternate;
-      transform: $cardsScale;
+
+      &:hover {
+        background-color: #97008659;
+        border: solid rgb(255, 255, 255) 2px;
+        cursor: pointer;
+        animation: flicker-pink-card 2.08ms infinite alternate;
+        transform: $cardsScale;
+      }
     }
 
     &.Verte {
+      background-color: #003d0057;
+      box-shadow: none;
+      animation: none;
       border: solid #003d00 2px;
-      border: solid rgb(255, 255, 255) 2px;
-      cursor: pointer;
-      animation: flicker-green-card 2.087ms infinite alternate;
-      transform: $cardsScale;
+
+      &:hover {
+        background-color: #0091005b;
+        border: solid rgb(255, 255, 255) 2px;
+        cursor: pointer;
+        animation: flicker-green-card 2.087ms infinite alternate;
+        transform: $cardsScale;
+      }
     }
   }
 }
-
-// // *! -----------------CARTES ALLUMEES-----------------
-
-// .CarteVerte {
-//   box-sizing: border-box;
-//   margin: 0px, 50px, 0px, 50px;
-//   // margin-top: 20px;
-//   // margin-bottom: 20px;
-//   width: 150px;
-//   height: 200px;
-//   background: grey;
-//   border-radius: 10px;
-//   border: solid white 2px;
-//   animation: flicker-green-card 2.087ms infinite alternate;
-// }
-
-// // *! -----------------CARTES ETEINTES-----------------
-
-// .CarteBleueOff {
-//   box-sizing: border-box;
-//   margin: 20px 40px 20px 40px;
-//   width: 150px;
-//   height: 200px;
-//   background: black;
-//   border-radius: 10px;
-//   border: solid #005e64 2px;
-//   box-shadow: 0px 0px 0px 0px #00f0ff, inset 0px 0px 0px 0px #00f0ff;
-//   transition: all .2s ease-in-out;
-
-//   &:hover {
-//     cursor: pointer;
-//   border: solid white 2px;
-//   animation: flicker-blue-card 2.1ms infinite alternate;
-//   border: solid white 2px;
-//   transform: scale(1.1);
-//   }
-// }
-
-// .CarteOrangeOff {
-//   box-sizing: border-box;
-//   margin: 20px 40px 20px 40px;
-//   width: 150px;
-//   height: 200px;
-//   background: black;
-//   border-radius: 10px;
-//   border: solid #554300 2px;
-//   box-shadow: 0px 0px 0px 0px #ffc700, inset 0px 0px 0px 0px #ffc700;
-//   transition: all .2s ease-in-out;
-
-//   &:hover {
-//     cursor: pointer;
-//   border: solid white 2px;
-//   animation: flicker-orange-card 2.1ms infinite alternate;
-//   border: solid white 2px;
-//   transform: scale(1.1);
-//   }
-// }
-
-// .CarteRoseOff {
-//   box-sizing: border-box;
-//   margin: 20px 40px 20px 40px;
-//   width: 150px;
-//   height: 200px;
-//   background: black;
-//   border-radius: 10px;
-//   border: solid #520049 2px;
-//   box-shadow: 0px 0px 0px 0px #ff00e5, inset 0px 0px 0px 0px #ff00e5;
-//   transition: all .2s ease-in-out;
-
-//   &:hover {
-//     cursor: pointer;
-//   border: solid white 2px;
-//   animation: flicker-pink-card 2.1ms infinite alternate;
-//   border: solid white 2px;
-//   transform: scale(1.1);
-//   }
-// }
-
-// .CarteVerteOff {
-//   box-sizing: border-box;
-//   margin: 20px 40px 20px 40px;
-//   width: 150px;
-//   height: 200px;
-//   background: black;
-//   border-radius: 10px;
-//   border: solid #003d00 2px;
-//   box-shadow: 0px 0px 0px 0px #00ff00, inset 0px 0px 0px 0px #00ff00;
-//   transition: all .2s ease-in-out;
-
-//   &:hover {
-//     cursor: pointer;
-//   border: solid white 2px;
-//   animation: flicker-green-card 2.1ms infinite alternate;
-//   border: solid white 2px;
-//   transform: scale(1.1);
-//   }
-// }

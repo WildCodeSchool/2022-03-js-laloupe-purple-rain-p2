@@ -3,7 +3,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./Carrousel.scss";
-import "./Cartes.scss";
+import "./Carrousel_cartes.scss";
 
 const tableOfIndex = [0, 1, 2, 3];
 
@@ -106,7 +106,7 @@ function Carrousel() {
           onTouchMove={handleTouchMove}
         >
           <figure
-            className="Carte Bleue Carrousel"
+            className="Carrousel-carte Bleue Carrousel"
             id="0"
             style={
               width <= 1024
@@ -121,7 +121,7 @@ function Carrousel() {
             }
           ></figure>
           <figure
-            className="Carte Verte Carrousel"
+            className="Carrousel-carte Verte Carrousel"
             id="1"
             style={
               width <= 1024 ?
@@ -138,7 +138,7 @@ function Carrousel() {
                 }}
           ></figure>
           <figure
-            className="Carte Rose Carrousel"
+            className="Carrousel-carte Rose Carrousel"
             id="2"
             style={
               width <= 1024 ?
@@ -154,7 +154,7 @@ function Carrousel() {
                 }}
           ></figure>
           <figure
-            className="Carte Orange Carrousel"
+            className="Carrousel-carte Orange Carrousel"
             id="3"
             style={
               width <= 1024 ?
