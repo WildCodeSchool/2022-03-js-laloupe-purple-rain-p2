@@ -22,18 +22,12 @@
 
 .carrousel-container {
     width: 100%;
+    aspect-ratio: 23/32;
     float: right;
     transform-style: preserve-3d;
 
     >figure {
         position: absolute;
-        margin: 0;
-        width: 100%;
-        aspect-ratio: 23/32;
-        background-color: gray;
-        border: 5px solid black;
-        border-radius: 10px;
-        transition: all 0.5s;
     }
 }
 
