@@ -228,15 +228,14 @@
   }
 }
 
-.Carte {
-  padding: 0;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
+.Carrousel-carte {
+  width: 230px;
+  height: 320px;
+  aspect-ratio: 23/32;
   border-radius: 10px;
-  background: none;
   display: flex;
   flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.4);
   align-items: center;
   border: solid rgb(255, 255, 255) 2px;
   backdrop-filter: blur(3px);
@@ -315,7 +314,7 @@
 @media screen and (min-width: 1024px) {
   $cardsScale: scale(1.05);
 
-  .Carte {
+  .Carrousel-carte {
     filter: brightness(0.85) saturate(0.60);
 
     h4 {

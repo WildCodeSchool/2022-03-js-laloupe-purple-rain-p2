@@ -1,3 +1,8 @@
+@font-face {
+  font-family: RussoOne;
+  src: url("@assets/fonts/RussoOne-Regular.ttf");
+}
+
 .navMenu {
   position: fixed;
   margin: 0;
@@ -125,11 +130,6 @@
     display: none;
   }
 
-  @font-face {
-    font-family: "RussoOne";
-    src: url("@assets/fonts/RussoOne-Regular.ttf");
-  }
-
   @mixin buttons {
     height: 100%;
     width: 33%;
@@ -142,6 +142,7 @@
     $textGlow: rgba(0, 162, 255, 1);
 
     @keyframes textNeon {
+
       0%,
       18%,
       22%,
@@ -153,6 +154,7 @@
           0 0 10px $textGlow, 0 0 18px $textGlow, 0 0 25px $textGlow,
           0 0 30px $textGlow;
       }
+
       20%,
       24%,
       55% {
@@ -162,6 +164,7 @@
     }
 
     @keyframes textNeonActive {
+
       0%,
       18%,
       22%,
@@ -173,6 +176,7 @@
           0 0 10px $textActiveGlow, 0 0 18px $textActiveGlow,
           0 0 25px $textActiveGlow, 0 0 30px $textActiveGlow;
       }
+
       20%,
       24%,
       55% {
@@ -182,7 +186,7 @@
     }
 
     a {
-      font-family: "RussoOne";
+      font-family: RussoOne;
       mix-blend-mode: lighten;
       display: flex;
       justify-content: center;
