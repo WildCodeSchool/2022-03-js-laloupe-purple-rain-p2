@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import "./NavMenu.scss";
 import Logo from "./Logo";
@@ -32,55 +32,106 @@ const NavMenu = ({ isScrolled }) => {
         )}
 
         <ul className={`navList ${isOpen && "opened"}`}>
-          <li>
-            <Link onClick={() => setIsOpen(false)} to="/">
-              Homepage
-            </Link>
-          </li>
-          <li>
-            <Link onClick={() => setIsOpen(false)} to="/search">
-              Search
-            </Link>
-          </li>
-          <li>
-            <Link onClick={() => setIsOpen(false)} to="/history">
-              History
-            </Link>
-          </li>
-          <li>
-            <Link onClick={() => setIsOpen(false)} to="/jobs">
-              Jobs
-            </Link>
-          </li>
+          <NavLink
+            onClick={() => setIsOpen(false)}
+            to="/"
+            className={(nav) => (nav.isActive ? "navActive" : "")}
+          >
+            <li>Homepage</li>
+          </NavLink>
+
+          <NavLink
+            onClick={() => setIsOpen(false)}
+            to="/search"
+            className={(nav) => (nav.isActive ? "navActive" : "")}
+          >
+            <li>Search</li>
+          </NavLink>
+
+          <NavLink
+            onClick={() => setIsOpen(false)}
+            to="/history"
+            className={(nav) => (nav.isActive ? "navActive" : "")}
+          >
+            <li>History</li>
+          </NavLink>
+
+          <NavLink
+            onClick={() => setIsOpen(false)}
+            to="/jobs"
+            className={(nav) => (nav.isActive ? "navActive" : "")}
+          >
+            <li>Jobs</li>
+          </NavLink>
         </ul>
       </div>
 
       {isScrolled ? (
         <div className="desktopScroll">
           <div className="leftButtons">
-            <Link to="/">HOMEPAGE</Link>
-            <Link to="/search">SEARCH</Link>
+            <NavLink
+              to="/"
+              className={(nav) => (nav.isActive ? "navActive" : "")}
+            >
+              HOMEPAGE
+            </NavLink>
+            <NavLink
+              to="/search"
+              className={(nav) => (nav.isActive ? "navActive" : "")}
+            >
+              SEARCH
+            </NavLink>
           </div>
-          <Link to="/" className="midLogo">
+          <NavLink to="/" className="midLogo">
             <Logo isScrolled={isScrolled} />
-          </Link>
+          </NavLink>
           <div className="rightButtons">
-            <Link to="/history">HISTORY</Link>
-            <Link to="/jobs">JOBS</Link>
+            <NavLink
+              to="/history"
+              className={(nav) => (nav.isActive ? "navActive" : "")}
+            >
+              HISTORY
+            </NavLink>
+            <NavLink
+              to="/jobs"
+              className={(nav) => (nav.isActive ? "navActive" : "")}
+            >
+              JOBS
+            </NavLink>
           </div>
         </div>
       ) : (
         <div className="desktop">
           <div className="leftButtons">
-            <Link to="/">HOMEPAGE</Link>
-            <Link to="/search">SEARCH</Link>
+            <NavLink
+              to="/"
+              className={(nav) => (nav.isActive ? "navActive" : "")}
+            >
+              HOMEPAGE
+            </NavLink>
+            <NavLink
+              to="/search"
+              className={(nav) => (nav.isActive ? "navActive" : "")}
+            >
+              SEARCH
+            </NavLink>
           </div>
-          <Link to="/" className="midLogo">
+          <NavLink to="/" className="midLogo">
             <Logo isScrolled={isScrolled} />
-          </Link>
+          </NavLink>
           <div className="rightButtons">
-            <Link to="/history">HISTORY</Link>
-            <Link to="/jobs">JOBS</Link>
+            <NavLink
+              to="/history"
+              className={(nav) => (nav.isActive ? "navActive" : "")}
+            >
+              HISTORY
+            </NavLink>
+            <NavLink
+              to="/jobs"
+              className={(nav) => (nav.isActive ? "navActive" : "")}
+            >
+              JOBS
+            </NavLink>
           </div>
         </div>
       )}
