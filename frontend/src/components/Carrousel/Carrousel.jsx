@@ -5,8 +5,6 @@ import { useState, useEffect } from "react";
 import "./Carrousel.scss";
 import "./Carrousel_cartes.scss";
 
-const tableOfIndex = [0, 1, 2, 3];
-
 function scaleWidth(width) {
   if (width < 600) {
     let ratio = 1 - (0.8 * (600 - width)) / 600;
@@ -48,25 +46,35 @@ function translateYAxis(index) {
 }
 
 function Carrousel() {
-  const [touchPosition, setTouchPosition] = React.useState(null);
+  const initialState = [0, 1, 2, 3];
 
-  function updateWindowSize() {
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [tableOfIndex, setTableOfIndex] = useState(initialState);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [touchPosition, setTouchPosition] = useState(null);
+  const [isDesktop, setIsDesktop] = useState((window.innerWidth >= 1024) ? true : false);
 
-    useEffect(() => {
-      const handleWindowWidth = () => {
-        setWindowWidth(window.innerWidth);
-      };
-
-      window.addEventListener("resize", handleWindowWidth);
-
-      return () => {
-        window.removeEventListener("resize", handleWindowWidth);
-      };
-    }, []);
-    //Can also handle height if needed.
-    return windowWidth;
+  function resetIndex() {
+    if (isDesktop) {
+      setTableOfIndex(initialState);
+    }
   }
+
+  function handleWidth() {
+    setWindowWidth(window.innerWidth);
+
+    if (windowWidth >= 1024) {
+      setIsDesktop(true);
+    } else {
+      setIsDesktop(false);
+    }
+    resetIndex();
+  }
+
+  useEffect(() => {
+    window.addEventListener("resize", handleWidth);
+
+    return () => window.removeEventListener("resize", handleWidth);
+  });
 
   const handleTouchStart = (e) => {
     const touchDown = e.touches[0].clientX;
@@ -92,13 +100,11 @@ function Carrousel() {
     setTouchPosition(null);
   };
 
-  const width = updateWindowSize();
-
   return (
     <>
       <section
         className="carrousel"
-        style={{ transform: `scale(${scaleWidth(width)})` }}
+        style={{ transform: `scale(${scaleWidth(windowWidth)})` }}
       >
         <section
           className="carrousel-container"
@@ -109,8 +115,8 @@ function Carrousel() {
             className="Carrousel-carte Bleue Carrousel"
             id="0"
             style={
-              width <= 1024
-                ? {
+              !isDesktop ?
+                {
                   transform: `translateX(${Math.sin((tableOfIndex[0] * Math.PI) / 2) * 150
                     }px) translateY(${translateYAxis(
                       tableOfIndex[0]
@@ -124,7 +130,7 @@ function Carrousel() {
             className="Carrousel-carte Verte Carrousel"
             id="1"
             style={
-              width <= 1024 ?
+              !isDesktop ?
                 {
                   transform: `translateX(${Math.sin((tableOfIndex[1] * Math.PI) / 2) * 150
                     }px) translateY(${translateYAxis(
@@ -141,7 +147,7 @@ function Carrousel() {
             className="Carrousel-carte Rose Carrousel"
             id="2"
             style={
-              width <= 1024 ?
+              !isDesktop ?
                 {
                   transform: `translateX(${Math.sin((tableOfIndex[2] * Math.PI) / 2) * 150
                     }px) translateY(${translateYAxis(
@@ -157,7 +163,7 @@ function Carrousel() {
             className="Carrousel-carte Orange Carrousel"
             id="3"
             style={
-              width <= 1024 ?
+              !isDesktop ?
                 {
                   transform: `translateX(${Math.sin((tableOfIndex[3] * Math.PI) / 2) * 150
                     }px) translateY(${translateYAxis(
