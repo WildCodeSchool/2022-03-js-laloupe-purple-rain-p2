@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.accueil-cocktail {
+    position: relative;
+    display: flex;
+    margin-bottom: 100px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.carrousel {
+    margin: auto;
+    width: 230px;
+    height: 230px;
+    perspective: 1200px;
+}
+
+.carrousel-container {
+    width: 100%;
+    aspect-ratio: 23/32;
+    float: right;
+    transform-style: preserve-3d;
+
+    >figure {
+        position: absolute;
+    }
+}
+
+.random-button {
+    display: none;
+}
+
+@media screen and (min-width: 1024px) {
+    #cartomancie {
+        transform: rotate(30deg) translateX(300px);
+    }
+}
