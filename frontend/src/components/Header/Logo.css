@@ -78,6 +78,8 @@
 }
 
 .scrolled {
+  height: 48px;
+  top: 0;
   position: fixed;
   align-items: flex-start;
   transform: translateY(0);
