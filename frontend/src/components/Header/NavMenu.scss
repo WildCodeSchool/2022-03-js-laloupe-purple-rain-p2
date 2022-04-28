@@ -222,6 +222,8 @@
     height: 196px;
     width: 100%;
     flex-direction: column;
+    background: none;
+    backdrop-filter: none;
   }
 
   .desktop {
