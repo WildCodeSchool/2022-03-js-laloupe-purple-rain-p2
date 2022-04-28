@@ -17,6 +17,56 @@
     display: flex;
     align-items: center;
     position: relative;
+
+    .navButton {
+      position: fixed;
+      right: 8px;
+      top: 4px;
+      width: 42px;
+      height: 42px;
+      border: none;
+      background: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: 350ms;
+      z-index: 20;
+    
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    
+    .rotate90 {
+      transform: rotate(-90deg);
+    }
+    
+    .menuLogoBars {
+      width: 38px;
+      height: 3px;
+      border-radius: 3px;
+      background-color: #ffa600;
+      margin-top: 3px;
+      margin-bottom: 3px;
+      position: relative;
+    }
+    
+    .hide {
+      display: none;
+    }
+    
+    .cross {
+      transform: rotate(45deg);
+      margin: 0;
+      position: absolute;
+    }
+    
+    .crossInverted {
+      transform: rotate(-45deg);
+      margin: 0;
+      position: absolute;
+    }
   }
 
   .desktop {
