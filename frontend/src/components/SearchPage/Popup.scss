@@ -7,9 +7,9 @@
   // backdrop-filter: blur(4px);
   color: black;
   z-index: 15;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .popup-inner {
@@ -22,6 +22,23 @@
   background-color: #fff;
   overflow: visible;
   border-radius: 8px;
+}
+
+.popup-inner .page-cocktails {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.popup-inner .info-cocktails {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.popup-inner .cocktail-img {
+  width: 30%;
 }
 
 .popup-inner .close-btn {
