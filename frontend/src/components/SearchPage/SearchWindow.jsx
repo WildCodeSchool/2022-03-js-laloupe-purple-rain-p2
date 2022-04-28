@@ -30,7 +30,7 @@ const letterBar = () => {
   return response;
 };
 
-const SearchWindow = () => {
+const SearchWindow = ({setInfoPopup}) => {
   const [searchField, setSearchField] = useState(""); // Search field input value
   const [cocktailList, setCocktailList] = useState(cocktailDataRaw); // Actual list of drinks
   const [numberFiltered, setNumberFiltered] = useState(false); // Drinks names starts by a number
@@ -165,48 +165,49 @@ const SearchWindow = () => {
           </li>
         </ul>
       </div>
-
-      <ul className="letterBar">
-        <p className="counter">{cocktailList.length} results</p>
-        <p
-          className={filtered ? "rmFilters" : "hide"}
-          onClick={() => resetFilters()}
-        >
-          Remove Filters
-        </p>
-        {letterBar().map((letter) => {
-          return (
-            <li onClick={() => setCurrentLetter(letter)} key={letter}>
-              {letter}
-            </li>
-          );
-        })}
-        <li onClick={() => startsWithNumber()}>0-9</li>
-      </ul>
-      <ul className="pageBar">
-        <li onClick={() => firstPage()}>{`<!`}</li>
-        <li onClick={() => prevPage()}>{`<-`}</li>
-        <li onClick={() => nextPage()}>{`->`}</li>
-        <li onClick={() => lastPage()}>{`!>`}</li>
-      </ul>
-
-      <div className="cardsContainer">
-        {cocktailList
-          .filter((item) =>
-            item.strDrink.toLowerCase().includes(searchField.toLowerCase())
-          )
-          .slice(minItem, maxItem)
-          .map((item) => {
-            // eslint-disable-next-line
-            return <Cards {...item} key={item.idDrink} />;
+      <div className="searchContent">
+        <ul className="letterBar">
+          <p className="counter">{cocktailList.length} results</p>
+          <p
+            className={filtered ? "rmFilters" : "hide"}
+            onClick={() => resetFilters()}
+          >
+            Remove Filters
+          </p>
+          {letterBar().map((letter) => {
+            return (
+              <li onClick={() => setCurrentLetter(letter)} key={letter}>
+                {letter}
+              </li>
+            );
           })}
+          <li onClick={() => startsWithNumber()}>0-9</li>
+        </ul>
+        <ul className="pageBar">
+          <li onClick={() => firstPage()}>{`<!`}</li>
+          <li onClick={() => prevPage()}>{`<-`}</li>
+          <li onClick={() => nextPage()}>{`->`}</li>
+          <li onClick={() => lastPage()}>{`!>`}</li>
+        </ul>
+
+        <div className="cardsContainer">
+          {cocktailList
+            .filter((item) =>
+              item.strDrink.toLowerCase().includes(searchField.toLowerCase())
+            )
+            .slice(minItem, maxItem)
+            .map((item) => {
+              // eslint-disable-next-line
+              return <Cards {...item} key={item.idDrink} setInfoPopup={setInfoPopup} />;
+            })}
+        </div>
+        <ul className="pageBar">
+          <li onClick={() => firstPage()}>{`<!`}</li>
+          <li onClick={() => prevPage()}>{`<-`}</li>
+          <li onClick={() => nextPage()}>{`->`}</li>
+          <li onClick={() => lastPage()}>{`!>`}</li>
+        </ul>
       </div>
-      <ul className="pageBar">
-        <li onClick={() => firstPage()}>{`<!`}</li>
-        <li onClick={() => prevPage()}>{`<-`}</li>
-        <li onClick={() => nextPage()}>{`->`}</li>
-        <li onClick={() => lastPage()}>{`!>`}</li>
-      </ul>
     </section>
   );
 };
