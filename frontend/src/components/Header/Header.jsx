@@ -5,6 +5,7 @@ import NavMenu from "./NavMenu";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState();
 
   const handleScroll = () => {
     if (window.scrollY > 65) {
@@ -25,7 +26,28 @@ const Header = () => {
     <header className="header">
       <div className="mobile">
         <Logo isScrolled={isScrolled} setIsScrolled={setIsScrolled} />
-        <NavMenu />
+        {isOpen ? (
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            type="button"
+            className="navButton rotate90"
+          >
+            <span className="menuLogoBars cross" />
+            <span className="menuLogoBars crossInverted" />
+            <span className="menuLogoBars hide" />
+          </button>
+        ) : (
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            type="button"
+            className="navButton"
+          >
+            <span className="menuLogoBars" />
+            <span className="menuLogoBars" />
+            <span className="menuLogoBars" />
+          </button>
+        )}
+        <NavMenu isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
       <div className="desktop">
         <NavMenu isScrolled={isScrolled} />

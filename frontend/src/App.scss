@@ -14,9 +14,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-x: hidden;
 }
 
 .topPage {
+  padding-bottom: 120px;
   min-width: 320px;
   width: 100%;
   height: auto;
