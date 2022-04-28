@@ -1,5 +1,5 @@
-/* eslint-disable */
-import "./Formation.css";
+// /* eslint-disable */
+import "./Formation.scss";
 import imageMetier from "@assets/images/barman-cocktail.jpg";
 import iconeShaker from "@assets/images/shaker2.png";
 import iconeDiplome from "@assets/images/diplome2.png";
@@ -15,7 +15,17 @@ const Formation = () => {
   const externalSource2 = "https://youtu.be/jXGik68NQ9Y";
 
   return (
-    <div className="formation">
+    <div className="formationContainer">
+      <h1>
+        <span>T</span>u veux te former au métier?
+      </h1>
+      <figure>
+        <img src={imageMetier} className="imageBarman" alt="metier barman" />
+      </figure>
+      <p className="introduction">
+        Voilà un métier passionnant et enrichissant socialement. Tu veux en
+        savoir davantage?
+      </p>
       <details>
         <summary className="sommaire">
           {`Cliquez pour plus d'information`}
@@ -126,21 +136,19 @@ const Formation = () => {
         </h1>
         <div className="videoPlayer">
           <ReactPlayer
-            className="playerVideo-1"
+            className="playerVideo"
             url={externalSource}
+            width="auto"
+            aspect-ratio="16/9"
             controls
-            // playing
-            // width="100%"
-            // height="490px"
             onEnded={videoEnded}
           />
           <ReactPlayer
-            className="playerVideo-2"
+            className="playerVideo"
             url={externalSource2}
+            width="auto"
+            aspect-ratio="16/9"
             controls
-            // playing
-            // width="100%"
-            // height="490px"
             onEnded={videoEnded}
           />
         </div>
