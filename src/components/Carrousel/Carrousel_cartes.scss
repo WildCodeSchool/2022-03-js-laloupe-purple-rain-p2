@@ -285,6 +285,9 @@
   }
 
   &.Bleue {
+    background-image: url("./Drunk_Cat.jpeg");
+    background-size: cover;
+    background-position-x: center;
     border: solid #001b4a 2px;
     border: solid rgb(255, 255, 255) 2px;
     cursor: pointer;
@@ -292,6 +295,9 @@
   }
 
   &.Orange {
+    background-image: url("./Alcool_free.jpg");
+    background-size: cover;
+    background-position-x: center;
     border: solid #393600 2px;
     border: solid rgb(255, 255, 255) 2px;
     cursor: pointer;
@@ -299,6 +305,9 @@
   }
 
   &.Rose {
+    background-image: url("./random.png");
+    background-size: cover;
+    background-position-x: center;
     border: solid #520049 2px;
     border: solid rgb(255, 255, 255) 2px;
     cursor: pointer;
@@ -306,6 +315,9 @@
   }
 
   &.Verte {
+    background-image: url("./demoman-heavy.gif");
+    background-size: cover;
+    background-position-x: center;
     border: solid #003d00 2px;
     border: solid rgb(255, 255, 255) 2px;
     cursor: pointer;

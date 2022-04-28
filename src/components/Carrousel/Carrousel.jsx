@@ -147,7 +147,13 @@ function Carrousel() {
         >
           <figure
             className={`Carrousel-carte Bleue Carrousel 
-            ${(tableOfIndex[0] === 1 && !isDesktop) ? "Carrousel-left" : (tableOfIndex[0] === 3 && !isDesktop) ? "Carrousel-right" : ""}
+            ${(tableOfIndex[0] === 1 && !isDesktop) ?
+                "Carrousel-left"
+                : (tableOfIndex[0] === 3 && !isDesktop) ?
+                  "Carrousel-right"
+                  :
+                  ""
+              }
             `}
             id="0"
             style={
@@ -157,7 +163,13 @@ function Carrousel() {
           >Alcool</figure>
           <figure
             className={`Carrousel-carte Verte Carrousel 
-            ${(tableOfIndex[1] === 1 && !isDesktop) ? "Carrousel-left" : (tableOfIndex[1] === 3 && !isDesktop) ? "Carrousel-right" : ""}
+            ${(tableOfIndex[1] === 1 && !isDesktop) ?
+                "Carrousel-left"
+                : (tableOfIndex[1] === 3 && !isDesktop) ?
+                  "Carrousel-right"
+                  :
+                  ""
+              }
             `}
             id="1"
             style={
@@ -167,7 +179,13 @@ function Carrousel() {
           >Cocktail Mixte</figure>
           <figure
             className={`Carrousel-carte Rose Carrousel 
-            ${(tableOfIndex[2] === 1 && !isDesktop) ? "Carrousel-left" : (tableOfIndex[2] === 3 && !isDesktop) ? "Carrousel-right" : ""}
+            ${(tableOfIndex[2] === 1 && !isDesktop) ?
+                "Carrousel-left"
+                : (tableOfIndex[2] === 3 && !isDesktop) ?
+                  "Carrousel-right"
+                  :
+                  ""
+              }
             `}
             id="2"
             style={
@@ -177,7 +195,13 @@ function Carrousel() {
           >Random</figure>
           <figure
             className={`Carrousel-carte Orange Carrousel 
-            ${(tableOfIndex[3] === 1 && !isDesktop) ? "Carrousel-left" : (tableOfIndex[3] === 3 && !isDesktop) ? "Carrousel-right" : ""}
+            ${(tableOfIndex[3] === 1 && !isDesktop) ?
+                "Carrousel-left"
+                : (tableOfIndex[3] === 3 && !isDesktop) ?
+                  "Carrousel-right"
+                  :
+                  ""
+              }
             `}
             id="3"
             style={
