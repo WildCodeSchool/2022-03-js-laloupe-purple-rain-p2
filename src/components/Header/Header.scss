@@ -5,13 +5,17 @@
 .header {
   display: flex;
   max-width: 100vw;
-  min-width: 320px;
+  // min-width: 320px;
+  width: 100%;
   z-index: 4;
 
   .mobile {
+    padding-top: 64px;
     top: 0;
     width: 100%;
-    height: 256px;
+    height: 200px;
+    display: flex;
+    align-items: center;
     position: relative;
   }
 
