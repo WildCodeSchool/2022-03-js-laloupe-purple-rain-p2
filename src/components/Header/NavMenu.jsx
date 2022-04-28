@@ -1,37 +1,12 @@
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
 import "./NavMenu.scss";
 import Logo from "./Logo";
 
-const NavMenu = ({ isScrolled }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
+const NavMenu = ({ isScrolled, isOpen, setIsOpen }) => {
   return (
-    <nav className="navMenu">
-      <div className="mobile">
-        {isOpen ? (
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            type="button"
-            className="navButton rotate90"
-          >
-            <span className="menuLogoBars cross" />
-            <span className="menuLogoBars crossInverted" />
-            <span className="menuLogoBars hide" />
-          </button>
-        ) : (
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            type="button"
-            className="navButton"
-          >
-            <span className="menuLogoBars" />
-            <span className="menuLogoBars" />
-            <span className="menuLogoBars" />
-          </button>
-        )}
-
-        <ul className={`navList ${isOpen && "opened"}`}>
+    <nav className={isOpen ? "navMenu opened" : "navMenu"}>
+      <div className="mobileNav">
+        <ul className="navList">
           <NavLink
             onClick={() => setIsOpen(false)}
             to="/"
