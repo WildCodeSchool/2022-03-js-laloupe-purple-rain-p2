@@ -2,15 +2,17 @@
   background-color: rgba(0, 162, 255, 0.2);
   min-width: 300px;
   width: 90vw;
+  min-height: 100vh;
   height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   border-left: solid 2px rgb(192, 255, 255);
   border-right: solid 2px rgb(186, 255, 255);
   box-shadow: 0 0 15px 2px rgb(0, 217, 255);
   clip-path: inset(0px -15px 0px -15px);
+  // position: relative;
 
   .searchBar {
     background-color: rgba(0, 107, 168, 0.767);
@@ -54,107 +56,124 @@
     }
   }
 
-  .letterBar {
-    user-select: none;
-    margin: 0;
-    padding: 4px 0;
+  .searchContent {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    backdrop-filter: blur(8px);
-    position: relative;
-
-    .counter {
-      position: absolute;
-      left: 15px;
-      color: white;
-    }
-
-    .rmFilters {
-      position: absolute;
-      left: 15%;
-      color: rgb(77, 197, 228);
-
-      &:hover {
-        transform: scale(1.05);
-        color: rgb(183, 237, 250);
-        cursor: pointer;
+    justify-content: space-between;
+  
+    .letterBar {
+      user-select: none;
+      margin: 0;
+      padding: 4px 0;
+      width: 100%;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(8px);
+      position: relative;
+  
+      .counter {
+        position: absolute;
+        left: 15px;
+        color: white;
+      }
+  
+      .rmFilters {
+        position: absolute;
+        left: 15%;
+        color: rgb(77, 197, 228);
+  
+        &:hover {
+          transform: scale(1.05);
+          color: rgb(183, 237, 250);
+          cursor: pointer;
+        }
+      }
+  
+      .hide {
+        display: none;
+      }
+  
+      li {
+        height: 100%;
+        color: rgb(77, 197, 228);
+        margin: 0 4px;
+  
+        &:hover {
+          transform: scale(1.2);
+          color: rgb(183, 237, 250);
+          cursor: pointer;
+        }
       }
     }
-
-    .hide {
-      display: none;
+  
+    .pageBar {
+      @extend .letterBar;
+      backdrop-filter: none;
     }
-
-    li {
-      height: 100%;
-      color: rgb(77, 197, 228);
-      margin: 0 4px;
-
-      &:hover {
-        transform: scale(1.2);
-        color: rgb(183, 237, 250);
-        cursor: pointer;
-      }
+  
+    .cardsContainer {
+      padding: 24px 10% 24px 10%;
+      max-width: 95%;
+      width: 95%;
+      height: auto;
+      display: grid;
+      justify-content: center;
+      grid-template-columns: repeat(2, 120px);
+      grid-auto-rows: 140px;
+      gap: 28px 20px;
     }
-  }
-
-  .pageBar {
-    @extend .letterBar;
-    backdrop-filter: none;
-  }
-
-  .cardsContainer {
-    padding: 24px 10% 24px 10%;
-    max-width: 95%;
-    width: 95%;
-    height: auto;
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(2, 120px);
-    grid-auto-rows: 140px;
-    gap: 28px 20px;
   }
 }
 
 @media screen and (min-width: 560px) {
   .searchContainer {
-    .cardsContainer {
-      grid-template-columns: repeat(3, 140px);
-      grid-auto-rows: 160px;
-      gap: 24px 20px;
+    .searchContent {
+      .cardsContainer {
+        grid-template-columns: repeat(3, 140px);
+        grid-auto-rows: 160px;
+        gap: 24px 20px;
+      }
     }
   }
 }
 
 @media screen and (min-width: 760px) {
   .searchContainer {
-    .cardsContainer {
-      grid-template-columns: repeat(4, 140px);
-      gap: 24px 20px;
+    .searchContent {
+      .cardsContainer {
+        grid-template-columns: repeat(4, 140px);
+        gap: 24px 20px;
+      }
     }
   }
 }
 
 @media screen and (min-width: 950px) {
   .searchContainer {
-    .cardsContainer {
-      grid-template-columns: repeat(5, 140px);
-      gap: 24px 20px;
+    .searchContent {
+      .cardsContainer {
+        grid-template-columns: repeat(5, 140px);
+        gap: 24px 20px;
+      }
     }
   }
 }
 
 @media screen and (min-width: 1024px) {
   .searchContainer {
-    margin-top: 64px;
-
-    .cardsContainer {
-      grid-template-columns: repeat(3, 240px);
-      grid-auto-rows: 335px;
-      gap: 24px 20px;
+    margin-top: 24px;
+    
+    .searchContent {
+      .cardsContainer {
+        grid-template-columns: repeat(3, 240px);
+        grid-auto-rows: 335px;
+        gap: 24px 20px;
+      }
     }
   }
 }
@@ -163,8 +182,10 @@
   .searchContainer {
     max-width: 75%;
 
-    .cardsContainer {
-      grid-template-columns: repeat(4, 240px);
+    .searchContent {
+      .cardsContainer {
+        grid-template-columns: repeat(4, 240px);
+      }
     }
   }
 }
@@ -172,8 +193,10 @@
 @media screen and (min-width: 1780px) {
   .searchContainer {
     max-width: 75%;
-    .cardsContainer {
-      grid-template-columns: repeat(5, 240px);
+    .searchContent {
+      .cardsContainer {
+        grid-template-columns: repeat(5, 240px);
+      }
     }
   }
 }
