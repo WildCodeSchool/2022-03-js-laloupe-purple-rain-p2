@@ -134,20 +134,22 @@ const Formation = () => {
         <h1>
           <span>Q</span>uelques vidéos?
         </h1>
-        <div className="videoPlayer">
+        <div className="player-wrapper">
           <ReactPlayer
-            className="playerVideo"
+            className="react-player"
             url={externalSource}
-            width="auto"
-            aspect-ratio="16/9"
+            width="100%"
+            height="100%"
             controls
             onEnded={videoEnded}
           />
+        </div>
+        <div className="player-wrapper">
           <ReactPlayer
-            className="playerVideo"
+            className="react-player"
             url={externalSource2}
-            width="auto"
-            aspect-ratio="16/9"
+            width="100%"
+            height="100%"
             controls
             onEnded={videoEnded}
           />
