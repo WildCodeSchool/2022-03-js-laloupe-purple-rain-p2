@@ -99,24 +99,14 @@ ul {
   color: #ff9400;
 }
 
-.videoPlayer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+.player-wrapper {
+  position: relative;
+  padding-top: 56.25%; /* 720 / 1280 = 0.5625 */
+  margin: 42px 54px;
 
-  .playerVideo-1 {
-    border-radius: 2px;
-    width: 100%;
-    margin: 12px;
-    border: solid 2px rgb(170, 221, 255);
-    border: solid 2px rgb(170, 221, 255);
-  }
-
-  .playerVideo-2 {
-    @extend .playerVideo-1;
+  .react-player {
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 }
-
-
