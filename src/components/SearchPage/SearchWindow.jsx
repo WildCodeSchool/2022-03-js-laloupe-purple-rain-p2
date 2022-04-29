@@ -30,7 +30,7 @@ const letterBar = () => {
   return response;
 };
 
-const SearchWindow = ({setInfoPopup}) => {
+const SearchWindow = ({ setInfoPopup }) => {
   const [searchField, setSearchField] = useState(""); // Search field input value
   const [cocktailList, setCocktailList] = useState(cocktailDataRaw); // Actual list of drinks
   const [numberFiltered, setNumberFiltered] = useState(false); // Drinks names starts by a number
@@ -198,7 +198,13 @@ const SearchWindow = ({setInfoPopup}) => {
             .slice(minItem, maxItem)
             .map((item) => {
               // eslint-disable-next-line
-              return <Cards {...item} key={item.idDrink} setInfoPopup={setInfoPopup} />;
+              return (
+                <Cards
+                  {...item}
+                  key={item.idDrink}
+                  setInfoPopup={setInfoPopup}
+                />
+              );
             })}
         </div>
         <ul className="pageBar">
