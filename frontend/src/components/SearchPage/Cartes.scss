@@ -242,7 +242,7 @@
   backdrop-filter: blur(3px);
   transition: 200ms;
   object-fit: contain;
-  position: relative;
+  // position: relative;
 
   h4 {
     margin: 0;
@@ -314,7 +314,6 @@
 
 @media screen and (min-width: 1024px) {
   $cardsScale: scale(1.05);
-
   .Carte {
     filter: brightness(0.85) saturate(0.60);
 
