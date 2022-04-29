@@ -30,7 +30,7 @@ const Question = ({
     }
   };
 
-  const nextClickHandler = () => {
+  const nextClickHandler = (e) => {
     if (selected === "") {
       return setError("Please select one option!");
     }
@@ -65,16 +65,18 @@ const Question = ({
             ))}
           </div>
           {error && <div className="has-text-danger">{error}</div>}
-          <button
-            className="button is-link is-medium is-fullwidth mt-4"
-            type="button"
-            onClick={nextClickHandler}
-          >
-            Next
-          </button>
-          <button className="button" type="button" onClick={exitQuiz}>
-            Exit Quiz
-          </button>
+          <div className="buton-start-exit">
+            <button
+              className="button is-link is-medium is-fullwidth mt-4"
+              type="button"
+              onClick={nextClickHandler}
+            >
+              Next
+            </button>
+            <button className="button" type="button" onClick={exitQuiz}>
+              Exit Quiz
+            </button>
+          </div>
         </div>
       </div>
     </div>
