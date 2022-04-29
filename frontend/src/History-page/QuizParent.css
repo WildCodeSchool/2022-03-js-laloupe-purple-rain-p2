@@ -117,12 +117,12 @@ label.radio input {
   margin: 6px  4px 0 0;
   width: 72px;
   border: none;
-  background-color: #3187b9;
+  /* background-color: rgb(157, 43, 172); rgb(255, 90, 0) rgb(255, 187, 0) */
+  background: linear-gradient(0deg, rgba(255,90,0,1) 0%, rgba(255,187,0,1) 100%);
   color: white;
   padding: 4px 8px;
   border-radius: 2px;
   transition: 300ms;
-
   }
 
   .buttonQuiz:hover {
@@ -138,21 +138,28 @@ label.radio input {
     animation: none;
   }
 
-
-
 .button{
-  background-color:rgb(0, 217, 255); 
-  margin: 8px;
-  animation: flicker-button-quiz 2.1 infinite alternate;
+  margin: 6px  4px 0 0;
+  width: 72px;
+  border: none;
+  background-color: rgb(157, 43, 172);
+  background: linear-gradient(0deg, rgba(65,1,75,1) 0%, rgba(157,43,172,1) 100%);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 2px;
+  transition: 300ms;
+  margin: 15px;
 }
 
 .button:hover {
-  cursor:pointer;
-  caret-color: crimson;
-  animation: mymove 1s infinite;
+    cursor: pointer;
+    animation: flickerForm 6ms infinite alternate;
+    background-color: rgb(45, 165, 231);
+    color:rgb(253, 208, 7);
+    transform: scale(1.05);
+    border: solid 1px white;
 }
 
-@keyframes mymove {
-  from {background-color: rgb(0, 217, 255);}
-  to {background-color: rgb(255, 77, 0);}
+.button:focus {
+  animation: none;
 }

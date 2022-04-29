@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { useEffect, useState } from "react";
 
-import { formatTime } from "../../History-page/utils";
+// import { formatTime } from "../../History-page/utils";
 
 const End = ({ results, data, onReset, onAnswersCheck, time, resetQuiz }) => {
   const [correctAnswers, setCorrectAnswers] = useState(0);
@@ -28,9 +28,9 @@ const End = ({ results, data, onReset, onAnswersCheck, time, resetQuiz }) => {
           <p>
             <strong>{Math.floor((correctAnswers / data.length) * 100)}%</strong>
           </p>
-          <p>
+          {/* <p>
             <strong>Your time:</strong> {formatTime(time)}
-          </p>
+          </p> */}
           <div className="fullButton">
             <button
               className="button is-info mr-2"

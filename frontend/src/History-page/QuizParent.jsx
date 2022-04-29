@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./QuizParent.css";
 
 import Start from "@components/History/Start";
@@ -7,27 +7,27 @@ import End from "@components/History/End";
 import Modal from "@components/History/Modal";
 import quizData from "./data/quiz.json";
 
-let interval;
+// let interval;
 
 const QuizParent = () => {
   const [step, setStep] = useState(1);
   const [activeQuestion, setActiveQuestion] = useState(0);
   const [answers, setAnswers] = useState([]);
   const [showModal, setShowModal] = useState(false);
-  const [time, setTime] = useState(0);
+  // const [time, setTime] = useState(0);
 
-  useEffect(() => {
-    if (step === 3) {
-      clearInterval(interval);
-    }
-  }, [step]);
+  // useEffect(() => {
+  //   if (step === 3) {
+  //     clearInterval(interval);
+  //   }
+  // }, [step]);
 
   const resetQuiz = () => {
     setStep(1);
     setActiveQuestion(0);
     setAnswers([]);
     setShowModal(false);
-    setTime(0);
+    // setTime(0);
   };
 
   const exitQuiz = () => {
@@ -35,24 +35,24 @@ const QuizParent = () => {
     setActiveQuestion(0);
     setAnswers([]);
     setShowModal(false);
-    setTime(0);
+    // setTime(0);
   };
 
   const quizStartHandler = () => {
     setStep(2);
-    interval = setInterval(() => {
-      setTime((prevTime) => prevTime + 1);
-    }, 1000);
+    // interval = setInterval(() => {
+    //   setTime((prevTime) => prevTime + 1);
+    // }, 1000);
   };
 
   const resetClickHandler = () => {
     setActiveQuestion(0);
     setAnswers([]);
     setStep(2);
-    setTime(0);
-    interval = setInterval(() => {
-      setTime((prevTime) => prevTime + 1);
-    }, 1000);
+    // setTime(0);
+    // interval = setInterval(() => {
+    //   setTime((prevTime) => prevTime + 1);
+    // }, 1000);
   };
 
   return (
@@ -75,7 +75,7 @@ const QuizParent = () => {
           data={quizData.data}
           onReset={resetClickHandler}
           onAnswersCheck={() => setShowModal(true)}
-          time={time}
+          // time={time}
           resetQuiz={() => resetQuiz()}
         />
       )}
