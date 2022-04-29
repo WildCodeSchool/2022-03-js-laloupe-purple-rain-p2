@@ -237,11 +237,13 @@
   flex-direction: column;
   background-color: rgba(0, 0, 0, 0.4);
   align-items: center;
+  color: white;
   border: solid rgb(255, 255, 255) 2px;
   backdrop-filter: blur(3px);
   transition: 200ms;
   object-fit: contain;
   position: relative;
+  overflow: hidden;
 
   h4 {
     margin: 0;
@@ -283,6 +285,9 @@
   }
 
   &.Bleue {
+    background-image: url("./Drunk_Cat.jpeg");
+    background-size: cover;
+    background-position-x: center;
     border: solid #001b4a 2px;
     border: solid rgb(255, 255, 255) 2px;
     cursor: pointer;
@@ -290,6 +295,9 @@
   }
 
   &.Orange {
+    background-image: url("./Alcool_free.jpg");
+    background-size: cover;
+    background-position-x: center;
     border: solid #393600 2px;
     border: solid rgb(255, 255, 255) 2px;
     cursor: pointer;
@@ -297,6 +305,9 @@
   }
 
   &.Rose {
+    background-image: url("./random.png");
+    background-size: cover;
+    background-position-x: center;
     border: solid #520049 2px;
     border: solid rgb(255, 255, 255) 2px;
     cursor: pointer;
@@ -304,6 +315,9 @@
   }
 
   &.Verte {
+    background-image: url("./demoman-heavy.gif");
+    background-size: cover;
+    background-position-x: center;
     border: solid #003d00 2px;
     border: solid rgb(255, 255, 255) 2px;
     cursor: pointer;
@@ -398,5 +412,41 @@
         transform: $cardsScale;
       }
     }
+  }
+}
+
+.Carrousel-left {
+  color: transparent;
+
+  &::after {
+    content: attr(dataattribute);
+    font-size: 24px;
+    position: relative;
+    width: 170%;
+    padding: 7.5% 0;
+    top: 45%;
+    left: 40%;
+    transform: translateY(-50%) rotate(90deg);
+    color: white;
+    background-color: rgba($color: #ffffff, $alpha: 0.2);
+    transition: all 0.5s;
+  }
+}
+
+.Carrousel-right {
+  color: transparent;
+
+  &::after {
+    content: attr(dataattribute);
+    font-size: 24px;
+    position: relative;
+    width: 170%;
+    padding: 7.5% 0;
+    top: 45%;
+    right: 40%;
+    transform: translateY(-50%) rotate(-90deg);
+    color: white;
+    background-color: rgba($color: #ffffff, $alpha: 0.2);
+    transition: all 0.5s;
   }
 }
