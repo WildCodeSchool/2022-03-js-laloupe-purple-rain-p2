@@ -1,9 +1,7 @@
-/* eslint-disable */
+// /* eslint-disable */
 import React, { useEffect, useState } from "react";
 
-// import { formatTime } from "../../History-page/utils";
-
-const End = ({ results, data, onReset, onAnswersCheck, time, resetQuiz }) => {
+const End = ({ results, data, onReset, onAnswersCheck, resetQuiz }) => {
   const [correctAnswers, setCorrectAnswers] = useState(0);
 
   useEffect(() => {
@@ -14,7 +12,6 @@ const End = ({ results, data, onReset, onAnswersCheck, time, resetQuiz }) => {
       }
     });
     setCorrectAnswers(correct);
-    // eslint-disable-next-line
   }, []);
 
   return (
@@ -28,9 +25,6 @@ const End = ({ results, data, onReset, onAnswersCheck, time, resetQuiz }) => {
           <p>
             <strong>{Math.floor((correctAnswers / data.length) * 100)}%</strong>
           </p>
-          {/* <p>
-            <strong>Your time:</strong> {formatTime(time)}
-          </p> */}
           <div className="fullButton">
             <button
               className="button is-info mr-2"

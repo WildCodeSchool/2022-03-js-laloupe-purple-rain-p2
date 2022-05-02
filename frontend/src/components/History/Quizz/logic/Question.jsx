@@ -1,4 +1,4 @@
-/* eslint-disable */
+// /* eslint-disable */
 
 import React, { useState, useEffect, useRef } from "react";
 
@@ -53,7 +53,11 @@ const Question = ({
           <h2 className="mb-5">{data.question}</h2>
           <div className="control" ref={radiosWrapper}>
             {data.choices.map((choice, i) => (
-              <label className="radio has-background-light" key={i}>
+              <label
+                type="checkbox"
+                className="radio has-background-light"
+                key={parseInt(choice.question, 10)}
+              >
                 <input
                   type="radio"
                   name="answer"

@@ -36,7 +36,11 @@
       2,
       { "namedComponents": ["arrow-function", "function-declaration"] }
     ],
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "no-plusplus": "off",
+    "consistent-return": "off",
+    "no-unused-vars": "off",
+    "jsx-a11y/label-has-associated-control": "off"
   },
   "settings": {
     "import/resolver": {
