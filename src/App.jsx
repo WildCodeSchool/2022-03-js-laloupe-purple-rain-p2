@@ -15,8 +15,7 @@ function App() {
     <LightThemeContext.Provider value={{ lightTheme, setLightTheme }}>
       <Router>
         <Routes>
-          <Route path="/" element={<AbusAlcool />} />
-          <Route path="/homepage" element={<Homepage />} />
+          <Route path="/" element={<Homepage />} />
           <Route path="/search" element={<Search />} />
           <Route path="/history" element={<History />} />
           <Route path="/jobs" element={<Jobs />} />
