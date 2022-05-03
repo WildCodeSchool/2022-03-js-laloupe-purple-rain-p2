@@ -5,11 +5,9 @@ import Logo from "./Logo";
 import NavMenu from "./NavMenu";
 
 const Header = () => {
+  const { lightTheme, setLightTheme } = useContext(LightThemeContext);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState();
-  const { lightTheme, setLightTheme } = useContext(LightThemeContext);
-
-  // console.log(isScrolled);
 
   const handleScroll = () => {
     if (window.scrollY > 65) {
@@ -21,6 +19,7 @@ const Header = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
 
     return window.removeEventListener("scroll", handleScroll);
   });
