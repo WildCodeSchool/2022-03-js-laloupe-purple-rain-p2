@@ -19,6 +19,36 @@
     position: relative;
     z-index: 2;
 
+    .themeButton {
+      position: absolute;
+      top: 8px;
+      left: 4px;
+      width: 30px;
+      height: 15px;
+      border-radius: 15px;
+      background-color: rgb(204, 204, 204);
+      border: none;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      z-index: 20;
+    }
+
+    .themeButton:hover {
+      cursor: pointer;
+    }
+
+    .sliderSwitch {
+      justify-content: flex-end;
+    }
+
+    .themeButtonSlider {
+      width: 15px;
+      height: 15px;
+      background-color: black;
+      border-radius: 15px;
+    }
+
     .navButton {
       position: fixed;
       right: 8px;
@@ -33,16 +63,16 @@
       align-items: center;
       transition: 350ms;
       z-index: 20;
-    
+
       &:hover {
         cursor: pointer;
       }
     }
-    
+
     .rotate90 {
       transform: rotate(-90deg);
     }
-    
+
     .menuLogoBars {
       width: 38px;
       height: 3px;
@@ -52,17 +82,17 @@
       margin-bottom: 3px;
       position: relative;
     }
-    
+
     .hide {
       display: none;
     }
-    
+
     .cross {
       transform: rotate(45deg);
       margin: 0;
       position: absolute;
     }
-    
+
     .crossInverted {
       transform: rotate(-45deg);
       margin: 0;
@@ -98,6 +128,37 @@
       justify-content: space-between;
       width: 100%;
       height: 196px;
+      position: relative;
+
+      .themeButton {
+        position: absolute;
+        top: 8px;
+        left: 4px;
+        width: 30px;
+        height: 15px;
+        border-radius: 15px;
+        background-color: rgb(204, 204, 204);
+        border: none;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        z-index: 20;
+      }
+
+      .themeButton:hover {
+        cursor: pointer;
+      }
+
+      .sliderSwitch {
+        justify-content: flex-end;
+      }
+
+      .themeButtonSlider {
+        width: 15px;
+        height: 15px;
+        background-color: black;
+        border-radius: 15px;
+      }
     }
   }
 }

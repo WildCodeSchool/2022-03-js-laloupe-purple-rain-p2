@@ -1,17 +1,23 @@
 @keyframes flickerForm {
-  0%, 18%, 22%, 25%, 53%, 57%, 100% {
-    box-shadow:
-    0 0px 2px 1px rgba(177, 246, 255, 1), 
-    0 0px 4px 1px rgba(6, 172, 238, 0.92), 
-    0 0px 6px 1px rgba(14, 139, 211, 0.98), 
-    0 0px 8px 2px rgba(34, 106, 148, 0.85), 
-    0 0px 10px 2px rgba(8, 103, 158, 0.68), 
-    0 0px 12px 2px rgba(0, 162, 255, 0.71), 
-  } 20%, 24%, 55% {       
-    box-shadow: 
-    0 0px 5px 2.5px rgb(125, 235, 255),
-    0 0px 6px 4px rgb(3, 62, 117),
-    0 0px 8px 2px rgb(5, 107, 167),
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  100% {
+    box-shadow: 0 0px 2px 1px rgba(177, 246, 255, 1),
+      0 0px 4px 1px rgba(6, 172, 238, 0.92),
+      0 0px 6px 1px rgba(14, 139, 211, 0.98),
+      0 0px 8px 2px rgba(34, 106, 148, 0.85),
+      0 0px 10px 2px rgba(8, 103, 158, 0.68),
+      0 0px 12px 2px rgba(0, 162, 255, 0.71);
+  }
+  20%,
+  24%,
+  55% {
+    box-shadow: 0 0px 5px 2.5px rgb(125, 235, 255),
+      0 0px 6px 4px rgb(3, 62, 117), 0 0px 8px 2px rgb(5, 107, 167);
   }
 }
 
@@ -23,12 +29,12 @@ $bgColorFocus: rgba(43, 163, 228, 0.45);
   flex-direction: column;
   align-items: center;
   position: relative;
-  font-family: 'RussoOne';
+  font-family: "RussoOne";
 
   h3 {
     margin: 4px 4px 4px 4px;
   }
-  
+
   input {
     padding: 6px;
     height: 28px;
@@ -50,7 +56,7 @@ $bgColorFocus: rgba(43, 163, 228, 0.45);
       color: rgba(6, 172, 238, 0.92);
     }
   }
-  
+
   textarea {
     margin: 8px;
     border-radius: 4px;
@@ -92,7 +98,7 @@ $bgColorFocus: rgba(43, 163, 228, 0.45);
         outline: none;
         animation: none;
       }
-      
+
       &:checked {
         outline: none;
         animation: flickerForm 6ms infinite alternate;
@@ -107,7 +113,7 @@ $bgColorFocus: rgba(43, 163, 228, 0.45);
   }
 
   .buttonSubmit {
-    margin: 6px  4px 0 0;
+    margin: 6px 4px 0 0;
     width: 72px;
     position: absolute;
     right: 0;

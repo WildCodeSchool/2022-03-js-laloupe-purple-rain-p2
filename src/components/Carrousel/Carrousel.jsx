@@ -51,7 +51,9 @@ function Carrousel() {
   const [tableOfIndex, setTableOfIndex] = useState(initialState);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [touchPosition, setTouchPosition] = useState(null);
-  const [isDesktop, setIsDesktop] = useState((window.innerWidth >= 1024) ? true : false);
+  const [isDesktop, setIsDesktop] = useState(
+    window.innerWidth >= 1024 ? true : false
+  );
 
   function resetIndex() {
     if (isDesktop) {
@@ -104,19 +106,22 @@ function Carrousel() {
     // 4 element only !
     if (!isDesktop) {
       return {
-        transform: `translateX(${Math.sin((index * Math.PI) / 2) * 150
-          }px) translateY(${translateYAxis(
-            index
-          )}px) translateZ(${translateZAxis(index)}px`,
+        transform: `translateX(${
+          Math.sin((index * Math.PI) / 2) * 150
+        }px) translateY(${translateYAxis(index)}px) translateZ(${translateZAxis(
+          index
+        )}px`,
         TransitionEvent: `all 1s`,
       };
     } else {
-      if (id == 0) { // first element
+      if (id == 0) {
+        // first element
         return {
           transform: `translateY(-20px)`,
           color: `white`,
         };
-      } else if (id == 1 || id == 3) { // second and last element
+      } else if (id == 1 || id == 3) {
+        // second and last element
         if (id == 1) {
           return {
             transform: `translateX(350px) translateY(40px) rotate(20deg)`,
@@ -129,7 +134,7 @@ function Carrousel() {
         };
       }
       return {
-        display: "none"
+        display: "none",
       };
     }
   }
@@ -147,68 +152,68 @@ function Carrousel() {
         >
           <figure
             className={`Carrousel-carte Bleue Carrousel 
-            ${(tableOfIndex[0] === 1 && !isDesktop) ?
-                "Carrousel-left"
-                : (tableOfIndex[0] === 3 && !isDesktop) ?
-                  "Carrousel-right"
-                  :
-                  ""
-              }
+            ${
+              tableOfIndex[0] === 1 && !isDesktop
+                ? "Carrousel-left"
+                : tableOfIndex[0] === 3 && !isDesktop
+                ? "Carrousel-right"
+                : ""
+            }
             `}
             id="0"
-            style={
-              carrouselFormer(tableOfIndex[0], 0)
-            }
+            style={carrouselFormer(tableOfIndex[0], 0)}
             dataattribute="Alcool"
-          >Alcool</figure>
+          >
+            Alcool
+          </figure>
           <figure
             className={`Carrousel-carte Verte Carrousel 
-            ${(tableOfIndex[1] === 1 && !isDesktop) ?
-                "Carrousel-left"
-                : (tableOfIndex[1] === 3 && !isDesktop) ?
-                  "Carrousel-right"
-                  :
-                  ""
-              }
+            ${
+              tableOfIndex[1] === 1 && !isDesktop
+                ? "Carrousel-left"
+                : tableOfIndex[1] === 3 && !isDesktop
+                ? "Carrousel-right"
+                : ""
+            }
             `}
             id="1"
-            style={
-              carrouselFormer(tableOfIndex[1], 1)
-            }
+            style={carrouselFormer(tableOfIndex[1], 1)}
             dataattribute="Cocktail Mixte"
-          >Cocktail Mixte</figure>
+          >
+            Cocktail Mixte
+          </figure>
           <figure
             className={`Carrousel-carte Rose Carrousel 
-            ${(tableOfIndex[2] === 1 && !isDesktop) ?
-                "Carrousel-left"
-                : (tableOfIndex[2] === 3 && !isDesktop) ?
-                  "Carrousel-right"
-                  :
-                  ""
-              }
+            ${
+              tableOfIndex[2] === 1 && !isDesktop
+                ? "Carrousel-left"
+                : tableOfIndex[2] === 3 && !isDesktop
+                ? "Carrousel-right"
+                : ""
+            }
             `}
             id="2"
-            style={
-              carrouselFormer(tableOfIndex[2], 2)
-            }
+            style={carrouselFormer(tableOfIndex[2], 2)}
             dataattribute="Random"
-          >Random</figure>
+          >
+            Random
+          </figure>
           <figure
             className={`Carrousel-carte Orange Carrousel 
-            ${(tableOfIndex[3] === 1 && !isDesktop) ?
-                "Carrousel-left"
-                : (tableOfIndex[3] === 3 && !isDesktop) ?
-                  "Carrousel-right"
-                  :
-                  ""
-              }
+            ${
+              tableOfIndex[3] === 1 && !isDesktop
+                ? "Carrousel-left"
+                : tableOfIndex[3] === 3 && !isDesktop
+                ? "Carrousel-right"
+                : ""
+            }
             `}
             id="3"
-            style={
-              carrouselFormer(tableOfIndex[3], 3)
-            }
+            style={carrouselFormer(tableOfIndex[3], 3)}
             dataattribute="Sans-Alcool"
-          >Sans-Alcool</figure>
+          >
+            Sans-Alcool
+          </figure>
         </section>
       </section>
       <button className="random-button">Random Cocktail</button>

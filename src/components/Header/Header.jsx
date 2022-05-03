@@ -1,11 +1,15 @@
 import "@components/Header/Header.scss";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import LightThemeContext from "@contexts/LightTheme";
 import Logo from "./Logo";
 import NavMenu from "./NavMenu";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState();
+  const { lightTheme, setLightTheme } = useContext(LightThemeContext);
+
+  // console.log(isScrolled);
 
   const handleScroll = () => {
     if (window.scrollY > 65) {
@@ -17,15 +21,21 @@ const Header = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    handleScroll();
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return window.removeEventListener("scroll", handleScroll);
   });
 
   return (
     <header className="header">
       <div className="mobile">
-        <Logo isScrolled={isScrolled} setIsScrolled={setIsScrolled} />
+        <button
+          type="button"
+          className={lightTheme ? "themeButton" : "themeButton sliderSwitch"}
+          onClick={() => setLightTheme(!lightTheme)}
+        >
+          <div className="themeButtonSlider" />
+        </button>
+        <Logo isScrolled={isScrolled} />
         {isOpen ? (
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -50,6 +60,13 @@ const Header = () => {
         <NavMenu isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
       <div className="desktop">
+        <button
+          type="button"
+          className={lightTheme ? "themeButton" : "themeButton sliderSwitch"}
+          onClick={() => setLightTheme(!lightTheme)}
+        >
+          <div className="themeButtonSlider" />
+        </button>
         <NavMenu isScrolled={isScrolled} />
       </div>
     </header>

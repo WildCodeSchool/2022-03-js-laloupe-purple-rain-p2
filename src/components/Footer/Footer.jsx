@@ -18,7 +18,7 @@ const Footer = () => {
     handleMobile();
     window.addEventListener("resize", handleMobile);
     return () => window.removeEventListener("resize", handleMobile);
-  });
+  }, []);
 
   return (
     <footer className="footer">
@@ -31,7 +31,7 @@ const Footer = () => {
       <div className="footerRight">
         <ul className="footerNav">
           <NavLink
-            to="/"
+            to="/homepage"
             className={(nav) => (nav.isActive ? "navActive" : "")}
           >
             <li>Homepage</li>
