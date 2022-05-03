@@ -1,40 +1,15 @@
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
 import "./NavMenu.scss";
 import Logo from "./Logo";
 
-const NavMenu = ({ isScrolled }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
+const NavMenu = ({ isScrolled, isOpen, setIsOpen }) => {
   return (
-    <nav className="navMenu">
-      <div className="mobile">
-        {isOpen ? (
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            type="button"
-            className="navButton rotate90"
-          >
-            <span className="menuLogoBars cross" />
-            <span className="menuLogoBars crossInverted" />
-            <span className="menuLogoBars hide" />
-          </button>
-        ) : (
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            type="button"
-            className="navButton"
-          >
-            <span className="menuLogoBars" />
-            <span className="menuLogoBars" />
-            <span className="menuLogoBars" />
-          </button>
-        )}
-
-        <ul className={`navList ${isOpen && "opened"}`}>
+    <nav className={isOpen ? "navMenu opened" : "navMenu"}>
+      <div className="mobileNav">
+        <ul className="navList">
           <NavLink
             onClick={() => setIsOpen(false)}
-            to="/"
+            to="/homepage"
             className={(nav) => (nav.isActive ? "navActive" : "")}
           >
             <li>Homepage</li>
@@ -70,7 +45,7 @@ const NavMenu = ({ isScrolled }) => {
         <div className="desktopScroll">
           <div className="leftButtons">
             <NavLink
-              to="/"
+              to="/homepage"
               className={(nav) => (nav.isActive ? "navActive" : "")}
             >
               HOMEPAGE
@@ -82,7 +57,7 @@ const NavMenu = ({ isScrolled }) => {
               SEARCH
             </NavLink>
           </div>
-          <NavLink to="/" className="midLogo">
+          <NavLink to="/homepage" className="midLogo">
             <Logo isScrolled={isScrolled} />
           </NavLink>
           <div className="rightButtons">
@@ -104,7 +79,7 @@ const NavMenu = ({ isScrolled }) => {
         <div className="desktop">
           <div className="leftButtons">
             <NavLink
-              to="/"
+              to="/homepage"
               className={(nav) => (nav.isActive ? "navActive" : "")}
             >
               HOMEPAGE
@@ -116,7 +91,7 @@ const NavMenu = ({ isScrolled }) => {
               SEARCH
             </NavLink>
           </div>
-          <NavLink to="/" className="midLogo">
+          <NavLink to="/homepage" className="midLogo">
             <Logo isScrolled={isScrolled} />
           </NavLink>
           <div className="rightButtons">

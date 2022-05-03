@@ -3,31 +3,42 @@
   src: url("@assets/fonts/RussoOne-Regular.ttf");
 }
 
+.mobileNav {
+  padding-top: 64px;
+  top: 0;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
 .navMenu {
   position: fixed;
   margin: 0;
   padding: 0;
   top: 0;
-  right: 0;
+  right: -100%;
   width: 92vw;
-  height: 100%;
+  height: 100vh;
   overflow-x: hidden;
+  background-color: rgba(37, 23, 51, 0.6);
+  backdrop-filter: blur(4px);
+  transition: 350ms;
 }
 
 .navList {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   padding: 52px 0 0 0;
   top: 0;
   margin: 0;
-  right: -100%;
+  right: 0%;
+  display: block;
+  z-index: 5;
   flex-direction: column;
   list-style: none;
-  background-color: rgba(37, 23, 51, 0.6);
-  backdrop-filter: blur(4px);
-  transition: 350ms;
-  z-index: 0;
 
   a {
     width: 100%;
@@ -55,6 +66,23 @@
       &:active {
         background-color: rgb(139, 139, 139);
       }
+      
+      li {
+        width: 100%;
+        padding: 12px 22px 12px 0;
+        display: flex;
+        justify-content: flex-end;
+        background-color: inherit;
+
+        &:hover {
+          background-color: rgb(139, 139, 139);
+          cursor: pointer;
+        }
+
+        &:active {
+          background-color: rgb(139, 139, 139);
+        }
+      }
     }
   }
 }
@@ -65,58 +93,8 @@
 
 .opened {
   right: 0;
-  display: block;
-  z-index: 1;
-}
-
-.navButton {
-  position: absolute;
-  right: 8px;
-  top: 4px;
-  width: 42px;
-  height: 42px;
-  border: none;
-  background: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transition: 350ms;
-  z-index: 2;
-
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-.rotate90 {
-  transform: rotate(-90deg);
-}
-
-.menuLogoBars {
-  width: 38px;
-  height: 3px;
-  border-radius: 3px;
-  background-color: #ffa600;
-  margin-top: 3px;
-  margin-bottom: 3px;
-  position: relative;
-}
-
-.hide {
-  display: none;
-}
-
-.cross {
-  transform: rotate(45deg);
-  margin: 0;
-  position: absolute;
-}
-
-.crossInverted {
-  transform: rotate(-45deg);
-  margin: 0;
-  position: absolute;
+  // display: block;
+  z-index: 10;
 }
 
 .desktopScroll {
@@ -126,7 +104,7 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .mobile {
+  .mobileNav {
     display: none;
   }
 
@@ -185,6 +163,22 @@
       }
     }
 
+    @keyframes textNeonActive {
+      0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow:
+          0 0 1px rgb(245, 100, 4),
+          0 0 2px $textHover,
+          0 0 10px $textActiveGlow,
+          0 0 18px $textActiveGlow,
+          0 0 25px $textActiveGlow,
+          0 0 30px $textActiveGlow;
+      }
+      20%, 24%, 55% {       
+        -webkit-text-stroke-color: $textHover;
+        -webkit-text-stroke-width: 1px; 
+      }
+    }
+
     a {
       font-family: RussoOne;
       mix-blend-mode: lighten;
@@ -228,6 +222,8 @@
     height: 196px;
     width: 100%;
     flex-direction: column;
+    background: none;
+    backdrop-filter: none;
   }
 
   .desktop {

@@ -68,39 +68,45 @@ function Popup({ infoPopup, setInfoPopup }) {
   ];
 
   useEffect(() => {
-    console.log(recette);
+    // console.log(recette);
   });
   return (
     <div className="popup">
       <div className="popup-inner">
-        <button className="close-btn" onClick={() => setInfoPopup(null)}>
+        <button
+          type="button"
+          className="close-btn"
+          onClick={() => setInfoPopup(null)}
+        >
           X
         </button>
-        <div className="cocktail-name">
-          <h1>{infoPopup.strDrink}</h1>
-        </div>
-        <div className="page-cocktails">
-          <img
-            className="cocktail-img"
-            src={infoPopup.strDrinkThumb}
-            alt={infoPopup.strDrinkThumb}
-          />
-          <div className="info-cocktails">
-            <h2>{infoPopup.strCategory}</h2>
-            <h4>{infoPopup.strInstructions}</h4>
-            {recette
-              .filter((item) => item.ingredient != null)
-              .map((item) => {
-                return (
-                  <li>
-                    {item.ingredient}: {item.measure}
-                  </li>
-                );
-              })}
-            <p className="disclaimer">
-              L'abus d'alcool est dangereux pour la santé, à consommer avec
-              modération.
-            </p>
+        <div className="">
+          <div className="cocktail-name">
+            <h1>{infoPopup.strDrink}</h1>
+          </div>
+          <div className="page-cocktails">
+            <img
+              className="cocktail-img"
+              src={infoPopup.strDrinkThumb}
+              alt={infoPopup.strDrinkThumb}
+            />
+            <div className="info-cocktails">
+              <h2>{infoPopup.strCategory}</h2>
+              <h4>{infoPopup.strInstructions}</h4>
+              {recette
+                .filter((item) => item.ingredient != null)
+                .map((item) => {
+                  return (
+                    <li>
+                      {item.ingredient}: {item.measure}
+                    </li>
+                  );
+                })}
+              infoPopup. *{" "}
+              <p>
+                {infoPopup.strIngredient1}: {infoPopup.strMeasure1}
+              </p>
+            </div>
           </div>
         </div>
       </div>
