@@ -135,7 +135,7 @@ $textGlow: rgba(0, 162, 255, 1);
           animation: textNeon 60ms infinite alternate;
         }
 
-        &.navActive {
+        &.active {
           background: none;
           color: $textHover;
           animation: textNeonActive 60ms infinite alternate;
@@ -143,6 +143,41 @@ $textGlow: rgba(0, 162, 255, 1);
           &:visited {
             animation: textNeonActive 60ms infinite alternate;
           }
+        }
+      }
+    }
+  }
+
+  &.light {
+    @extend .footer;
+    background-color: rgb(229 231 235);
+    animation: none;
+    border: none;
+    color: rgb(58, 58, 58);
+    box-shadow: 0 -4px 16px 1px rgb(179, 179, 179);
+
+    .footerRight {
+      .footerNavLight {
+        @extend .footerNav;
+        mix-blend-mode: normal;
+        color: $textBase;
+        padding: 6px;
+
+        &:visited {
+          color: $textBase;
+        }
+
+        &:hover {
+          transform: scale(1);
+          text-shadow: none;
+          color: $textHover;
+          animation: none;
+        }
+
+        &.activeLight {
+          background: none;
+          color: rgb(255, 166, 0);
+          animation: none;
         }
       }
     }
