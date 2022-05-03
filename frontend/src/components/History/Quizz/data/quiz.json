@@ -1,0 +1,94 @@
+{
+  "data": [
+    {
+      "question": "Que doit-on ajouter au café pour obtenir une « noisette » ?",
+      "choices": ["Du lait", "Du cacao", "de l'amaretto", "de l'anis"],
+      "answer": "Du lait"
+    },
+    {
+      "question": "Que trouve-t-on généralement au fond d'un verre de Martini  ?",
+      "choices": [
+        "Une cerise",
+        "Une olive",
+        "Un brin de thym",
+        "une feuille de menthe"
+      ],
+      "answer": "Une olive"
+    },
+    {
+      "question": "Quel nom est communément utilisé dans la région de Marseille pour désigner un pastis ?",
+      "choices": ["Estello", "Pastaga", "Chicouloun", "Panisse"],
+      "answer": "Pastaga"
+    },
+    {
+      "question": "Quel alcool faut-il ajouter à votre café pour obtenir un « café électrique » ?",
+      "choices": ["Du pastis", "Du rhum", "Du whisky", "Du cognac"],
+      "answer": "Du pastis"
+    },
+    {
+      "question": "Quelle autorisation doit détenir un débit de boisson pour vendre des boissons alcoolisées et liqueurs ?",
+      "choices": [
+        "La licence III",
+        "La licence IV",
+        "La licence V",
+        "La licence VI"
+      ],
+      "answer": "La licence IV"
+    },
+    {
+      "question": " Comment se nomme le rond en carton sur lequel les serveurs posent les verres à bière  ?",
+      "choices": [
+        "Une sous-tasse",
+        "Un sous-bock",
+        "Un sous-main",
+        "Un sous-verre"
+      ],
+      "answer": "Un sous-bock"
+    },
+    {
+      "question": "Quelle boisson peut être brune, blonde ou rousse ?",
+      "choices": ["La tequila", "La vodka", "La bière", "La suze"],
+      "answer": "La bière"
+    },
+    {
+      "question": " Quel célèbre café tunisien Patrick Bruel chante-t-il dans l'une de ses chansons ?",
+      "choices": [
+        "Le café des délices",
+        "Le café vert",
+        "Le sindbad",
+        "Le café journal"
+      ],
+      "answer": "Le café des délices"
+    },
+    {
+      "question": "De quel pays est originaire la bière Corona?",
+      "choices": ["Le Mexique", "Cuba", "La France", "L'Allemagne"],
+      "answer": "Le Mexique"
+    },
+    {
+      "question": "Parmi ces bouteilles de vin, laquelle est la plus grande?",
+      "choices": ["Le magnum", "Le balthaza", "Le jéroboam", "Le mathusalem"],
+      "answer": "Le balthaza"
+    },
+    {
+      "question": "Outre le rhum, quel alcool trouve-t-on dans un Royal Mojito ?",
+      "choices": ["Le gin", "Le vin blanc", "Le champagne", "Le cointreau"],
+      "answer": "Le champagne"
+    },
+    {
+      "question": "Quel jus de fruit est présent dans la limonade ?",
+      "choices": [
+        "Le jus d'orange",
+        "Le jus de fraise",
+        "Le jus de citron",
+        "Le jus de canneberge"
+      ],
+      "answer": "Le jus de citron"
+    },
+    {
+      "question": "Quel alcool a été élaboré par le moine dom Perignon ?",
+      "choices": ["Le Cognac", "Le Champagne", "La Chartreuse", "Le Calva"],
+      "answer": "Le Champagne"
+    }
+  ]
+}

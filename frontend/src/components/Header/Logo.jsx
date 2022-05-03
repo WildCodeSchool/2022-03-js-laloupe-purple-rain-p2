@@ -1,7 +1,11 @@
 import "@assets/fonts/BTTF.ttf";
+import { useContext } from "react";
+import LightThemeContext from "@contexts/LightTheme";
 import "./Logo.css";
 
 const Logo = ({ isScrolled }) => {
+  const { lightTheme } = useContext(LightThemeContext);
+
   if (isScrolled) {
     return (
       <div className="logo-container fontBTTF scrolled">
@@ -19,8 +23,10 @@ const Logo = ({ isScrolled }) => {
   return (
     <div className="logo-container fontBTTF">
       <div className="logo">
-        <span className="top-line flicker">BACK{"<"} </span>
-        <span className="bottom-line flicker margin-8">& BAR</span>
+        <span className={lightTheme ? "" : "top-line"}>BACK{"<"} </span>
+        <span className={lightTheme ? " margin-8" : "bottom-line margin-8"}>
+          & BAR
+        </span>
       </div>
       <div className="logo">
         <span className="gradient-text">BACK{"<"} </span>

@@ -2,7 +2,7 @@
 
 import Header from "@components/Header/Header";
 import Footer from "@components/Footer/Footer";
-import QuizParent from "../History-page/QuizParent";
+import QuizParent from "@components/History/Quizz/QuizParent";
 
 const History = () => {
   return (
