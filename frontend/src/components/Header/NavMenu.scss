@@ -66,7 +66,7 @@
       &:active {
         background-color: rgb(139, 139, 139);
       }
-      
+
       li {
         width: 100%;
         padding: 12px 22px 12px 0;
@@ -120,7 +120,6 @@
     $textGlow: rgba(0, 162, 255, 1);
 
     @keyframes textNeon {
-
       0%,
       18%,
       22%,
@@ -142,7 +141,6 @@
     }
 
     @keyframes textNeonActive {
-
       0%,
       18%,
       22%,
@@ -164,22 +162,26 @@
     }
 
     @keyframes textNeonActive {
-      0%, 18%, 22%, 25%, 53%, 57%, 100% {
-        text-shadow:
-          0 0 1px rgb(245, 100, 4),
-          0 0 2px $textHover,
-          0 0 10px $textActiveGlow,
-          0 0 18px $textActiveGlow,
-          0 0 25px $textActiveGlow,
-          0 0 30px $textActiveGlow;
+      0%,
+      18%,
+      22%,
+      25%,
+      53%,
+      57%,
+      100% {
+        text-shadow: 0 0 1px rgb(245, 100, 4), 0 0 2px $textHover,
+          0 0 10px $textActiveGlow, 0 0 18px $textActiveGlow,
+          0 0 25px $textActiveGlow, 0 0 30px $textActiveGlow;
       }
-      20%, 24%, 55% {       
+      20%,
+      24%,
+      55% {
         -webkit-text-stroke-color: $textHover;
-        -webkit-text-stroke-width: 1px; 
+        -webkit-text-stroke-width: 1px;
       }
     }
 
-    a {
+    .nav {
       font-family: RussoOne;
       mix-blend-mode: lighten;
       display: flex;
@@ -205,7 +207,7 @@
         animation: textNeon 60ms infinite alternate;
       }
 
-      &.navActive {
+      &.active {
         background: none;
         color: $textHover;
         animation: textNeonActive 60ms infinite alternate;
@@ -213,6 +215,20 @@
         &:visited {
           animation: textNeonActive 60ms infinite alternate;
         }
+      }
+
+      &.activeLight {
+        background: none;
+        color: $textHover;
+        animation: none;
+      }
+    }
+
+    .navLight {
+      @extend .nav;
+      &:hover {
+        text-shadow: none;
+        animation: none;
       }
     }
   }

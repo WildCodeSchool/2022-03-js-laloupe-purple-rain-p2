@@ -7,12 +7,8 @@ import iconeFlaire from "@assets/images/cocktail3.png";
 import ReactPlayer from "react-player";
 
 const Formation = () => {
-  const videoEnded = () => {
-    alert("la vidéo est terminée");
-  };
-
-  const externalSource = "https://youtu.be/36Nn59i2J3Q";
-  const externalSource2 = "https://youtu.be/jXGik68NQ9Y";
+  const externalSource = "http://youtu.be/36Nn59i2J3Q";
+  const externalSource2 = "http://youtu.be/jXGik68NQ9Y";
 
   return (
     <div className="formationContainer">
@@ -141,7 +137,6 @@ const Formation = () => {
             width="100%"
             height="100%"
             controls
-            onEnded={videoEnded}
           />
         </div>
         <div className="player-wrapper">
@@ -151,7 +146,6 @@ const Formation = () => {
             width="100%"
             height="100%"
             controls
-            onEnded={videoEnded}
           />
         </div>
       </details>

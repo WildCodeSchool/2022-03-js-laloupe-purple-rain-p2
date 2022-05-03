@@ -1,8 +1,25 @@
 import { NavLink } from "react-router-dom";
+import LightThemeContext from "@contexts/LightTheme";
 import "./NavMenu.scss";
+import { useContext } from "react";
 import Logo from "./Logo";
 
 const NavMenu = ({ isScrolled, isOpen, setIsOpen }) => {
+  const { lightTheme } = useContext(LightThemeContext);
+
+  const handleNeon = (nav) => {
+    if (nav.isActive) {
+      if (lightTheme) {
+        return "navLight activeLight";
+      }
+      return "nav active";
+    }
+    if (lightTheme) {
+      return "navLight";
+    }
+    return "nav";
+  };
+
   return (
     <nav className={isOpen ? "navMenu opened" : "navMenu"}>
       <div className="mobileNav">
@@ -78,16 +95,10 @@ const NavMenu = ({ isScrolled, isOpen, setIsOpen }) => {
       ) : (
         <div className="desktop">
           <div className="leftButtons">
-            <NavLink
-              to="/homepage"
-              className={(nav) => (nav.isActive ? "navActive" : "")}
-            >
+            <NavLink to="/homepage" className={(nav) => handleNeon(nav)}>
               HOMEPAGE
             </NavLink>
-            <NavLink
-              to="/search"
-              className={(nav) => (nav.isActive ? "navActive" : "")}
-            >
+            <NavLink to="/search" className={(nav) => handleNeon(nav)}>
               SEARCH
             </NavLink>
           </div>
@@ -95,16 +106,10 @@ const NavMenu = ({ isScrolled, isOpen, setIsOpen }) => {
             <Logo isScrolled={isScrolled} />
           </NavLink>
           <div className="rightButtons">
-            <NavLink
-              to="/history"
-              className={(nav) => (nav.isActive ? "navActive" : "")}
-            >
+            <NavLink to="/history" className={(nav) => handleNeon(nav)}>
               HISTORY
             </NavLink>
-            <NavLink
-              to="/jobs"
-              className={(nav) => (nav.isActive ? "navActive" : "")}
-            >
+            <NavLink to="/jobs" className={(nav) => handleNeon(nav)}>
               JOBS
             </NavLink>
           </div>
