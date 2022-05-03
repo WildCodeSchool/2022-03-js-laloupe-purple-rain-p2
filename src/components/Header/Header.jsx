@@ -58,7 +58,7 @@ const Header = () => {
         )}
         <NavMenu isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
-      <div className="desktop">
+      <div className={lightTheme ? "desktop light" : "desktop"}>
         <button
           type="button"
           className={lightTheme ? "themeButton" : "themeButton sliderSwitch"}

@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import Cards from "@components/SearchPage/Cartes";
 import "@components/SearchPage/SearchWindow.scss";
+import LightThemeContext from "@contexts/LightTheme";
 
 const cocktailDataRaw = [
   {
@@ -35,6 +36,7 @@ const SearchWindow = ({ setInfoPopup }) => {
   const [numberFiltered, setNumberFiltered] = useState(false); // Drinks names starts by a number
   const [currentLetter, setCurrentLetter] = useState(""); // Current filter by letter
   const [filtered, setFiltered] = useState(false); // Is there any filter active ?
+  const { lightTheme } = useContext(LightThemeContext);
 
   const [maxItem, setMaxItem] = useState(10);
   const [minItem, setMinItem] = useState(0);
@@ -147,8 +149,10 @@ const SearchWindow = ({ setInfoPopup }) => {
   }, [currentLetter]);
 
   return (
-    <section className="searchContainer">
-      <div className="searchBar">
+    <section
+      className={lightTheme ? "searchContainer light" : "searchContainer"}
+    >
+      <div className={lightTheme ? "searchBar light" : "searchBar"}>
         <ul className="searchList">
           <li>Cocktail Type</li>
           <li>Alcohol</li>
@@ -163,7 +167,7 @@ const SearchWindow = ({ setInfoPopup }) => {
           </li>
         </ul>
       </div>
-      <div className="searchContent">
+      <div className={lightTheme ? "searchContent light" : "searchContent"}>
         <ul className="letterBar">
           <p className="counter">{cocktailList.length} results</p>
           <button

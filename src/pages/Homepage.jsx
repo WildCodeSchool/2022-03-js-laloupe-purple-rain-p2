@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import LightThemeContext from "@contexts/LightTheme";
 import Header from "@components/Header/Header";
 import Footer from "@components/Footer/Footer";
 import Carrousel from "@components/Carrousel/Carrousel";
@@ -5,9 +7,10 @@ import Carrousel from "@components/Carrousel/Carrousel";
 // import { Cards, CardsOff } from "@components/Carrousel/Cartes";
 
 const Homepage = () => {
+  const { lightTheme } = useContext(LightThemeContext);
   return (
     <>
-      <section className="topPage">
+      <section className={lightTheme ? "topPage light" : "topPage"}>
         <Header />
         <div className="accueil-cocktail carrous">
           <Carrousel />

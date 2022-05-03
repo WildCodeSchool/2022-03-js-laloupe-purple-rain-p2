@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import LightThemeContext from "@contexts/LightTheme";
 import Popup from "@components/SearchPage/Popup";
 import Header from "@components/Header/Header";
 import Footer from "@components/Footer/Footer";
 import SearchWindow from "@components/SearchPage/SearchWindow";
 
 const Search = () => {
+  const { lightTheme } = useContext(LightThemeContext);
   const [infoPopup, setInfoPopup] = useState();
   return (
     <>
@@ -15,7 +17,9 @@ const Search = () => {
           setInfoPopup={setInfoPopup}
         />
       )}
-      <section className="topPage column">
+      <section
+        className={lightTheme ? "topPage light column" : "topPage column"}
+      >
         <Header />
         <SearchWindow setInfoPopup={setInfoPopup} />
       </section>
