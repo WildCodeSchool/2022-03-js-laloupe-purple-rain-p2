@@ -100,6 +100,40 @@ function Carrousel() {
     setTouchPosition(null);
   };
 
+  function carrouselFormer(index, id) {
+    // 4 element only !
+    if (!isDesktop) {
+      return {
+        transform: `translateX(${Math.sin((index * Math.PI) / 2) * 150
+          }px) translateY(${translateYAxis(
+            index
+          )}px) translateZ(${translateZAxis(index)}px`,
+        TransitionEvent: `all 1s`,
+      };
+    } else {
+      if (id == 0) { // first element
+        return {
+          transform: `translateY(-20px)`,
+          color: `white`,
+        };
+      } else if (id == 1 || id == 3) { // second and last element
+        if (id == 1) {
+          return {
+            transform: `translateX(350px) translateY(40px) rotate(20deg)`,
+            TransitionEvent: `all 1s`,
+          };
+        }
+        return {
+          transform: `translateX(-350px) translateY(40px) rotate(-20deg)`,
+          TransitionEvent: `all 1s`,
+        };
+      }
+      return {
+        display: "none"
+      };
+    }
+  }
+
   return (
     <>
       <section
@@ -112,70 +146,69 @@ function Carrousel() {
           onTouchMove={handleTouchMove}
         >
           <figure
-            className="Carrousel-carte Bleue Carrousel"
+            className={`Carrousel-carte Bleue Carrousel 
+            ${(tableOfIndex[0] === 1 && !isDesktop) ?
+                "Carrousel-left"
+                : (tableOfIndex[0] === 3 && !isDesktop) ?
+                  "Carrousel-right"
+                  :
+                  ""
+              }
+            `}
             id="0"
             style={
-              !isDesktop ?
-                {
-                  transform: `translateX(${Math.sin((tableOfIndex[0] * Math.PI) / 2) * 150
-                    }px) translateY(${translateYAxis(
-                      tableOfIndex[0]
-                    )}px) translateZ(${translateZAxis(tableOfIndex[0])}px`,
-                  TransitionEvent: `all 1s`,
-                }
-                : { transform: `translateY(-20px)` }
+              carrouselFormer(tableOfIndex[0], 0)
             }
-          ></figure>
+            dataattribute="Alcool"
+          >Alcool</figure>
           <figure
-            className="Carrousel-carte Verte Carrousel"
+            className={`Carrousel-carte Verte Carrousel 
+            ${(tableOfIndex[1] === 1 && !isDesktop) ?
+                "Carrousel-left"
+                : (tableOfIndex[1] === 3 && !isDesktop) ?
+                  "Carrousel-right"
+                  :
+                  ""
+              }
+            `}
             id="1"
             style={
-              !isDesktop ?
-                {
-                  transform: `translateX(${Math.sin((tableOfIndex[1] * Math.PI) / 2) * 150
-                    }px) translateY(${translateYAxis(
-                      tableOfIndex[1]
-                    )}px) translateZ(${translateZAxis(tableOfIndex[1])}px)`,
-                  TransitionEvent: `all 1s`,
-                }
-                : {
-                  transform: `translateX(350px) translateY(40px) rotate(20deg)`,
-                  TransitionEvent: `all 1s`,
-                }}
-          ></figure>
+              carrouselFormer(tableOfIndex[1], 1)
+            }
+            dataattribute="Cocktail Mixte"
+          >Cocktail Mixte</figure>
           <figure
-            className="Carrousel-carte Rose Carrousel"
+            className={`Carrousel-carte Rose Carrousel 
+            ${(tableOfIndex[2] === 1 && !isDesktop) ?
+                "Carrousel-left"
+                : (tableOfIndex[2] === 3 && !isDesktop) ?
+                  "Carrousel-right"
+                  :
+                  ""
+              }
+            `}
             id="2"
             style={
-              !isDesktop ?
-                {
-                  transform: `translateX(${Math.sin((tableOfIndex[2] * Math.PI) / 2) * 150
-                    }px) translateY(${translateYAxis(
-                      tableOfIndex[2]
-                    )}px) translateZ(${translateZAxis(tableOfIndex[2])}px)`,
-                  TransitionEvent: `all 1s`,
-                }
-                : {
-                  display: "none"
-                }}
-          ></figure>
+              carrouselFormer(tableOfIndex[2], 2)
+            }
+            dataattribute="Random"
+          >Random</figure>
           <figure
-            className="Carrousel-carte Orange Carrousel"
+            className={`Carrousel-carte Orange Carrousel 
+            ${(tableOfIndex[3] === 1 && !isDesktop) ?
+                "Carrousel-left"
+                : (tableOfIndex[3] === 3 && !isDesktop) ?
+                  "Carrousel-right"
+                  :
+                  ""
+              }
+            `}
             id="3"
             style={
-              !isDesktop ?
-                {
-                  transform: `translateX(${Math.sin((tableOfIndex[3] * Math.PI) / 2) * 150
-                    }px) translateY(${translateYAxis(
-                      tableOfIndex[3]
-                    )}px) translateZ(${translateZAxis(tableOfIndex[3])}px)`,
-                  TransitionEvent: `all 1s`,
-                }
-                : {
-                  transform: `translateX(-350px) translateY(40px) rotate(-20deg)`,
-                  TransitionEvent: `all 1s`,
-                }}
-          ></figure>
+              carrouselFormer(tableOfIndex[3], 3)
+            }
+            dataattribute="Sans-Alcool"
+          >Sans-Alcool</figure>
         </section>
       </section>
       <button className="random-button">Random Cocktail</button>
