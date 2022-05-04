@@ -69,7 +69,7 @@ const Question = ({
             ))}
           </div>
           {error && <div className="has-text-danger">{error}</div>}
-          <div className="buton-start-exit">
+          <div className="button-start-exit">
             <button
               className="button is-link is-medium is-fullwidth mt-4"
               type="button"

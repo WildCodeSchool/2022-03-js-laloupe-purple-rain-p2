@@ -184,7 +184,7 @@ const SearchWindow = ({ setInfoPopup }) => {
                 onClick={() => setCurrentLetter(letter)}
                 key={letter}
               >
-                {letter}
+                {letter} |
               </button>
             );
           })}

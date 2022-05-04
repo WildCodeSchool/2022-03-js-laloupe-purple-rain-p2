@@ -1,17 +1,22 @@
-// /* eslint-disable */
 import "./Formation.scss";
+import { useContext } from "react";
 import imageMetier from "@assets/images/barman-cocktail.jpg";
 import iconeShaker from "@assets/images/shaker2.png";
 import iconeDiplome from "@assets/images/diplome2.png";
 import iconeFlaire from "@assets/images/cocktail3.png";
 import ReactPlayer from "react-player";
+import LightThemeContext from "@contexts/LightTheme";
 
 const Formation = () => {
+  const { lightTheme } = useContext(LightThemeContext);
+
   const externalSource = "http://youtu.be/36Nn59i2J3Q";
   const externalSource2 = "http://youtu.be/jXGik68NQ9Y";
 
   return (
-    <div className="formationContainer">
+    <div
+      className={lightTheme ? "formationContainer light" : "formationContainer"}
+    >
       <h1>
         <span>T</span>u veux te former au métier?
       </h1>
@@ -42,7 +47,7 @@ const Formation = () => {
             parfaire ainsi ton anglais.`}
         </p>
         <h1>
-          <span>C</span>omment se déroule les cours?
+          <span>C</span>omment se déroulent les cours?
         </h1>
         <h2>
           <img

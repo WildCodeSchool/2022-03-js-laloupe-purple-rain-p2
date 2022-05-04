@@ -3,6 +3,7 @@
 }
 
 .header {
+  margin-bottom: 20px;
   display: flex;
   max-width: 100vw;
   // min-width: 320px;
@@ -18,45 +19,6 @@
     align-items: center;
     position: relative;
     z-index: 2;
-
-    .themeButton {
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      width: 30px;
-      height: 15px;
-      border-radius: 15px;
-      background-color: rgb(184, 184, 184);
-      border: none;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      z-index: 20;
-
-      &:hover {
-        cursor: pointer;
-      }
-
-      &.sliderSwitch {
-        justify-content: flex-end;
-        background-color: rgb(187, 187, 187);
-        box-shadow: 0 0 8px 1px rgb(252, 159, 19),
-          inset 0 0 4px 1px rgb(243, 212, 171);
-
-        .themeButtonSlider {
-          background-color: rgb(255, 255, 255);
-          box-shadow: 0 0 12px 1px rgb(252, 19, 174),
-            inset 0 0 6px 1px rgb(228, 163, 42);
-        }
-      }
-
-      .themeButtonSlider {
-        width: 15px;
-        height: 15px;
-        background-color: rgb(59, 55, 53);
-        border-radius: 15px;
-      }
-    }
 
     .navButton {
       position: fixed;
@@ -142,45 +104,6 @@
       width: 100%;
       height: 196px;
       position: relative;
-
-      .themeButton {
-        position: absolute;
-        top: 16px;
-        left: 16px;
-        width: 30px;
-        height: 15px;
-        border-radius: 15px;
-        background-color: rgb(184, 184, 184);
-        border: none;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        z-index: 20;
-
-        &:hover {
-          cursor: pointer;
-        }
-
-        &.sliderSwitch {
-          justify-content: flex-end;
-          background-color: rgb(187, 187, 187);
-          box-shadow: 0 0 8px 1px rgb(252, 159, 19),
-            inset 0 0 4px 1px rgb(243, 212, 171);
-
-          .themeButtonSlider {
-            background-color: rgb(255, 255, 255);
-            box-shadow: 0 0 12px 1px rgb(252, 19, 174),
-              inset 0 0 6px 1px rgb(228, 163, 42);
-          }
-        }
-
-        .themeButtonSlider {
-          width: 15px;
-          height: 15px;
-          background-color: rgb(59, 55, 53);
-          border-radius: 15px;
-        }
-      }
     }
   }
 }

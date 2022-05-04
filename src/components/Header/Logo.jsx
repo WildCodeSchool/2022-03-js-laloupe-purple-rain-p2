@@ -10,9 +10,7 @@ const Logo = ({ isScrolled }) => {
     return (
       <div className="logo-container fontBTTF scrolled">
         <div className="logo">
-          <span className={lightTheme ? "" : "top-line-scrolled"}>
-            BACK{"<"}
-          </span>
+          <span className={lightTheme ? "" : "top-line"}>BACK{"<"} </span>
           <span className={lightTheme ? " margin-8" : "bottom-line margin-8"}>
             & BAR
           </span>

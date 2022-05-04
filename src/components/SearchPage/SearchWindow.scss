@@ -53,7 +53,8 @@
 }
 
 .searchContainer {
-  background-color: rgba(0, 162, 255, 0.2);
+  background-color: rgba(28, 92, 129, 0.616);
+  backdrop-filter: blur(2px);
   min-width: 300px;
   width: 90vw;
   min-height: 96px;
@@ -68,11 +69,12 @@
   clip-path: inset(0px -15px 0px -15px);
 
   &.light {
+    box-shadow: 0 0 12px 2px rgb(187, 187, 187);
+    clip-path: none;
     background-color: rgb(229 231 235);
     border-left: solid 2px rgb(90 139 172);
     border-right: solid 2px rgb(90 139 172);
     border-bottom: solid 2px rgb(90 139 172);
-    box-shadow: none;
   }
 
   .searchBar {
@@ -175,8 +177,7 @@
 
     .letterBar {
       user-select: none;
-      margin: 0;
-      padding: 4px 0;
+      padding: 26px 0;
       width: 100%;
       height: auto;
       display: flex;
@@ -184,9 +185,10 @@
       align-items: center;
       backdrop-filter: blur(8px);
       position: relative;
-
+      flex-wrap: wrap;
       .counter {
         position: absolute;
+        top: 2px;
         left: 15px;
         color: rgb(0, 255, 255);
       }
@@ -216,7 +218,6 @@
         height: 100%;
         color: rgb(0, 255, 255);
         margin: 0 4px;
-        transition: 50ms;
 
         &:hover {
           transform: scale(1.12);

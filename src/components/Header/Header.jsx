@@ -27,13 +27,6 @@ const Header = () => {
   return (
     <header className="header">
       <div className="mobile">
-        <button
-          type="button"
-          className={lightTheme ? "themeButton" : "themeButton sliderSwitch"}
-          onClick={() => setLightTheme(!lightTheme)}
-        >
-          <div className="themeButtonSlider" />
-        </button>
         <Logo isScrolled={isScrolled} />
         {isOpen ? (
           <button
@@ -59,13 +52,6 @@ const Header = () => {
         <NavMenu isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
       <div className={lightTheme ? "desktop light" : "desktop"}>
-        <button
-          type="button"
-          className={lightTheme ? "themeButton" : "themeButton sliderSwitch"}
-          onClick={() => setLightTheme(!lightTheme)}
-        >
-          <div className="themeButtonSlider" />
-        </button>
         <NavMenu isScrolled={isScrolled} />
       </div>
     </header>

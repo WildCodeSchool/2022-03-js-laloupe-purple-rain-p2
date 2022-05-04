@@ -20,9 +20,29 @@ const NavMenu = ({ isScrolled, isOpen, setIsOpen }) => {
     return "nav";
   };
 
+  const handleNavMobile = () => {
+    if (isOpen) {
+      if (lightTheme) {
+        return "navMenu opened light";
+      }
+      return "navMenu opened";
+    }
+    if (lightTheme) {
+      return "navMenu light";
+    }
+    return "navMenu";
+  };
+
   return (
-    <nav className={isOpen ? "navMenu opened" : "navMenu"}>
+    <nav className={handleNavMobile()}>
       <div className="mobileNav">
+        <button
+          type="button"
+          className={lightTheme ? "themeButton" : "themeButton sliderSwitch"}
+          onClick={() => setLightTheme(!lightTheme)}
+        >
+          <div className="themeButtonSlider" />
+        </button>
         <ul className="navList">
           <NavLink
             onClick={() => setIsOpen(false)}
@@ -60,6 +80,13 @@ const NavMenu = ({ isScrolled, isOpen, setIsOpen }) => {
 
       {isScrolled ? (
         <div className={lightTheme ? "desktopScroll light" : "desktopScroll"}>
+          <button
+            type="button"
+            className={lightTheme ? "themeButton" : "themeButton sliderSwitch"}
+            onClick={() => setLightTheme(!lightTheme)}
+          >
+            <div className="themeButtonSlider" />
+          </button>
           <div className="leftButtons">
             <NavLink to="/" className={(nav) => handleNeonDesktop(nav)}>
               HOMEPAGE
@@ -82,6 +109,13 @@ const NavMenu = ({ isScrolled, isOpen, setIsOpen }) => {
         </div>
       ) : (
         <div className={lightTheme ? "desktop light" : "desktop"}>
+          <button
+            type="button"
+            className={lightTheme ? "themeButton" : "themeButton sliderSwitch"}
+            onClick={() => setLightTheme(!lightTheme)}
+          >
+            <div className="themeButtonSlider" />
+          </button>
           <div className="leftButtons">
             <NavLink to="/" className={(nav) => handleNeonDesktop(nav)}>
               HOMEPAGE
