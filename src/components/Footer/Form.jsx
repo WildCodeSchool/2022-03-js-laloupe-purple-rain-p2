@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import LightThemeContext from "@contexts/LightTheme";
 import "./Form.scss";
 
 const Form = () => {
+  const { lightTheme } = useContext(LightThemeContext);
   const [newsChecked, setNewsChecked] = useState(false);
 
   const handleNewsCheck = () => {
@@ -9,7 +11,7 @@ const Form = () => {
   };
 
   return (
-    <form className="form">
+    <form className={lightTheme ? "form light" : "form"}>
       <h3>Contact us!</h3>
       <input type="text" placeholder="Name" />
       <input type="text" placeholder="Email" />

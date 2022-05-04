@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
-import { Cards } from "./Cartes";
+import Cards from "@components/SearchPage/Cartes";
 import "@components/SearchPage/SearchWindow.scss";
+import LightThemeContext from "@contexts/LightTheme";
 
 const cocktailDataRaw = [
   {
@@ -23,7 +24,6 @@ const cocktailDataRaw = [
 
 const letterBar = () => {
   const response = [];
-  /* eslint-disable-next-line */
   for (let i = 65; i !== 91; i++) {
     response.push(String.fromCharCode(i));
   }
@@ -36,6 +36,7 @@ const SearchWindow = ({ setInfoPopup }) => {
   const [numberFiltered, setNumberFiltered] = useState(false); // Drinks names starts by a number
   const [currentLetter, setCurrentLetter] = useState(""); // Current filter by letter
   const [filtered, setFiltered] = useState(false); // Is there any filter active ?
+  const { lightTheme } = useContext(LightThemeContext);
 
   const [maxItem, setMaxItem] = useState(10);
   const [minItem, setMinItem] = useState(0);
@@ -75,7 +76,7 @@ const SearchWindow = ({ setInfoPopup }) => {
   async function getAllDrinks() {
     const response = await axios
       .get("https://www.thecocktaildb.com/api/json/v2/9973533/search.php?s=")
-      .then((data) => data.data.drinks)
+      .then((drinks) => drinks.data.drinks)
       .catch((err) => {
         console.error(err);
       });
@@ -108,7 +109,7 @@ const SearchWindow = ({ setInfoPopup }) => {
       .get("https://www.thecocktaildb.com/api/json/v2/9973533/search.php", {
         params: { f: letter },
       })
-      .then((data) => data.data.drinks)
+      .then((drinks) => drinks.data.drinks)
       .catch((err) => {
         console.error(err);
       });
@@ -147,10 +148,11 @@ const SearchWindow = ({ setInfoPopup }) => {
     }
   }, [currentLetter]);
 
-  /* eslint-disable */
   return (
-    <section className="searchContainer">
-      <div className="searchBar">
+    <section
+      className={lightTheme ? "searchContainer light" : "searchContainer"}
+    >
+      <div className={lightTheme ? "searchBar light" : "searchBar"}>
         <ul className="searchList">
           <li>Cocktail Type</li>
           <li>Alcohol</li>
@@ -165,29 +167,36 @@ const SearchWindow = ({ setInfoPopup }) => {
           </li>
         </ul>
       </div>
-      <div className="searchContent">
+      <div className={lightTheme ? "searchContent light" : "searchContent"}>
         <ul className="letterBar">
           <p className="counter">{cocktailList.length} results</p>
-          <p
+          <button
+            type="button"
             className={filtered ? "rmFilters" : "hide"}
             onClick={() => resetFilters()}
           >
             Remove Filters
-          </p>
+          </button>
           {letterBar().map((letter) => {
             return (
-              <li onClick={() => setCurrentLetter(letter)} key={letter}>
-                {letter}
-              </li>
+              <button
+                type="button"
+                onClick={() => setCurrentLetter(letter)}
+                key={letter}
+              >
+                {letter} |
+              </button>
             );
           })}
-          <li onClick={() => startsWithNumber()}>0-9</li>
+          <button type="button" onClick={() => startsWithNumber()}>
+            0-9
+          </button>
         </ul>
         <ul className="pageBar">
-          <li onClick={() => firstPage()}>{`<!`}</li>
-          <li onClick={() => prevPage()}>{`<-`}</li>
-          <li onClick={() => nextPage()}>{`->`}</li>
-          <li onClick={() => lastPage()}>{`!>`}</li>
+          <button type="button" onClick={() => firstPage()}>{`<!`}</button>
+          <button type="button" onClick={() => prevPage()}>{`<-`}</button>
+          <button type="button" onClick={() => nextPage()}>{`->`}</button>
+          <button type="button" onClick={() => lastPage()}>{`!>`}</button>
         </ul>
 
         <div className="cardsContainer">
@@ -197,7 +206,6 @@ const SearchWindow = ({ setInfoPopup }) => {
             )
             .slice(minItem, maxItem)
             .map((item) => {
-              // eslint-disable-next-line
               return (
                 <Cards
                   {...item}
@@ -208,10 +216,10 @@ const SearchWindow = ({ setInfoPopup }) => {
             })}
         </div>
         <ul className="pageBar">
-          <li onClick={() => firstPage()}>{`<!`}</li>
-          <li onClick={() => prevPage()}>{`<-`}</li>
-          <li onClick={() => nextPage()}>{`->`}</li>
-          <li onClick={() => lastPage()}>{`!>`}</li>
+          <button type="button" onClick={() => firstPage()}>{`<!`}</button>
+          <button type="button" onClick={() => prevPage()}>{`<-`}</button>
+          <button type="button" onClick={() => nextPage()}>{`->`}</button>
+          <button type="button" onClick={() => lastPage()}>{`!>`}</button>
         </ul>
       </div>
     </section>

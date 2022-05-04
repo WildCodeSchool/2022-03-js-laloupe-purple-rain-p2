@@ -3,6 +3,7 @@
 }
 
 .header {
+  margin-bottom: 20px;
   display: flex;
   max-width: 100vw;
   // min-width: 320px;
@@ -78,6 +79,10 @@
     height: 256px;
     position: relative;
     z-index: 10;
+
+    &.light {
+      box-shadow: 0 4px 16px 1px rgb(179, 179, 179);
+    }
   }
 }
 
@@ -98,6 +103,7 @@
       justify-content: space-between;
       width: 100%;
       height: 196px;
+      position: relative;
     }
   }
 }

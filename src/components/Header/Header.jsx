@@ -1,9 +1,11 @@
 import "@components/Header/Header.scss";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import LightThemeContext from "@contexts/LightTheme";
 import Logo from "./Logo";
 import NavMenu from "./NavMenu";
 
 const Header = () => {
+  const { lightTheme, setLightTheme } = useContext(LightThemeContext);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState();
 
@@ -25,7 +27,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="mobile">
-        <Logo isScrolled={isScrolled} setIsScrolled={setIsScrolled} />
+        <Logo isScrolled={isScrolled} />
         {isOpen ? (
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -49,7 +51,7 @@ const Header = () => {
         )}
         <NavMenu isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
-      <div className="desktop">
+      <div className={lightTheme ? "desktop light" : "desktop"}>
         <NavMenu isScrolled={isScrolled} />
       </div>
     </header>
