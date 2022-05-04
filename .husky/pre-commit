@@ -1,4 +1,6 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+export PATH="/home/tibuntu/.nvm/versions/node/v16.14.0/bin:/home/tibuntu/.local/share/pnpm:/home/tibuntu/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin"
+
 npm run lint
