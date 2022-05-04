@@ -32,11 +32,12 @@
     ],
     "react/react-in-jsx-scope": "off",
     "react/jsx-one-expression-per-line": "off",
-    "react/function-component-definition": [
-      2,
-      { "namedComponents": ["arrow-function", "function-declaration"] }
-    ],
-    "react/prop-types": "off"
+    "no-plusplus": "off",
+    "consistent-return": "off",
+    "no-unused-vars": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-no-constructed-context-values": "off"
   },
   "settings": {
     "import/resolver": {
@@ -45,7 +46,8 @@
           "@assets": "./src/assets",
           "@components": "./src/components",
           "@pages": "./src/pages",
-          "@services": "./src/services"
+          "@services": "./src/services",
+          "@contexts": "./src/contexts"
         },
         "extensions": [".js", ".jsx"]
       }

@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import LightThemeContext from "@contexts/LightTheme";
+import React, { useEffect, useContext } from "react";
 import "./Popup.scss";
 
 function Popup({ infoPopup, setInfoPopup }) {
+  const { lightTheme } = useContext(LightThemeContext);
   // console.log(infoPopup);
 
   const recette = [
@@ -72,7 +74,7 @@ function Popup({ infoPopup, setInfoPopup }) {
   });
   return (
     <div className="popup">
-      <div className="popup-inner">
+      <div className={lightTheme ? "popup-inner light" : "popup-inner"}>
         <button
           type="button"
           className="close-btn"
@@ -109,7 +111,7 @@ function Popup({ infoPopup, setInfoPopup }) {
             </div>
           </div>
           <div className="disclaimer">
-            <p>Alcohol abuse is dangerous for your bite health.</p>
+            <p>Alcohol abuse is dangerous for your health.</p>
           </div>
         </div>
       </div>

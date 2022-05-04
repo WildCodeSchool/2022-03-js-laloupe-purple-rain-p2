@@ -1,7 +1,6 @@
 import "./Cartes.scss";
 
-export function Cards({ setInfoPopup, ...item }) {
-  // const [buttonPopup, setButtonPopup] = useState(false);
+const Cards = ({ setInfoPopup, ...item }) => {
   const handleNeonColor = () => {
     if (item.strCategory === "Cocktail") {
       return "Carte Bleue";
@@ -36,8 +35,6 @@ export function Cards({ setInfoPopup, ...item }) {
       <h5>{item.strCategory}</h5>
     </button>
   );
-}
+};
 
-export function CYC() {
-  return <h1>Choose your cocktail</h1>;
-}
+export default Cards;
