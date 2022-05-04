@@ -123,6 +123,11 @@ const SearchWindow = ({ setInfoPopup }) => {
     return [];
   }
 
+  // Toggles search list drop down menu
+  const handleFilterMenus = (category) => {
+    document.querySelector(`.searchList ${category}`).classList.toggle("hide");
+  };
+
   // Fetches the whole drink lists and apply a filters to keep only the ones fitting the category
   const getDrinkByCategory = (category, catClass) => {
     document.querySelector(`.searchList ${catClass}`).classList.toggle("hide");
@@ -133,8 +138,26 @@ const SearchWindow = ({ setInfoPopup }) => {
     setFiltered(true);
   };
 
-  const handleFilterMenus = (category) => {
-    document.querySelector(`.searchList ${category}`).classList.toggle("hide");
+  // Fetches the whole drink lists and apply a filters to keep only the ones fitting the alcohol type
+  const getDrinkByAlcohol = (alcohol, alcClass) => {
+    document.querySelector(`.searchList ${alcClass}`).classList.toggle("hide");
+    getAllDrinks().then((data) =>
+      setCocktailList(data.filter((item) => item.strAlcoholic === alcohol))
+    );
+    setCategoryFiltered(true);
+    setFiltered(true);
+  };
+
+  // Fetches the whole drink lists and apply a filters to keep only the ones fitting the glass type
+  const getDrinkByGlass = (glass, glassClass) => {
+    document
+      .querySelector(`.searchList ${glassClass}`)
+      .classList.toggle("hide");
+    getAllDrinks().then((data) =>
+      setCocktailList(data.filter((item) => item.strGlass === glass))
+    );
+    setCategoryFiltered(true);
+    setFiltered(true);
   };
 
   // Resets filters to display all drinks
@@ -292,17 +315,53 @@ const SearchWindow = ({ setInfoPopup }) => {
             </ul>
           </li>
           <li>
-            <button type="button" onClick="">
+            <button
+              type="button"
+              onClick={() => handleFilterMenus(".alcohols")}
+            >
               Alcohol
             </button>
+            <ul className="alcohols hide">
+              <li>
+                <button
+                  type="button"
+                  onClick={() => getDrinkByAlcohol("Alcoholic", ".alcohols")}
+                >
+                  Alcoholic
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() =>
+                    getDrinkByAlcohol("Non alcoholic", ".alcohols")
+                  }
+                >
+                  Non alcoholic
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() =>
+                    getDrinkByAlcohol("Optional alcohol", ".alcohols")
+                  }
+                >
+                  Optional alcohol
+                </button>
+              </li>
+            </ul>
           </li>
           <li>
-            <button type="button" onClick="">
+            <button type="button" onClick=".ingredients">
               Ingredients
             </button>
           </li>
           <li>
-            <button type="button" onClick="">
+            <button
+              type="button"
+              onClick={() => handleFilterMenus(".glassType")}
+            >
               Glass Type
             </button>
           </li>
