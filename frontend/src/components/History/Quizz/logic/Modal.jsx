@@ -1,7 +1,10 @@
 /* eslint-disable */
-import React from "react";
+import LightThemeContext from "@contexts/LightTheme";
+import { React, useContext } from "react";
 
 const Modal = ({ onClose, results, data }) => {
+  const { lightTheme } = useContext(LightThemeContext);
+
   return (
     <div className="modal is-active">
       <div
@@ -10,10 +13,9 @@ const Modal = ({ onClose, results, data }) => {
         onKeyDown={onClose}
         role="none"
       />
-      <div className="modal-card">
+      <div className={lightTheme ? "modal-card light" : "modal-card"}>
         <header className="modal-card-head">
           <p className="modal-card-title">Your answers</p>
-          <button type="button" className="delete" onClick={onClose}></button>
         </header>
         <section className="modal-card-body content">
           <ul>

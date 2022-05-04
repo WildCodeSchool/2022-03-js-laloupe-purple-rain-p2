@@ -2,7 +2,7 @@
   "data": [
     {
       "question": "Que doit-on ajouter au café pour obtenir une « noisette » ?",
-      "choices": ["Du lait", "Du cacao", "de l'amaretto", "de l'anis"],
+      "choices": ["Du lait", "Du cacao", "De l'amaretto", "De l'anis"],
       "answer": "Du lait"
     },
     {
@@ -11,7 +11,7 @@
         "Une cerise",
         "Une olive",
         "Un brin de thym",
-        "une feuille de menthe"
+        "Une feuille de menthe"
       ],
       "answer": "Une olive"
     },

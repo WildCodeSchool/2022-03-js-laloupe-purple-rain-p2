@@ -23,7 +23,6 @@ const Search = () => {
         <Header />
         <SearchWindow setInfoPopup={setInfoPopup} />
       </section>
-      <section className="midPage" />
       <section className="botPage">
         <Footer />
       </section>

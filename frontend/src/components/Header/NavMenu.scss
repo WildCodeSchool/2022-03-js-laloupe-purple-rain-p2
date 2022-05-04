@@ -11,6 +11,45 @@
   display: flex;
   align-items: center;
   position: relative;
+
+  .themeButton {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    width: 30px;
+    height: 15px;
+    border-radius: 15px;
+    background-color: rgb(184, 184, 184);
+    border: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 20;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.sliderSwitch {
+      justify-content: flex-end;
+      background-color: rgb(187, 187, 187);
+      box-shadow: 0 0 8px 1px rgb(252, 159, 19),
+        inset 0 0 4px 1px rgb(243, 212, 171);
+
+      .themeButtonSlider {
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 0 12px 1px rgb(252, 19, 174),
+          inset 0 0 6px 1px rgb(228, 163, 42);
+      }
+    }
+
+    .themeButtonSlider {
+      width: 15px;
+      height: 15px;
+      background-color: rgb(59, 55, 53);
+      border-radius: 15px;
+    }
+  }
 }
 
 .navMenu {
@@ -25,6 +64,18 @@
   background-color: rgba(37, 23, 51, 0.6);
   backdrop-filter: blur(4px);
   transition: 350ms;
+
+  .navActive {
+    background-color: rgba(37, 23, 51, 0.6);
+  }
+
+  &.light {
+    background-color: rgba(112, 108, 116, 0.6);
+
+    .navActive {
+      background-color: rgba(112, 108, 116, 0.6);
+    }
+  }
 }
 
 .navList {
@@ -87,10 +138,6 @@
   }
 }
 
-.navActive {
-  background-color: rgba(37, 23, 51, 0.6);
-}
-
 .opened {
   right: 0;
   // display: block;
@@ -112,6 +159,45 @@
   }
 
   .desktop {
+    .themeButton {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      width: 30px;
+      height: 15px;
+      border-radius: 15px;
+      background-color: rgb(184, 184, 184);
+      border: none;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      z-index: 20;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &.sliderSwitch {
+        justify-content: flex-end;
+        background-color: rgb(187, 187, 187);
+        box-shadow: 0 0 8px 1px rgb(252, 159, 19),
+          inset 0 0 4px 1px rgb(243, 212, 171);
+
+        .themeButtonSlider {
+          background-color: rgb(255, 255, 255);
+          box-shadow: 0 0 12px 1px rgb(252, 19, 174),
+            inset 0 0 6px 1px rgb(228, 163, 42);
+        }
+      }
+
+      .themeButtonSlider {
+        width: 15px;
+        height: 15px;
+        background-color: rgb(59, 55, 53);
+        border-radius: 15px;
+      }
+    }
+
     @mixin buttons {
       height: 100%;
       width: 33%;
@@ -277,6 +363,10 @@
     position: fixed;
     background-color: rgba(40, 17, 75, 0.555);
     backdrop-filter: blur(10px);
+
+    .themeButton {
+      top: 72px;
+    }
 
     &.light {
       background-color: rgba(182, 192, 207, 0.253);
