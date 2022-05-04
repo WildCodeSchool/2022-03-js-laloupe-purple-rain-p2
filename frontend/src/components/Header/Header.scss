@@ -3,6 +3,7 @@
 }
 
 .header {
+  margin-bottom: 20px;
   display: flex;
   max-width: 100vw;
   // min-width: 320px;
@@ -18,36 +19,6 @@
     align-items: center;
     position: relative;
     z-index: 2;
-
-    .themeButton {
-      position: absolute;
-      top: 8px;
-      left: 4px;
-      width: 30px;
-      height: 15px;
-      border-radius: 15px;
-      background-color: rgb(204, 204, 204);
-      border: none;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      z-index: 20;
-    }
-
-    .themeButton:hover {
-      cursor: pointer;
-    }
-
-    .sliderSwitch {
-      justify-content: flex-end;
-    }
-
-    .themeButtonSlider {
-      width: 15px;
-      height: 15px;
-      background-color: black;
-      border-radius: 15px;
-    }
 
     .navButton {
       position: fixed;
@@ -108,6 +79,10 @@
     height: 256px;
     position: relative;
     z-index: 10;
+
+    &.light {
+      box-shadow: 0 4px 16px 1px rgb(179, 179, 179);
+    }
   }
 }
 
@@ -129,36 +104,6 @@
       width: 100%;
       height: 196px;
       position: relative;
-
-      .themeButton {
-        position: absolute;
-        top: 8px;
-        left: 4px;
-        width: 30px;
-        height: 15px;
-        border-radius: 15px;
-        background-color: rgb(204, 204, 204);
-        border: none;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        z-index: 20;
-      }
-
-      .themeButton:hover {
-        cursor: pointer;
-      }
-
-      .sliderSwitch {
-        justify-content: flex-end;
-      }
-
-      .themeButtonSlider {
-        width: 15px;
-        height: 15px;
-        background-color: black;
-        border-radius: 15px;
-      }
     }
   }
 }

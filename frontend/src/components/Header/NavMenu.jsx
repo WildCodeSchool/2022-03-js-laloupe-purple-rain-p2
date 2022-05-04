@@ -5,9 +5,9 @@ import { useContext } from "react";
 import Logo from "./Logo";
 
 const NavMenu = ({ isScrolled, isOpen, setIsOpen }) => {
-  const { lightTheme } = useContext(LightThemeContext);
+  const { lightTheme, setLightTheme } = useContext(LightThemeContext);
 
-  const handleNeon = (nav) => {
+  const handleNeonDesktop = (nav) => {
     if (nav.isActive) {
       if (lightTheme) {
         return "navLight activeLight";
@@ -20,9 +20,29 @@ const NavMenu = ({ isScrolled, isOpen, setIsOpen }) => {
     return "nav";
   };
 
+  const handleNavMobile = () => {
+    if (isOpen) {
+      if (lightTheme) {
+        return "navMenu opened light";
+      }
+      return "navMenu opened";
+    }
+    if (lightTheme) {
+      return "navMenu light";
+    }
+    return "navMenu";
+  };
+
   return (
-    <nav className={isOpen ? "navMenu opened" : "navMenu"}>
+    <nav className={handleNavMobile()}>
       <div className="mobileNav">
+        <button
+          type="button"
+          className={lightTheme ? "themeButton" : "themeButton sliderSwitch"}
+          onClick={() => setLightTheme(!lightTheme)}
+        >
+          <div className="themeButtonSlider" />
+        </button>
         <ul className="navList">
           <NavLink
             onClick={() => setIsOpen(false)}
@@ -59,18 +79,19 @@ const NavMenu = ({ isScrolled, isOpen, setIsOpen }) => {
       </div>
 
       {isScrolled ? (
-        <div className="desktopScroll">
+        <div className={lightTheme ? "desktopScroll light" : "desktopScroll"}>
+          <button
+            type="button"
+            className={lightTheme ? "themeButton" : "themeButton sliderSwitch"}
+            onClick={() => setLightTheme(!lightTheme)}
+          >
+            <div className="themeButtonSlider" />
+          </button>
           <div className="leftButtons">
-            <NavLink
-              to="/"
-              className={(nav) => (nav.isActive ? "navActive" : "")}
-            >
+            <NavLink to="/" className={(nav) => handleNeonDesktop(nav)}>
               HOMEPAGE
             </NavLink>
-            <NavLink
-              to="/search"
-              className={(nav) => (nav.isActive ? "navActive" : "")}
-            >
+            <NavLink to="/search" className={(nav) => handleNeonDesktop(nav)}>
               SEARCH
             </NavLink>
           </div>
@@ -78,27 +99,28 @@ const NavMenu = ({ isScrolled, isOpen, setIsOpen }) => {
             <Logo isScrolled={isScrolled} />
           </NavLink>
           <div className="rightButtons">
-            <NavLink
-              to="/history"
-              className={(nav) => (nav.isActive ? "navActive" : "")}
-            >
+            <NavLink to="/history" className={(nav) => handleNeonDesktop(nav)}>
               HISTORY
             </NavLink>
-            <NavLink
-              to="/jobs"
-              className={(nav) => (nav.isActive ? "navActive" : "")}
-            >
+            <NavLink to="/jobs" className={(nav) => handleNeonDesktop(nav)}>
               JOBS
             </NavLink>
           </div>
         </div>
       ) : (
-        <div className="desktop">
+        <div className={lightTheme ? "desktop light" : "desktop"}>
+          <button
+            type="button"
+            className={lightTheme ? "themeButton" : "themeButton sliderSwitch"}
+            onClick={() => setLightTheme(!lightTheme)}
+          >
+            <div className="themeButtonSlider" />
+          </button>
           <div className="leftButtons">
-            <NavLink to="/" className={(nav) => handleNeon(nav)}>
+            <NavLink to="/" className={(nav) => handleNeonDesktop(nav)}>
               HOMEPAGE
             </NavLink>
-            <NavLink to="/search" className={(nav) => handleNeon(nav)}>
+            <NavLink to="/search" className={(nav) => handleNeonDesktop(nav)}>
               SEARCH
             </NavLink>
           </div>
@@ -106,10 +128,10 @@ const NavMenu = ({ isScrolled, isOpen, setIsOpen }) => {
             <Logo isScrolled={isScrolled} />
           </NavLink>
           <div className="rightButtons">
-            <NavLink to="/history" className={(nav) => handleNeon(nav)}>
+            <NavLink to="/history" className={(nav) => handleNeonDesktop(nav)}>
               HISTORY
             </NavLink>
-            <NavLink to="/jobs" className={(nav) => handleNeon(nav)}>
+            <NavLink to="/jobs" className={(nav) => handleNeonDesktop(nav)}>
               JOBS
             </NavLink>
           </div>

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import "./QuizParent.css";
+import React, { useState, useContext } from "react";
+import LightThemeContext from "@contexts/LightTheme";
+import "./QuizParent.scss";
 
 import Start from "@components/History/Quizz/logic/Start";
 import Question from "@components/History/Quizz/logic/Question";
@@ -8,6 +9,8 @@ import Modal from "@components/History/Quizz/logic/Modal";
 import quizData from "@components/History/Quizz/data/quiz.json";
 
 const QuizParent = () => {
+  const { lightTheme } = useContext(LightThemeContext);
+
   const [step, setStep] = useState(1);
   const [activeQuestion, setActiveQuestion] = useState(0);
   const [answers, setAnswers] = useState([]);
@@ -38,7 +41,7 @@ const QuizParent = () => {
   };
 
   return (
-    <div className="historyContainer">
+    <div className={lightTheme ? "historyContainer light" : "historyContainer"}>
       {step === 1 && <Start onQuizStart={quizStartHandler} />}
       {step === 2 && (
         <Question
@@ -56,7 +59,7 @@ const QuizParent = () => {
           results={answers}
           data={quizData.data}
           onReset={resetClickHandler}
-          onAnswersCheck={() => setShowModal(true)}
+          onAnswersCheck={() => setShowModal(!showModal)}
           resetQuiz={() => resetQuiz()}
         />
       )}
