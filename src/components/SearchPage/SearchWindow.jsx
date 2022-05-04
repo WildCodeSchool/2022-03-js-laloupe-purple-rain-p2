@@ -34,6 +34,7 @@ const SearchWindow = ({ setInfoPopup }) => {
   const [searchField, setSearchField] = useState(""); // Search field input value
   const [cocktailList, setCocktailList] = useState(cocktailDataRaw); // Actual list of drinks
   const [numberFiltered, setNumberFiltered] = useState(false); // Drinks names starts by a number
+  const [categoryFiltered, setCategoryFiltered] = useState(false); // Drinks category
   const [currentLetter, setCurrentLetter] = useState(""); // Current filter by letter
   const [filtered, setFiltered] = useState(false); // Is there any filter active ?
   const { lightTheme } = useContext(LightThemeContext);
@@ -122,31 +123,57 @@ const SearchWindow = ({ setInfoPopup }) => {
     return [];
   }
 
+  // Fetches the whole drink lists and apply a filters to keep only the ones fitting the category
+  const getDrinkByCategory = (category, catClass) => {
+    document.querySelector(`.searchList ${catClass}`).classList.toggle("hide");
+    getAllDrinks().then((data) =>
+      setCocktailList(data.filter((item) => item.strCategory === category))
+    );
+    setCategoryFiltered(true);
+    setFiltered(true);
+  };
+
+  const handleFilterMenus = (category) => {
+    document.querySelector(`.searchList ${category}`).classList.toggle("hide");
+  };
+
   // Resets filters to display all drinks
-  const resetFilters = () => {
+  const resetFiltersStatus = () => {
     if (currentLetter !== "") {
       setCurrentLetter("");
     }
     if (numberFiltered) {
       setNumberFiltered(false);
     }
+    if (categoryFiltered) {
+      setCategoryFiltered(false);
+    }
     setFiltered(false);
+    getAllDrinks().then((data) => setCocktailList(data));
   };
 
   // Checks filtering state and handles letter filtering requests
   useEffect(() => {
-    if (currentLetter === "" && numberFiltered === false) {
+    if (
+      currentLetter === "" &&
+      numberFiltered === false &&
+      categoryFiltered === false
+    ) {
       setFiltered(false);
     } else {
       setFiltered(true);
     }
 
-    if (currentLetter === "" && numberFiltered === false) {
+    if (
+      currentLetter === "" &&
+      numberFiltered === false &&
+      categoryFiltered === false
+    ) {
       getAllDrinks().then((data) => setCocktailList(data));
-    } else {
+    } else if (currentLetter !== "") {
       getDrinkByLetter(currentLetter).then((data) => setCocktailList(data));
     }
-  }, [currentLetter]);
+  }, [currentLetter, numberFiltered]);
 
   return (
     <section
@@ -154,10 +181,131 @@ const SearchWindow = ({ setInfoPopup }) => {
     >
       <div className={lightTheme ? "searchBar light" : "searchBar"}>
         <ul className="searchList">
-          <li>Cocktail Type</li>
-          <li>Alcohol</li>
-          <li>Ingredients</li>
-          <li>Glass Type</li>
+          <li>
+            <button
+              type="button"
+              onClick={() => handleFilterMenus(".categories")}
+            >
+              Categories
+            </button>
+            <ul className="categories hide">
+              <li>
+                <button
+                  type="button"
+                  onClick={() =>
+                    getDrinkByCategory("Ordinary Drink", ".categories")
+                  }
+                >
+                  Ordinary Drinks
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => getDrinkByCategory("Cocktail", ".categories")}
+                >
+                  Cocktails
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => getDrinkByCategory("Shake", ".categories")}
+                >
+                  Shakes
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() =>
+                    getDrinkByCategory("Other/Unknown", ".categories")
+                  }
+                >
+                  Other/Unknown
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => getDrinkByCategory("Cocoa", ".categories")}
+                >
+                  Cocoa
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => getDrinkByCategory("Shot", ".categories")}
+                >
+                  Shots
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() =>
+                    getDrinkByCategory("Coffee / Tea", ".categories")
+                  }
+                >
+                  Coffe / Tea
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() =>
+                    getDrinkByCategory("Homemade Liqueur", ".categories")
+                  }
+                >
+                  Homemade Liqueur
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() =>
+                    getDrinkByCategory("Punch / Party Drink", ".categories")
+                  }
+                >
+                  Punch / Party Drinks
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => getDrinkByCategory("Beer", ".categories")}
+                >
+                  Beers
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() =>
+                    getDrinkByCategory("Soft Drink", ".categories")
+                  }
+                >
+                  Soft Drinks
+                </button>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <button type="button" onClick="">
+              Alcohol
+            </button>
+          </li>
+          <li>
+            <button type="button" onClick="">
+              Ingredients
+            </button>
+          </li>
+          <li>
+            <button type="button" onClick="">
+              Glass Type
+            </button>
+          </li>
           <li className="inputList">
             <input
               type="text"
@@ -173,7 +321,7 @@ const SearchWindow = ({ setInfoPopup }) => {
           <button
             type="button"
             className={filtered ? "rmFilters" : "hide"}
-            onClick={() => resetFilters()}
+            onClick={() => resetFiltersStatus()}
           >
             Remove Filters
           </button>
