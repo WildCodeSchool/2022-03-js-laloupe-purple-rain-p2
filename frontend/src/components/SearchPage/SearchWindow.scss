@@ -99,22 +99,48 @@
 
       .categories {
         position: absolute;
-        top: 50px;
+        top: 48px;
         width: 100%;
         height: auto;
 
         li {
           background-color: rgb(40, 25, 126);
           width: 100%;
-          height: auto;
+          height: 36px;
 
           &:hover {
             background-color: rgb(40, 25, 126);
             animation: none;
           }
 
-          .button {
-            color: black;
+          button {
+            padding: 8px 0;
+          }
+        }
+
+        &.hide {
+          display: none;
+        }
+      }
+
+      .alcohols {
+        position: absolute;
+        top: 48px;
+        width: 100%;
+        height: auto;
+
+        li {
+          background-color: rgb(40, 25, 126);
+          width: 100%;
+          height: 36px;
+
+          &:hover {
+            background-color: rgb(40, 25, 126);
+            animation: none;
+          }
+
+          button {
+            padding: 8px 0;
           }
         }
 
@@ -157,6 +183,7 @@
       .inputList {
         padding: 0;
         display: flex;
+        width: 20%;
         justify-content: center;
       }
 
@@ -211,6 +238,32 @@
       }
 
       .categories {
+        position: absolute;
+        top: 50px;
+        width: 100%;
+        height: auto;
+
+        li {
+          background-color: rgb(70, 109, 134);
+          width: 100%;
+          height: auto;
+
+          &:hover {
+            background-color: rgb(109, 159, 190);
+            animation: none;
+          }
+
+          .button {
+            color: black;
+          }
+        }
+
+        &.hide {
+          display: none;
+        }
+      }
+
+      .alcohols {
         position: absolute;
         top: 50px;
         width: 100%;
@@ -357,6 +410,18 @@
           width: 100%;
           border-left: solid 1px rgba(255, 255, 255, 0.192);
           border-right: solid 1px rgba(255, 255, 255, 0.192);
+
+          .inputList {
+            width: 20%;
+          }
+
+          .categories {
+            width: 20%;
+          }
+
+          .alcohols {
+            width: 20%;
+          }
         }
       }
 
@@ -399,10 +464,6 @@
               // border: none;
               animation: none;
             }
-          }
-
-          .categories {
-            width: 20%;
           }
         }
 
