@@ -109,7 +109,7 @@ function Popup({ infoPopup, setInfoPopup }) {
             </div>
           </div>
           <div className="disclaimer">
-            <p>Alcohol abuse is dangerous for your health.</p>
+            <p>Alcohol abuse is dangerous for your bite health.</p>
           </div>
         </div>
       </div>
