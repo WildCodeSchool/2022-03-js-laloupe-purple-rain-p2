@@ -80,7 +80,7 @@ function Popup({ infoPopup, setInfoPopup }) {
         >
           X
         </button>
-        <div className="">
+        <div className="container">
           <div className="cocktail-name">
             <h1>{infoPopup.strDrink}</h1>
           </div>
@@ -92,21 +92,24 @@ function Popup({ infoPopup, setInfoPopup }) {
             />
             <div className="info-cocktails">
               <h2>{infoPopup.strCategory}</h2>
-              <h4>{infoPopup.strInstructions}</h4>
-              {recette
-                .filter((item) => item.ingredient != null)
-                .map((item) => {
-                  return (
-                    <li>
-                      {item.ingredient}: {item.measure}
-                    </li>
-                  );
-                })}
-              infoPopup. *{" "}
-              <p>
-                {infoPopup.strIngredient1}: {infoPopup.strMeasure1}
-              </p>
+              <div className="inst-ingr">
+                <h4>{infoPopup.strInstructions}</h4>
+                <ul>
+                  {recette
+                    .filter((item) => item.ingredient != null)
+                    .map((item) => {
+                      return (
+                        <li>
+                          {item.measure} of {item.ingredient}
+                        </li>
+                      );
+                    })}
+                </ul>
+              </div>
             </div>
+          </div>
+          <div className="disclaimer">
+            <p>Alcohol abuse is dangerous for your health.</p>
           </div>
         </div>
       </div>

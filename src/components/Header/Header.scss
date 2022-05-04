@@ -33,16 +33,16 @@
       align-items: center;
       transition: 350ms;
       z-index: 20;
-    
+
       &:hover {
         cursor: pointer;
       }
     }
-    
+
     .rotate90 {
       transform: rotate(-90deg);
     }
-    
+
     .menuLogoBars {
       width: 38px;
       height: 3px;
@@ -52,17 +52,17 @@
       margin-bottom: 3px;
       position: relative;
     }
-    
+
     .hide {
       display: none;
     }
-    
+
     .cross {
       transform: rotate(45deg);
       margin: 0;
       position: absolute;
     }
-    
+
     .crossInverted {
       transform: rotate(-45deg);
       margin: 0;
