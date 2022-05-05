@@ -1,13 +1,19 @@
 import "@assets/fonts/BTTF.ttf";
 import "./FooterLogo.css";
+import { useContext } from "react";
+import LightThemeContext from "@contexts/LightTheme";
 
 const FooterLogo = ({ isMobile }) => {
+  const { lightTheme } = useContext(LightThemeContext);
+
   if (isMobile) {
     return (
       <div className="logo-container-footer fontBTTF mobile">
         <div className="logo-footer">
-          <span className="top-line flicker">BACK{"<"} </span>
-          <span className="bottom-line flicker margin-8">& BAR</span>
+          <span className={lightTheme ? "" : "top-line"}>BACK{"<"} </span>
+          <span className={lightTheme ? " margin-8" : "bottom-line margin-8"}>
+            & BAR
+          </span>
         </div>
         <div className="logo-footer">
           <span className="gradient-text">BACK{"<"} </span>
@@ -19,8 +25,10 @@ const FooterLogo = ({ isMobile }) => {
   return (
     <div className="logo-container-footer fontBTTF">
       <div className="logo-footer">
-        <span className="top-line flicker">BACK{"<"} </span>
-        <span className="bottom-line flicker margin-8">& BAR</span>
+        <span className={lightTheme ? "" : "top-line"}>BACK{"<"} </span>
+        <span className={lightTheme ? " margin-8" : "bottom-line margin-8"}>
+          & BAR
+        </span>
       </div>
       <div className="logo-footer">
         <span className="gradient-text">BACK{"<"} </span>
