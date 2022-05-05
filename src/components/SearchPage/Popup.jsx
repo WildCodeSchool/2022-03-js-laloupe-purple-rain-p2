@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import LightThemeContext from "@contexts/LightTheme";
+import React, { useEffect, useContext } from "react";
 import "./Popup.scss";
 
 function Popup({ infoPopup, setInfoPopup }) {
+  const { lightTheme } = useContext(LightThemeContext);
   // console.log(infoPopup);
 
   const recette = [
@@ -72,7 +74,7 @@ function Popup({ infoPopup, setInfoPopup }) {
   });
   return (
     <div className="popup">
-      <div className="popup-inner">
+      <div className={lightTheme ? "popup-inner light" : "popup-inner"}>
         <button
           type="button"
           className="close-btn"
@@ -80,40 +82,36 @@ function Popup({ infoPopup, setInfoPopup }) {
         >
           X
         </button>
-
-        <h1>{infoPopup.strDrink}</h1>
-        <div className="page-cocktails">
-          <img
-            className="cocktail-img"
-            src={infoPopup.strDrinkThumb}
-            alt={infoPopup.strDrinkThumb}
-          />
-          <div className="info-cocktails">
-            <h2>{infoPopup.strCategory}</h2>
-            <h4>{infoPopup.strInstructions}</h4>
-            {recette
-              .filter((item) => item.ingredient != null)
-              .map((item) => {
-                return (
-                  <li>
-                    {item.ingredient}: {item.measure}
-                  </li>
-                );
-              })}
-            {/* {infoPopup.} */}
-
-            {/* <p>
-              {infoPopup.strIngredient1}: {infoPopup.strMeasure1}
-            </p>
-            <p>
-              {infoPopup.strIngredient2}: {infoPopup.strMeasure2}
-            </p>
-            <p>
-              {infoPopup.strIngredient3}: {infoPopup.strMeasure3}
-            </p>
-            <p>
-              {infoPopup.strIngredient4}: {infoPopup.strMeasure4}
-            </p> */}
+        <div className="container">
+          <div className="cocktail-name">
+            <h1>{infoPopup.strDrink}</h1>
+          </div>
+          <div className="page-cocktails">
+            <img
+              className="cocktail-img"
+              src={infoPopup.strDrinkThumb}
+              alt={infoPopup.strDrinkThumb}
+            />
+            <div className="info-cocktails">
+              <h2>{infoPopup.strCategory}</h2>
+              <div className="inst-ingr">
+                <h4>{infoPopup.strInstructions}</h4>
+                <ul>
+                  {recette
+                    .filter((item) => item.ingredient != null)
+                    .map((item) => {
+                      return (
+                        <li>
+                          {item.measure} of {item.ingredient}
+                        </li>
+                      );
+                    })}
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="disclaimer">
+            <p>Alcohol abuse is dangerous for your health.</p>
           </div>
         </div>
       </div>
