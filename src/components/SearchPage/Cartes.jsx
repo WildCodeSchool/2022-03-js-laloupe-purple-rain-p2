@@ -1,22 +1,22 @@
 import "./Cartes.scss";
 
-export function Cards({ strDrink, strCategory, strAlcoholic, strDrinkThumb }) {
+const Cards = ({ setInfoPopup, ...item }) => {
   const handleNeonColor = () => {
-    if (strCategory === "Cocktail") {
+    if (item.strCategory === "Cocktail") {
       return "Carte Bleue";
     }
-    if (strCategory === "Ordinary Drink") {
+    if (item.strCategory === "Ordinary Drink") {
       return "Carte Rose";
     }
 
-    if (strCategory === "Other/Unknown") {
+    if (item.strCategory === "Other/Unknown") {
       return "Carte Orange";
     }
     return "Carte Verte";
   };
 
   const handleCardClick = () => {
-    // console.log("Card has been clicked");
+    setInfoPopup(item);
   };
 
   return (
@@ -25,14 +25,16 @@ export function Cards({ strDrink, strCategory, strAlcoholic, strDrinkThumb }) {
       className={handleNeonColor()}
       onClick={handleCardClick}
     >
-      <h4>{strDrink}</h4>
-      <img className="drinkImage" src={strDrinkThumb} alt={strDrink} />
-      <p>{strAlcoholic}</p>
-      <h5>{strCategory}</h5>
+      <h4>{item.strDrink}</h4>
+      <img
+        className="drinkImage"
+        src={item.strDrinkThumb}
+        alt={item.strDrink}
+      />
+      <p>{item.strAlcoholic}</p>
+      <h5>{item.strCategory}</h5>
     </button>
   );
-}
+};
 
-export function CYC() {
-  return <h1>Choose your cocktail</h1>;
-}
+export default Cards;
