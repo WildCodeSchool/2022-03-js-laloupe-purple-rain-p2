@@ -101,12 +101,13 @@
         position: absolute;
         top: 48px;
         width: 100%;
-        height: auto;
+        max-height: 288px;
+        overflow-y: scroll;
 
         li {
           background-color: rgb(40, 25, 126);
           width: 100%;
-          height: 36px;
+          height: 48px;
 
           &:hover {
             background-color: rgb(40, 25, 126);
@@ -115,6 +116,9 @@
 
           button {
             padding: 8px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
         }
 
@@ -125,14 +129,15 @@
 
       .alcohols {
         position: absolute;
-        top: 48px;
+        top: 94px;
         width: 100%;
-        height: auto;
+        max-height: 288px;
+        overflow-y: scroll;
 
         li {
           background-color: rgb(40, 25, 126);
           width: 100%;
-          height: 36px;
+          height: 48px;
 
           &:hover {
             background-color: rgb(40, 25, 126);
@@ -141,6 +146,39 @@
 
           button {
             padding: 8px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+
+        &.hide {
+          display: none;
+        }
+      }
+
+      .glassType {
+        position: absolute;
+        top: 188px;
+        width: 100%;
+        max-height: 288px;
+        overflow-y: scroll;
+
+        li {
+          background-color: rgb(40, 25, 126);
+          width: 100%;
+          height: 48px;
+
+          &:hover {
+            background-color: rgb(40, 25, 126);
+            animation: none;
+          }
+
+          button {
+            padding: 8px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
         }
 
@@ -246,7 +284,6 @@
         li {
           background-color: rgb(70, 109, 134);
           width: 100%;
-          height: auto;
 
           &:hover {
             background-color: rgb(109, 159, 190);
@@ -264,6 +301,32 @@
       }
 
       .alcohols {
+        position: absolute;
+        top: 50px;
+        width: 100%;
+        height: auto;
+
+        li {
+          background-color: rgb(70, 109, 134);
+          width: 100%;
+          height: auto;
+
+          &:hover {
+            background-color: rgb(109, 159, 190);
+            animation: none;
+          }
+
+          .button {
+            color: black;
+          }
+        }
+
+        &.hide {
+          display: none;
+        }
+      }
+
+      .glassType {
         position: absolute;
         top: 50px;
         width: 100%;
@@ -417,10 +480,17 @@
 
           .categories {
             width: 20%;
+            top: 48px;
           }
 
           .alcohols {
             width: 20%;
+            top: 48px;
+          }
+
+          .glassType {
+            width: 20%;
+            top: 48px;
           }
         }
       }
