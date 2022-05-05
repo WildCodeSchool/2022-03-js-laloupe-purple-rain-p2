@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.scss";
 import AbusAlcool from "@components/AbusAlcool";
 import Homepage from "@pages/Homepage";
@@ -10,6 +10,14 @@ import LightThemeContext from "@contexts/LightTheme.jsx";
 
 function App() {
   const [lightTheme, setLightTheme] = useState();
+
+  useEffect(() => {
+    if (localStorage.getItem("lightTheme") === "true") {
+      setLightTheme(true);
+    } else if (localStorage.getItem("lightTheme") === "false") {
+      setLightTheme(false);
+    }
+  }, []);
 
   return (
     <LightThemeContext.Provider value={{ lightTheme, setLightTheme }}>

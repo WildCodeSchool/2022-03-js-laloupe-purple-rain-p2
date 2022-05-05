@@ -187,7 +187,12 @@
     top: 160px;
     height: 80%;
     overflow-y: scroll;
+
+    &.light {
+      position: sticky;
+    }
   }
+
   .page-cocktails {
     display: flex;
     flex-direction: column;
