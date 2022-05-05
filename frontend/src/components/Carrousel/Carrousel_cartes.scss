@@ -233,7 +233,7 @@
   }
 }
 
-figure img {
+.Carrousel-Back-Image {
   position: absolute;
   height: 320px;
   z-index: -1;
@@ -336,7 +336,6 @@ figure img {
   $cardsScale: scale(1.05);
 
   .Carrousel-carte {
-    filter: brightness(0.85) saturate(0.6);
 
     h4 {
       font-size: 16px;
