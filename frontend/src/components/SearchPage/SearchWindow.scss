@@ -129,10 +129,10 @@
 
       .alcohols {
         position: absolute;
-        top: 94px;
+        top: 95px;
         width: 100%;
         max-height: 288px;
-        overflow-y: scroll;
+        // overflow-y: scroll;
 
         li {
           background-color: rgb(40, 25, 126);
@@ -159,7 +159,7 @@
 
       .glassType {
         position: absolute;
-        top: 188px;
+        top: 142px;
         width: 100%;
         max-height: 288px;
         overflow-y: scroll;
@@ -221,7 +221,7 @@
       .inputList {
         padding: 0;
         display: flex;
-        width: 20%;
+        width: 100%;
         justify-content: center;
       }
 
@@ -276,11 +276,6 @@
       }
 
       .categories {
-        position: absolute;
-        top: 50px;
-        width: 100%;
-        height: auto;
-
         li {
           background-color: rgb(70, 109, 134);
           width: 100%;
@@ -301,11 +296,6 @@
       }
 
       .alcohols {
-        position: absolute;
-        top: 50px;
-        width: 100%;
-        height: auto;
-
         li {
           background-color: rgb(70, 109, 134);
           width: 100%;
@@ -327,11 +317,6 @@
       }
 
       .glassType {
-        position: absolute;
-        top: 50px;
-        width: 100%;
-        height: auto;
-
         li {
           background-color: rgb(70, 109, 134);
           width: 100%;
@@ -467,16 +452,17 @@
     .searchBar {
       .searchList {
         flex-direction: row;
+
+        .inputList {
+          width: 20%;
+        }
+
         li {
           display: flex;
           height: 100%;
           width: 100%;
           border-left: solid 1px rgba(255, 255, 255, 0.192);
           border-right: solid 1px rgba(255, 255, 255, 0.192);
-
-          .inputList {
-            width: 20%;
-          }
 
           .categories {
             width: 20%;
@@ -521,9 +507,7 @@
 
       .searchBar {
         .searchList {
-          flex-direction: row;
           li {
-            width: 20%;
             &:hover {
               border: solid 1px rgb(170, 238, 255);
               background-color: rgba(255, 255, 255, 0.192);
