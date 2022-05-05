@@ -98,7 +98,10 @@ function Popup({ infoPopup, setInfoPopup }) {
                 <h4>{infoPopup.strInstructions}</h4>
                 <ul>
                   {recette
-                    .filter((item) => item.ingredient != null)
+                    .filter(
+                      (item) =>
+                        item.ingredient !== null && item.ingredient !== ""
+                    )
                     .map((item) => {
                       return (
                         <li>
