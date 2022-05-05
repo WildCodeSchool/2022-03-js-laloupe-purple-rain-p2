@@ -17,8 +17,33 @@ const cocktailDataRaw = [
     strIngredient1: "Unix",
     strIngredient2: "Slacking",
     strIngredient3: "Patience",
-    strIngredient4: "",
+    strIngredient4: "Honda",
     strIngredient5: "",
+    strIngredient6: "",
+    strIngredient7: "",
+    strIngredient8: "",
+    strIngredient9: "",
+    strIngredient10: "",
+    strIngredient11: "",
+    strIngredient12: "",
+    strIngredient13: "",
+    strIngredient14: "",
+    strIngredient15: "",
+    strMeasure1: "42 bugs",
+    strMeasure2: "69 shades",
+    strMeasure3: "Ultra mega huge dose",
+    strMeasure4: "1 Boar",
+    strMeasure5: "",
+    strMeasure6: "",
+    strMeasure7: "",
+    strMeasure8: "",
+    strMeasure9: "",
+    strMeasure10: "",
+    strMeasure11: "",
+    strMeasure12: "",
+    strMeasure13: "",
+    strMeasure14: "",
+    strMeasure15: "",
   },
 ];
 
@@ -174,6 +199,9 @@ const SearchWindow = ({ setInfoPopup }) => {
     if (categoryFiltered) {
       setCategoryFiltered(false);
     }
+    if (searchField !== "") {
+      setSearchField("");
+    }
     setFiltered(false);
     getAllDrinks().then((data) => setCocktailList(data));
   };
@@ -183,7 +211,8 @@ const SearchWindow = ({ setInfoPopup }) => {
     if (
       currentLetter === "" &&
       numberFiltered === false &&
-      categoryFiltered === false
+      categoryFiltered === false &&
+      searchField === ""
     ) {
       setFiltered(false);
     } else {
@@ -207,7 +236,7 @@ const SearchWindow = ({ setInfoPopup }) => {
         setCocktailList(data);
       });
     }
-  }, [currentLetter, numberFiltered]);
+  }, [currentLetter, numberFiltered, searchField]);
 
   return (
     <section
@@ -375,13 +404,6 @@ const SearchWindow = ({ setInfoPopup }) => {
                 </button>
               </li>
             </ul>
-          </li>
-
-          {/* Filter by ingredients */}
-          <li>
-            <button type="button" onClick=".ingredients">
-              Ingredients
-            </button>
           </li>
 
           {/* Filter by glass type */}
@@ -686,12 +708,20 @@ const SearchWindow = ({ setInfoPopup }) => {
             </ul>
           </li>
 
+          {/* Filter by ingredients */}
+          <li>
+            <button type="button" onClick=".ingredients">
+              Ingredients
+            </button>
+          </li>
+
           {/* Search bar */}
           <li className="inputList">
             <input
               type="text"
               placeholder="Search..."
               onChange={(e) => setSearchField(e.target.value)}
+              value={searchField}
             />
           </li>
         </ul>
@@ -699,13 +729,22 @@ const SearchWindow = ({ setInfoPopup }) => {
 
       <div className={lightTheme ? "searchContent light" : "searchContent"}>
         <ul className="letterBar">
-          <p className="counter">{cocktailList.length} results</p>
+          <p className="counter">
+            {searchField !== ""
+              ? cocktailList.filter((item) =>
+                  item.strDrink
+                    .toLowerCase()
+                    .includes(searchField.toLowerCase())
+                ).length
+              : cocktailList.length}{" "}
+            results
+          </p>
           <button
             type="button"
             className={filtered ? "rmFilters" : "hide"}
             onClick={() => resetFiltersStatus()}
           >
-            Remove Filters
+            Reset Filters
           </button>
           {letterBar().map((letter) => {
             return (
