@@ -21,7 +21,7 @@ const Homepage = () => {
         </div>
         <Job />
       </section>
-      <section className="midPage"></section>
+      {/* <section className="midPage"></section> */}
       <section className="botPage">
         <Footer />
       </section>
