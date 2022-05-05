@@ -19,10 +19,6 @@
     "husky": "^7.0.0"
   },
   "dependencies": {
-    "axios": "^0.26.1",
-    "google-maps-react": "^2.0.6",
-    "node-sass": "^7.0.1",
-    "react-player": "^2.10.0",
-    "react-router-dom": "^6.3.0"
+    "@googlemaps/js-api-loader": "^1.14.1"
   }
 }
