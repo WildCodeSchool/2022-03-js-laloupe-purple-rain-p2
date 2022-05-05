@@ -4,6 +4,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "./Carrousel.scss";
 import "./Carrousel_cartes.scss";
+import Data from "./OfflineData.jsx";
+import Cocktail from "@assets/images/Cocktail.jpg"
 
 function scaleWidth(width) {
   if (width < 600) {
@@ -151,67 +153,75 @@ function Carrousel() {
                 "Carrousel-left"
                 : (tableOfIndex[0] === 3 && !isDesktop) ?
                   "Carrousel-right"
-                  :
-                  ""
+                  : ((tableOfIndex[0] === 0 && !isDesktop) || isDesktop) ?
+                    "Carrousel-middle"
+                    :
+                    ""
               }
             `}
             id="0"
             style={
               carrouselFormer(tableOfIndex[0], 0)
             }
-            dataattribute="Alcool"
-          >Alcool</figure>
+            data-attribute="Cocktails"
+          ><img src={Data[0]} alt="Ce n'est l'image que vous recherchez" /></figure>
           <figure
             className={`Carrousel-carte Verte Carrousel 
             ${(tableOfIndex[1] === 1 && !isDesktop) ?
                 "Carrousel-left"
                 : (tableOfIndex[1] === 3 && !isDesktop) ?
                   "Carrousel-right"
-                  :
-                  ""
+                  : ((tableOfIndex[1] === 0 && !isDesktop) || isDesktop) ?
+                    "Carrousel-middle"
+                    :
+                    ""
               }
-            `}
+          `}
             id="1"
             style={
               carrouselFormer(tableOfIndex[1], 1)
             }
-            dataattribute="Cocktail Mixte"
-          >Cocktail Mixte</figure>
+            data-attribute="Ordinary Drinks"
+          ><img src={Data[1]} alt="Ce n'est l'image que vous recherchez" /></figure>
           <figure
             className={`Carrousel-carte Rose Carrousel 
             ${(tableOfIndex[2] === 1 && !isDesktop) ?
                 "Carrousel-left"
                 : (tableOfIndex[2] === 3 && !isDesktop) ?
                   "Carrousel-right"
-                  :
-                  ""
+                  : ((tableOfIndex[2] === 0 && !isDesktop) || isDesktop) ?
+                    "Carrousel-middle"
+                    :
+                    ""
               }
-            `}
+          `}
             id="2"
             style={
               carrouselFormer(tableOfIndex[2], 2)
             }
-            dataattribute="Random"
-          >Random</figure>
+            data-attribute="Random"
+          ><img src={Data[2]} alt="Ce n'est l'image que vous recherchez" /></figure>
           <figure
             className={`Carrousel-carte Orange Carrousel 
             ${(tableOfIndex[3] === 1 && !isDesktop) ?
                 "Carrousel-left"
                 : (tableOfIndex[3] === 3 && !isDesktop) ?
                   "Carrousel-right"
-                  :
-                  ""
+                  : ((tableOfIndex[3] === 0 && !isDesktop) || isDesktop) ?
+                    "Carrousel-middle"
+                    :
+                    ""
               }
-            `}
+          `}
             id="3"
             style={
               carrouselFormer(tableOfIndex[3], 3)
             }
-            dataattribute="Sans-Alcool"
-          >Sans-Alcool</figure>
+            data-attribute="Shots"
+          ><img src={Data[3]} alt="Ce n'est l'image que vous recherchez" /></figure>
         </section>
       </section>
-      <button className="random-button">Random Cocktail</button>
+      <button className="random-button"></button>
     </>
   );
 }
