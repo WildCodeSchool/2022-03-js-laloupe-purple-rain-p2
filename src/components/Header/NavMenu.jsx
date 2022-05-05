@@ -1,37 +1,59 @@
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import LightThemeContext from "@contexts/LightTheme";
 import "./NavMenu.scss";
+import { useContext } from "react";
 import Logo from "./Logo";
 
-const NavMenu = ({ isScrolled }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const NavMenu = ({ isScrolled, isOpen, setIsOpen }) => {
+  const { lightTheme, setLightTheme } = useContext(LightThemeContext);
+
+  const handleNeonDesktop = (nav) => {
+    if (nav.isActive) {
+      if (lightTheme) {
+        return "navLight activeLight";
+      }
+      return "nav active";
+    }
+    if (lightTheme) {
+      return "navLight";
+    }
+    return "nav";
+  };
+
+  const handleNavMobile = () => {
+    if (isOpen) {
+      if (lightTheme) {
+        return "navMenu opened light";
+      }
+      return "navMenu opened";
+    }
+    if (lightTheme) {
+      return "navMenu light";
+    }
+    return "navMenu";
+  };
+
+  const handleLightTheme = () => {
+    if (!lightTheme) {
+      localStorage.setItem("lightTheme", "true");
+      setLightTheme(true);
+    } else if (lightTheme) {
+      localStorage.setItem("lightTheme", "false");
+      setLightTheme(false);
+    }
+  };
 
   return (
-    <nav className="navMenu">
-      <div className="mobile">
-        {isOpen ? (
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            type="button"
-            className="navButton rotate90"
-          >
-            <span className="menuLogoBars cross" />
-            <span className="menuLogoBars crossInverted" />
-            <span className="menuLogoBars hide" />
-          </button>
-        ) : (
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            type="button"
-            className="navButton"
-          >
-            <span className="menuLogoBars" />
-            <span className="menuLogoBars" />
-            <span className="menuLogoBars" />
-          </button>
-        )}
-
-        <ul className={`navList ${isOpen && "opened"}`}>
+    <nav className={handleNavMobile()}>
+      <div className="mobileNav">
+        <button
+          type="button"
+          className={lightTheme ? "themeButton" : "themeButton sliderSwitch"}
+          onClick={() => handleLightTheme()}
+        >
+          <div className="themeButtonSlider" />
+        </button>
+        <ul className="navList">
           <NavLink
             onClick={() => setIsOpen(false)}
             to="/"
@@ -67,18 +89,19 @@ const NavMenu = ({ isScrolled }) => {
       </div>
 
       {isScrolled ? (
-        <div className="desktopScroll">
+        <div className={lightTheme ? "desktopScroll light" : "desktopScroll"}>
+          <button
+            type="button"
+            className={lightTheme ? "themeButton" : "themeButton sliderSwitch"}
+            onClick={() => handleLightTheme()}
+          >
+            <div className="themeButtonSlider" />
+          </button>
           <div className="leftButtons">
-            <NavLink
-              to="/"
-              className={(nav) => (nav.isActive ? "navActive" : "")}
-            >
+            <NavLink to="/" className={(nav) => handleNeonDesktop(nav)}>
               HOMEPAGE
             </NavLink>
-            <NavLink
-              to="/search"
-              className={(nav) => (nav.isActive ? "navActive" : "")}
-            >
+            <NavLink to="/search" className={(nav) => handleNeonDesktop(nav)}>
               SEARCH
             </NavLink>
           </div>
@@ -86,33 +109,28 @@ const NavMenu = ({ isScrolled }) => {
             <Logo isScrolled={isScrolled} />
           </NavLink>
           <div className="rightButtons">
-            <NavLink
-              to="/history"
-              className={(nav) => (nav.isActive ? "navActive" : "")}
-            >
+            <NavLink to="/history" className={(nav) => handleNeonDesktop(nav)}>
               HISTORY
             </NavLink>
-            <NavLink
-              to="/jobs"
-              className={(nav) => (nav.isActive ? "navActive" : "")}
-            >
+            <NavLink to="/jobs" className={(nav) => handleNeonDesktop(nav)}>
               JOBS
             </NavLink>
           </div>
         </div>
       ) : (
-        <div className="desktop">
+        <div className={lightTheme ? "desktop light" : "desktop"}>
+          <button
+            type="button"
+            className={lightTheme ? "themeButton" : "themeButton sliderSwitch"}
+            onClick={() => handleLightTheme()}
+          >
+            <div className="themeButtonSlider" />
+          </button>
           <div className="leftButtons">
-            <NavLink
-              to="/"
-              className={(nav) => (nav.isActive ? "navActive" : "")}
-            >
+            <NavLink to="/" className={(nav) => handleNeonDesktop(nav)}>
               HOMEPAGE
             </NavLink>
-            <NavLink
-              to="/search"
-              className={(nav) => (nav.isActive ? "navActive" : "")}
-            >
+            <NavLink to="/search" className={(nav) => handleNeonDesktop(nav)}>
               SEARCH
             </NavLink>
           </div>
@@ -120,16 +138,10 @@ const NavMenu = ({ isScrolled }) => {
             <Logo isScrolled={isScrolled} />
           </NavLink>
           <div className="rightButtons">
-            <NavLink
-              to="/history"
-              className={(nav) => (nav.isActive ? "navActive" : "")}
-            >
+            <NavLink to="/history" className={(nav) => handleNeonDesktop(nav)}>
               HISTORY
             </NavLink>
-            <NavLink
-              to="/jobs"
-              className={(nav) => (nav.isActive ? "navActive" : "")}
-            >
+            <NavLink to="/jobs" className={(nav) => handleNeonDesktop(nav)}>
               JOBS
             </NavLink>
           </div>

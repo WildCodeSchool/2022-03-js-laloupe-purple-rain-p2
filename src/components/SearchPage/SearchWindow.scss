@@ -1,179 +1,560 @@
+@keyframes flickerSearch {
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  100% {
+    box-shadow: 0 0px 2px 1px rgb(255, 237, 177),
+      inset 0px 0px 11px 1px rgb(255, 237, 177),
+      0 0px 4px 1px rgba(238, 157, 6, 0.92),
+      inset 0px 0px 4px 1px rgba(238, 157, 6, 0.92),
+      0 0px 6px 1px rgba(211, 132, 14, 0.98),
+      inset 0px 0px 9px 1px rgba(211, 132, 14, 0.98),
+      0 0px 8px 2px rgba(148, 102, 34, 0.85),
+      inset 0px 0px 6px 1px rgba(148, 102, 34, 0.85),
+      0 0px 10px 2px rgba(158, 106, 8, 0.68),
+      inset 0px 0px 8px 1px rgba(158, 106, 8, 0.68),
+      0 0px 12px 2px rgba(255, 153, 0, 0.71),
+      inset 0px 0px 7px 1px rgba(255, 153, 0, 0.71);
+  }
+  20%,
+  24%,
+  55% {
+    box-shadow: 0 0px 5px 2.5px rgb(255, 220, 125),
+      inset 0px 0px 12px 1px #ffc700, 0 0px 6px 4px rgb(117, 71, 3),
+      inset 0px 0px 15px 1px #ffc700, 0 0px 8px 2px rgb(167, 102, 5),
+      inset 0px 0px 8px 1px #ffc700;
+  }
+}
+
+@keyframes flickerInput {
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  100% {
+    box-shadow: 0 0px 2px 1px rgb(255, 237, 177),
+      0 0px 4px 1px rgba(238, 157, 6, 0.92),
+      0 0px 6px 1px rgba(211, 132, 14, 0.98),
+      0 0px 8px 2px rgba(148, 102, 34, 0.85),
+      0 0px 10px 2px rgba(158, 106, 8, 0.68),
+      0 0px 12px 2px rgba(255, 153, 0, 0.71);
+  }
+  20%,
+  24%,
+  55% {
+    box-shadow: 0 0px 5px 2.5px rgb(255, 220, 125) 0 0px 6px 4px rgb(117, 71, 3),
+      0 0px 8px 2px rgb(167, 102, 5);
+  }
+}
+
 .searchContainer {
-  background-color: rgba(0, 162, 255, 0.2);
+  background-color: rgba(28, 92, 129, 0.616);
+  // backdrop-filter: blur(2px);
   min-width: 300px;
   width: 90vw;
+  min-height: 96px;
   height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   border-left: solid 2px rgb(192, 255, 255);
   border-right: solid 2px rgb(186, 255, 255);
   box-shadow: 0 0 15px 2px rgb(0, 217, 255);
   clip-path: inset(0px -15px 0px -15px);
 
+  &.light {
+    box-shadow: 0 0 12px 2px rgb(187, 187, 187);
+    clip-path: none;
+    background-color: rgb(229 231 235);
+    border-left: solid 2px rgb(90 139 172);
+    border-right: solid 2px rgb(90 139 172);
+    border-bottom: solid 2px rgb(90 139 172);
+    z-index: 4;
+  }
+
   .searchBar {
     background-color: rgba(0, 107, 168, 0.767);
     width: 100%;
-    height: 5%;
+    height: auto;
     display: flex;
     flex-direction: column;
+    z-index: 10;
 
     .searchList {
       width: 100%;
       height: 100%;
       margin: 0;
       display: flex;
+      flex-direction: column;
       list-style: none;
       justify-content: space-around;
+      align-items: center;
+      position: relative;
+
+      .categories {
+        position: absolute;
+        top: 48px;
+        width: 100%;
+        max-height: 288px;
+        overflow-y: scroll;
+
+        li {
+          background-color: rgb(40, 25, 126);
+          width: 100%;
+          height: 48px;
+
+          &:hover {
+            background-color: rgb(40, 25, 126);
+            animation: none;
+          }
+
+          button {
+            padding: 8px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+
+        &.hide {
+          display: none;
+        }
+      }
+
+      .alcohols {
+        position: absolute;
+        top: 95px;
+        width: 100%;
+        max-height: 288px;
+        // overflow-y: scroll;
+
+        li {
+          background-color: rgb(40, 25, 126);
+          width: 100%;
+          height: 48px;
+
+          &:hover {
+            background-color: rgb(40, 25, 126);
+            animation: none;
+          }
+
+          button {
+            padding: 8px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+
+        &.hide {
+          display: none;
+        }
+      }
+
+      .glassType {
+        position: absolute;
+        top: 142px;
+        width: 100%;
+        max-height: 288px;
+        overflow-y: scroll;
+
+        li {
+          background-color: rgb(40, 25, 126);
+          width: 100%;
+          height: 48px;
+
+          &:hover {
+            background-color: rgb(40, 25, 126);
+            animation: none;
+          }
+
+          button {
+            padding: 8px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+
+        &.hide {
+          display: none;
+        }
+      }
 
       li {
-        padding: 12px 3%;
-        cursor: pointer;
-        color: aqua;
-        transition: 300ms;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        border-top: solid 1px rgba(255, 255, 255, 0.192);
+        border-bottom: solid 1px rgba(255, 255, 255, 0.192);
 
-        &:hover {
-          background-color: #ffa600;
+        button {
+          font-size: 18px;
+          background: none;
+          width: 100%;
+          height: 100%;
+          padding: 12px 3%;
+          cursor: pointer;
+          color: rgb(0, 255, 255);
+          transition: 300ms;
+          border: none;
+        }
+
+        &:active {
+          background-color: rgba(255, 255, 255, 0.192);
           color: white;
+          animation: flickerSearch 6ms infinite alternate;
+        }
+
+        &:nth-last-child(1):hover {
+          animation: none;
         }
       }
 
       .inputList {
         padding: 0;
+        display: flex;
+        width: 100%;
+        justify-content: center;
       }
 
       input {
-        height: 100%;
+        margin: 8px;
+        border-radius: 8px;
+        height: auto;
+        padding: 8px 6px;
+        border: none;
         background-color: rgb(212, 224, 233);
 
         &:hover {
           background-color: rgb(255, 255, 255);
+          border: none;
+          animation: flickerInput 6ms infinite alternate;
+        }
+
+        &:focus {
+          outline: none;
+          animation: flickerInput 6ms infinite alternate;
+          background-color: white;
+        }
+      }
+    }
+
+    &.light {
+      background-color: rgb(90 139 172);
+      li {
+        &:hover {
+          animation: none;
+          background-color: rgb(115, 173, 211);
+        }
+
+        &:nth-last-child(1):hover {
+          background: none;
+        }
+        button {
+          color: rgb(241, 252, 255);
+        }
+
+        input {
+          &:hover {
+            animation: none;
+          }
+
+          &:focus {
+            outline: none;
+            animation: none;
+            background-color: white;
+          }
+        }
+      }
+
+      .categories {
+        li {
+          background-color: rgb(70, 109, 134);
+          width: 100%;
+
+          &:hover {
+            background-color: rgb(109, 159, 190);
+            animation: none;
+          }
+
+          .button {
+            color: black;
+          }
+        }
+
+        &.hide {
+          display: none;
+        }
+      }
+
+      .alcohols {
+        li {
+          background-color: rgb(70, 109, 134);
+          width: 100%;
+          height: auto;
+
+          &:hover {
+            background-color: rgb(109, 159, 190);
+            animation: none;
+          }
+
+          .button {
+            color: black;
+          }
+        }
+
+        &.hide {
+          display: none;
+        }
+      }
+
+      .glassType {
+        li {
+          background-color: rgb(70, 109, 134);
+          width: 100%;
+          height: auto;
+
+          &:hover {
+            background-color: rgb(109, 159, 190);
+            animation: none;
+          }
+
+          .button {
+            color: black;
+          }
+        }
+
+        &.hide {
+          display: none;
         }
       }
     }
   }
 
-  .letterBar {
-    user-select: none;
-    margin: 0;
-    padding: 4px 0;
+  .searchContent {
+    backdrop-filter: blur(2px);
     width: 100%;
-    height: auto;
+    height: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    backdrop-filter: blur(8px);
-    position: relative;
+    justify-content: space-between;
 
-    .counter {
-      position: absolute;
-      left: 15px;
-      color: white;
-    }
+    .letterBar {
+      user-select: none;
+      padding: 26px 0;
+      width: 100%;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // backdrop-filter: blur(8px);
+      position: relative;
+      flex-wrap: wrap;
 
-    .rmFilters {
-      position: absolute;
-      left: 15%;
-      color: rgb(77, 197, 228);
+      .counter {
+        position: absolute;
+        top: 2px;
+        left: 15px;
+        color: rgb(0, 255, 255);
+      }
 
-      &:hover {
-        transform: scale(1.05);
-        color: rgb(183, 237, 250);
-        cursor: pointer;
+      .rmFilters {
+        height: 20px;
+        position: absolute;
+        top: 2px;
+        right: 8px;
+        color: rgb(0, 255, 255);
+        background: none;
+        border: none;
+
+        &:hover {
+          transform: scale(1);
+          color: rgb(255, 166, 0);
+          cursor: pointer;
+        }
+      }
+
+      .hide {
+        display: none;
+      }
+
+      button {
+        font-size: 16px;
+        background: none;
+        border: none;
+        height: 100%;
+        color: rgb(0, 255, 255);
+        margin: 0 4px;
+
+        &:hover {
+          transform: scale(1.12);
+          color: rgb(183, 237, 250);
+          cursor: pointer;
+        }
       }
     }
 
-    .hide {
-      display: none;
+    .pageBar {
+      @extend .letterBar;
+      backdrop-filter: none;
+      padding: 0px;
     }
 
-    li {
-      height: 100%;
-      color: rgb(77, 197, 228);
-      margin: 0 4px;
+    .cardsContainer {
+      padding: 24px 10% 24px 10%;
+      max-width: 95%;
+      width: 95%;
+      height: auto;
+      display: grid;
+      justify-content: center;
+      grid-template-columns: repeat(2, 120px);
+      grid-auto-rows: 140px;
+      gap: 28px 20px;
+    }
 
-      &:hover {
-        transform: scale(1.2);
-        color: rgb(183, 237, 250);
-        cursor: pointer;
+    &.light {
+      .letterBar {
+        .counter {
+          color: rgb(65, 66, 66);
+        }
+
+        button {
+          color: rgb(65, 66, 66);
+        }
       }
     }
-  }
-
-  .pageBar {
-    @extend .letterBar;
-    backdrop-filter: none;
-  }
-
-  .cardsContainer {
-    padding: 24px 10% 24px 10%;
-    max-width: 95%;
-    width: 95%;
-    height: auto;
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(2, 120px);
-    grid-auto-rows: 140px;
-    gap: 28px 20px;
   }
 }
 
 @media screen and (min-width: 560px) {
   .searchContainer {
-    .cardsContainer {
-      grid-template-columns: repeat(3, 140px);
-      grid-auto-rows: 160px;
-      gap: 24px 20px;
+    .searchContent {
+      .cardsContainer {
+        grid-template-columns: repeat(3, 140px);
+        grid-auto-rows: 160px;
+        gap: 24px 20px;
+      }
     }
   }
 }
 
 @media screen and (min-width: 760px) {
   .searchContainer {
-    .cardsContainer {
-      grid-template-columns: repeat(4, 140px);
-      gap: 24px 20px;
+    .searchBar {
+      .searchList {
+        flex-direction: row;
+
+        .inputList {
+          width: 20%;
+        }
+
+        li {
+          display: flex;
+          height: 100%;
+          width: 100%;
+          border-left: solid 1px rgba(255, 255, 255, 0.192);
+          border-right: solid 1px rgba(255, 255, 255, 0.192);
+
+          .categories {
+            width: 20%;
+            top: 48px;
+          }
+
+          .alcohols {
+            width: 20%;
+            top: 48px;
+          }
+
+          .glassType {
+            width: 20%;
+            top: 48px;
+          }
+        }
+      }
+
+      .searchContent {
+        .cardsContainer {
+          grid-template-columns: repeat(4, 140px);
+          gap: 24px 20px;
+        }
+      }
     }
   }
-}
 
-@media screen and (min-width: 950px) {
-  .searchContainer {
-    .cardsContainer {
-      grid-template-columns: repeat(5, 140px);
-      gap: 24px 20px;
+  @media screen and (min-width: 950px) {
+    .searchContainer {
+      .searchContent {
+        .cardsContainer {
+          grid-template-columns: repeat(5, 140px);
+          gap: 24px 20px;
+        }
+      }
     }
   }
-}
 
-@media screen and (min-width: 1024px) {
-  .searchContainer {
-    margin-top: 64px;
+  @media screen and (min-width: 1024px) {
+    .searchContainer {
+      margin-top: 24px;
 
-    .cardsContainer {
-      grid-template-columns: repeat(3, 240px);
-      grid-auto-rows: 335px;
-      gap: 24px 20px;
+      .searchBar {
+        .searchList {
+          li {
+            &:hover {
+              border: solid 1px rgb(170, 238, 255);
+              background-color: rgba(255, 255, 255, 0.192);
+              color: white;
+            }
+
+            &:active {
+              // border: none;
+              animation: none;
+            }
+          }
+        }
+
+        .searchList {
+          flex-direction: row;
+        }
+      }
+      .searchContent {
+        .cardsContainer {
+          grid-template-columns: repeat(3, 240px);
+          grid-auto-rows: 335px;
+          gap: 24px 20px;
+        }
+      }
     }
-  }
-}
 
-@media screen and (min-width: 1450px) {
-  .searchContainer {
-    max-width: 75%;
+    @media screen and (min-width: 1450px) {
+      .searchContainer {
+        max-width: 75%;
 
-    .cardsContainer {
-      grid-template-columns: repeat(4, 240px);
+        .searchContent {
+          .cardsContainer {
+            grid-template-columns: repeat(4, 240px);
+          }
+        }
+      }
     }
-  }
-}
 
-@media screen and (min-width: 1780px) {
-  .searchContainer {
-    max-width: 75%;
-    .cardsContainer {
-      grid-template-columns: repeat(5, 240px);
+    @media screen and (min-width: 1780px) {
+      .searchContainer {
+        max-width: 75%;
+        .searchContent {
+          .cardsContainer {
+            grid-template-columns: repeat(5, 240px);
+          }
+        }
+      }
     }
   }
 }
