@@ -33,13 +33,23 @@ const NavMenu = ({ isScrolled, isOpen, setIsOpen }) => {
     return "navMenu";
   };
 
+  const handleLightTheme = () => {
+    if (!lightTheme) {
+      localStorage.setItem("lightTheme", "true");
+      setLightTheme(true);
+    } else if (lightTheme) {
+      localStorage.setItem("lightTheme", "false");
+      setLightTheme(false);
+    }
+  };
+
   return (
     <nav className={handleNavMobile()}>
       <div className="mobileNav">
         <button
           type="button"
           className={lightTheme ? "themeButton" : "themeButton sliderSwitch"}
-          onClick={() => setLightTheme(!lightTheme)}
+          onClick={() => handleLightTheme()}
         >
           <div className="themeButtonSlider" />
         </button>
@@ -83,7 +93,7 @@ const NavMenu = ({ isScrolled, isOpen, setIsOpen }) => {
           <button
             type="button"
             className={lightTheme ? "themeButton" : "themeButton sliderSwitch"}
-            onClick={() => setLightTheme(!lightTheme)}
+            onClick={() => handleLightTheme()}
           >
             <div className="themeButtonSlider" />
           </button>
@@ -112,7 +122,7 @@ const NavMenu = ({ isScrolled, isOpen, setIsOpen }) => {
           <button
             type="button"
             className={lightTheme ? "themeButton" : "themeButton sliderSwitch"}
-            onClick={() => setLightTheme(!lightTheme)}
+            onClick={() => handleLightTheme()}
           >
             <div className="themeButtonSlider" />
           </button>
