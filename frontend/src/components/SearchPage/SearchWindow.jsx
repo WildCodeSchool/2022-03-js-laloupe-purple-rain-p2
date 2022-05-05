@@ -6,17 +6,17 @@ import LightThemeContext from "@contexts/LightTheme";
 
 const cocktailDataRaw = [
   {
-    strDrink: "Screaming Orgasm",
-    strCategory: "Ordinary Drink",
+    strDrink: "Xav'tail",
+    strCategory: "Obnoxious drink",
     strAlcoholic: "Alcoholic",
-    strGlass: "Cocktail glass",
+    strGlass: "Wild Glass",
     strInstructions:
-      "Pour first vodka, then Bailey's, then Kahlua into a cocktail glass over crushed ice. Stir. Caution: use only high quality vodka. Cheap vodka can cause the Bailey's to curdle. Test your brand of vodka by mixing 1 Tsp each of vodka and Bailey's first.",
+      "Fetch the Xavier with extreme caution, you have keep it cool to be able to pour it wildy inside the Wild glass. There is no guarantee the Xavier won't start a livecoding. Be aware that the Xav'tail is a dangerous and unpleasant drink, you might get a strong headache and you might React with Express dreams.",
     strDrinkThumb:
-      "https://www.thecocktaildb.com/images/media/drink/x894cs1504388670.jpg",
-    strIngredient1: "Vodka",
-    strIngredient2: "Baileys irish cream",
-    strIngredient3: "Kahlua",
+      "https://ca.slack-edge.com/T6SG2QGG2-UHBQ50AV8-7fa84665b54b-512",
+    strIngredient1: "Unix",
+    strIngredient2: "Slacking",
+    strIngredient3: "Patience",
     strIngredient4: "",
     strIngredient5: "",
   },
@@ -31,8 +31,8 @@ const letterBar = () => {
 };
 
 const SearchWindow = ({ setInfoPopup }) => {
-  const [searchField, setSearchField] = useState(""); // Search field input value
   const [cocktailList, setCocktailList] = useState(cocktailDataRaw); // Actual list of drinks
+  const [searchField, setSearchField] = useState(""); // Search field input value
   const [numberFiltered, setNumberFiltered] = useState(false); // Drinks names starts by a number
   const [categoryFiltered, setCategoryFiltered] = useState(false); // Drinks category
   const [currentLetter, setCurrentLetter] = useState(""); // Current filter by letter
@@ -131,9 +131,10 @@ const SearchWindow = ({ setInfoPopup }) => {
   // Fetches the whole drink lists and apply a filters to keep only the ones fitting the category
   const getDrinkByCategory = (category, catClass) => {
     document.querySelector(`.searchList ${catClass}`).classList.toggle("hide");
-    getAllDrinks().then((data) =>
-      setCocktailList(data.filter((item) => item.strCategory === category))
-    );
+    getAllDrinks().then((data) => {
+      data.push(cocktailDataRaw[0]);
+      setCocktailList(data.filter((item) => item.strCategory === category));
+    });
     setCategoryFiltered(true);
     setFiltered(true);
   };
@@ -141,9 +142,10 @@ const SearchWindow = ({ setInfoPopup }) => {
   // Fetches the whole drink lists and apply a filters to keep only the ones fitting the alcohol type
   const getDrinkByAlcohol = (alcohol, alcClass) => {
     document.querySelector(`.searchList ${alcClass}`).classList.toggle("hide");
-    getAllDrinks().then((data) =>
-      setCocktailList(data.filter((item) => item.strAlcoholic === alcohol))
-    );
+    getAllDrinks().then((data) => {
+      data.push(cocktailDataRaw[0]);
+      setCocktailList(data.filter((item) => item.strAlcoholic === alcohol));
+    });
     setCategoryFiltered(true);
     setFiltered(true);
   };
@@ -153,9 +155,10 @@ const SearchWindow = ({ setInfoPopup }) => {
     document
       .querySelector(`.searchList ${glassClass}`)
       .classList.toggle("hide");
-    getAllDrinks().then((data) =>
-      setCocktailList(data.filter((item) => item.strGlass === glass))
-    );
+    getAllDrinks().then((data) => {
+      data.push(cocktailDataRaw[0]);
+      setCocktailList(data.filter((item) => item.strGlass === glass));
+    });
     setCategoryFiltered(true);
     setFiltered(true);
   };
@@ -192,9 +195,17 @@ const SearchWindow = ({ setInfoPopup }) => {
       numberFiltered === false &&
       categoryFiltered === false
     ) {
-      getAllDrinks().then((data) => setCocktailList(data));
+      getAllDrinks().then((data) => {
+        data.push(cocktailDataRaw[0]);
+        setCocktailList(data);
+      });
     } else if (currentLetter !== "") {
-      getDrinkByLetter(currentLetter).then((data) => setCocktailList(data));
+      getDrinkByLetter(currentLetter).then((data) => {
+        if (currentLetter === "X") {
+          data.push(cocktailDataRaw[0]);
+        }
+        setCocktailList(data);
+      });
     }
   }, [currentLetter, numberFiltered]);
 
@@ -204,6 +215,7 @@ const SearchWindow = ({ setInfoPopup }) => {
     >
       <div className={lightTheme ? "searchBar light" : "searchBar"}>
         <ul className="searchList">
+          {/* Filter by categories */}
           <li>
             <button
               type="button"
@@ -312,8 +324,20 @@ const SearchWindow = ({ setInfoPopup }) => {
                   Soft Drinks
                 </button>
               </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() =>
+                    getDrinkByCategory("Obnoxious drink", ".categories")
+                  }
+                >
+                  Obnoxious drinks
+                </button>
+              </li>
             </ul>
           </li>
+
+          {/* Filter by alcohol */}
           <li>
             <button
               type="button"
@@ -352,11 +376,15 @@ const SearchWindow = ({ setInfoPopup }) => {
               </li>
             </ul>
           </li>
+
+          {/* Filter by ingredients */}
           <li>
             <button type="button" onClick=".ingredients">
               Ingredients
             </button>
           </li>
+
+          {/* Filter by glass type */}
           <li>
             <button
               type="button"
@@ -364,7 +392,301 @@ const SearchWindow = ({ setInfoPopup }) => {
             >
               Glass Type
             </button>
+            <ul className="glassType hide">
+              <li>
+                <button
+                  type="button"
+                  onClick={() =>
+                    getDrinkByGlass("Highball glass", ".glassType")
+                  }
+                >
+                  Highball glass
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() =>
+                    getDrinkByGlass("Cocktail glass", ".glassType")
+                  }
+                >
+                  Cocktail glass
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => getDrinkByGlass("Wild Glass", ".glassType")}
+                >
+                  Wild Glass
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() =>
+                    getDrinkByGlass("Old-fashioned glass", ".glassType")
+                  }
+                >
+                  Old-fashioned glass
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => getDrinkByGlass("Whiskey Glass", ".glassType")}
+                >
+                  Whiskey Glass
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => getDrinkByGlass("Collins glass", ".glassType")}
+                >
+                  Collins glass
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() =>
+                    getDrinkByGlass("Pousse cafe glass", ".glassType")
+                  }
+                >
+                  Pousse cafe glass
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() =>
+                    getDrinkByGlass("Champagne flute", ".glassType")
+                  }
+                >
+                  Champagne flute
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() =>
+                    getDrinkByGlass("Whiskey sour glass", ".glassType")
+                  }
+                >
+                  Whiskey sour glass
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => getDrinkByGlass("Cordial glass", ".glassType")}
+                >
+                  Cordial glass
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() =>
+                    getDrinkByGlass("Brandy snifter", ".glassType")
+                  }
+                >
+                  Brandy snifter
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() =>
+                    getDrinkByGlass("White wine glass", ".glassType")
+                  }
+                >
+                  White wine glass
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() =>
+                    getDrinkByGlass("Nick and Nora Glass", ".glassType")
+                  }
+                >
+                  Nick and Nora Glass
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() =>
+                    getDrinkByGlass("Hurricane glass", ".glassType")
+                  }
+                >
+                  Hurricane glass
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => getDrinkByGlass("Coffee mug", ".glassType")}
+                >
+                  Coffee mug
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => getDrinkByGlass("Shot glass", ".glassType")}
+                >
+                  Shot glass
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => getDrinkByGlass("Jar", ".glassType")}
+                >
+                  Jar
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() =>
+                    getDrinkByGlass("Irish coffee cup", ".glassType")
+                  }
+                >
+                  Irish coffee cup
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => getDrinkByGlass("Punch bowl", ".glassType")}
+                >
+                  Punch bowl
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => getDrinkByGlass("Pitcher", ".glassType")}
+                >
+                  Pitcher
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => getDrinkByGlass("Pint glass", ".glassType")}
+                >
+                  Pint glass
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => getDrinkByGlass("Copper Mug", ".glassType")}
+                >
+                  Copper Mug
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => getDrinkByGlass("Wine Glass", ".glassType")}
+                >
+                  Wine Glass
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => getDrinkByGlass("Beer mug", ".glassType")}
+                >
+                  Beer mug
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() =>
+                    getDrinkByGlass("Margarita/Coupette glass", ".glassType")
+                  }
+                >
+                  Margarita/Coupette glass
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => getDrinkByGlass("Beer pilsner", ".glassType")}
+                >
+                  Beer pilsner
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => getDrinkByGlass("Beer Glass", ".glassType")}
+                >
+                  Beer Glass
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => getDrinkByGlass("Parfait glass", ".glassType")}
+                >
+                  Parfait glass
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => getDrinkByGlass("Mason jar", ".glassType")}
+                >
+                  Mason jar
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() =>
+                    getDrinkByGlass("Margarita glass", ".glassType")
+                  }
+                >
+                  Margarita glass
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => getDrinkByGlass("Martini Glass", ".glassType")}
+                >
+                  Martini Glass
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => getDrinkByGlass("Balloon Glass", ".glassType")}
+                >
+                  Balloon Glass
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => getDrinkByGlass("Coupe Glass", ".glassType")}
+                >
+                  Coupe Glass
+                </button>
+              </li>
+            </ul>
           </li>
+
+          {/* Search bar */}
           <li className="inputList">
             <input
               type="text"
@@ -374,6 +696,7 @@ const SearchWindow = ({ setInfoPopup }) => {
           </li>
         </ul>
       </div>
+
       <div className={lightTheme ? "searchContent light" : "searchContent"}>
         <ul className="letterBar">
           <p className="counter">{cocktailList.length} results</p>
