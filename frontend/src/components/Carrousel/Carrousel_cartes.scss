@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Shotgun";
+  src: url("@assets/fonts/Shotgun.ttf");
+}
+
 // *! ---------------CLIGNOTEMENT---------------
 
 @keyframes flicker-blue-card {
@@ -228,6 +233,12 @@
   }
 }
 
+figure img {
+  position: absolute;
+  height: 320px;
+  z-index: -1;
+}
+
 .Carrousel-carte {
   width: 230px;
   height: 320px;
@@ -285,7 +296,6 @@
   }
 
   &.Bleue {
-    background-image: url("./Drunk_Cat.jpeg");
     background-size: cover;
     background-position-x: center;
     border: solid #001b4a 2px;
@@ -295,7 +305,6 @@
   }
 
   &.Orange {
-    background-image: url("./Alcool_free.jpg");
     background-size: cover;
     background-position-x: center;
     border: solid #393600 2px;
@@ -305,7 +314,6 @@
   }
 
   &.Rose {
-    background-image: url("./random.png");
     background-size: cover;
     background-position-x: center;
     border: solid #520049 2px;
@@ -315,7 +323,6 @@
   }
 
   &.Verte {
-    background-image: url("./demoman-heavy.gif");
     background-size: cover;
     background-position-x: center;
     border: solid #003d00 2px;
@@ -416,37 +423,49 @@
 }
 
 .Carrousel-left {
-  color: transparent;
-
   &::after {
-    content: attr(dataattribute);
-    font-size: 24px;
+    content: attr(data-attribute);
     position: relative;
     width: 170%;
-    padding: 7.5% 0;
-    top: 45%;
-    left: 40%;
+    padding: 10% 0 5% 0;
+    top: 50%;
+    left: 45%;
+    //font-family: Shotgun;
+    font-size: 24px;
+    text-shadow: 1px 1px black, -1px 1px black;
+    overflow-wrap: break-word;
     transform: translateY(-50%) rotate(90deg);
-    color: white;
-    background-color: rgba($color: #ffffff, $alpha: 0.2);
-    transition: all 0.5s;
+    background-color: rgba($color: #000, $alpha: 0.4);
+  }
+}
+
+.Carrousel-middle {
+  &::after {
+    content: attr(data-attribute);
+    position: relative;
+    width: 100%;
+    padding: 7.5% 0;
+    //font-family: Shotgun;
+    font-size: 32px;
+    text-shadow: 1px 1px black, -1px 1px black;
+    overflow-wrap: break-word;
+    background-color: rgba($color: #000, $alpha: 0.35);
   }
 }
 
 .Carrousel-right {
-  color: transparent;
-
   &::after {
-    content: attr(dataattribute);
-    font-size: 24px;
+    content: attr(data-attribute);
     position: relative;
     width: 170%;
-    padding: 7.5% 0;
-    top: 45%;
-    right: 40%;
+    padding: 10% 0 5% 0;
+    top: 50%;
+    right: 45%;
+    //font-family: Shotgun;
+    font-size: 24px;
+    text-shadow: 1px 1px black, -1px 1px black;
+    overflow-wrap: break-word;
     transform: translateY(-50%) rotate(-90deg);
-    color: white;
-    background-color: rgba($color: #ffffff, $alpha: 0.2);
-    transition: all 0.5s;
+    background-color: rgba($color: #000, $alpha: 0.4);
   }
 }
