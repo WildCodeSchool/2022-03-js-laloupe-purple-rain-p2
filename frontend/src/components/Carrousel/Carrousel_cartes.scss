@@ -429,13 +429,13 @@ figure img {
     width: 170%;
     padding: 10% 0 5% 0;
     top: 50%;
-    left: 40%;
-    font-family: Shotgun;
+    left: 45%;
+    //font-family: Shotgun;
     font-size: 24px;
     text-shadow: 1px 1px black, -1px 1px black;
     overflow-wrap: break-word;
     transform: translateY(-50%) rotate(90deg);
-    background-color: rgba($color: #aaa, $alpha: 0.4);
+    background-color: rgba($color: #000, $alpha: 0.4);
   }
 }
 
@@ -445,11 +445,11 @@ figure img {
     position: relative;
     width: 100%;
     padding: 7.5% 0;
-    font-family: Shotgun;
+    //font-family: Shotgun;
     font-size: 32px;
     text-shadow: 1px 1px black, -1px 1px black;
     overflow-wrap: break-word;
-    background-color: rgba($color: #aaa, $alpha: 0.35);
+    background-color: rgba($color: #000, $alpha: 0.35);
   }
 }
 
@@ -460,12 +460,12 @@ figure img {
     width: 170%;
     padding: 10% 0 5% 0;
     top: 50%;
-    right: 40%;
-    font-family: Shotgun;
+    right: 45%;
+    //font-family: Shotgun;
     font-size: 24px;
     text-shadow: 1px 1px black, -1px 1px black;
     overflow-wrap: break-word;
     transform: translateY(-50%) rotate(-90deg);
-    background-color: rgba($color: #aaa, $alpha: 0.4);
+    background-color: rgba($color: #000, $alpha: 0.4);
   }
 }
