@@ -3,49 +3,7 @@ import axios from "axios";
 import Cards from "@components/SearchPage/Cartes";
 import "@components/SearchPage/SearchWindow.scss";
 import LightThemeContext from "@contexts/LightTheme";
-
-const cocktailDataRaw = [
-  {
-    strDrink: "Xav'tail",
-    strCategory: "Obnoxious drink",
-    strAlcoholic: "Alcoholic",
-    strGlass: "Wild Glass",
-    strInstructions:
-      "Fetch the Xavier with extreme caution, you have keep it cool to be able to pour it wildy inside the Wild glass. There is no guarantee the Xavier won't start a livecoding. Be aware that the Xav'tail is a dangerous and unpleasant drink, you might get a strong headache and you might React with Express dreams.",
-    strDrinkThumb:
-      "https://ca.slack-edge.com/T6SG2QGG2-UHBQ50AV8-7fa84665b54b-512",
-    strIngredient1: "Unix",
-    strIngredient2: "Slacking",
-    strIngredient3: "Patience",
-    strIngredient4: "Honda",
-    strIngredient5: "",
-    strIngredient6: "",
-    strIngredient7: "",
-    strIngredient8: "",
-    strIngredient9: "",
-    strIngredient10: "",
-    strIngredient11: "",
-    strIngredient12: "",
-    strIngredient13: "",
-    strIngredient14: "",
-    strIngredient15: "",
-    strMeasure1: "42 bugs",
-    strMeasure2: "69 shades",
-    strMeasure3: "Ultra mega huge dose",
-    strMeasure4: "1 Boar",
-    strMeasure5: "",
-    strMeasure6: "",
-    strMeasure7: "",
-    strMeasure8: "",
-    strMeasure9: "",
-    strMeasure10: "",
-    strMeasure11: "",
-    strMeasure12: "",
-    strMeasure13: "",
-    strMeasure14: "",
-    strMeasure15: "",
-  },
-];
+import cocktailDataRaw from "./rawData";
 
 const letterBar = () => {
   const response = [];
@@ -98,7 +56,7 @@ const SearchWindow = ({ setInfoPopup }) => {
     }
   };
 
-  // Fetches all drinks from API using "?s=" without any parameters, kinda weird ut it works
+  // Fetches all drinks from API using "?s=" without any parameters, kinda weird but it works
   async function getAllDrinks() {
     const response = await axios
       .get("https://www.thecocktaildb.com/api/json/v2/9973533/search.php?s=")
@@ -710,7 +668,10 @@ const SearchWindow = ({ setInfoPopup }) => {
 
           {/* Filter by ingredients */}
           <li>
-            <button type="button" onClick=".ingredients">
+            <button
+              type="button"
+              onClick={() => handleFilterMenus(".ingredients")}
+            >
               Ingredients
             </button>
           </li>
