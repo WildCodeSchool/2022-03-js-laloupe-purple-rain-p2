@@ -63,6 +63,16 @@ function App() {
             }
           />
           <Route
+            path="/search/:category"
+            element={
+              <Search
+                ageCheck={ageCheck}
+                setAgeCheck={setAgeCheck}
+                handleAgeCheck={handleAgeCheck}
+              />
+            }
+          />
+          <Route
             path="/history"
             element={
               <History
