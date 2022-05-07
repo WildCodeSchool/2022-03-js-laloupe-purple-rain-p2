@@ -16,17 +16,17 @@ const letterBar = () => {
 
 const SearchWindow = ({ setInfoPopup }) => {
   const [cocktailList, setCocktailList] = useState(cocktailDataRaw); // Actual list of drinks
+  const [ingredientsList, setIngredientsList] = useState([]);
   const [searchField, setSearchField] = useState(""); // Search field input value
   const [numberFiltered, setNumberFiltered] = useState(false); // Drinks names starts by a number
   const [categoryFiltered, setCategoryFiltered] = useState(false); // Drinks category
   const [currentLetter, setCurrentLetter] = useState(""); // Current filter by letter
   const [filtered, setFiltered] = useState(false); // Is there any filter active ?
-  const { lightTheme } = useContext(LightThemeContext);
+  const { lightTheme } = useContext(LightThemeContext); // Imports the light theme context
 
+  // Pages offset values
   const [maxItem, setMaxItem] = useState(10);
   const [minItem, setMinItem] = useState(0);
-
-  const { category } = useParams();
 
   // Goes to "first page" by setting array offset to 0
   const firstPage = () => {
@@ -70,6 +70,21 @@ const SearchWindow = ({ setInfoPopup }) => {
 
     if (response) {
       firstPage();
+      return response;
+    }
+    return [];
+  }
+
+  // Fetches all ingredients from API
+  async function getAllIngredients() {
+    const response = await axios
+      .get("https://www.thecocktaildb.com/api/json/v2/9973533/list.php?i=list")
+      .then((ingredients) => setIngredientsList(ingredients.data.drinks))
+      .catch((err) => {
+        console.error(err);
+      });
+
+    if (response) {
       return response;
     }
     return [];
@@ -119,10 +134,23 @@ const SearchWindow = ({ setInfoPopup }) => {
   // Fetches the whole drink lists and apply a filters to keep only the ones fitting the category
   const getDrinkByCategory = (categoryName, catClass) => {
     document.querySelector(`.searchList ${catClass}`).classList.toggle("hide");
-    getAllDrinks().then((data) => {
-      data.push(cocktailDataRaw[0]);
-      setCocktailList(data.filter((item) => item.strCategory === categoryName));
-    });
+    if (
+      cocktailList.length === 0 ||
+      cocktailList.filter((item) => item.strCategory === categoryName)
+        .length === 0
+    ) {
+      getAllDrinks().then((data) => {
+        data.push(cocktailDataRaw[0]);
+        setCocktailList(
+          data.filter((item) => item.strCategory === categoryName)
+        );
+      });
+    } else {
+      setCocktailList(
+        cocktailList.filter((item) => item.strCategory === categoryName)
+      );
+    }
+
     setCategoryFiltered(true);
     setFiltered(true);
   };
@@ -130,10 +158,19 @@ const SearchWindow = ({ setInfoPopup }) => {
   // Fetches the whole drink lists and apply a filters to keep only the ones fitting the alcohol type
   const getDrinkByAlcohol = (alcohol, alcClass) => {
     document.querySelector(`.searchList ${alcClass}`).classList.toggle("hide");
-    getAllDrinks().then((data) => {
-      data.push(cocktailDataRaw[0]);
-      setCocktailList(data.filter((item) => item.strAlcoholic === alcohol));
-    });
+    if (
+      cocktailList.length === 0 ||
+      cocktailList.filter((item) => item.strAlcoholic === alcohol).length === 0
+    ) {
+      getAllDrinks().then((data) => {
+        data.push(cocktailDataRaw[0]);
+        setCocktailList(data.filter((item) => item.strAlcoholic === alcohol));
+      });
+    } else {
+      setCocktailList(
+        cocktailList.filter((item) => item.strAlcoholic === alcohol)
+      );
+    }
     setCategoryFiltered(true);
     setFiltered(true);
   };
@@ -143,18 +180,33 @@ const SearchWindow = ({ setInfoPopup }) => {
     document
       .querySelector(`.searchList ${glassClass}`)
       .classList.toggle("hide");
-    getAllDrinks().then((data) => {
-      data.push(cocktailDataRaw[0]);
-      setCocktailList(data.filter((item) => item.strGlass === glass));
-    });
+    if (
+      cocktailList.length === 0 ||
+      cocktailList.filter((item) => item.strGlass === glass).length === 0
+    ) {
+      getAllDrinks().then((data) => {
+        data.push(cocktailDataRaw[0]);
+        setCocktailList(data.filter((item) => item.strGlass === glass));
+      });
+    } else {
+      setCocktailList(cocktailList.filter((item) => item.strGlass === glass));
+    }
     setCategoryFiltered(true);
     setFiltered(true);
   };
 
+  // Fetches the whole drink lists and apply a filters to keep only the ones having the selected ingredients
+  const getDrinkByIngredients = (ingredientClass) => {
+    document
+      .querySelector(`.searchList ${ingredientClass}`)
+      .classList.toggle("hide");
+  };
+
   // Resets filters to display all drinks
   const resetFiltersStatus = () => {
-    window.location.href = "/search";
-
+    if (window.location.href !== "/search") {
+      window.location.href = "/search";
+    }
     if (currentLetter !== "") {
       setCurrentLetter("");
     }
@@ -170,6 +222,9 @@ const SearchWindow = ({ setInfoPopup }) => {
     setFiltered(false);
     getAllDrinks().then((data) => setCocktailList(data));
   };
+
+  // Handles the API fetch from the carrousel cards by listening to URL params
+  const { category } = useParams();
 
   const handleCatLink = () => {
     if (category) {
@@ -201,6 +256,7 @@ const SearchWindow = ({ setInfoPopup }) => {
       }
     }
   };
+  // console.log(ingredientsList);
 
   // Checks filtering state and handles letter filtering requests
   useEffect(() => {
@@ -232,6 +288,7 @@ const SearchWindow = ({ setInfoPopup }) => {
         setCocktailList(data);
       });
     }
+    getAllIngredients();
     handleCatLink();
   }, [currentLetter, numberFiltered, searchField]);
 
@@ -713,6 +770,20 @@ const SearchWindow = ({ setInfoPopup }) => {
             >
               Ingredients
             </button>
+            <ul className="ingredients hide">
+              {ingredientsList.map((item) => {
+                return (
+                  <li key={item.strIngredient1}>
+                    <button
+                      type="button"
+                      onClick={() => getDrinkByIngredients(".ingredients")}
+                    >
+                      {item.strIngredient1}
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
           </li>
 
           {/* Search bar */}
