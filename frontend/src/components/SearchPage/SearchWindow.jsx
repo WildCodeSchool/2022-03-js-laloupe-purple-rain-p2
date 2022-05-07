@@ -3,6 +3,7 @@ import axios from "axios";
 import Cards from "@components/SearchPage/Cartes";
 import "@components/SearchPage/SearchWindow.scss";
 import LightThemeContext from "@contexts/LightTheme";
+import { useParams } from "react-router-dom";
 import cocktailDataRaw from "./rawData";
 
 const letterBar = () => {
@@ -24,6 +25,8 @@ const SearchWindow = ({ setInfoPopup }) => {
 
   const [maxItem, setMaxItem] = useState(10);
   const [minItem, setMinItem] = useState(0);
+
+  const { category } = useParams();
 
   // Goes to "first page" by setting array offset to 0
   const firstPage = () => {
@@ -107,16 +110,18 @@ const SearchWindow = ({ setInfoPopup }) => {
   }
 
   // Toggles search list drop down menu
-  const handleFilterMenus = (category) => {
-    document.querySelector(`.searchList ${category}`).classList.toggle("hide");
+  const handleFilterMenus = (categoryName) => {
+    document
+      .querySelector(`.searchList ${categoryName}`)
+      .classList.toggle("hide");
   };
 
   // Fetches the whole drink lists and apply a filters to keep only the ones fitting the category
-  const getDrinkByCategory = (category, catClass) => {
+  const getDrinkByCategory = (categoryName, catClass) => {
     document.querySelector(`.searchList ${catClass}`).classList.toggle("hide");
     getAllDrinks().then((data) => {
       data.push(cocktailDataRaw[0]);
-      setCocktailList(data.filter((item) => item.strCategory === category));
+      setCocktailList(data.filter((item) => item.strCategory === categoryName));
     });
     setCategoryFiltered(true);
     setFiltered(true);
@@ -148,6 +153,8 @@ const SearchWindow = ({ setInfoPopup }) => {
 
   // Resets filters to display all drinks
   const resetFiltersStatus = () => {
+    window.location.href = "/search";
+
     if (currentLetter !== "") {
       setCurrentLetter("");
     }
@@ -162,6 +169,37 @@ const SearchWindow = ({ setInfoPopup }) => {
     }
     setFiltered(false);
     getAllDrinks().then((data) => setCocktailList(data));
+  };
+
+  const handleCatLink = () => {
+    if (category) {
+      setCategoryFiltered(true);
+      if (category === "cocktails") {
+        getAllDrinks().then((data) => {
+          data.push(cocktailDataRaw[0]);
+          setCocktailList(
+            data.filter((item) => item.strCategory === "Cocktail")
+          );
+        });
+        setFiltered(true);
+      }
+      if (category === "shots") {
+        getAllDrinks().then((data) => {
+          data.push(cocktailDataRaw[0]);
+          setCocktailList(data.filter((item) => item.strCategory === "Shot"));
+        });
+        setFiltered(true);
+      }
+      if (category === "ordinary_drinks") {
+        getAllDrinks().then((data) => {
+          data.push(cocktailDataRaw[0]);
+          setCocktailList(
+            data.filter((item) => item.strCategory === "Ordinary Drink")
+          );
+        });
+        setFiltered(true);
+      }
+    }
   };
 
   // Checks filtering state and handles letter filtering requests
@@ -194,6 +232,7 @@ const SearchWindow = ({ setInfoPopup }) => {
         setCocktailList(data);
       });
     }
+    handleCatLink();
   }, [currentLetter, numberFiltered, searchField]);
 
   return (
