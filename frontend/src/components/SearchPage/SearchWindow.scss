@@ -403,15 +403,15 @@
     }
 
     .cardsContainer {
-      padding: 24px 10% 24px 10%;
+      padding: 24px 5% 24px 5%;
       max-width: 95%;
       width: 95%;
       height: auto;
       display: grid;
       justify-content: center;
-      grid-template-columns: repeat(2, 120px);
-      grid-auto-rows: 140px;
-      gap: 28px 20px;
+      grid-template-columns: repeat(2, 130px);
+      grid-auto-rows: 160px;
+      gap: 24px 14px;
     }
 
     &.light {
@@ -428,12 +428,23 @@
   }
 }
 
+@media screen and (min-width: 370px) {
+  .searchContainer {
+    .searchContent {
+      .cardsContainer {
+        grid-template-columns: repeat(2, 150px);
+        grid-auto-rows: 170px;
+        gap: 24px 20px;
+      }
+    }
+  }
+}
+
 @media screen and (min-width: 560px) {
   .searchContainer {
     .searchContent {
       .cardsContainer {
-        grid-template-columns: repeat(3, 140px);
-        grid-auto-rows: 160px;
+        grid-template-columns: repeat(3, 150px);
         gap: 24px 20px;
       }
     }
@@ -482,7 +493,7 @@
 
       .searchContent {
         .cardsContainer {
-          grid-template-columns: repeat(4, 140px);
+          grid-template-columns: repeat(4, 150px);
           gap: 24px 20px;
         }
       }
@@ -493,7 +504,7 @@
     .searchContainer {
       .searchContent {
         .cardsContainer {
-          grid-template-columns: repeat(5, 140px);
+          grid-template-columns: repeat(5, 150px);
           gap: 24px 20px;
         }
       }
