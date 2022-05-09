@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import "./Carrousel.scss";
 import "./Carrousel_cartes.scss";
 import Data from "./OfflineData.jsx";
-import Cocktail from "@assets/images/Cocktail.jpg"
+import Cocktail from "@assets/images/Cocktail.jpg";
 
 function scaleWidth(width) {
   if (width < 600) {
@@ -154,76 +154,101 @@ function Carrousel() {
         >
           <figure
             className={`Carrousel-carte Bleue Carrousel 
-            ${(tableOfIndex[0] === 1 && !isDesktop) ?
-                "Carrousel-left"
-                : (tableOfIndex[0] === 3 && !isDesktop) ?
-                  "Carrousel-right"
-                  : ((tableOfIndex[0] === 0 && !isDesktop) || isDesktop) ?
-                    "Carrousel-middle"
-                    :
-                    ""
-              }
+            ${
+              tableOfIndex[0] === 1 && !isDesktop
+                ? "Carrousel-left"
+                : tableOfIndex[0] === 3 && !isDesktop
+                ? "Carrousel-right"
+                : (tableOfIndex[0] === 0 && !isDesktop) || isDesktop
+                ? "Carrousel-middle"
+                : ""
+            }
             `}
             id="0"
-            style={
-              carrouselFormer(tableOfIndex[0], 0)
-            }
+            style={carrouselFormer(tableOfIndex[0], 0)}
             data-attribute="Cocktails"
-          ><img className="Carrousel-Back-Image" src={Data[0]} alt="Ce n'est l'image que vous recherchez" /></figure>
+            onClick={() => {
+              window.location.href = "/search/cocktails";
+            }}
+          >
+            <img
+              className="Carrousel-Back-Image"
+              src={Data[0]}
+              alt="Ce n'est l'image que vous recherchez"
+            />
+          </figure>
           <figure
             className={`Carrousel-carte Verte Carrousel 
-            ${(tableOfIndex[1] === 1 && !isDesktop) ?
-                "Carrousel-left"
-                : (tableOfIndex[1] === 3 && !isDesktop) ?
-                  "Carrousel-right"
-                  : ((tableOfIndex[1] === 0 && !isDesktop) || isDesktop) ?
-                    "Carrousel-middle"
-                    :
-                    ""
-              }
+            ${
+              tableOfIndex[1] === 1 && !isDesktop
+                ? "Carrousel-left"
+                : tableOfIndex[1] === 3 && !isDesktop
+                ? "Carrousel-right"
+                : (tableOfIndex[1] === 0 && !isDesktop) || isDesktop
+                ? "Carrousel-middle"
+                : ""
+            }
           `}
             id="1"
-            style={
-              carrouselFormer(tableOfIndex[1], 1)
-            }
+            style={carrouselFormer(tableOfIndex[1], 1)}
             data-attribute="Ordinary Drinks"
-          ><img className="Carrousel-Back-Image" src={Data[1]} alt="Ce n'est l'image que vous recherchez" /></figure>
+            onClick={() => {
+              window.location.href = "/search/ordinary_drinks";
+            }}
+          >
+            <img
+              className="Carrousel-Back-Image"
+              src={Data[1]}
+              alt="Ce n'est l'image que vous recherchez"
+            />
+          </figure>
           <figure
             className={`Carrousel-carte Rose Carrousel 
-            ${(tableOfIndex[2] === 1 && !isDesktop) ?
-                "Carrousel-left"
-                : (tableOfIndex[2] === 3 && !isDesktop) ?
-                  "Carrousel-right"
-                  : ((tableOfIndex[2] === 0 && !isDesktop) || isDesktop) ?
-                    "Carrousel-middle"
-                    :
-                    ""
-              }
+            ${
+              tableOfIndex[2] === 1 && !isDesktop
+                ? "Carrousel-left"
+                : tableOfIndex[2] === 3 && !isDesktop
+                ? "Carrousel-right"
+                : (tableOfIndex[2] === 0 && !isDesktop) || isDesktop
+                ? "Carrousel-middle"
+                : ""
+            }
           `}
             id="2"
-            style={
-              carrouselFormer(tableOfIndex[2], 2)
-            }
+            style={carrouselFormer(tableOfIndex[2], 2)}
             data-attribute="Random"
-          ><img className="Carrousel-Back-Image" src={Data[2]} alt="Ce n'est l'image que vous recherchez" /></figure>
+          >
+            <img
+              className="Carrousel-Back-Image"
+              src={Data[2]}
+              alt="Ce n'est l'image que vous recherchez"
+            />
+          </figure>
           <figure
             className={`Carrousel-carte Orange Carrousel 
-            ${(tableOfIndex[3] === 1 && !isDesktop) ?
-                "Carrousel-left"
-                : (tableOfIndex[3] === 3 && !isDesktop) ?
-                  "Carrousel-right"
-                  : ((tableOfIndex[3] === 0 && !isDesktop) || isDesktop) ?
-                    "Carrousel-middle"
-                    :
-                    ""
-              }
+            ${
+              tableOfIndex[3] === 1 && !isDesktop
+                ? "Carrousel-left"
+                : tableOfIndex[3] === 3 && !isDesktop
+                ? "Carrousel-right"
+                : (tableOfIndex[3] === 0 && !isDesktop) || isDesktop
+                ? "Carrousel-middle"
+                : ""
+            }
           `}
             id="3"
-            style={
-              carrouselFormer(tableOfIndex[3], 3)
-            }
+            style={carrouselFormer(tableOfIndex[3], 3)}
             data-attribute="Shots"
-          ><img className="Carrousel-Back-Image" src={Data[3]} alt="Ce n'est l'image que vous recherchez" /></figure>
+            onClick={() => {
+              window.location.href = "/search/shots";
+            }}
+          >
+            <img
+              className="Carrousel-Back-Image"
+              src={Data[3]}
+              alt="Ce n'est l'image que vous recherchez"
+            />
+          </figure>
         </section>
       </section>
       <button className="random-button"></button>

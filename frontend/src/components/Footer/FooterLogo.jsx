@@ -10,8 +10,12 @@ const FooterLogo = ({ isMobile }) => {
     return (
       <div className="logo-container-footer fontBTTF mobile">
         <div className="logo-footer">
-          <span className={lightTheme ? "" : "top-line"}>BACK{"<"} </span>
-          <span className={lightTheme ? " margin-8" : "bottom-line margin-8"}>
+          <span className={lightTheme ? "" : "top-line-footer"}>
+            BACK{"<"}{" "}
+          </span>
+          <span
+            className={lightTheme ? " margin-8" : "bottom-line-footer margin-8"}
+          >
             & BAR
           </span>
         </div>
@@ -25,8 +29,10 @@ const FooterLogo = ({ isMobile }) => {
   return (
     <div className="logo-container-footer fontBTTF">
       <div className="logo-footer">
-        <span className={lightTheme ? "" : "top-line"}>BACK{"<"} </span>
-        <span className={lightTheme ? " margin-8" : "bottom-line margin-8"}>
+        <span className={lightTheme ? "" : "top-line-footer"}>BACK{"<"} </span>
+        <span
+          className={lightTheme ? " margin-8" : "bottom-line-footer margin-8"}
+        >
           & BAR
         </span>
       </div>
