@@ -79,7 +79,7 @@ $textGlow: rgba(0, 162, 255, 1);
   background-color: rgb(37 23 51);
   z-index: 0;
   border-top: solid 2px white;
-  animation: flickerTop 8ms infinite alternate;
+  // animation: flickerTop 8ms infinite alternate;
   // box-shadow: 0 -2px 12px 4px rgba(0, 162, 255, 1), inset 0px 6px 6px -4px rgba(0, 162, 255, 1);
 
   .footerBox {
@@ -132,16 +132,16 @@ $textGlow: rgba(0, 162, 255, 1);
           color: $textHover;
           transform: scale(1.05);
           text-shadow: 0px 0px 18px $textGlow;
-          animation: textNeon 60ms infinite alternate;
+          // animation: textNeon 60ms infinite alternate;
         }
 
         &.active {
           background: none;
           color: $textHover;
-          animation: textNeonActive 60ms infinite alternate;
+          // animation: textNeonActive 60ms infinite alternate;
 
           &:visited {
-            animation: textNeonActive 60ms infinite alternate;
+            // animation: textNeonActive 60ms infinite alternate;
           }
         }
       }

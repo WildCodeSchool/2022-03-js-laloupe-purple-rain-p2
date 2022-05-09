@@ -169,7 +169,7 @@ function Carrousel() {
               carrouselFormer(tableOfIndex[0], 0)
             }
             data-attribute="Cocktails"
-          ><img src={Data[0]} alt="Ce n'est l'image que vous recherchez" /></figure>
+          ><img className="Carrousel-Back-Image" src={Data[0]} alt="Ce n'est l'image que vous recherchez" /></figure>
           <figure
             className={`Carrousel-carte Verte Carrousel 
             ${(tableOfIndex[1] === 1 && !isDesktop) ?
@@ -187,7 +187,7 @@ function Carrousel() {
               carrouselFormer(tableOfIndex[1], 1)
             }
             data-attribute="Ordinary Drinks"
-          ><img src={Data[1]} alt="Ce n'est l'image que vous recherchez" /></figure>
+          ><img className="Carrousel-Back-Image" src={Data[1]} alt="Ce n'est l'image que vous recherchez" /></figure>
           <figure
             className={`Carrousel-carte Rose Carrousel 
             ${(tableOfIndex[2] === 1 && !isDesktop) ?
@@ -205,7 +205,7 @@ function Carrousel() {
               carrouselFormer(tableOfIndex[2], 2)
             }
             data-attribute="Random"
-          ><img src={Data[2]} alt="Ce n'est l'image que vous recherchez" /></figure>
+          ><img className="Carrousel-Back-Image" src={Data[2]} alt="Ce n'est l'image que vous recherchez" /></figure>
           <figure
             className={`Carrousel-carte Orange Carrousel 
             ${(tableOfIndex[3] === 1 && !isDesktop) ?
@@ -223,7 +223,7 @@ function Carrousel() {
               carrouselFormer(tableOfIndex[3], 3)
             }
             data-attribute="Shots"
-          ><img src={Data[3]} alt="Ce n'est l'image que vous recherchez" /></figure>
+          ><img className="Carrousel-Back-Image" src={Data[3]} alt="Ce n'est l'image que vous recherchez" /></figure>
         </section>
       </section>
       <button className="random-button"></button>
