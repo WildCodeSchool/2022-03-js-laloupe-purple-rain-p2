@@ -165,6 +165,22 @@ const SearchWindow = ({ setInfoPopup }) => {
       .classList.toggle("hide");
   };
 
+  // Closes menus when clicking outside
+  const handleFilterClick = (e) => {
+    if (e.target.id !== "categoriesFilter") {
+      document.querySelector(`.searchList .categories`).classList.add("hide");
+    }
+    if (e.target.id !== "alcoholsFilter") {
+      document.querySelector(`.searchList .alcohols`).classList.add("hide");
+    }
+    if (e.target.id !== "glassesFilter") {
+      document.querySelector(`.searchList .glassType`).classList.add("hide");
+    }
+    if (e.target.id !== "ingredientsFilter") {
+      document.querySelector(`.searchList .ingredients`).classList.add("hide");
+    }
+  };
+
   // Fetches the whole drink lists and apply a filters to keep only the ones fitting the category
   const getDrinkByCategory = (categoryName, catClass) => {
     document.querySelector(`.searchList ${catClass}`).classList.toggle("hide");
@@ -176,12 +192,16 @@ const SearchWindow = ({ setInfoPopup }) => {
       getAllDrinks().then((data) => {
         data.push(cocktailDataRaw[0]);
         setCocktailList(
-          data.filter((item) => item.strCategory === categoryName)
+          data
+            .filter((item) => item.strCategory === categoryName)
+            .sort((a, b) => a.strDrink.localeCompare(b.strDrink))
         );
       });
     } else {
       setCocktailList(
-        cocktailList.filter((item) => item.strCategory === categoryName)
+        cocktailList
+          .filter((item) => item.strCategory === categoryName)
+          .sort((a, b) => a.strDrink.localeCompare(b.strDrink))
       );
     }
 
@@ -198,11 +218,17 @@ const SearchWindow = ({ setInfoPopup }) => {
     ) {
       getAllDrinks().then((data) => {
         data.push(cocktailDataRaw[0]);
-        setCocktailList(data.filter((item) => item.strAlcoholic === alcohol));
+        setCocktailList(
+          data
+            .filter((item) => item.strAlcoholic === alcohol)
+            .sort((a, b) => a.strDrink.localeCompare(b.strDrink))
+        );
       });
     } else {
       setCocktailList(
-        cocktailList.filter((item) => item.strAlcoholic === alcohol)
+        cocktailList
+          .filter((item) => item.strAlcoholic === alcohol)
+          .sort((a, b) => a.strDrink.localeCompare(b.strDrink))
       );
     }
     setCategoryFiltered(true);
@@ -220,10 +246,18 @@ const SearchWindow = ({ setInfoPopup }) => {
     ) {
       getAllDrinks().then((data) => {
         data.push(cocktailDataRaw[0]);
-        setCocktailList(data.filter((item) => item.strGlass === glass));
+        setCocktailList(
+          data
+            .filter((item) => item.strGlass === glass)
+            .sort((a, b) => a.strDrink.localeCompare(b.strDrink))
+        );
       });
     } else {
-      setCocktailList(cocktailList.filter((item) => item.strGlass === glass));
+      setCocktailList(
+        cocktailList
+          .filter((item) => item.strGlass === glass)
+          .sort((a, b) => a.strDrink.localeCompare(b.strDrink))
+      );
     }
     setCategoryFiltered(true);
     setFiltered(true);
@@ -267,7 +301,9 @@ const SearchWindow = ({ setInfoPopup }) => {
         getAllDrinks().then((data) => {
           data.push(cocktailDataRaw[0]);
           setCocktailList(
-            data.filter((item) => item.strCategory === "Cocktail")
+            data
+              .filter((item) => item.strCategory === "Cocktail")
+              .sort((a, b) => a.strDrink.localeCompare(b.strDrink))
           );
         });
         setFiltered(true);
@@ -275,7 +311,11 @@ const SearchWindow = ({ setInfoPopup }) => {
       if (category === "shots") {
         getAllDrinks().then((data) => {
           data.push(cocktailDataRaw[0]);
-          setCocktailList(data.filter((item) => item.strCategory === "Shot"));
+          setCocktailList(
+            data
+              .filter((item) => item.strCategory === "Shot")
+              .sort((a, b) => a.strDrink.localeCompare(b.strDrink))
+          );
         });
         setFiltered(true);
       }
@@ -283,17 +323,26 @@ const SearchWindow = ({ setInfoPopup }) => {
         getAllDrinks().then((data) => {
           data.push(cocktailDataRaw[0]);
           setCocktailList(
-            data.filter((item) => item.strCategory === "Ordinary Drink")
+            data
+              .filter((item) => item.strCategory === "Ordinary Drink")
+              .sort((a, b) => a.strDrink.localeCompare(b.strDrink))
           );
         });
         setFiltered(true);
       }
     }
   };
-  // console.log(ingredientsList);
+
+  useEffect(() => {
+    if (window.location.href === "/search") {
+      resetFiltersStatus();
+    }
+  }, []);
 
   // Checks filtering state and handles letter filtering requests
   useEffect(() => {
+    document.addEventListener("click", handleFilterClick);
+
     if (
       currentLetter === "" &&
       numberFiltered === false &&
@@ -326,6 +375,8 @@ const SearchWindow = ({ setInfoPopup }) => {
     getAllGlasses();
     getAllIngredients();
     handleCatLink();
+
+    return () => document.removeEventListener("click", handleFilterClick);
   }, [currentLetter, numberFiltered, searchField]);
 
   return (
@@ -337,6 +388,7 @@ const SearchWindow = ({ setInfoPopup }) => {
           {/* Filter by categories */}
           <li>
             <button
+              id="categoriesFilter"
               type="button"
               onClick={() => handleFilterMenus(".categories")}
             >
@@ -376,6 +428,7 @@ const SearchWindow = ({ setInfoPopup }) => {
           {/* Filter by alcohol */}
           <li>
             <button
+              id="alcoholsFilter"
               type="button"
               onClick={() => handleFilterMenus(".alcohols")}
             >
@@ -416,6 +469,7 @@ const SearchWindow = ({ setInfoPopup }) => {
           {/* Filter by glass type */}
           <li>
             <button
+              id="glassesFilter"
               type="button"
               onClick={() => handleFilterMenus(".glassType")}
             >
@@ -450,6 +504,7 @@ const SearchWindow = ({ setInfoPopup }) => {
           {/* Filter by ingredients */}
           <li>
             <button
+              id="ingredientsFilter"
               type="button"
               onClick={() => handleFilterMenus(".ingredients")}
             >
