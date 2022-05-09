@@ -1,10 +1,31 @@
 import "./AbusAlcool.scss";
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import LightThemeContext from "@contexts/LightTheme";
 
-const AbusAlcool = ({ setShowAgePopup }) => {
+const AbusAlcool = ({ handleAgeCheck }) => {
+  const { lightTheme, setLightTheme } = useContext(LightThemeContext);
+
+  const handleLightTheme = () => {
+    if (!lightTheme) {
+      localStorage.setItem("lightTheme", "true");
+      setLightTheme(true);
+    } else if (lightTheme) {
+      localStorage.setItem("lightTheme", "false");
+      setLightTheme(false);
+    }
+  };
+
   return (
     <section className="agePopupContainer">
-      <div className="agePopup">
+      <div className={lightTheme ? "agePopup light" : "agePopup"}>
+        <button
+          type="button"
+          className={lightTheme ? "themeButton" : "themeButton sliderSwitch"}
+          onClick={() => handleLightTheme()}
+        >
+          <div className="themeButtonSlider" />
+        </button>
         <div className="headerAge">
           <h1>ARE YOU OVER 18?</h1>
         </div>
@@ -12,7 +33,7 @@ const AbusAlcool = ({ setShowAgePopup }) => {
           <NavLink
             to="/homepage"
             className="ageButton green"
-            onClick={() => setShowAgePopup(false)}
+            onClick={() => handleAgeCheck(true)}
           >
             YES
           </NavLink>

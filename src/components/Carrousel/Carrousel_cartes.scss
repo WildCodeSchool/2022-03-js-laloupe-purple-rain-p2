@@ -250,7 +250,6 @@
   align-items: center;
   color: white;
   border: solid rgb(255, 255, 255) 2px;
-  backdrop-filter: blur(3px);
   transition: 200ms;
   object-fit: contain;
   position: relative;
@@ -265,7 +264,6 @@
     text-align: center;
     color: white;
     position: absolute;
-    backdrop-filter: blur(3px);
   }
 
   h5 {
@@ -278,7 +276,6 @@
     text-align: center;
     color: white;
     position: absolute;
-    backdrop-filter: blur(3px);
   }
 
   p {
@@ -336,7 +333,6 @@
   $cardsScale: scale(1.05);
 
   .Carrousel-carte {
-
     h4 {
       font-size: 16px;
     }

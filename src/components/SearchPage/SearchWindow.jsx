@@ -3,49 +3,8 @@ import axios from "axios";
 import Cards from "@components/SearchPage/Cartes";
 import "@components/SearchPage/SearchWindow.scss";
 import LightThemeContext from "@contexts/LightTheme";
-
-const cocktailDataRaw = [
-  {
-    strDrink: "Xav'tail",
-    strCategory: "Obnoxious drink",
-    strAlcoholic: "Alcoholic",
-    strGlass: "Wild Glass",
-    strInstructions:
-      "Fetch the Xavier with extreme caution, you have keep it cool to be able to pour it wildy inside the Wild glass. There is no guarantee the Xavier won't start a livecoding. Be aware that the Xav'tail is a dangerous and unpleasant drink, you might get a strong headache and you might React with Express dreams.",
-    strDrinkThumb:
-      "https://ca.slack-edge.com/T6SG2QGG2-UHBQ50AV8-7fa84665b54b-512",
-    strIngredient1: "Unix",
-    strIngredient2: "Slacking",
-    strIngredient3: "Patience",
-    strIngredient4: "Honda",
-    strIngredient5: "",
-    strIngredient6: "",
-    strIngredient7: "",
-    strIngredient8: "",
-    strIngredient9: "",
-    strIngredient10: "",
-    strIngredient11: "",
-    strIngredient12: "",
-    strIngredient13: "",
-    strIngredient14: "",
-    strIngredient15: "",
-    strMeasure1: "42 bugs",
-    strMeasure2: "69 shades",
-    strMeasure3: "Ultra mega huge dose",
-    strMeasure4: "1 Boar",
-    strMeasure5: "",
-    strMeasure6: "",
-    strMeasure7: "",
-    strMeasure8: "",
-    strMeasure9: "",
-    strMeasure10: "",
-    strMeasure11: "",
-    strMeasure12: "",
-    strMeasure13: "",
-    strMeasure14: "",
-    strMeasure15: "",
-  },
-];
+import { useParams } from "react-router-dom";
+import cocktailDataRaw from "./rawData";
 
 const letterBar = () => {
   const response = [];
@@ -57,13 +16,15 @@ const letterBar = () => {
 
 const SearchWindow = ({ setInfoPopup }) => {
   const [cocktailList, setCocktailList] = useState(cocktailDataRaw); // Actual list of drinks
+  const [ingredientsList, setIngredientsList] = useState([]);
   const [searchField, setSearchField] = useState(""); // Search field input value
   const [numberFiltered, setNumberFiltered] = useState(false); // Drinks names starts by a number
   const [categoryFiltered, setCategoryFiltered] = useState(false); // Drinks category
   const [currentLetter, setCurrentLetter] = useState(""); // Current filter by letter
   const [filtered, setFiltered] = useState(false); // Is there any filter active ?
-  const { lightTheme } = useContext(LightThemeContext);
+  const { lightTheme } = useContext(LightThemeContext); // Imports the light theme context
 
+  // Pages offset values
   const [maxItem, setMaxItem] = useState(10);
   const [minItem, setMinItem] = useState(0);
 
@@ -98,7 +59,7 @@ const SearchWindow = ({ setInfoPopup }) => {
     }
   };
 
-  // Fetches all drinks from API using "?s=" without any parameters, kinda weird ut it works
+  // Fetches all drinks from API using "?s=" without any parameters, kinda weird but it works
   async function getAllDrinks() {
     const response = await axios
       .get("https://www.thecocktaildb.com/api/json/v2/9973533/search.php?s=")
@@ -109,6 +70,21 @@ const SearchWindow = ({ setInfoPopup }) => {
 
     if (response) {
       firstPage();
+      return response;
+    }
+    return [];
+  }
+
+  // Fetches all ingredients from API
+  async function getAllIngredients() {
+    const response = await axios
+      .get("https://www.thecocktaildb.com/api/json/v2/9973533/list.php?i=list")
+      .then((ingredients) => setIngredientsList(ingredients.data.drinks))
+      .catch((err) => {
+        console.error(err);
+      });
+
+    if (response) {
       return response;
     }
     return [];
@@ -149,17 +125,32 @@ const SearchWindow = ({ setInfoPopup }) => {
   }
 
   // Toggles search list drop down menu
-  const handleFilterMenus = (category) => {
-    document.querySelector(`.searchList ${category}`).classList.toggle("hide");
+  const handleFilterMenus = (categoryName) => {
+    document
+      .querySelector(`.searchList ${categoryName}`)
+      .classList.toggle("hide");
   };
 
   // Fetches the whole drink lists and apply a filters to keep only the ones fitting the category
-  const getDrinkByCategory = (category, catClass) => {
+  const getDrinkByCategory = (categoryName, catClass) => {
     document.querySelector(`.searchList ${catClass}`).classList.toggle("hide");
-    getAllDrinks().then((data) => {
-      data.push(cocktailDataRaw[0]);
-      setCocktailList(data.filter((item) => item.strCategory === category));
-    });
+    if (
+      cocktailList.length === 0 ||
+      cocktailList.filter((item) => item.strCategory === categoryName)
+        .length === 0
+    ) {
+      getAllDrinks().then((data) => {
+        data.push(cocktailDataRaw[0]);
+        setCocktailList(
+          data.filter((item) => item.strCategory === categoryName)
+        );
+      });
+    } else {
+      setCocktailList(
+        cocktailList.filter((item) => item.strCategory === categoryName)
+      );
+    }
+
     setCategoryFiltered(true);
     setFiltered(true);
   };
@@ -167,10 +158,19 @@ const SearchWindow = ({ setInfoPopup }) => {
   // Fetches the whole drink lists and apply a filters to keep only the ones fitting the alcohol type
   const getDrinkByAlcohol = (alcohol, alcClass) => {
     document.querySelector(`.searchList ${alcClass}`).classList.toggle("hide");
-    getAllDrinks().then((data) => {
-      data.push(cocktailDataRaw[0]);
-      setCocktailList(data.filter((item) => item.strAlcoholic === alcohol));
-    });
+    if (
+      cocktailList.length === 0 ||
+      cocktailList.filter((item) => item.strAlcoholic === alcohol).length === 0
+    ) {
+      getAllDrinks().then((data) => {
+        data.push(cocktailDataRaw[0]);
+        setCocktailList(data.filter((item) => item.strAlcoholic === alcohol));
+      });
+    } else {
+      setCocktailList(
+        cocktailList.filter((item) => item.strAlcoholic === alcohol)
+      );
+    }
     setCategoryFiltered(true);
     setFiltered(true);
   };
@@ -180,16 +180,33 @@ const SearchWindow = ({ setInfoPopup }) => {
     document
       .querySelector(`.searchList ${glassClass}`)
       .classList.toggle("hide");
-    getAllDrinks().then((data) => {
-      data.push(cocktailDataRaw[0]);
-      setCocktailList(data.filter((item) => item.strGlass === glass));
-    });
+    if (
+      cocktailList.length === 0 ||
+      cocktailList.filter((item) => item.strGlass === glass).length === 0
+    ) {
+      getAllDrinks().then((data) => {
+        data.push(cocktailDataRaw[0]);
+        setCocktailList(data.filter((item) => item.strGlass === glass));
+      });
+    } else {
+      setCocktailList(cocktailList.filter((item) => item.strGlass === glass));
+    }
     setCategoryFiltered(true);
     setFiltered(true);
   };
 
+  // Fetches the whole drink lists and apply a filters to keep only the ones having the selected ingredients
+  const getDrinkByIngredients = (ingredientClass) => {
+    document
+      .querySelector(`.searchList ${ingredientClass}`)
+      .classList.toggle("hide");
+  };
+
   // Resets filters to display all drinks
   const resetFiltersStatus = () => {
+    if (window.location.href !== "/search") {
+      window.location.href = "/search";
+    }
     if (currentLetter !== "") {
       setCurrentLetter("");
     }
@@ -205,6 +222,41 @@ const SearchWindow = ({ setInfoPopup }) => {
     setFiltered(false);
     getAllDrinks().then((data) => setCocktailList(data));
   };
+
+  // Handles the API fetch from the carrousel cards by listening to URL params
+  const { category } = useParams();
+
+  const handleCatLink = () => {
+    if (category) {
+      setCategoryFiltered(true);
+      if (category === "cocktails") {
+        getAllDrinks().then((data) => {
+          data.push(cocktailDataRaw[0]);
+          setCocktailList(
+            data.filter((item) => item.strCategory === "Cocktail")
+          );
+        });
+        setFiltered(true);
+      }
+      if (category === "shots") {
+        getAllDrinks().then((data) => {
+          data.push(cocktailDataRaw[0]);
+          setCocktailList(data.filter((item) => item.strCategory === "Shot"));
+        });
+        setFiltered(true);
+      }
+      if (category === "ordinary_drinks") {
+        getAllDrinks().then((data) => {
+          data.push(cocktailDataRaw[0]);
+          setCocktailList(
+            data.filter((item) => item.strCategory === "Ordinary Drink")
+          );
+        });
+        setFiltered(true);
+      }
+    }
+  };
+  // console.log(ingredientsList);
 
   // Checks filtering state and handles letter filtering requests
   useEffect(() => {
@@ -236,6 +288,8 @@ const SearchWindow = ({ setInfoPopup }) => {
         setCocktailList(data);
       });
     }
+    getAllIngredients();
+    handleCatLink();
   }, [currentLetter, numberFiltered, searchField]);
 
   return (
@@ -710,9 +764,26 @@ const SearchWindow = ({ setInfoPopup }) => {
 
           {/* Filter by ingredients */}
           <li>
-            <button type="button" onClick=".ingredients">
+            <button
+              type="button"
+              onClick={() => handleFilterMenus(".ingredients")}
+            >
               Ingredients
             </button>
+            <ul className="ingredients hide">
+              {ingredientsList.map((item) => {
+                return (
+                  <li key={item.strIngredient1}>
+                    <button
+                      type="button"
+                      onClick={() => getDrinkByIngredients(".ingredients")}
+                    >
+                      {item.strIngredient1}
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
           </li>
 
           {/* Search bar */}

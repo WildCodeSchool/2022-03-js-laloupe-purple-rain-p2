@@ -239,10 +239,9 @@
   flex-direction: column;
   align-items: center;
   border: solid rgb(255, 255, 255) 2px;
-  backdrop-filter: blur(3px);
   transition: 200ms;
   object-fit: contain;
-  // position: relative;
+  position: relative;
 
   h4 {
     margin: 0;
@@ -253,7 +252,6 @@
     text-align: center;
     color: white;
     position: absolute;
-    backdrop-filter: blur(3px);
   }
 
   h5 {
@@ -266,7 +264,6 @@
     text-align: center;
     color: white;
     position: absolute;
-    backdrop-filter: blur(3px);
   }
 
   p {
@@ -287,28 +284,28 @@
     border: solid #001b4a 2px;
     border: solid rgb(255, 255, 255) 2px;
     cursor: pointer;
-    animation: flicker-blue-card 2.1ms infinite alternate;
+    box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
   }
 
   &.Orange {
     border: solid #393600 2px;
     border: solid rgb(255, 255, 255) 2px;
     cursor: pointer;
-    animation: flicker-orange-card 2.08ms infinite alternate;
+    box-shadow: 0px 0px 16px 2px #ffc700, inset 0px 0px 6px 1px #ffc700;
   }
 
   &.Rose {
     border: solid #520049 2px;
     border: solid rgb(255, 255, 255) 2px;
     cursor: pointer;
-    animation: flicker-pink-card 2.08ms infinite alternate;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
   }
 
   &.Verte {
     border: solid #003d00 2px;
     border: solid rgb(255, 255, 255) 2px;
     cursor: pointer;
-    animation: flicker-green-card 2.087ms infinite alternate;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
   }
 }
 
