@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import LightThemeContext from "@contexts/LightTheme";
 import "./NavMenu.scss";
-import { useContext } from "react";
+import { useEffect, useContext } from "react";
 import Logo from "./Logo";
 
 const NavMenu = ({ isScrolled, isOpen, setIsOpen }) => {
@@ -33,6 +33,14 @@ const NavMenu = ({ isScrolled, isOpen, setIsOpen }) => {
     return "navMenu";
   };
 
+  const handleMenuClose = (e) => {
+    if (e.target.id !== "navMenu") {
+      if (isOpen) {
+        setIsOpen(false);
+      }
+    }
+  };
+
   const handleLightTheme = () => {
     if (!lightTheme) {
       localStorage.setItem("lightTheme", "true");
@@ -43,8 +51,13 @@ const NavMenu = ({ isScrolled, isOpen, setIsOpen }) => {
     }
   };
 
+  useEffect(() => {
+    document.addEventListener("click", handleMenuClose);
+    return () => document.removeEventListener("click", handleMenuClose);
+  });
+
   return (
-    <nav className={handleNavMobile()}>
+    <nav id="navMenu" className={handleNavMobile()}>
       <div className="mobileNav">
         <button
           type="button"
