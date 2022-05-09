@@ -1,9 +1,9 @@
 import Cocktail from "@assets/images/Cocktail.jpg";
-import Ordinary_Drink from "@assets/images/Ordinary_Drink.jpg";
+import ordinaryDrink from "@assets/images/ordinaryDrink.jpg";
 import Shot from "@assets/images/Shot.jpg";
 import Random from "@assets/images/Random.png";
 
-const Data = [Cocktail, Ordinary_Drink, Random, Shot];
+const Data = [Cocktail, ordinaryDrink, Random, Shot];
 
 export default Data;
 
