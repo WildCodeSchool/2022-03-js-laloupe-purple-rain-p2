@@ -110,7 +110,7 @@ $bgColorFocus: rgba(43, 163, 228, 0.45);
     p {
       margin: 0;
       padding: 0;
-      font-size: 14px;
+      font-size: 12px;
     }
   }
 
@@ -171,7 +171,6 @@ $bgColorFocus: rgba(43, 163, 228, 0.45);
       p {
         margin: 0;
         padding: 0;
-        font-size: 14px;
       }
     }
 
@@ -199,6 +198,12 @@ $bgColorFocus: rgba(43, 163, 228, 0.45);
 
     textarea {
       width: 420px;
+    }
+
+    .newsCheck {
+      p {
+        font-size: 14px;
+      }
     }
   }
 }
