@@ -19,7 +19,6 @@
     "husky": "^7.0.0"
   },
   "dependencies": {
-    "@googlemaps/js-api-loader": "^1.14.1",
-    "react-onclickoutside": "^6.12.1"
+    "@react-google-maps/api": "^2.10.2"
   }
 }

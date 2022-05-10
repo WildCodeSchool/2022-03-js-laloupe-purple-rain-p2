@@ -1,12 +1,12 @@
 import AbusAlcool from "@components/AbusAlcool";
+import "@components/Homepage/CarteGMaps.scss";
 import { useContext } from "react";
 import LightThemeContext from "@contexts/LightTheme";
 import Header from "@components/Header/Header";
 import Footer from "@components/Footer/Footer";
 import Carrousel from "@components/Carrousel/Carrousel";
+import Maps from "@components/Homepage/CarteGMaps";
 import Job from "@components/Homepage/Job";
-// import { NeonH, NeonV } from "@components/NeonSeparateur/NeonSeparateur";
-// import { Cards, CardsOff } from "@components/Carrousel/Cartes";
 
 const Homepage = ({ ageCheck, setAgeCheck, handleAgeCheck }) => {
   const { lightTheme } = useContext(LightThemeContext);
@@ -23,7 +23,11 @@ const Homepage = ({ ageCheck, setAgeCheck, handleAgeCheck }) => {
         </div>
         <Job />
       </section>
-      {/* <section className="midPage"></section> */}
+      <section
+        className={lightTheme ? "midPage light column" : "midPage column"}
+      >
+        <Maps />
+      </section>
       <section className="botPage">
         <Footer />
       </section>
