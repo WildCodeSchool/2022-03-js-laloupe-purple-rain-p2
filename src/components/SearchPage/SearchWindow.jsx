@@ -264,11 +264,41 @@ const SearchWindow = ({ setInfoPopup }) => {
   };
 
   // Fetches the whole drink lists and apply a filters to keep only the ones having the selected ingredients
-  const getDrinkByIngredients = (ingredientClass) => {
-    document
-      .querySelector(`.searchList ${ingredientClass}`)
-      .classList.toggle("hide");
+  const [ingredientsFilters, setIngredientsFilters] = useState([]);
+  const MAX_FILTERS = 3;
+  const handleFitlerList = (ingredient) => {
+    if (
+      !ingredientsFilters.includes(ingredient) &&
+      ingredientsFilters.length < MAX_FILTERS
+    ) {
+      setIngredientsFilters([...ingredientsFilters, ingredient]);
+    }
+    document.querySelector(`.searchList .ingredients`).classList.add("hide");
   };
+
+  async function getDrinkByIngredients() {
+    const response = await axios
+      .get("https://www.thecocktaildb.com/api/json/v2/9973533/filter.php", {
+        params: { i: ingredientsFilters.toString() },
+      })
+      .then((res) => res.data.drinks)
+      .then((data) => data.map((item) => item.idDrink))
+      .catch((err) => {
+        console.error(err);
+      });
+
+    if (response) {
+      const filteredArray = cocktailList.filter(({ idDrink }) => {
+        return response.indexOf(idDrink) !== -1;
+      });
+      return filteredArray;
+    }
+    return [];
+  }
+
+  useEffect(() => {
+    getDrinkByIngredients().then((data) => setCocktailList(data));
+  }, [ingredientsFilters]);
 
   // Resets filters to display all drinks
   const resetFiltersStatus = () => {
@@ -287,6 +317,7 @@ const SearchWindow = ({ setInfoPopup }) => {
     if (searchField !== "") {
       setSearchField("");
     }
+    setIngredientsFilters([]);
     setFiltered(false);
     getAllDrinks().then((data) => setCocktailList(data));
   };
@@ -347,7 +378,8 @@ const SearchWindow = ({ setInfoPopup }) => {
       currentLetter === "" &&
       numberFiltered === false &&
       categoryFiltered === false &&
-      searchField === ""
+      searchField === "" &&
+      ingredientsFilters.length === 0
     ) {
       setFiltered(false);
     } else {
@@ -357,7 +389,8 @@ const SearchWindow = ({ setInfoPopup }) => {
     if (
       currentLetter === "" &&
       numberFiltered === false &&
-      categoryFiltered === false
+      categoryFiltered === false &&
+      ingredientsFilters.length === 0
     ) {
       getAllDrinks().then((data) => {
         data.push(cocktailDataRaw[0]);
@@ -371,13 +404,19 @@ const SearchWindow = ({ setInfoPopup }) => {
         setCocktailList(data);
       });
     }
-    getAllCategories();
-    getAllGlasses();
-    getAllIngredients();
+    if (categoriesList.length === 0) {
+      getAllCategories();
+    }
+    if (glassList.length === 0) {
+      getAllGlasses();
+    }
+    if (ingredientsList.length === 0) {
+      getAllIngredients();
+    }
     handleCatLink();
 
     return () => document.removeEventListener("click", handleFilterClick);
-  }, [currentLetter, numberFiltered, searchField]);
+  }, [currentLetter, numberFiltered, searchField, ingredientsFilters]);
 
   return (
     <section
@@ -395,23 +434,25 @@ const SearchWindow = ({ setInfoPopup }) => {
               Categories
             </button>
             <ul className="categories hide">
-              {categoriesList.map((categoryName) => {
-                return (
-                  <li key={categoryName.strCategory}>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        getDrinkByCategory(
-                          categoryName.strCategory,
-                          ".categories"
-                        )
-                      }
-                    >
-                      {categoryName.strCategory}
-                    </button>
-                  </li>
-                );
-              })}
+              {categoriesList
+                .sort((a, b) => a.strCategory.localeCompare(b.strCategory))
+                .map((categoryName) => {
+                  return (
+                    <li key={categoryName.strCategory}>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          getDrinkByCategory(
+                            categoryName.strCategory,
+                            ".categories"
+                          )
+                        }
+                      >
+                        {categoryName.strCategory}
+                      </button>
+                    </li>
+                  );
+                })}
               <li>
                 <button
                   type="button"
@@ -476,6 +517,22 @@ const SearchWindow = ({ setInfoPopup }) => {
               Glass Type
             </button>
             <ul className="glassType hide">
+              {glassList
+                .sort((a, b) => a.strGlass.localeCompare(b.strGlass))
+                .map((glass) => {
+                  return (
+                    <li key={glass.strGlass}>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          getDrinkByGlass(glass.strGlass, ".glassType")
+                        }
+                      >
+                        {glass.strGlass}
+                      </button>
+                    </li>
+                  );
+                })}
               <li>
                 <button
                   type="button"
@@ -484,20 +541,6 @@ const SearchWindow = ({ setInfoPopup }) => {
                   Wild Glass
                 </button>
               </li>
-              {glassList.map((glass) => {
-                return (
-                  <li key={glass.strGlass}>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        getDrinkByGlass(glass.strGlass, ".glassType")
-                      }
-                    >
-                      {glass.strGlass}
-                    </button>
-                  </li>
-                );
-              })}
             </ul>
           </li>
 
@@ -511,18 +554,26 @@ const SearchWindow = ({ setInfoPopup }) => {
               Ingredients
             </button>
             <ul className="ingredients hide">
-              {ingredientsList.map((item) => {
-                return (
-                  <li key={item.strIngredient1}>
-                    <button
-                      type="button"
-                      onClick={() => getDrinkByIngredients(".ingredients")}
-                    >
-                      {item.strIngredient1}
-                    </button>
-                  </li>
-                );
-              })}
+              {ingredientsList
+                .sort((a, b) =>
+                  a.strIngredient1.localeCompare(b.strIngredient1)
+                )
+                .map((item) => {
+                  return (
+                    <li key={item.strIngredient1}>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          handleFitlerList(
+                            item.strIngredient1.replace(" ", "_")
+                          )
+                        }
+                      >
+                        {item.strIngredient1}
+                      </button>
+                    </li>
+                  );
+                })}
             </ul>
           </li>
 
@@ -550,6 +601,14 @@ const SearchWindow = ({ setInfoPopup }) => {
               : cocktailList.length}{" "}
             results
           </p>
+          <div className="filterList">
+            <p>
+              {ingredientsFilters.length === 0 ? "No ingredient filter" : ""}
+            </p>
+            {ingredientsFilters.map((ingredient) => (
+              <p>{ingredient.replace("_", " ")}</p>
+            ))}
+          </div>
           <button
             type="button"
             className={filtered ? "rmFilters" : "hide"}
