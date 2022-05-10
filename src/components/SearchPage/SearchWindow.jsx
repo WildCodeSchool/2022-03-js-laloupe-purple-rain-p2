@@ -52,7 +52,7 @@ const SearchWindow = ({ setInfoPopup }) => {
     }
     setNumberPage(pages);
     setIndexPage(1);
-  }, [searchField]);
+  }, [cocktailList, searchField]);
 
   function displayHandler(direction) {
     if (direction && indexPage === numberPage) {
@@ -96,7 +96,7 @@ const SearchWindow = ({ setInfoPopup }) => {
   };
   // Offsets display of array by -10 after checking if possible (first page won't offset)
   const prevPage = () => {
-    if (minItem <= 10) {
+    if (indexPage === 1) {
       setMinItem(0);
       setMaxItem(10);
     } else {
@@ -127,6 +127,11 @@ const SearchWindow = ({ setInfoPopup }) => {
       });
 
     if (response) {
+      response.sort((a, b) => a.strDrink.localeCompare(b.strDrink));
+      console.log(response);
+      while (response[0].strDrink[0] >= '0' && response[0].strDrink[0] <= '9') {
+        response.push(response.shift());
+      };
       firstPage();
       return response;
     }
