@@ -206,5 +206,9 @@ $textGlow: rgba(0, 162, 255, 1);
       height: 100%;
       width: 40%;
     }
+
+    &.light {
+      animation: none;
+    }
   }
 }

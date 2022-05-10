@@ -16,7 +16,6 @@ const letterBar = () => {
 
 const SearchWindow = ({ setInfoPopup }) => {
   const [cocktailList, setCocktailList] = useState(cocktailDataRaw); // Actual list of drinks
-  const [ingredientsList, setIngredientsList] = useState([]);
   const [searchField, setSearchField] = useState(""); // Search field input value
   const [numberFiltered, setNumberFiltered] = useState(false); // Drinks names starts by a number
   const [categoryFiltered, setCategoryFiltered] = useState(false); // Drinks category
@@ -74,8 +73,43 @@ const SearchWindow = ({ setInfoPopup }) => {
     }
     return [];
   }
+  // Fetches all categories from API
+  const [categoriesList, setCategoriesList] = useState([]);
+
+  async function getAllCategories() {
+    const response = await axios
+      .get("https://www.thecocktaildb.com/api/json/v2/9973533/list.php?c=list")
+      .then((categories) => setCategoriesList(categories.data.drinks))
+      .catch((err) => {
+        console.error(err);
+      });
+
+    if (response) {
+      return response;
+    }
+    return [];
+  }
+
+  // Fetches all glasses from API
+  const [glassList, setGlassList] = useState([]);
+
+  async function getAllGlasses() {
+    const response = await axios
+      .get("https://www.thecocktaildb.com/api/json/v2/9973533/list.php?g=list")
+      .then((glasses) => setGlassList(glasses.data.drinks))
+      .catch((err) => {
+        console.error(err);
+      });
+
+    if (response) {
+      return response;
+    }
+    return [];
+  }
 
   // Fetches all ingredients from API
+  const [ingredientsList, setIngredientsList] = useState([]);
+
   async function getAllIngredients() {
     const response = await axios
       .get("https://www.thecocktaildb.com/api/json/v2/9973533/list.php?i=list")
@@ -131,6 +165,22 @@ const SearchWindow = ({ setInfoPopup }) => {
       .classList.toggle("hide");
   };
 
+  // Closes menus when clicking outside
+  const handleFilterClick = (e) => {
+    if (e.target.id !== "categoriesFilter") {
+      document.querySelector(`.searchList .categories`).classList.add("hide");
+    }
+    if (e.target.id !== "alcoholsFilter") {
+      document.querySelector(`.searchList .alcohols`).classList.add("hide");
+    }
+    if (e.target.id !== "glassesFilter") {
+      document.querySelector(`.searchList .glassType`).classList.add("hide");
+    }
+    if (e.target.id !== "ingredientsFilter") {
+      document.querySelector(`.searchList .ingredients`).classList.add("hide");
+    }
+  };
+
   // Fetches the whole drink lists and apply a filters to keep only the ones fitting the category
   const getDrinkByCategory = (categoryName, catClass) => {
     document.querySelector(`.searchList ${catClass}`).classList.toggle("hide");
@@ -142,12 +192,16 @@ const SearchWindow = ({ setInfoPopup }) => {
       getAllDrinks().then((data) => {
         data.push(cocktailDataRaw[0]);
         setCocktailList(
-          data.filter((item) => item.strCategory === categoryName)
+          data
+            .filter((item) => item.strCategory === categoryName)
+            .sort((a, b) => a.strDrink.localeCompare(b.strDrink))
         );
       });
     } else {
       setCocktailList(
-        cocktailList.filter((item) => item.strCategory === categoryName)
+        cocktailList
+          .filter((item) => item.strCategory === categoryName)
+          .sort((a, b) => a.strDrink.localeCompare(b.strDrink))
       );
     }
 
@@ -164,11 +218,17 @@ const SearchWindow = ({ setInfoPopup }) => {
     ) {
       getAllDrinks().then((data) => {
         data.push(cocktailDataRaw[0]);
-        setCocktailList(data.filter((item) => item.strAlcoholic === alcohol));
+        setCocktailList(
+          data
+            .filter((item) => item.strAlcoholic === alcohol)
+            .sort((a, b) => a.strDrink.localeCompare(b.strDrink))
+        );
       });
     } else {
       setCocktailList(
-        cocktailList.filter((item) => item.strAlcoholic === alcohol)
+        cocktailList
+          .filter((item) => item.strAlcoholic === alcohol)
+          .sort((a, b) => a.strDrink.localeCompare(b.strDrink))
       );
     }
     setCategoryFiltered(true);
@@ -186,10 +246,18 @@ const SearchWindow = ({ setInfoPopup }) => {
     ) {
       getAllDrinks().then((data) => {
         data.push(cocktailDataRaw[0]);
-        setCocktailList(data.filter((item) => item.strGlass === glass));
+        setCocktailList(
+          data
+            .filter((item) => item.strGlass === glass)
+            .sort((a, b) => a.strDrink.localeCompare(b.strDrink))
+        );
       });
     } else {
-      setCocktailList(cocktailList.filter((item) => item.strGlass === glass));
+      setCocktailList(
+        cocktailList
+          .filter((item) => item.strGlass === glass)
+          .sort((a, b) => a.strDrink.localeCompare(b.strDrink))
+      );
     }
     setCategoryFiltered(true);
     setFiltered(true);
@@ -233,7 +301,9 @@ const SearchWindow = ({ setInfoPopup }) => {
         getAllDrinks().then((data) => {
           data.push(cocktailDataRaw[0]);
           setCocktailList(
-            data.filter((item) => item.strCategory === "Cocktail")
+            data
+              .filter((item) => item.strCategory === "Cocktail")
+              .sort((a, b) => a.strDrink.localeCompare(b.strDrink))
           );
         });
         setFiltered(true);
@@ -241,7 +311,11 @@ const SearchWindow = ({ setInfoPopup }) => {
       if (category === "shots") {
         getAllDrinks().then((data) => {
           data.push(cocktailDataRaw[0]);
-          setCocktailList(data.filter((item) => item.strCategory === "Shot"));
+          setCocktailList(
+            data
+              .filter((item) => item.strCategory === "Shot")
+              .sort((a, b) => a.strDrink.localeCompare(b.strDrink))
+          );
         });
         setFiltered(true);
       }
@@ -249,17 +323,26 @@ const SearchWindow = ({ setInfoPopup }) => {
         getAllDrinks().then((data) => {
           data.push(cocktailDataRaw[0]);
           setCocktailList(
-            data.filter((item) => item.strCategory === "Ordinary Drink")
+            data
+              .filter((item) => item.strCategory === "Ordinary Drink")
+              .sort((a, b) => a.strDrink.localeCompare(b.strDrink))
           );
         });
         setFiltered(true);
       }
     }
   };
-  // console.log(ingredientsList);
+
+  useEffect(() => {
+    if (window.location.href === "/search") {
+      resetFiltersStatus();
+    }
+  }, []);
 
   // Checks filtering state and handles letter filtering requests
   useEffect(() => {
+    document.addEventListener("click", handleFilterClick);
+
     if (
       currentLetter === "" &&
       numberFiltered === false &&
@@ -288,8 +371,12 @@ const SearchWindow = ({ setInfoPopup }) => {
         setCocktailList(data);
       });
     }
+    getAllCategories();
+    getAllGlasses();
     getAllIngredients();
     handleCatLink();
+
+    return () => document.removeEventListener("click", handleFilterClick);
   }, [currentLetter, numberFiltered, searchField]);
 
   return (
@@ -301,112 +388,30 @@ const SearchWindow = ({ setInfoPopup }) => {
           {/* Filter by categories */}
           <li>
             <button
+              id="categoriesFilter"
               type="button"
               onClick={() => handleFilterMenus(".categories")}
             >
               Categories
             </button>
             <ul className="categories hide">
-              <li>
-                <button
-                  type="button"
-                  onClick={() =>
-                    getDrinkByCategory("Ordinary Drink", ".categories")
-                  }
-                >
-                  Ordinary Drinks
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => getDrinkByCategory("Cocktail", ".categories")}
-                >
-                  Cocktails
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => getDrinkByCategory("Shake", ".categories")}
-                >
-                  Shakes
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() =>
-                    getDrinkByCategory("Other/Unknown", ".categories")
-                  }
-                >
-                  Other/Unknown
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => getDrinkByCategory("Cocoa", ".categories")}
-                >
-                  Cocoa
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => getDrinkByCategory("Shot", ".categories")}
-                >
-                  Shots
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() =>
-                    getDrinkByCategory("Coffee / Tea", ".categories")
-                  }
-                >
-                  Coffe / Tea
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() =>
-                    getDrinkByCategory("Homemade Liqueur", ".categories")
-                  }
-                >
-                  Homemade Liqueur
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() =>
-                    getDrinkByCategory("Punch / Party Drink", ".categories")
-                  }
-                >
-                  Punch / Party Drinks
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => getDrinkByCategory("Beer", ".categories")}
-                >
-                  Beers
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() =>
-                    getDrinkByCategory("Soft Drink", ".categories")
-                  }
-                >
-                  Soft Drinks
-                </button>
-              </li>
+              {categoriesList.map((categoryName) => {
+                return (
+                  <li key={categoryName.strCategory}>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        getDrinkByCategory(
+                          categoryName.strCategory,
+                          ".categories"
+                        )
+                      }
+                    >
+                      {categoryName.strCategory}
+                    </button>
+                  </li>
+                );
+              })}
               <li>
                 <button
                   type="button"
@@ -423,6 +428,7 @@ const SearchWindow = ({ setInfoPopup }) => {
           {/* Filter by alcohol */}
           <li>
             <button
+              id="alcoholsFilter"
               type="button"
               onClick={() => handleFilterMenus(".alcohols")}
             >
@@ -463,6 +469,7 @@ const SearchWindow = ({ setInfoPopup }) => {
           {/* Filter by glass type */}
           <li>
             <button
+              id="glassesFilter"
               type="button"
               onClick={() => handleFilterMenus(".glassType")}
             >
@@ -472,299 +479,32 @@ const SearchWindow = ({ setInfoPopup }) => {
               <li>
                 <button
                   type="button"
-                  onClick={() =>
-                    getDrinkByGlass("Highball glass", ".glassType")
-                  }
-                >
-                  Highball glass
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() =>
-                    getDrinkByGlass("Cocktail glass", ".glassType")
-                  }
-                >
-                  Cocktail glass
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
                   onClick={() => getDrinkByGlass("Wild Glass", ".glassType")}
                 >
                   Wild Glass
                 </button>
               </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() =>
-                    getDrinkByGlass("Old-fashioned glass", ".glassType")
-                  }
-                >
-                  Old-fashioned glass
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => getDrinkByGlass("Whiskey Glass", ".glassType")}
-                >
-                  Whiskey Glass
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => getDrinkByGlass("Collins glass", ".glassType")}
-                >
-                  Collins glass
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() =>
-                    getDrinkByGlass("Pousse cafe glass", ".glassType")
-                  }
-                >
-                  Pousse cafe glass
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() =>
-                    getDrinkByGlass("Champagne flute", ".glassType")
-                  }
-                >
-                  Champagne flute
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() =>
-                    getDrinkByGlass("Whiskey sour glass", ".glassType")
-                  }
-                >
-                  Whiskey sour glass
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => getDrinkByGlass("Cordial glass", ".glassType")}
-                >
-                  Cordial glass
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() =>
-                    getDrinkByGlass("Brandy snifter", ".glassType")
-                  }
-                >
-                  Brandy snifter
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() =>
-                    getDrinkByGlass("White wine glass", ".glassType")
-                  }
-                >
-                  White wine glass
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() =>
-                    getDrinkByGlass("Nick and Nora Glass", ".glassType")
-                  }
-                >
-                  Nick and Nora Glass
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() =>
-                    getDrinkByGlass("Hurricane glass", ".glassType")
-                  }
-                >
-                  Hurricane glass
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => getDrinkByGlass("Coffee mug", ".glassType")}
-                >
-                  Coffee mug
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => getDrinkByGlass("Shot glass", ".glassType")}
-                >
-                  Shot glass
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => getDrinkByGlass("Jar", ".glassType")}
-                >
-                  Jar
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() =>
-                    getDrinkByGlass("Irish coffee cup", ".glassType")
-                  }
-                >
-                  Irish coffee cup
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => getDrinkByGlass("Punch bowl", ".glassType")}
-                >
-                  Punch bowl
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => getDrinkByGlass("Pitcher", ".glassType")}
-                >
-                  Pitcher
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => getDrinkByGlass("Pint glass", ".glassType")}
-                >
-                  Pint glass
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => getDrinkByGlass("Copper Mug", ".glassType")}
-                >
-                  Copper Mug
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => getDrinkByGlass("Wine Glass", ".glassType")}
-                >
-                  Wine Glass
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => getDrinkByGlass("Beer mug", ".glassType")}
-                >
-                  Beer mug
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() =>
-                    getDrinkByGlass("Margarita/Coupette glass", ".glassType")
-                  }
-                >
-                  Margarita/Coupette glass
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => getDrinkByGlass("Beer pilsner", ".glassType")}
-                >
-                  Beer pilsner
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => getDrinkByGlass("Beer Glass", ".glassType")}
-                >
-                  Beer Glass
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => getDrinkByGlass("Parfait glass", ".glassType")}
-                >
-                  Parfait glass
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => getDrinkByGlass("Mason jar", ".glassType")}
-                >
-                  Mason jar
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() =>
-                    getDrinkByGlass("Margarita glass", ".glassType")
-                  }
-                >
-                  Margarita glass
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => getDrinkByGlass("Martini Glass", ".glassType")}
-                >
-                  Martini Glass
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => getDrinkByGlass("Balloon Glass", ".glassType")}
-                >
-                  Balloon Glass
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => getDrinkByGlass("Coupe Glass", ".glassType")}
-                >
-                  Coupe Glass
-                </button>
-              </li>
+              {glassList.map((glass) => {
+                return (
+                  <li key={glass.strGlass}>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        getDrinkByGlass(glass.strGlass, ".glassType")
+                      }
+                    >
+                      {glass.strGlass}
+                    </button>
+                  </li>
+                );
+              })}
             </ul>
           </li>
 
           {/* Filter by ingredients */}
           <li>
             <button
+              id="ingredientsFilter"
               type="button"
               onClick={() => handleFilterMenus(".ingredients")}
             >
