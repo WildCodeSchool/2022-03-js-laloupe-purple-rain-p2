@@ -129,6 +129,7 @@
 .inst-ingr {
   height: 100%;
   display: flex;
+  overflow-y: scroll;
   flex-direction: column;
   justify-content: space-between;
 }
@@ -177,7 +178,6 @@
     transform: scale(1.2);
   }
 }
-
 @media screen and (max-width: 1024px) {
   .popup {
     z-index: 5;

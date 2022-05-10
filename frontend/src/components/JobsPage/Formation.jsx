@@ -18,36 +18,28 @@ const Formation = () => {
       className={lightTheme ? "formationContainer light" : "formationContainer"}
     >
       <h1>
-        <span>Tu veux te former au métier?</span>
+        <span>Do you want to train for the job ?</span>
       </h1>
       <figure>
         <img src={imageMetier} className="imageBarman" alt="metier barman" />
       </figure>
       <p className="introduction">
-        Voilà un métier passionnant et enrichissant socialement. Tu veux en
-        savoir davantage ?
+        This is an exciting and socially rewarding job. Want to know more ?
       </p>
       <details>
-        <summary className="sommaire">
-          {`Cliquez pour plus d'information`}
-        </summary>
+        <summary className="sommaire">{`Click for more information`}</summary>
         <p className="ouTeFormer">
-          {`Des centres de formation en présentiel ou en remote te permettent de
-            te former au métier de barman. Certains centres dispensent la
-            formation durant une période de 4 mois. Tu vas ainsi acquérir les
-            connaissances nécessaires pour te bâtir un avenir dans un métier où
-            tu vas t'éclater, t'amuser... Tu auras un contact permanent avec la
-            clientel qui saura t'enrichir. Tu trouveras un environnement de
-            formation qui correspond exactement aux bars ultra-modernes
-            d'aujourd'hui. Les méthodes d'enseignement sont basées sur la
-            pratique et en total correspondance avec les demandes des
-            professionnels du secteur de l'hôtelerie et du tourisme. A l'issue
-            de la formation, tu seras prêt à exercer le métier de barman. Ce
-            métier t'offre la possibilité de voyager de part de monde et de
-            parfaire ainsi ton anglais.`}
+          {`Training centers, either in person or remotely, allow you to train as a bartender. 
+          Some centers provide training for a period of 4 months. 
+          You will acquire the necessary knowledge to build a future in a profession where you will have fun... 
+          You will have a permanent contact with the customer who will enrich you. You will find a training environment that corresponds 
+          exactly to today's ultra-modern bars. 
+          The teaching methods are based on practice and in total correspondence with the demands of professionals in the hotel and tourism sector. 
+          At the end of the course, you will be ready to work as a bartender. 
+          This profession offers you the opportunity to travel around the world and improve your English.`}
         </p>
         <h1>
-          <span>C</span>omment se déroulent les cours?
+          <span>How do the classes work ?</span>
         </h1>
         <h2>
           <img
@@ -57,13 +49,12 @@ const Formation = () => {
             height="24"
             className="icone-shaker"
           />
-          Une vraie expérience
+          A real experience.
         </h2>
         <p>
-          {`la pratique sera le coeur de cible de ta formation. Tu pourras
-            t'exercer à préparer tes cocktails derrière un bar comme si tu
-            travaillais. Cette expérience unique forgera tes connaissances et te
-            donneras confiance.`}
+          {`the practice will be the core of your training. You will be able to
+            practice preparing your cocktails behind a bar as if you were as if you were working. 
+            This unique experience will forge your knowledge and give you confidence.`}
         </p>
         <h2>
           <img
@@ -73,11 +64,11 @@ const Formation = () => {
             height="24"
             className="icone-diplome"
           />
-          Une Masterclass
+          A Masterclass
         </h2>
         <p>
-          {`Ce module te permettra de compléter ta formation en appronfondissant
-            tes connaissances. Ce qui t'attend? des recettes de cocktail à gogo.`}
+          {`This module will allow you to complete your training by deepening your knowledge. 
+          What awaits you? Cocktail recipes galore.`}
         </p>
         <h2>
           <img
@@ -87,18 +78,18 @@ const Formation = () => {
             height="24"
             className="icone-flair"
           />
-          Le Flair
+          The Flair
         </h2>
         <p>
-          {`Pour la préparation d'un cocktail d'excellence, le flair n’est pas
-            indispensable. Cependant, tes clients seront impressionnés et tu
-            recevras peut-être ton pourboire. module t’apprendra à créer un
-            véritable spectacle avec des bouteilles et du matériel de bar. pour
-            de plus amples informations, je te convies à faire une recherche sur
-            Tom Dyer, Champion du monde de Flair plusieurs fois primé.`}
+          {`For the preparation of an excellent cocktail, flair is not
+            essential. However, your customers will be impressed and you may get tipped.
+            and you may get your tip. the module will teach you how to create a
+            a real show with bottles and bar equipment.
+            for more information, I invite you to do a search on
+            Tom Dyer, multi-award winning Flair World Champion.`}
         </p>
         <h1>
-          <span>O</span>ù se former?
+          <span>Where to get trained ?</span>
         </h1>
         <ul>
           <li>
@@ -133,7 +124,7 @@ const Formation = () => {
           </li>
         </ul>
         <h1>
-          <span>Q</span>uelques vidéos?
+          <span>Some videos ?</span>
         </h1>
         <div className="player-wrapper">
           <ReactPlayer

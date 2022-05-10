@@ -68,7 +68,7 @@ const NavMenu = ({ isScrolled, isOpen, setIsOpen }) => {
         </button>
         <ul className="navList">
           <NavLink
-            onClick={() => setIsOpen(false)}
+            onClick={() => setIsOpen(false) & window.scroll(0, 0)}
             to="/"
             className={(nav) => (nav.isActive ? "navActive" : "")}
           >
@@ -76,7 +76,7 @@ const NavMenu = ({ isScrolled, isOpen, setIsOpen }) => {
           </NavLink>
 
           <NavLink
-            onClick={() => setIsOpen(false)}
+            onClick={() => setIsOpen(false) & window.scroll(0, 0)}
             to="/search"
             className={(nav) => (nav.isActive ? "navActive" : "")}
           >
@@ -84,7 +84,7 @@ const NavMenu = ({ isScrolled, isOpen, setIsOpen }) => {
           </NavLink>
 
           <NavLink
-            onClick={() => setIsOpen(false)}
+            onClick={() => setIsOpen(false) & window.scroll(0, 0)}
             to="/history"
             className={(nav) => (nav.isActive ? "navActive" : "")}
           >
@@ -92,7 +92,7 @@ const NavMenu = ({ isScrolled, isOpen, setIsOpen }) => {
           </NavLink>
 
           <NavLink
-            onClick={() => setIsOpen(false)}
+            onClick={() => setIsOpen(false) & window.scroll(0, 0)}
             to="/jobs"
             className={(nav) => (nav.isActive ? "navActive" : "")}
           >
@@ -111,21 +111,51 @@ const NavMenu = ({ isScrolled, isOpen, setIsOpen }) => {
             <div className="themeButtonSlider" />
           </button>
           <div className="leftButtons">
-            <NavLink to="/" className={(nav) => handleNeonDesktop(nav)}>
+            <NavLink
+              to="/"
+              className={(nav) => handleNeonDesktop(nav)}
+              onClick={() => {
+                window.scroll(0, 0);
+              }}
+            >
               HOMEPAGE
             </NavLink>
-            <NavLink to="/search" className={(nav) => handleNeonDesktop(nav)}>
+            <NavLink
+              to="/search"
+              className={(nav) => handleNeonDesktop(nav)}
+              onClick={() => {
+                window.scroll(0, 0);
+              }}
+            >
               SEARCH
             </NavLink>
           </div>
-          <NavLink to="/" className="midLogo">
+          <NavLink
+            to="/"
+            className="midLogo"
+            onClick={() => {
+              window.scroll(0, 0);
+            }}
+          >
             <Logo isScrolled={isScrolled} />
           </NavLink>
           <div className="rightButtons">
-            <NavLink to="/history" className={(nav) => handleNeonDesktop(nav)}>
+            <NavLink
+              to="/history"
+              className={(nav) => handleNeonDesktop(nav)}
+              onClick={() => {
+                window.scroll(0, 0);
+              }}
+            >
               HISTORY
             </NavLink>
-            <NavLink to="/jobs" className={(nav) => handleNeonDesktop(nav)}>
+            <NavLink
+              to="/jobs"
+              className={(nav) => handleNeonDesktop(nav)}
+              onClick={() => {
+                window.scroll(0, 0);
+              }}
+            >
               JOBS
             </NavLink>
           </div>
