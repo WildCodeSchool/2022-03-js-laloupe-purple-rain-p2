@@ -68,7 +68,7 @@ const NavMenu = ({ isScrolled, isOpen, setIsOpen }) => {
         </button>
         <ul className="navList">
           <NavLink
-            onClick={() => setIsOpen(false)}
+            onClick={() => setIsOpen(false) & window.scroll(0, 0)}
             to="/"
             className={(nav) => (nav.isActive ? "navActive" : "")}
           >
@@ -76,7 +76,7 @@ const NavMenu = ({ isScrolled, isOpen, setIsOpen }) => {
           </NavLink>
 
           <NavLink
-            onClick={() => setIsOpen(false)}
+            onClick={() => setIsOpen(false) & window.scroll(0, 0)}
             to="/search"
             className={(nav) => (nav.isActive ? "navActive" : "")}
           >
@@ -84,7 +84,7 @@ const NavMenu = ({ isScrolled, isOpen, setIsOpen }) => {
           </NavLink>
 
           <NavLink
-            onClick={() => setIsOpen(false)}
+            onClick={() => setIsOpen(false) & window.scroll(0, 0)}
             to="/history"
             className={(nav) => (nav.isActive ? "navActive" : "")}
           >
@@ -92,7 +92,7 @@ const NavMenu = ({ isScrolled, isOpen, setIsOpen }) => {
           </NavLink>
 
           <NavLink
-            onClick={() => setIsOpen(false)}
+            onClick={() => setIsOpen(false) & window.scroll(0, 0)}
             to="/jobs"
             className={(nav) => (nav.isActive ? "navActive" : "")}
           >

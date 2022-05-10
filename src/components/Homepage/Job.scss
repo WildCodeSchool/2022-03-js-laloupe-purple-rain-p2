@@ -149,5 +149,17 @@
 @media screen and (max-width: 1024px) {
   .formationContainers {
     margin: 5px 0px 0px 0px;
+
+    .imageBarman {
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 15px;
+    }
+
+    .lien {
+      font-size: 15px;
+    }
   }
 }
