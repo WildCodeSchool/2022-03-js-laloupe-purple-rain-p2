@@ -18,19 +18,16 @@ const Formation = () => {
       className={lightTheme ? "formationContainer light" : "formationContainer"}
     >
       <h1>
-        <span>Tu veux te former au métier?</span>
+        <span>Do you want to train for the job ?</span>
       </h1>
       <figure>
         <img src={imageMetier} className="imageBarman" alt="metier barman" />
       </figure>
       <p className="introduction">
-        Voilà un métier passionnant et enrichissant socialement. Tu veux en
-        savoir davantage ?
+        This is an exciting and socially rewarding job. Want to know more ?
       </p>
       <details>
-        <summary className="sommaire">
-          {`Cliquez pour plus d'information`}
-        </summary>
+        <summary className="sommaire">{`Click for more information`}</summary>
         <p className="ouTeFormer">
           {`Des centres de formation en présentiel ou en remote te permettent de
             te former au métier de barman. Certains centres dispensent la
