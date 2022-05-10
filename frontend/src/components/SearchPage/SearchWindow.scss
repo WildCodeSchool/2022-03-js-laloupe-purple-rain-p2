@@ -430,6 +430,7 @@
       padding: 24px 5% 24px 5%;
       max-width: 95%;
       width: 95%;
+      min-height: 200px;
       height: auto;
       display: grid;
       justify-content: center;
@@ -441,6 +442,10 @@
     &.light {
       .letterBar {
         .counter {
+          color: rgb(65, 66, 66);
+        }
+
+        .index {
           color: rgb(65, 66, 66);
         }
 

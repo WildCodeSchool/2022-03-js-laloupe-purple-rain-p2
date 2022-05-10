@@ -1,3 +1,4 @@
+/* eslint-disable */
 import "./Formation.scss";
 import { useContext } from "react";
 import imageMetier from "@assets/images/barman-cocktail.jpg";
