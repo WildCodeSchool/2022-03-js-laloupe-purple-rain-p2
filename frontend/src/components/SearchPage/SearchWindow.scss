@@ -223,6 +223,7 @@
 
     &.light {
       background-color: rgb(90 139 172);
+
       li {
         &:hover {
           animation: none;
@@ -232,6 +233,7 @@
         &:nth-last-child(1):hover {
           background: none;
         }
+
         button {
           color: rgb(241, 252, 255);
         }
@@ -405,10 +407,16 @@
         margin: 0 4px;
 
         &:hover {
-          transform: scale(1.12);
+          //transform: scale(1.12);
           color: rgb(183, 237, 250);
           cursor: pointer;
         }
+      }
+
+      .index {
+        font-size: 20px;
+        font-weight: 625;
+        color: rgb(0, 255, 255);
       }
     }
 
@@ -564,6 +572,7 @@
           flex-direction: row;
         }
       }
+
       .searchContent {
         .cardsContainer {
           grid-template-columns: repeat(3, 240px);
@@ -588,6 +597,7 @@
     @media screen and (min-width: 1780px) {
       .searchContainer {
         max-width: 75%;
+
         .searchContent {
           .cardsContainer {
             grid-template-columns: repeat(5, 240px);
