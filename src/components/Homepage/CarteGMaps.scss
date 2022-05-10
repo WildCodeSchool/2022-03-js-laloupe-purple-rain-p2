@@ -1,5 +1,5 @@
 .MapComponent {
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,15 +24,31 @@
 }
 
 .GMaps {
+  width: 100%;
   display: flex;
-  margin: 30px 0px 20px 0px;
+  flex-direction: column-reverse;
+  margin: 8px 8px;
   justify-content: space-evenly;
   align-items: center;
-  padding: 20px;
+  padding: 16px;
+
+  div {
+  }
 }
 
 .Txt {
-  width: 30%;
+  width: 100%;
+  margin: 12px;
   font-size: 25px;
   text-align: center;
+}
+
+@media screen and (min-width: 1024px) {
+  .GMaps {
+    flex-direction: row;
+  }
+
+  .Txt {
+    width: 30%;
+  }
 }
