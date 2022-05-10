@@ -11,9 +11,11 @@
     "fix": "prettier --write . && eslint --fix --ext .jsx ."
   },
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.14.1",
     "axios": "^0.26.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-onclickoutside": "^6.12.1",
     "react-player": "^2.10.0",
     "react-router-dom": "6.3.0",
     "sass": "^1.50.0"
