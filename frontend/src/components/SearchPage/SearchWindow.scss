@@ -360,6 +360,22 @@
         color: rgb(0, 255, 255);
       }
 
+      .filterList {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        bottom: 5px;
+
+        p {
+          padding: 0 6px;
+          top: 0;
+          font-size: 14px;
+          color: rgb(255 166 0);
+        }
+      }
+
       .rmFilters {
         height: 20px;
         position: absolute;
@@ -495,6 +511,19 @@
         .cardsContainer {
           grid-template-columns: repeat(4, 150px);
           gap: 24px 20px;
+        }
+
+        .letterBar {
+          .filterList {
+            display: flex;
+            flex-direction: row;
+            top: 5px;
+
+            p {
+              top: 0;
+              font-size: 14px;
+            }
+          }
         }
       }
     }
