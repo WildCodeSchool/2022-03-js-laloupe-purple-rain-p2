@@ -5,6 +5,7 @@ import LightThemeContext from "@contexts/LightTheme";
 import Header from "@components/Header/Header";
 import Footer from "@components/Footer/Footer";
 import QuizParent from "@components/History/Quizz/QuizParent";
+import HistoryText from "@components/History/Quizz/CocktailHistory";
 
 const History = ({ ageCheck, setAgeCheck, handleAgeCheck }) => {
   const { lightTheme } = useContext(LightThemeContext);
@@ -17,6 +18,7 @@ const History = ({ ageCheck, setAgeCheck, handleAgeCheck }) => {
       >
         <Header />
         <QuizParent />
+        <HistoryText />
       </section>
       <section className={lightTheme ? "midPage light" : "midPage"}></section>
       <section className={lightTheme ? "botPage light" : "botPage"}>
