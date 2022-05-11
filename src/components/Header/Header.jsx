@@ -4,13 +4,13 @@ import LightThemeContext from "@contexts/LightTheme";
 import Logo from "./Logo";
 import NavMenu from "./NavMenu";
 
-const Header = () => {
+const Header = ({ infoPopup }) => {
   const { lightTheme, setLightTheme } = useContext(LightThemeContext);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState();
 
   const handleScroll = () => {
-    if (window.scrollY > 65) {
+    if (window.scrollY > 65 || infoPopup) {
       setIsScrolled(true);
     } else {
       setIsScrolled(false);

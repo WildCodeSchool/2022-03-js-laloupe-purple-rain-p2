@@ -19,7 +19,7 @@ const Cards = ({ setInfoPopup, ...item }) => {
       return "Carte Rose";
     }
 
-    if (item.strCategory === "Other/Unknown") {
+    if (item.strCategory === "Shot") {
       if (lightTheme) {
         return "Carte Orange light";
       }

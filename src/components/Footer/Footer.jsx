@@ -45,16 +45,32 @@ const Footer = () => {
       </div>
       <div className="footerRight">
         <ul className="footerNav">
-          <NavLink to="/" className={(nav) => handleNeonDesktop(nav)}>
+          <NavLink
+            to="/"
+            className={(nav) => handleNeonDesktop(nav)}
+            onClick={() => window.scroll(0, 0)}
+          >
             <li>Homepage</li>
           </NavLink>
-          <NavLink to="/search" className={(nav) => handleNeonDesktop(nav)}>
+          <NavLink
+            to="/search"
+            className={(nav) => handleNeonDesktop(nav)}
+            onClick={() => window.scroll(0, 0)}
+          >
             <li>Search</li>
           </NavLink>
-          <NavLink to="/history" className={(nav) => handleNeonDesktop(nav)}>
+          <NavLink
+            to="/history"
+            className={(nav) => handleNeonDesktop(nav)}
+            onClick={() => window.scroll(0, 0)}
+          >
             <li>History</li>
           </NavLink>
-          <NavLink to="/jobs" className={(nav) => handleNeonDesktop(nav)}>
+          <NavLink
+            to="/jobs"
+            className={(nav) => handleNeonDesktop(nav)}
+            onClick={() => window.scroll(0, 0)}
+          >
             <li>Jobs</li>
           </NavLink>
         </ul>

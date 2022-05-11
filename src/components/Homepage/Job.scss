@@ -56,7 +56,7 @@
 }
 
 .formationContainers {
-  background-color: rgba(28, 92, 129, 0.616);
+  background-color: rgba(20, 51, 77, 0.856);
   backdrop-filter: blur(2px);
   min-width: 300px;
   width: 90vw;
@@ -121,6 +121,7 @@
     .lien {
       color: black;
       border: solid 2px black;
+      animation: none;
     }
   }
 

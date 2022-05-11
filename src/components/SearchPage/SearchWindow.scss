@@ -1,5 +1,5 @@
 .searchContainer {
-  background-color: rgb(20, 51, 77);
+  background-color: rgba(20, 51, 77, 0.856);
   min-width: 300px;
   width: 90vw;
   min-height: 96px;
@@ -223,6 +223,7 @@
 
     &.light {
       background-color: rgb(90 139 172);
+
       li {
         &:hover {
           animation: none;
@@ -232,6 +233,7 @@
         &:nth-last-child(1):hover {
           background: none;
         }
+
         button {
           color: rgb(241, 252, 255);
         }
@@ -405,10 +407,16 @@
         margin: 0 4px;
 
         &:hover {
-          transform: scale(1.12);
+          //transform: scale(1.12);
           color: rgb(183, 237, 250);
           cursor: pointer;
         }
+      }
+
+      .index {
+        font-size: 20px;
+        font-weight: 625;
+        color: rgb(0, 255, 255);
       }
     }
 
@@ -422,6 +430,7 @@
       padding: 24px 5% 24px 5%;
       max-width: 95%;
       width: 95%;
+      min-height: 200px;
       height: auto;
       display: grid;
       justify-content: center;
@@ -433,6 +442,10 @@
     &.light {
       .letterBar {
         .counter {
+          color: rgb(65, 66, 66);
+        }
+
+        .index {
           color: rgb(65, 66, 66);
         }
 
@@ -564,6 +577,7 @@
           flex-direction: row;
         }
       }
+
       .searchContent {
         .cardsContainer {
           grid-template-columns: repeat(3, 240px);
@@ -588,6 +602,7 @@
     @media screen and (min-width: 1780px) {
       .searchContainer {
         max-width: 75%;
+
         .searchContent {
           .cardsContainer {
             grid-template-columns: repeat(5, 240px);
