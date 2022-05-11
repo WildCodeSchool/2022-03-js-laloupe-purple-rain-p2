@@ -62,7 +62,7 @@
   width: 90vw;
   min-height: 96px;
   height: auto;
-  padding: 30px;
+  padding: 10px;
   margin-top: 100px;
   display: flex;
   flex-direction: column;
@@ -77,17 +77,17 @@
 
   .imageBarman {
     border-radius: 12px;
-    margin: 10px;
-    margin: auto, 0;
     border-color: white;
     border: solid white 2px;
     width: 50%;
     animation: flicker-blue-card 2.1ms infinite alternate;
   }
 
-  .introduction {
-    color: #ffa600;
-    margin: 24px 0;
+  .Txt {
+    width: 100%;
+    margin: 0 0 12px 0;
+    font-size: 21px;
+    text-align: center;
   }
 
   p {
@@ -114,7 +114,7 @@
       animation: none;
     }
 
-    h1 {
+    .Txt {
       color: rgb(51, 51, 51);
     }
 
