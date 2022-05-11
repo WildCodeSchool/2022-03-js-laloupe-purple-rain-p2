@@ -1,3 +1,4 @@
+/* eslint-disable */
 import "./Job.scss";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
@@ -20,7 +21,11 @@ const Job = () => {
         </span>
       </h1>
       <figure>
-        <img src={imageBarman} className="imageBarman" alt="image barman" />
+        <img
+          src={imageBarman}
+          className="imageBarman"
+          alt="Image of a barman"
+        />
       </figure>
       <Link
         className="lien"

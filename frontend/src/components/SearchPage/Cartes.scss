@@ -117,57 +117,57 @@
 @keyframes flicker-orange-card {
   0% {
     opacity: 1;
-    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 4px 1px #ffc700;
+    box-shadow: 0px 0px 16px 4px #ffae00, inset 0px 0px 4px 1px #ffae00;
   }
 
   2% {
     opacity: 1;
-    box-shadow: 0px 0px 16px 2px #ffc700, inset 0px 0px 2px 1px #ffc700;
+    box-shadow: 0px 0px 16px 2px #ffae00, inset 0px 0px 2px 1px #ffae00;
   }
 
   8% {
     opacity: 1;
-    box-shadow: 0px 0px 16px 2px #ffc700, inset 0px 0px 2px 1px #ffc700;
+    box-shadow: 0px 0px 16px 2px #ffae00, inset 0px 0px 2px 1px #ffae00;
   }
 
   12% {
     opacity: 1;
-    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 4px 1px #ffc700;
+    box-shadow: 0px 0px 16px 4px #ffae00, inset 0px 0px 4px 1px #ffae00;
   }
 
   20% {
     opacity: 1;
-    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 4px 1px #ffc700;
+    box-shadow: 0px 0px 16px 4px #ffae00, inset 0px 0px 4px 1px #ffae00;
   }
 
   25% {
     opacity: 1;
-    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 4px 1px #ffc700;
+    box-shadow: 0px 0px 16px 4px #ffae00, inset 0px 0px 4px 1px #ffae00;
   }
 
   30% {
     opacity: 1;
-    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 4px 1px #ffc700;
+    box-shadow: 0px 0px 16px 4px #ffae00, inset 0px 0px 4px 1px #ffae00;
   }
 
   70% {
     opacity: 1;
-    box-shadow: 0px 0px 16px 2px #ffc700, inset 0px 0px 2px 1px #ffc700;
+    box-shadow: 0px 0px 16px 2px #ffae00, inset 0px 0px 2px 1px #ffae00;
   }
 
   72% {
     opacity: 1;
-    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 4px 1px #ffc700;
+    box-shadow: 0px 0px 16px 4px #ffae00, inset 0px 0px 4px 1px #ffae00;
   }
 
   77% {
     opacity: 1;
-    box-shadow: 0px 0px 16px 2px #ffc700, inset 0px 0px 2px 1px #ffc700;
+    box-shadow: 0px 0px 16px 2px #ffae00, inset 0px 0px 2px 1px #ffae00;
   }
 
   100% {
     opacity: 1;
-    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 4px 1px #ffc700;
+    box-shadow: 0px 0px 16px 4px #ffae00, inset 0px 0px 4px 1px #ffae00;
   }
 }
 
@@ -404,7 +404,7 @@
       }
 
       &:hover {
-        background-color: #97900075;
+        background-color: #97560075;
         border: solid rgb(255, 255, 255) 2px;
         cursor: pointer;
         animation: flicker-orange-card 2.08ms infinite alternate;
