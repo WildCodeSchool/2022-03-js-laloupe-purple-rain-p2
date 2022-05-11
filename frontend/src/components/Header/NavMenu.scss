@@ -138,8 +138,8 @@
 }
 
 .opened {
+  pointer-events: all;
   right: 0;
-  // display: block;
   z-index: 10;
 }
 
@@ -155,10 +155,15 @@
     flex-direction: column;
     background: none;
     backdrop-filter: none;
+
+    &.light {
+      background-color: #e5e7eb;
+    }
   }
 
   .desktop {
     .themeButton {
+      pointer-events: all;
       position: absolute;
       top: 16px;
       left: 16px;
@@ -271,6 +276,7 @@
       }
 
       .nav {
+        pointer-events: all;
         font-family: RussoOne;
         mix-blend-mode: lighten;
         display: flex;
@@ -358,12 +364,14 @@
 
   .desktopScroll {
     @extend .desktop;
+
     height: 64px;
     position: fixed;
     background-color: rgba(40, 17, 75, 0.555);
     backdrop-filter: blur(10px);
 
     .themeButton {
+      pointer-events: all;
       top: 72px;
     }
 

@@ -82,40 +82,85 @@ function Popup({ infoPopup, setInfoPopup }) {
         >
           X
         </button>
-        <div className="container">
-          <div className="cocktail-name">
-            <h1>{infoPopup.strDrink}</h1>
+        <div className="topContainer">
+          <h2 className="cocktail-name">{infoPopup.strDrink}</h2>
+          <img
+            className="cocktail-img"
+            src={infoPopup.strDrinkThumb}
+            alt={infoPopup.strDrink}
+          />
+          <h4 className="cocktail-category">{infoPopup.strCategory}</h4>
+        </div>
+
+        <div className="mainContainer">
+          <div className="scrollContainer">
+            <p className="info-cocktails">
+              {infoPopup.strInstructions}
+              <ul className="inst-ingr">
+                {recette
+                  .filter(
+                    (item) => item.ingredient !== null && item.ingredient !== ""
+                  )
+                  .map((item) => {
+                    return (
+                      <li key={item.ingredient}>
+                        {item.measure} of {item.ingredient}
+                      </li>
+                    );
+                  })}
+              </ul>
+            </p>
           </div>
-          <div className="page-cocktails">
-            <img
-              className="cocktail-img"
-              src={infoPopup.strDrinkThumb}
-              alt={infoPopup.strDrinkThumb}
-            />
-            <div className="info-cocktails">
-              <h2>{infoPopup.strCategory}</h2>
-              <div className="inst-ingr">
-                <h4>{infoPopup.strInstructions}</h4>
-                <ul>
-                  {recette
-                    .filter(
-                      (item) =>
-                        item.ingredient !== null && item.ingredient !== ""
-                    )
-                    .map((item) => {
-                      return (
-                        <li>
-                          {item.measure} of {item.ingredient}
-                        </li>
-                      );
-                    })}
-                </ul>
-              </div>
-            </div>
+          <p className="disclaimer">
+            Alcohol abuse is dangerous for your health.
+          </p>
+        </div>
+      </div>
+
+      <div
+        className={
+          lightTheme ? "popup-inner desktop light " : "popup-inner desktop"
+        }
+      >
+        <button
+          type="button"
+          className="close-btn"
+          onClick={() => setInfoPopup(null)}
+        >
+          X
+        </button>
+        <div className="topContainer">
+          <h2 className="cocktail-name">{infoPopup.strDrink}</h2>
+          <h4 className="cocktail-category">{infoPopup.strCategory}</h4>
+        </div>
+        <img
+          className="cocktail-img"
+          src={infoPopup.strDrinkThumb}
+          alt={infoPopup.strDrink}
+        />
+
+        <div className="mainContainer">
+          <div className="scrollContainer">
+            <p className="info-cocktails">
+              {infoPopup.strInstructions}
+              <ul className="inst-ingr">
+                {recette
+                  .filter(
+                    (item) => item.ingredient !== null && item.ingredient !== ""
+                  )
+                  .map((item) => {
+                    return (
+                      <li key={item.ingredient}>
+                        {item.measure} of {item.ingredient}
+                      </li>
+                    );
+                  })}
+              </ul>
+            </p>
           </div>
-          <div className="disclaimer">
-            <p>Alcohol abuse is dangerous for your health.</p>
-          </div>
+          <p className="disclaimer">
+            Alcohol abuse is dangerous for your health.
+          </p>
         </div>
       </div>
     </div>

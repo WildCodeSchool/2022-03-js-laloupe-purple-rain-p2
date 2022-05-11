@@ -22,7 +22,7 @@ const Search = ({ ageCheck, setAgeCheck, handleAgeCheck }) => {
       <section
         className={lightTheme ? "topPage light column" : "topPage column"}
       >
-        <Header />
+        <Header infoPopup={infoPopup} />
         <SearchWindow setInfoPopup={setInfoPopup} />
       </section>
       <section className="botPage">
