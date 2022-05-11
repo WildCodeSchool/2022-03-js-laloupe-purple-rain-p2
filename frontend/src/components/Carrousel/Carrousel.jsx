@@ -107,10 +107,11 @@ function Carrousel() {
     // 4 element only !
     if (!isDesktop) {
       return {
-        transform: `translateX(${Math.sin((index * Math.PI) / 2) * 150
-          }px) translateY(${translateYAxis(index)}px) translateZ(${translateZAxis(
-            index
-          )}px`,
+        transform: `translateX(${
+          Math.sin((index * Math.PI) / 2) * 150
+        }px) translateY(${translateYAxis(index)}px) translateZ(${translateZAxis(
+          index
+        )}px`,
         TransitionEvent: `all 1s`,
       };
     } else {
@@ -152,14 +153,15 @@ function Carrousel() {
         >
           <figure
             className={`Carrousel-carte Bleue Carrousel 
-            ${tableOfIndex[0] === 1 && !isDesktop
+            ${
+              tableOfIndex[0] === 1 && !isDesktop
                 ? "Carrousel-left"
                 : tableOfIndex[0] === 3 && !isDesktop
-                  ? "Carrousel-right"
-                  : (tableOfIndex[0] === 0 && !isDesktop) || isDesktop
-                    ? "Carrousel-middle"
-                    : ""
-              }
+                ? "Carrousel-right"
+                : (tableOfIndex[0] === 0 && !isDesktop) || isDesktop
+                ? "Carrousel-middle"
+                : ""
+            }
             `}
             id="0"
             style={carrouselFormer(tableOfIndex[0], 0)}
@@ -176,14 +178,15 @@ function Carrousel() {
           </figure>
           <figure
             className={`Carrousel-carte Verte Carrousel 
-            ${tableOfIndex[1] === 1 && !isDesktop
+            ${
+              tableOfIndex[1] === 1 && !isDesktop
                 ? "Carrousel-left"
                 : tableOfIndex[1] === 3 && !isDesktop
-                  ? "Carrousel-right"
-                  : (tableOfIndex[1] === 0 && !isDesktop) || isDesktop
-                    ? "Carrousel-middle"
-                    : ""
-              }
+                ? "Carrousel-right"
+                : (tableOfIndex[1] === 0 && !isDesktop) || isDesktop
+                ? "Carrousel-middle"
+                : ""
+            }
           `}
             id="1"
             style={carrouselFormer(tableOfIndex[1], 1)}
@@ -200,14 +203,15 @@ function Carrousel() {
           </figure>
           <figure
             className={`Carrousel-carte Rose Carrousel 
-            ${tableOfIndex[2] === 1 && !isDesktop
+            ${
+              tableOfIndex[2] === 1 && !isDesktop
                 ? "Carrousel-left"
                 : tableOfIndex[2] === 3 && !isDesktop
-                  ? "Carrousel-right"
-                  : (tableOfIndex[2] === 0 && !isDesktop) || isDesktop
-                    ? "Carrousel-middle"
-                    : ""
-              }
+                ? "Carrousel-right"
+                : (tableOfIndex[2] === 0 && !isDesktop) || isDesktop
+                ? "Carrousel-middle"
+                : ""
+            }
           `}
             id="2"
             style={carrouselFormer(tableOfIndex[2], 2)}
@@ -221,14 +225,15 @@ function Carrousel() {
           </figure>
           <figure
             className={`Carrousel-carte Orange Carrousel 
-            ${tableOfIndex[3] === 1 && !isDesktop
+            ${
+              tableOfIndex[3] === 1 && !isDesktop
                 ? "Carrousel-left"
                 : tableOfIndex[3] === 3 && !isDesktop
-                  ? "Carrousel-right"
-                  : (tableOfIndex[3] === 0 && !isDesktop) || isDesktop
-                    ? "Carrousel-middle"
-                    : ""
-              }
+                ? "Carrousel-right"
+                : (tableOfIndex[3] === 0 && !isDesktop) || isDesktop
+                ? "Carrousel-middle"
+                : ""
+            }
           `}
             id="3"
             style={carrouselFormer(tableOfIndex[3], 3)}
