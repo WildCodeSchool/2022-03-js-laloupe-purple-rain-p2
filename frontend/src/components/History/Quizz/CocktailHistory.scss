@@ -1,0 +1,36 @@
+.Text {
+  font-size: 23px;
+  letter-spacing: 0.2px;
+  word-spacing: 0.2px;
+  line-height: 35px;
+  color: rgb(83, 229, 255);
+}
+
+.formationContainers {
+  background-color: rgba(28, 92, 129, 0.616);
+  min-width: 300px;
+  width: 90vw;
+  min-height: 96px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border-left: solid 2px rgb(192, 255, 255);
+  border-right: solid 2px rgb(186, 255, 255);
+  box-shadow: 0 0 15px 2px rgb(0, 217, 255);
+  clip-path: inset(0px -15px 0px -15px);
+  text-align: center;
+  word-wrap: break-word;
+
+  &.light {
+    h1 {
+      color: rgb(51, 51, 51);
+    }
+    .Text {
+      .HistoryOfCocktail {
+        color: rgb(51, 51, 51);
+      }
+    }
+  }
+}
