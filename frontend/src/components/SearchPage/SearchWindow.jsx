@@ -5,7 +5,6 @@ import "@components/SearchPage/SearchWindow.scss";
 import LightThemeContext from "@contexts/LightTheme";
 import { useParams } from "react-router-dom";
 import cocktailDataRaw from "./rawData";
-import { unstable_batchedUpdates } from "react-dom";
 
 const letterBar = () => {
   const response = [];
@@ -36,9 +35,7 @@ const SearchWindow = ({ setInfoPopup }) => {
     let pages;
     if (searchField !== "") {
       number = cocktailList.filter((item) =>
-        item.strDrink
-          .toLowerCase()
-          .includes(searchField.toLowerCase())
+        item.strDrink.toLowerCase().includes(searchField.toLowerCase())
       ).length;
     }
     setCounter(number);
@@ -46,7 +43,7 @@ const SearchWindow = ({ setInfoPopup }) => {
       pages = 1;
     } else {
       pages = Math.floor(number / 10);
-      if ((number % 10) !== 0) {
+      if (number % 10 !== 0) {
         pages++;
       }
     }
@@ -86,10 +83,10 @@ const SearchWindow = ({ setInfoPopup }) => {
   };
   // Goes to "last page" by setting array offset to array.length
   const lastPage = () => {
-    if ((cocktailList.length % 10) === 0) {
+    if (cocktailList.length % 10 === 0) {
       setMinItem(cocktailList.length - 10);
     } else {
-      setMinItem(cocktailList.length - cocktailList.length % 10);
+      setMinItem(cocktailList.length - (cocktailList.length % 10));
     }
     setMaxItem(cocktailList.length);
     setIndexPage(numberPage);
@@ -108,7 +105,7 @@ const SearchWindow = ({ setInfoPopup }) => {
   // Offsets display of array by +10 after checking if possible (last page won't offset)
   const nextPage = () => {
     if (indexPage === numberPage) {
-      setMinItem(cocktailList.length - cocktailList.length % 10);
+      setMinItem(cocktailList.length - (cocktailList.length % 10));
       setMaxItem(cocktailList.length);
     } else {
       setMinItem(maxItem);
@@ -128,10 +125,9 @@ const SearchWindow = ({ setInfoPopup }) => {
 
     if (response) {
       response.sort((a, b) => a.strDrink.localeCompare(b.strDrink));
-      console.log(response);
-      while (response[0].strDrink[0] >= '0' && response[0].strDrink[0] <= '9') {
+      while (response[0].strDrink[0] >= "0" && response[0].strDrink[0] <= "9") {
         response.push(response.shift());
-      };
+      }
       firstPage();
       return response;
     }
@@ -655,10 +651,7 @@ const SearchWindow = ({ setInfoPopup }) => {
 
       <div className={lightTheme ? "searchContent light" : "searchContent"}>
         <ul className="letterBar">
-          <p className="counter">
-            {counter}{" "}
-            results
-          </p>
+          <p className="counter">{counter} results</p>
           <div className="filterList">
             <p>
               {ingredientsFilters.length === 0 ? "No ingredient filter" : ""}
@@ -690,11 +683,27 @@ const SearchWindow = ({ setInfoPopup }) => {
           </button>
         </ul>
         <ul className="pageBar">
-          <button type="button" style={displayHandler(0)} onClick={() => firstPage()}>{`<!`}</button>
-          <button type="button" style={displayHandler(0)} onClick={() => prevPage()}>{`<-`}</button>
+          <button
+            type="button"
+            style={displayHandler(0)}
+            onClick={() => firstPage()}
+          >{`<!`}</button>
+          <button
+            type="button"
+            style={displayHandler(0)}
+            onClick={() => prevPage()}
+          >{`<-`}</button>
           <p className="index">{indexPage}</p>
-          <button type="button" style={displayHandler(1)} onClick={() => nextPage()}>{`->`}</button>
-          <button type="button" style={displayHandler(1)} onClick={() => lastPage()}>{`!>`}</button>
+          <button
+            type="button"
+            style={displayHandler(1)}
+            onClick={() => nextPage()}
+          >{`->`}</button>
+          <button
+            type="button"
+            style={displayHandler(1)}
+            onClick={() => lastPage()}
+          >{`!>`}</button>
         </ul>
 
         <div className="cardsContainer">
@@ -714,11 +723,27 @@ const SearchWindow = ({ setInfoPopup }) => {
             })}
         </div>
         <ul className="pageBar">
-          <button type="button" style={displayHandler(0)} onClick={() => firstPage()}>{`<!`}</button>
-          <button type="button" style={displayHandler(0)} onClick={() => prevPage()}>{`<-`}</button>
+          <button
+            type="button"
+            style={displayHandler(0)}
+            onClick={() => firstPage()}
+          >{`<!`}</button>
+          <button
+            type="button"
+            style={displayHandler(0)}
+            onClick={() => prevPage()}
+          >{`<-`}</button>
           <p className="index">{indexPage}</p>
-          <button type="button" style={displayHandler(1)} onClick={() => nextPage()}>{`->`}</button>
-          <button type="button" style={displayHandler(1)} onClick={() => lastPage()}>{`!>`}</button>
+          <button
+            type="button"
+            style={displayHandler(1)}
+            onClick={() => nextPage()}
+          >{`->`}</button>
+          <button
+            type="button"
+            style={displayHandler(1)}
+            onClick={() => lastPage()}
+          >{`!>`}</button>
         </ul>
       </div>
     </section>

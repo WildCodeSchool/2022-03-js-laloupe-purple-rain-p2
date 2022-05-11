@@ -55,10 +55,16 @@ body {
 .midPage {
   padding: 8px 0 50px 0;
   width: 100%;
+  min-height: 1312px;
   height: auto;
   color: white;
+  background-image: url("@assets/images/midPageBg.jpg");
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  background-position: bottom;
   background-color: rgb(16, 4, 34);
-
+  display: flex;
+  justify-content: flex-start;
   &.light {
     background-image: none;
     background: none;
@@ -85,5 +91,11 @@ body {
 @media screen and (min-width: 1024px) {
   .topPage {
     background-size: 100vw;
+  }
+
+  .midPage {
+    background-image: url("@assets/images/midPageBgDesk.jpg");
+    background-size: 100vw;
+    background-position: 0px;
   }
 }

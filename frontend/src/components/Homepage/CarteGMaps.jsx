@@ -1,7 +1,7 @@
 import "./CarteGMaps.scss";
-import HomeGoogleMaps from "./Maps";
-import LightThemeContext from "@contexts/LightTheme";
 import { useContext } from "react";
+import LightThemeContext from "@contexts/LightTheme";
+import HomeGoogleMaps from "./Maps";
 
 const Maps = () => {
   const { lightTheme } = useContext(LightThemeContext);
