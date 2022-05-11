@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.14.1",
+    "@react-google-maps/api": "^2.10.2",
     "axios": "^0.26.1",
     "google-maps-react": "2.0.6",
     "react": "^17.0.2",
