@@ -6,7 +6,7 @@ ENV PATH /usr/src/app/node_modules/.bin:$PATH
 ARG VITE_API_BASE_URL=${VITE_API_BASE_URL}
 ENV VITE_API_BASE_URL=${VITE_API_BASE_URL}
 COPY . /usr/src/app
-RUN npm install
+RUN npm install --force
 RUN npm run build
 
 # production environment
