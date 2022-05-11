@@ -14,12 +14,10 @@ const Job = () => {
         lightTheme ? "formationContainers light" : "formationContainers"
       }
     >
-      <h1>
-        <span className="spitch">
-          Are you interested in becoming a bartender ? You want to know more
-          about it ? No problem !
-        </span>
-      </h1>
+      <p className="Txt">
+        Are you interested in becoming a bartender ? You want to know more about
+        it ? No problem !
+      </p>
       <figure>
         <img
           src={imageBarman}

@@ -1,13 +1,13 @@
 .Text {
-  font-size: 23px;
-  letter-spacing: 0.2px;
-  word-spacing: 0.2px;
-  line-height: 35px;
+  font-size: 18px;
+  letter-spacing: 0.1px;
+  word-spacing: 0.1px;
+  line-height: 28px;
   color: rgb(83, 229, 255);
 }
 
 .formationContainers {
-  background-color: rgba(28, 92, 129, 0.616);
+  background-color: rgba(20, 51, 77, 0.856);
   min-width: 300px;
   width: 90vw;
   min-height: 96px;
@@ -23,9 +23,16 @@
   text-align: center;
   word-wrap: break-word;
 
+  h1 {
+    font-size: 28px;
+    color: rgb(244, 253, 252);
+    text-shadow: 0 0 14px rgb(255, 220, 155);
+  }
+
   &.light {
     h1 {
       color: rgb(51, 51, 51);
+      text-shadow: none;
     }
     .Text {
       .HistoryOfCocktail {

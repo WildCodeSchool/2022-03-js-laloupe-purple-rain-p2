@@ -17,10 +17,9 @@ const History = ({ ageCheck, setAgeCheck, handleAgeCheck }) => {
         className={lightTheme ? "topPage light column" : "topPage column"}
       >
         <Header />
-        <QuizParent />
         <HistoryText />
+        <QuizParent />
       </section>
-      <section className={lightTheme ? "midPage light" : "midPage"}></section>
       <section className={lightTheme ? "botPage light" : "botPage"}>
         <Footer />
       </section>
