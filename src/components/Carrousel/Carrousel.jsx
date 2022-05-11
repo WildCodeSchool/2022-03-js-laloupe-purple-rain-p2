@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import "./Carrousel.scss";
 import "./Carrousel_cartes.scss";
 import Data from "./OfflineData.jsx";
-import Cocktail from "@assets/images/Cocktail.jpg";
 
 function scaleWidth(width) {
   if (width < 600) {

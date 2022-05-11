@@ -37,7 +37,9 @@
     "no-unused-vars": "off",
     "jsx-a11y/label-has-associated-control": "off",
     "react/jsx-props-no-spreading": "off",
-    "react/jsx-no-constructed-context-values": "off"
+    "react/jsx-no-constructed-context-values": "off",
+    "no-else-return": "off",
+    "no-bitwise": "off"
   },
   "settings": {
     "import/resolver": {

@@ -1,7 +1,8 @@
+/* eslint-disable */
 import "./Job.scss";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import imageMetier from "@assets/images/barman-cocktail.jpg";
+import imageBarman from "@assets/images/barman.jpeg";
 import LightThemeContext from "@contexts/LightTheme";
 
 const Job = () => {
@@ -13,13 +14,24 @@ const Job = () => {
         lightTheme ? "formationContainers light" : "formationContainers"
       }
     >
-      <h1>
-        <span>You want to train for the job</span>
-      </h1>
+      <p className="Txt">
+        Are you interested in becoming a bartender ? You want to know more about
+        it ? No problem !
+      </p>
       <figure>
-        <img src={imageMetier} className="imageBarman" alt="metier barman" />
+        <img
+          src={imageBarman}
+          className="imageBarman"
+          alt="Image of a barman"
+        />
       </figure>
-      <Link className="lien" to="/jobs">
+      <Link
+        className="lien"
+        to="/jobs"
+        onClick={() => {
+          window.scroll(0, 0);
+        }}
+      >
         Click here !
       </Link>
     </div>
