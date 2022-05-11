@@ -1,0 +1,41 @@
+/* eslint-disable */
+import "./Job.scss";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import imageBarman from "@assets/images/barman.jpeg";
+import LightThemeContext from "@contexts/LightTheme";
+
+const Job = () => {
+  const { lightTheme } = useContext(LightThemeContext);
+
+  return (
+    <div
+      className={
+        lightTheme ? "formationContainers light" : "formationContainers"
+      }
+    >
+      <p className="Txt">
+        Are you interested in becoming a bartender ? You want to know more about
+        it ? No problem !
+      </p>
+      <figure>
+        <img
+          src={imageBarman}
+          className="imageBarman"
+          alt="Image of a barman"
+        />
+      </figure>
+      <Link
+        className="lien"
+        to="/jobs"
+        onClick={() => {
+          window.scroll(0, 0);
+        }}
+      >
+        Click here !
+      </Link>
+    </div>
+  );
+};
+
+export default Job;

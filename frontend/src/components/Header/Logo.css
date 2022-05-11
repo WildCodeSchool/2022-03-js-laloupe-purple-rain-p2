@@ -1,0 +1,205 @@
+:root {
+  --font-flicker: rgba(0, 162, 255, 0.4);
+}
+
+@font-face {
+  font-family: "BTTF";
+  src: url("@assets/fonts/BTTF.ttf");
+}
+
+.fontBTTF {
+  font-family: "BTTF";
+}
+
+@keyframes flicker {
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  100% {
+    text-shadow: 0 0 6px rgba(0, 217, 255, 1), 0 0 6px #fff, 0 0 8px #fff,
+      0 0 12px var(--font-flicker), 0 0 18px var(--font-flicker),
+      0 0 24px var(--font-flicker), 0 0 32px var(--font-flicker),
+      0 0 42px var(--font-flicker);
+  }
+  20%,
+  24%,
+  55% {
+    text-shadow: 0 0 3px rgba(0, 217, 255, 1), 0 0 3px #fff, 0 0 5px #fff,
+      0 0 3px var(--font-flicker), 0 0 8px var(--font-flicker),
+      0 0 10px var(--font-flicker), 0 0 12px var(--font-flicker),
+      0 0 14px var(--font-flicker);
+    -webkit-text-stroke-color: rgb(255, 255, 255);
+    -webkit-text-stroke-width: 2px;
+  }
+}
+
+@keyframes flickerScrolled {
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  100% {
+    text-shadow: 0 0 2px rgba(0, 217, 255, 1), 0 0 3px #fff, 0 0 4px #fff,
+      0 0 5px var(--font-flicker), 0 0 6px var(--font-flicker),
+      0 0 8px var(--font-flicker), 0 0 10px var(--font-flicker),
+      0 0 12px var(--font-flicker);
+  }
+  20%,
+  24%,
+  55% {
+    text-shadow: 0 0 2px rgba(0, 217, 255, 1), 0 0 3px #fff, 0 0 4px #fff,
+      0 0 5px var(--font-flicker), 0 0 6px var(--font-flicker),
+      0 0 8px var(--font-flicker), 0 0 10px var(--font-flicker),
+      0 0 12px var(--font-flicker);
+    -webkit-text-stroke-color: rgb(255, 255, 255);
+    -webkit-text-stroke-width: 2px;
+  }
+}
+
+.logo-container {
+  pointer-events: none;
+  transform: translateY(-38%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  perspective: 500;
+  -webkit-perspective: 500;
+  z-index: 0;
+}
+
+.logo-container:hover {
+  cursor: pointer;
+}
+
+.scrolled {
+  height: 48px;
+  top: 0;
+  position: fixed;
+  align-items: flex-start;
+  transform: translateY(0);
+  perspective: none;
+  -webkit-perspective: none;
+}
+
+.logo {
+  padding-left: 12px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  font-size: 52px;
+  user-select: none;
+  transform: rotateY(20deg);
+  -webkit-transform: rotateY(20deg);
+}
+
+.scrolled .logo {
+  left: 8px;
+  padding: 0;
+  margin-top: 12px;
+  font-size: 24px;
+  flex-direction: row;
+}
+
+.top-line {
+  text-shadow: 0 0 21px rgba(0, 217, 255, 1);
+  -webkit-text-stroke-color: rgb(248, 252, 255);
+  -webkit-text-stroke-width: 3px;
+}
+
+.top-line-scrolled {
+  text-shadow: 0 0 24px rgba(0, 217, 255, 1);
+  -webkit-text-stroke-color: rgb(248, 252, 255);
+  -webkit-text-stroke-width: 3px;
+}
+
+.bottom-line {
+  text-shadow: 0 0 24px rgba(0, 217, 255, 1);
+  -webkit-text-stroke-color: rgb(248, 252, 255);
+  -webkit-text-stroke-width: 3px;
+}
+
+.bottom-line-scrolled {
+  text-shadow: 0 0 24px rgba(0, 217, 255, 1);
+  -webkit-text-stroke-color: rgb(248, 252, 255);
+  -webkit-text-stroke-width: 3px;
+}
+
+.margin-8 {
+  margin-left: 8px;
+}
+
+.gradient-text {
+  /* Fallback: Set a background color. */
+  background-color: red;
+
+  /* Create the gradient. */
+  background-image: linear-gradient(0deg, #ffd900, #ff5100);
+
+  /* Set the background size and repeat properties. */
+  background-size: 100%;
+  background-repeat: repeat;
+
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+@media screen and (min-width: 1024px) {
+  .logo-container {
+    height: 50%;
+    transform: translateY(85%);
+    position: relative;
+  }
+
+  .scrolled {
+    padding: 0 8px 0 0;
+    height: 100%;
+    transform: translateY(0);
+  }
+
+  .logo {
+    font-size: 68px;
+  }
+
+  .scrolled .logo {
+    position: absolute;
+    margin: 0;
+    top: 18px;
+    left: auto;
+  }
+
+  .top-line {
+    animation: flicker 2.1ms infinite alternate;
+    -webkit-text-stroke-color: rgb(202, 234, 255);
+    -webkit-text-stroke-width: 2px;
+  }
+
+  .top-line-scrolled {
+    animation: flickerScrolled 2.1ms infinite alternate;
+    -webkit-text-stroke-color: rgb(202, 234, 255);
+    -webkit-text-stroke-width: 2px;
+  }
+
+  .bottom-line {
+    animation: flicker 2ms infinite alternate;
+    -webkit-text-stroke-color: rgb(202, 234, 255);
+    -webkit-text-stroke-width: 2px;
+  }
+
+  .bottom-line-scrolled {
+    animation: flickerScrolled 2ms infinite alternate;
+    -webkit-text-stroke-color: rgb(202, 234, 255);
+    -webkit-text-stroke-width: 2px;
+  }
+}

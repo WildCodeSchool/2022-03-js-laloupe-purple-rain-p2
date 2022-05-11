@@ -1,0 +1,293 @@
+@keyframes flicker-button-quiz {
+  0% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
+  }
+  2% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 2px #00a2ff, inset 0px 0px 6px 1px #00a2ff;
+  }
+  8% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 2px #00a2ff, inset 0px 0px 6px 1px #00a2ff;
+  }
+  12% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
+  }
+  20% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
+  }
+  25% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
+  }
+  30% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
+  }
+
+  70% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 2px #00a2ff, inset 0px 0px 6px 1px #00a2ff;
+  }
+
+  72% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
+  }
+
+  77% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 2px #00a2ff, inset 0px 0px 6px 1px #00a2ff;
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
+  }
+}
+
+.historyContainer {
+  margin-top: 42px;
+  background-color: rgba(20, 51, 77, 0.856);
+  min-width: 300px;
+  width: 90vw;
+  min-height: 96px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border-left: solid 2px rgb(192, 255, 255);
+  border-right: solid 2px rgb(186, 255, 255);
+  box-shadow: 0 0 15px 2px rgb(0, 217, 255);
+  clip-path: inset(0px -15px 0px -15px);
+
+  .card {
+    padding: 12px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      h1,
+      h2 {
+        color: rgb(83, 229, 255);
+      }
+
+      p {
+        color: rgb(0, 217, 255);
+      }
+
+      .control {
+        label {
+          display: block;
+          text-align: left;
+          padding: 15px;
+          margin-bottom: 5px;
+          font-size: 20px;
+          color: rgb(202, 234, 255);
+          font-weight: bolder;
+
+          &:hover {
+            cursor: pointer;
+          }
+
+          input {
+            margin-right: 10px;
+          }
+        }
+      }
+
+      .buttonQuiz {
+        margin: 6px 4px 0 0;
+        width: 72px;
+        border: none;
+        /* background-color: rgb(157, 43, 172); rgb(255, 90, 0) rgb(255, 187, 0) */
+        background: linear-gradient(
+          0deg,
+          rgba(255, 90, 0, 1) 0%,
+          rgba(255, 187, 0, 1) 100%
+        );
+        color: white;
+        padding: 4px 8px;
+        border-radius: 2px;
+        transition: 300ms;
+
+        &:hover {
+          cursor: pointer;
+          animation: flickerForm 6ms infinite alternate;
+          background-color: rgb(45, 165, 231);
+          color: rgb(253, 208, 7);
+          transform: scale(1.05);
+          // border: solid 1px white;
+        }
+
+        &:focus {
+          animation: none;
+        }
+      }
+
+      .fullButton {
+        display: flex;
+        justify-content: space-evenly;
+
+        .button {
+          border-radius: 4px;
+          margin: 4px;
+          width: 30%;
+          min-height: 72px;
+          border: none;
+          background-color: rgb(157, 43, 172);
+          background: linear-gradient(
+            0deg,
+            rgba(65, 1, 75, 1) 0%,
+            rgba(157, 43, 172, 1) 100%
+          );
+          color: white;
+          padding: 4px;
+          border-radius: 2px;
+          transition: 300ms;
+
+          &:hover {
+            cursor: pointer;
+            animation: flickerForm 6ms infinite alternate;
+            background-color: rgb(45, 165, 231);
+            color: rgb(253, 208, 7);
+            transform: scale(1.05);
+            border: solid 1px white;
+          }
+
+          &:focus {
+            animation: none;
+          }
+        }
+      }
+
+      .button-start-exit {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+
+        .button {
+          width: 40%;
+          border-radius: 4px;
+          margin: 4px;
+          min-height: 72px;
+          border: none;
+          background-color: rgb(157, 43, 172);
+          background: linear-gradient(
+            0deg,
+            rgba(65, 1, 75, 1) 0%,
+            rgba(157, 43, 172, 1) 100%
+          );
+          color: white;
+          padding: 4px;
+          border-radius: 2px;
+          transition: 300ms;
+
+          &:hover {
+            cursor: pointer;
+            animation: flickerForm 6ms infinite alternate;
+            background-color: rgb(45, 165, 231);
+            color: rgb(253, 208, 7);
+            transform: scale(1.05);
+            border: solid 1px white;
+          }
+
+          &:focus {
+            animation: none;
+          }
+        }
+      }
+    }
+  }
+
+  &.light {
+    box-shadow: 0 0 12px 2px rgb(187, 187, 187);
+    clip-path: none;
+    background-color: rgb(229 231 235);
+    border-top: solid 2px rgb(90 139 172);
+    border-right: solid 2px rgb(90 139 172);
+    border-left: solid 2px rgb(90 139 172);
+    border-bottom: solid 2px rgb(90 139 172);
+
+    .card {
+      .content {
+        h1,
+        h2 {
+          color: rgb(51, 51, 51);
+        }
+
+        p {
+          color: rgb(51, 51, 51);
+        }
+
+        label {
+          color: rgb(88, 87, 87);
+        }
+
+        .buttonQuiz {
+          &:hover {
+            animation: none;
+          }
+        }
+
+        .fullButton {
+          .button {
+            &:hover {
+              animation: none;
+            }
+          }
+        }
+
+        .button-start-exit {
+          .button {
+            &:hover {
+              animation: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.modal-card {
+  .modal-card-title {
+    margin: 2px 8px;
+    color: rgb(83, 229, 255);
+  }
+
+  .modal-card-body {
+    padding: 4px 0px;
+
+    li {
+      margin: 12px 0;
+
+      p {
+        color: rgb(83, 229, 255);
+        padding: 8px;
+        background-color: rgba(0, 183, 255, 0.425);
+      }
+    }
+  }
+
+  &.light {
+    .modal-card-title {
+      color: rgb(51, 51, 51);
+    }
+
+    .modal-card-body {
+      p {
+        color: rgb(51, 51, 51);
+        background-color: rgb(248, 253, 255);
+      }
+    }
+  }
+}

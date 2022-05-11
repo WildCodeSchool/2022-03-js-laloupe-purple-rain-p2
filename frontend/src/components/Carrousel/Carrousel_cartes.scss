@@ -1,0 +1,466 @@
+@font-face {
+  font-family: "Shotgun";
+  src: url("@assets/fonts/Shotgun.ttf");
+}
+
+// *! ---------------CLIGNOTEMENT---------------
+
+@keyframes flicker-blue-card {
+  0% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
+  }
+
+  2% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 2px #00a2ff, inset 0px 0px 6px 1px #00a2ff;
+  }
+
+  8% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 2px #00a2ff, inset 0px 0px 6px 1px #00a2ff;
+  }
+
+  12% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
+  }
+
+  20% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
+  }
+
+  25% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
+  }
+
+  30% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
+  }
+
+  70% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 2px #00a2ff, inset 0px 0px 6px 1px #00a2ff;
+  }
+
+  72% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
+  }
+
+  77% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 2px #00a2ff, inset 0px 0px 6px 1px #00a2ff;
+  }
+
+  100% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00a2ff, inset 0px 0px 10px 2px #00a2ff;
+  }
+}
+
+@keyframes flicker-pink-card {
+  0% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
+  }
+
+  2% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 2px #ff00e5, inset 0px 0px 6px 1px #ff00e5;
+  }
+
+  8% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 2px #ff00e5, inset 0px 0px 6px 1px #ff00e5;
+  }
+
+  12% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
+  }
+
+  20% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
+  }
+
+  25% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
+  }
+
+  30% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
+  }
+
+  70% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 2px #ff00e5, inset 0px 0px 6px 1px #ff00e5;
+  }
+
+  72% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
+  }
+
+  77% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 2px #ff00e5, inset 0px 0px 6px 1px #ff00e5;
+  }
+
+  100% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ff00e5, inset 0px 0px 10px 2px #ff00e5;
+  }
+}
+
+@keyframes flicker-orange-card {
+  0% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
+  }
+
+  2% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 2px #ffc700, inset 0px 0px 6px 1px #ffc700;
+  }
+
+  8% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 2px #ffc700, inset 0px 0px 6px 1px #ffc700;
+  }
+
+  12% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
+  }
+
+  20% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
+  }
+
+  25% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
+  }
+
+  30% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
+  }
+
+  70% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 2px #ffc700, inset 0px 0px 6px 1px #ffc700;
+  }
+
+  72% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
+  }
+
+  77% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 2px #ffc700, inset 0px 0px 6px 1px #ffc700;
+  }
+
+  100% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #ffc700, inset 0px 0px 10px 2px #ffc700;
+  }
+}
+
+@keyframes flicker-green-card {
+  0% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
+  }
+
+  2% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 2px #00ff00, inset 0px 0px 6px 1px #00ff00;
+  }
+
+  8% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 2px #00ff00, inset 0px 0px 6px 1px #00ff00;
+  }
+
+  12% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
+  }
+
+  20% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
+  }
+
+  25% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
+  }
+
+  30% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
+  }
+
+  70% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 2px #00ff00, inset 0px 0px 6px 1px #00ff00;
+  }
+
+  72% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
+  }
+
+  77% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 2px #00ff00, inset 0px 0px 6px 1px #00ff00;
+  }
+
+  100% {
+    opacity: 1;
+    box-shadow: 0px 0px 16px 4px #00ff00, inset 0px 0px 10px 2px #00ff00;
+  }
+}
+
+.Carrousel-Back-Image {
+  position: absolute;
+  height: 320px;
+  z-index: -1;
+}
+
+.Carrousel-carte {
+  width: 230px;
+  height: 320px;
+  aspect-ratio: 23/32;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.4);
+  align-items: center;
+  color: white;
+  border: solid rgb(255, 255, 255) 2px;
+  transition: 200ms;
+  object-fit: contain;
+  position: relative;
+  overflow: hidden;
+
+  h4 {
+    margin: 0;
+    top: 12px;
+    padding: 8px 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.226);
+    text-align: center;
+    color: white;
+    position: absolute;
+  }
+
+  h5 {
+    margin: 0;
+    bottom: 0;
+    padding: 4px 0;
+    border-radius: 0 0 8px 8px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.226);
+    text-align: center;
+    color: white;
+    position: absolute;
+  }
+
+  p {
+    display: none;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    padding: 0;
+    margin: 0;
+  }
+
+  .drinkImage {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+  }
+
+  &.Bleue {
+    background-size: cover;
+    background-position-x: center;
+    border: solid #001b4a 2px;
+    border: solid rgb(255, 255, 255) 2px;
+    cursor: pointer;
+    animation: flicker-blue-card 2.1ms infinite alternate;
+  }
+
+  &.Orange {
+    background-size: cover;
+    background-position-x: center;
+    border: solid #393600 2px;
+    border: solid rgb(255, 255, 255) 2px;
+    cursor: pointer;
+    animation: flicker-orange-card 2.08ms infinite alternate;
+  }
+
+  &.Rose {
+    background-size: cover;
+    background-position-x: center;
+    border: solid #520049 2px;
+    border: solid rgb(255, 255, 255) 2px;
+    cursor: pointer;
+    animation: flicker-pink-card 2.08ms infinite alternate;
+  }
+
+  &.Verte {
+    background-size: cover;
+    background-position-x: center;
+    border: solid #003d00 2px;
+    border: solid rgb(255, 255, 255) 2px;
+    cursor: pointer;
+    animation: flicker-green-card 2.087ms infinite alternate;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  $cardsScale: scale(1.05);
+
+  .Carrousel-carte {
+    h4 {
+      font-size: 16px;
+    }
+
+    h5 {
+      font-size: 14px;
+      padding: 6px 0;
+    }
+
+    .drinkImage {
+      filter: blur(1px);
+      z-index: -1;
+    }
+
+    &:hover {
+      filter: none;
+
+      .drinkImage {
+        filter: none;
+      }
+    }
+
+    &.Bleue {
+      background-color: #001b4a75;
+      box-shadow: none;
+      animation: none;
+      border: solid #001b4a 2px;
+
+      &:hover {
+        background-color: #003ea875;
+        border: solid rgb(255, 255, 255) 2px;
+        cursor: pointer;
+        animation: flicker-blue-card 2.1ms infinite alternate;
+        transform: $cardsScale;
+      }
+    }
+
+    &.Orange {
+      background-color: #39360075;
+      box-shadow: none;
+      animation: none;
+      border: solid #393600 2px;
+
+      &:hover {
+        background-color: #97900075;
+        border: solid rgb(255, 255, 255) 2px;
+        cursor: pointer;
+        animation: flicker-orange-card 2.08ms infinite alternate;
+        transform: $cardsScale;
+      }
+    }
+
+    &.Rose {
+      background-color: #52004959;
+      box-shadow: none;
+      animation: none;
+      border: solid #520049 2px;
+
+      &:hover {
+        background-color: #97008659;
+        border: solid rgb(255, 255, 255) 2px;
+        cursor: pointer;
+        animation: flicker-pink-card 2.08ms infinite alternate;
+        transform: $cardsScale;
+      }
+    }
+
+    &.Verte {
+      background-color: #003d0057;
+      box-shadow: none;
+      animation: none;
+      border: solid #003d00 2px;
+
+      &:hover {
+        background-color: #0091005b;
+        border: solid rgb(255, 255, 255) 2px;
+        cursor: pointer;
+        animation: flicker-green-card 2.087ms infinite alternate;
+        transform: $cardsScale;
+      }
+    }
+  }
+}
+
+.Carrousel-left {
+  &::after {
+    content: attr(data-attribute);
+    position: relative;
+    width: 170%;
+    padding: 10% 0 5% 0;
+    top: 50%;
+    left: 45%;
+    //font-family: Shotgun;
+    font-size: 24px;
+    text-shadow: 1px 1px black, -1px 1px black;
+    overflow-wrap: break-word;
+    transform: translateY(-50%) rotate(90deg);
+    background-color: rgba($color: #000, $alpha: 0.4);
+  }
+}
+
+.Carrousel-middle {
+  &::after {
+    content: attr(data-attribute);
+    position: relative;
+    width: 100%;
+    padding: 7.5% 0;
+    //font-family: Shotgun;
+    font-size: 32px;
+    text-shadow: 1px 1px black, -1px 1px black;
+    overflow-wrap: break-word;
+    background-color: rgba($color: #000, $alpha: 0.35);
+  }
+}
+
+.Carrousel-right {
+  &::after {
+    content: attr(data-attribute);
+    position: relative;
+    width: 170%;
+    padding: 10% 0 5% 0;
+    top: 50%;
+    right: 45%;
+    //font-family: Shotgun;
+    font-size: 24px;
+    text-shadow: 1px 1px black, -1px 1px black;
+    overflow-wrap: break-word;
+    transform: translateY(-50%) rotate(-90deg);
+    background-color: rgba($color: #000, $alpha: 0.4);
+  }
+}

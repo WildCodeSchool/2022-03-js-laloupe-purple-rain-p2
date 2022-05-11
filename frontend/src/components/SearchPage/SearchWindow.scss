@@ -1,0 +1,614 @@
+.searchContainer {
+  background-color: rgba(20, 51, 77, 0.856);
+  min-width: 300px;
+  width: 90vw;
+  min-height: 96px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border-left: solid 2px rgb(192, 255, 255);
+  border-right: solid 2px rgb(186, 255, 255);
+  box-shadow: 0 0 15px 2px rgb(0, 217, 255);
+  clip-path: inset(0px -15px 0px -15px);
+
+  &.light {
+    box-shadow: 0 0 12px 2px rgb(187, 187, 187);
+    clip-path: none;
+    background-color: rgb(229 231 235);
+    border-left: solid 2px rgb(90 139 172);
+    border-right: solid 2px rgb(90 139 172);
+    border-bottom: solid 2px rgb(90 139 172);
+    z-index: 4;
+  }
+
+  .searchBar {
+    background-color: rgba(0, 107, 168, 0.767);
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+
+    .searchList {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      justify-content: space-around;
+      align-items: center;
+      position: relative;
+
+      .categories {
+        position: absolute;
+        top: 48px;
+        width: 100%;
+        max-height: 288px;
+        overflow-y: scroll;
+
+        li {
+          background-color: rgb(40, 25, 126);
+          width: 100%;
+          height: 48px;
+
+          &:hover {
+            background-color: rgb(40, 25, 126);
+            animation: none;
+          }
+
+          button {
+            padding: 8px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+
+        &.hide {
+          display: none;
+        }
+      }
+
+      .alcohols {
+        position: absolute;
+        top: 95px;
+        width: 100%;
+        max-height: 288px;
+
+        li {
+          background-color: rgb(40, 25, 126);
+          width: 100%;
+          height: 48px;
+
+          &:hover {
+            background-color: rgb(40, 25, 126);
+            animation: none;
+          }
+
+          button {
+            padding: 8px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+
+        &.hide {
+          display: none;
+        }
+      }
+
+      .glassType {
+        position: absolute;
+        top: 142px;
+        width: 100%;
+        max-height: 288px;
+        overflow-y: scroll;
+
+        li {
+          background-color: rgb(40, 25, 126);
+          width: 100%;
+          height: 48px;
+
+          &:hover {
+            background-color: rgb(40, 25, 126);
+            animation: none;
+          }
+
+          button {
+            padding: 8px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+
+        &.hide {
+          display: none;
+        }
+      }
+
+      .ingredients {
+        position: absolute;
+        top: 188px;
+        width: 100%;
+        max-height: 288px;
+        overflow-y: scroll;
+
+        li {
+          background-color: rgb(40, 25, 126);
+          width: 100%;
+          height: 48px;
+
+          &:hover {
+            background-color: rgb(40, 25, 126);
+            animation: none;
+          }
+
+          button {
+            padding: 8px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+
+        &.hide {
+          display: none;
+        }
+      }
+
+      li {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        border-top: solid 1px rgba(255, 255, 255, 0.192);
+        border-bottom: solid 1px rgba(255, 255, 255, 0.192);
+
+        button {
+          font-size: 18px;
+          background: none;
+          width: 100%;
+          height: 100%;
+          padding: 12px 3%;
+          cursor: pointer;
+          color: rgb(0, 255, 255);
+          transition: 300ms;
+          border: none;
+        }
+
+        &:active {
+          background-color: rgba(255, 255, 255, 0.192);
+          color: white;
+        }
+
+        &:nth-last-child(1):hover {
+          animation: none;
+          border: none;
+        }
+      }
+
+      .inputList {
+        padding: 0;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+      }
+
+      input {
+        margin: 8px;
+        border-radius: 8px;
+        height: auto;
+        padding: 8px 6px;
+        border: none;
+        background-color: rgb(212, 224, 233);
+
+        &:hover {
+          background-color: rgb(255, 255, 255);
+          border: none;
+          box-shadow: 0px 0px 10px 4px rgba(238, 157, 6, 0.92);
+        }
+
+        &:focus {
+          outline: none;
+          box-shadow: 0px 0px 10px 4px rgba(238, 157, 6, 0.92);
+          background-color: white;
+        }
+      }
+    }
+
+    &.light {
+      background-color: rgb(90 139 172);
+
+      li {
+        &:hover {
+          animation: none;
+          background-color: rgb(115, 173, 211);
+        }
+
+        &:nth-last-child(1):hover {
+          background: none;
+        }
+
+        button {
+          color: rgb(241, 252, 255);
+        }
+
+        input {
+          &:hover {
+            animation: none;
+          }
+
+          &:focus {
+            outline: none;
+            animation: none;
+            background-color: white;
+          }
+        }
+      }
+
+      .categories {
+        li {
+          background-color: rgb(70, 109, 134);
+          width: 100%;
+
+          &:hover {
+            background-color: rgb(109, 159, 190);
+            animation: none;
+          }
+
+          .button {
+            color: black;
+          }
+        }
+
+        &.hide {
+          display: none;
+        }
+      }
+
+      .alcohols {
+        li {
+          background-color: rgb(70, 109, 134);
+          width: 100%;
+          height: auto;
+
+          &:hover {
+            background-color: rgb(109, 159, 190);
+            animation: none;
+          }
+
+          .button {
+            color: black;
+          }
+        }
+
+        &.hide {
+          display: none;
+        }
+      }
+
+      .glassType {
+        li {
+          background-color: rgb(70, 109, 134);
+          width: 100%;
+          height: auto;
+
+          &:hover {
+            background-color: rgb(109, 159, 190);
+            animation: none;
+          }
+
+          .button {
+            color: black;
+          }
+        }
+
+        &.hide {
+          display: none;
+        }
+      }
+
+      .ingredients {
+        li {
+          background-color: rgb(70, 109, 134);
+          width: 100%;
+          height: auto;
+
+          &:hover {
+            background-color: rgb(109, 159, 190);
+            animation: none;
+          }
+
+          .button {
+            color: black;
+          }
+        }
+
+        &.hide {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .searchContent {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    .letterBar {
+      user-select: none;
+      padding: 26px 0;
+      width: 100%;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      flex-wrap: wrap;
+
+      .counter {
+        position: absolute;
+        top: 2px;
+        left: 15px;
+        color: rgb(0, 255, 255);
+      }
+
+      .filterList {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        bottom: 5px;
+
+        p {
+          padding: 0 6px;
+          top: 0;
+          font-size: 14px;
+          color: rgb(255 166 0);
+        }
+      }
+
+      .rmFilters {
+        height: 20px;
+        position: absolute;
+        top: 2px;
+        right: 8px;
+        color: rgb(0, 255, 255);
+        background: none;
+        border: none;
+
+        &:hover {
+          transform: scale(1);
+          color: rgb(255, 166, 0);
+          cursor: pointer;
+        }
+      }
+
+      .hide {
+        display: none;
+      }
+
+      button {
+        font-size: 16px;
+        background: none;
+        border: none;
+        height: 100%;
+        color: rgb(0, 255, 255);
+        margin: 0 4px;
+
+        &:hover {
+          //transform: scale(1.12);
+          color: rgb(183, 237, 250);
+          cursor: pointer;
+        }
+      }
+
+      .index {
+        font-size: 20px;
+        font-weight: 625;
+        color: rgb(0, 255, 255);
+      }
+    }
+
+    .pageBar {
+      @extend .letterBar;
+      backdrop-filter: none;
+      padding: 0px;
+    }
+
+    .cardsContainer {
+      padding: 24px 5% 24px 5%;
+      max-width: 95%;
+      width: 95%;
+      min-height: 200px;
+      height: auto;
+      display: grid;
+      justify-content: center;
+      grid-template-columns: repeat(2, 130px);
+      grid-auto-rows: 160px;
+      gap: 24px 14px;
+    }
+
+    &.light {
+      .letterBar {
+        .counter {
+          color: rgb(65, 66, 66);
+        }
+
+        .index {
+          color: rgb(65, 66, 66);
+        }
+
+        button {
+          color: rgb(65, 66, 66);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 370px) {
+  .searchContainer {
+    .searchContent {
+      .cardsContainer {
+        grid-template-columns: repeat(2, 150px);
+        grid-auto-rows: 170px;
+        gap: 24px 20px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 560px) {
+  .searchContainer {
+    .searchContent {
+      .cardsContainer {
+        grid-template-columns: repeat(3, 150px);
+        gap: 24px 20px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 760px) {
+  .searchContainer {
+    .searchBar {
+      .searchList {
+        flex-direction: row;
+
+        .inputList {
+          width: 20%;
+          border: none;
+        }
+
+        li {
+          display: flex;
+          height: 100%;
+          width: 20%;
+          border-left: solid 1px rgba(255, 255, 255, 0.192);
+          border-right: solid 1px rgba(255, 255, 255, 0.192);
+
+          .categories {
+            width: 20%;
+            top: 48px;
+          }
+
+          .alcohols {
+            width: 20%;
+            top: 48px;
+          }
+
+          .glassType {
+            width: 20%;
+            top: 48px;
+          }
+
+          .ingredients {
+            width: 20%;
+            top: 48px;
+          }
+        }
+      }
+
+      .searchContent {
+        .cardsContainer {
+          grid-template-columns: repeat(4, 150px);
+          gap: 24px 20px;
+        }
+
+        .letterBar {
+          .filterList {
+            display: flex;
+            flex-direction: row;
+            top: 5px;
+
+            p {
+              top: 0;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 950px) {
+    .searchContainer {
+      .searchContent {
+        .cardsContainer {
+          grid-template-columns: repeat(5, 150px);
+          gap: 24px 20px;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .searchContainer {
+      margin-top: 24px;
+
+      .searchBar {
+        .searchList {
+          li {
+            &:hover {
+              border: solid 1px rgb(170, 238, 255);
+              background-color: rgba(255, 255, 255, 0.192);
+              color: white;
+            }
+
+            &:active {
+              // border: none;
+              animation: none;
+            }
+          }
+        }
+
+        .searchList {
+          flex-direction: row;
+        }
+      }
+
+      .searchContent {
+        .cardsContainer {
+          grid-template-columns: repeat(3, 240px);
+          grid-auto-rows: 335px;
+          gap: 24px 20px;
+        }
+      }
+    }
+
+    @media screen and (min-width: 1450px) {
+      .searchContainer {
+        max-width: 75%;
+
+        .searchContent {
+          .cardsContainer {
+            grid-template-columns: repeat(4, 240px);
+          }
+        }
+      }
+    }
+
+    @media screen and (min-width: 1780px) {
+      .searchContainer {
+        max-width: 75%;
+
+        .searchContent {
+          .cardsContainer {
+            grid-template-columns: repeat(5, 240px);
+          }
+        }
+      }
+    }
+  }
+}
